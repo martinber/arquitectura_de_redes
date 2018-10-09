@@ -38,6 +38,12 @@ Open Shortest Path First.
   va a actuar como router designado. El router de backup es el que tenga el
   segundo mayor router-id.
 
+- Cada router tiene una LSDB (Link State Database), una base de datos con
+  información de los estados de los enlaces. La base de datos está compuesta por
+  LSAs (Link State Advertisements).
+
+.. todo:: Explicar los distintos tipos de LSAs?
+
 Dijkstra
 --------
 
@@ -62,6 +68,25 @@ Es el algoritmo que usa OSPF para determinar el mejor camino.
 
   - La convergencia es más rápida, hay menor carga en la red pero se necesita
     una capacidad de procesamiento mayor.
+
+Tipos de paquetes
+-----------------
+
+- HELLO: Se usa para mantener activa la conexión con los routers vecinos.
+  También se usa para encontrar el router designado si se está en una red de
+  difusión.
+
+- DBD (Database Description): Envía información sobre la base de datos LSDB,
+  trata sobre el estado de los enlaces adyacentes. Si es mucha información se
+  separa en varios paquetes.
+
+- LSR (Link State Request): Solicita información sobre el estado de un enlace.
+
+- LSU (Link State Update): Es una respuesta a las peticiones LSR aunque también
+  se envían por broadcast/multicast regularmente. Contiene información sobre el
+  estado de enlaces (LSAs).
+
+- LSAck (Link State Acknowlegment): Indoca que se ha recibido un LSU.
 
 OSPFv3
 ------

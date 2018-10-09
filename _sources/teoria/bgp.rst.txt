@@ -83,6 +83,23 @@ Al activar la sincronización uno se asegura que no se anuncian por EBGP rutas
 que temporalmente no son alcanzables. Si se deshabilita se logra la convergencia
 de EBGP más rápidamente a expensas de perder paquetes al principio.
 
+Tipos de mensajes
+-----------------
+
+- Open: Una vez que se estableció una conexión TCP se establece una sesión BGP
+  mediante mensajes Open que informan de parámetros básicos como los IDs,
+  números de AS, etc.
+
+- Update: Contiene información sobre los prefijos publicados.
+
+- Keepalive: Se usan para indicar que el host sigue activo.
+
+- Notification: Indica que hubo un error, luego de este mensaje se cierra la
+  conexión TCP.
+
+- Route refresh: Es opcional, se usa para solicitar o enviar actualizaciones de
+  rutas.
+
 Mi escenario en GNS3
 --------------------
 
@@ -358,3 +375,7 @@ R5::
   !
   ip route 1.0.3.0 255.255.255.0 Null0 250
 
+Links
+-----
+
+- https://www.juniper.net/documentation/en_US/junos/topics/concept/bgp-routing-messages-overview.html
