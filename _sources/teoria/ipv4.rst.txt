@@ -1,7 +1,7 @@
 IPv4
 ====
 
-Internet Protocol.
+Internet Protocol version 4.
 
 - Va sobre Ethernet o PPPoE.
 

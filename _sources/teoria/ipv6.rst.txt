@@ -1,6 +1,8 @@
 IPv6
 ====
 
+Internet Protocol version 6.
+
 - Tiene direcciones de 128 bits.
 
 - Hay un encabezado obligatorio de tamaño fijo y luego encabezados opcionales.
