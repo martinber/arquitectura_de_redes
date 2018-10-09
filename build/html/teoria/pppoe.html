@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PPPoE &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="VLAN" href="vlan.html"/>
+        <link rel="prev" title="PPP" href="ppp.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Teoría</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethernet.html">Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arp.html">ARP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv4.html">IPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv4.html">ICMPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nat.html">NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dhcp.html">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdlc.html">HDLC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppp.html">PPP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PPPoE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#estados">Estados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#capturas">Capturas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#header">Header</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vlan.html">VLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv6.html">ICMPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6to4.html">6to4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rip.html">RIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ospf.html">OSPF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="igrp.html">IGRP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bgp.html">BGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpls.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html">TCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="udp.html">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gns3.html">GNS3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../comandos/index.html">Comandos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Teoría</a> &raquo;</li>
+        
+      <li>PPPoE</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/teoria/pppoe.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pppoe">
+<h1>PPPoE<a class="headerlink" href="#pppoe" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>PPP over Ethernet.</p>
+<ul class="simple">
+<li>Va dentro de Ethernet.</li>
+<li>Se le agrega un encabezado PPPoE antes del encabezado PPP, aunque el
+encabezado PPP se recorta dejando solamente el campo del protocolo
+encapsulado, o sea que de PPP no queda nada basicamente.</li>
+<li>Cada extremo debe saber la MAC y número de sesión del otro, entonces hay un
+protocolo de descubrimiento.</li>
+<li>Puedo estar en estado de descubrimiento o de sesión.</li>
+</ul>
+<p>Se usa para hacer un enlace punto a punto en redes LAN (que usan Ethernet) pero
+el uso más común es en las líneas de ADSL.</p>
+<p>Como el par de cobre es punto a punto esperaría que usen PPP directamente. Eso
+se llama PPPoA (PPP over ATM), ATM es el protocolo que se usaba en ADSL,
+entonces el orden es: ADSL - ATM - PPP - IP.</p>
+<p>Al usar PPPoE en ADSL (que más común), el orden es: ADSL - ATM - Ethenet - PPPoE
+- PPP - IP.</p>
+<div class="section" id="estados">
+<h2>Estados<a class="headerlink" href="#estados" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Descubrimiento: Hay 4 mensajes:<ul>
+<li>PADI (PPPoE Active Discovery Initiation): El cliente pregunta por
+servidores.</li>
+<li>PADO (PPPoE Active Discovery Offer): Un servidor ofrece.</li>
+<li>PADR (PPPoE Active Discovery Request): El cliente acepta una propuesta.</li>
+<li>PADS (PPPoE Active Discovery Session-confirmation): El servidor confirma.</li>
+</ul>
+</li>
+<li>Sesión: Se envía el encabezado PPP en los datos junto con el paquete IP y todo
+lo demás. Los paquetes son unicast.</li>
+</ul>
+<p>Apenas termina el establecimiento de PPPoE, se comienza a transmitir sobre PPP,
+específicamente los protocolos LCP (IPCP), PAP y CHAP.</p>
+</div>
+<div class="section" id="capturas">
+<h2>Capturas<a class="headerlink" href="#capturas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Sacadas de <a class="reference external" href="https://wiki.wireshark.org/SampleCaptures#Point-To-Point_over_Ethernet">esta captura</a>.</p>
+<p>PPPoE Active Discovery Initiation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 1: 24 bytes on wire (192 bits), 24 bytes captured (192 bits)
+Ethernet II, Src: 20:28:18:a0:a9:d2 (20:28:18:a0:a9:d2),
+    Dst: Broadcast (ff:ff:ff:ff:ff:ff)
+PPP-over-Ethernet Discovery
+  0001 .... = Version: 1
+  .... 0001 = Type: 1
+  Code: Active Discovery Initiation (PADI) (0x09)
+  Session ID: 0x0000
+  Payload Length: 4
+  PPPoE Tags
+</pre></div>
+</div>
+<p>PPPoE Active Discovery Offer:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 2: 60 bytes on wire (480 bits), 60 bytes captured (480 bits)
+Ethernet II, Src: Unispher_a4:10:be (00:90:1a:a4:10:be),
+    Dst: 20:28:18:a0:a9:d2 (20:28:18:a0:a9:d2)
+PPP-over-Ethernet Discovery
+  0001 .... = Version: 1
+  .... 0001 = Type: 1
+  Code: Active Discovery Offer (PADO) (0x07)
+  Session ID: 0x0000
+  Payload Length: 35
+  PPPoE Tags
+    AC-Name: r-al121
+    AC-Cookie: bebcb53c10b32769a8661c36a45d8720
+</pre></div>
+</div>
+<p>PPPoE Active Discovery Request:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 3: 44 bytes on wire (352 bits), 44 bytes captured (352 bits)
+Ethernet II, Src: 20:28:18:a0:a9:d2 (20:28:18:a0:a9:d2),
+    Dst: Unispher_a4:10:be (00:90:1a:a4:10:be)
+PPP-over-Ethernet Discovery
+  0001 .... = Version: 1
+  .... 0001 = Type: 1
+  Code: Active Discovery Request (PADR) (0x19)
+  Session ID: 0x0000
+  Payload Length: 24
+  PPPoE Tags
+    AC-Cookie: bebcb53c10b32769a8661c36a45d8720
+</pre></div>
+</div>
+<p>PPPoE Active Discovery Session-confirmation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 4: 60 bytes on wire (480 bits), 60 bytes captured (480 bits)
+Ethernet II, Src: Unispher_a4:10:be (00:90:1a:a4:10:be),
+    Dst: 20:28:18:a0:a9:d2 (20:28:18:a0:a9:d2)
+PPP-over-Ethernet Discovery
+  0001 .... = Version: 1
+  .... 0001 = Type: 1
+  Code: Active Discovery Session-confirmation (PADS) (0x65)
+  Session ID: 0x18b2
+  Payload Length: 4
+  PPPoE Tags
+</pre></div>
+</div>
+<p>Lista completa con los demás mensajes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MACclient  Broadcast  PPPoED      Active Discovery Initiation (PADI)
+MACserver  MACclient  PPPoED      Active Discovery Offer (PADO) AC-Name=&#39;serv&#39;
+MACclient  MACserver  PPPoED      Active Discovery Request (PADR)
+MACserver  MACclient  PPPoED      Active Discovery Session-confirmation (PADS)
+MACclient  MACserver  PPP LCP     Configuration Request
+MACserver  MACclient  PPP LCP     Configuration Request
+MACserver  MACclient  PPP LCP     Configuration Ack
+MACclient  MACserver  PPP LCP     Configuration Ack
+MACclient  MACserver  PPP LCP     Echo Request
+MACclient  MACserver  PPP PAP     Authenticate-Request (Peer-ID=&#39;usr&#39;, Password=&#39;pwd&#39;)
+MACserver  MACclient  PPP LCP     Echo Reply
+MACserver  MACclient  PPP PAP     Authenticate-Ack (Message=&#39;&#39;)
+MACclient  MACserver  PPP IPCP    Configuration Request
+MACclient  MACserver  PPP IPV6CP  Configuration Request
+MACserver  MACclient  PPP IPCP    Configuration Nak
+MACclient  MACserver  PPP IPCP    Configuration Request
+MACserver  MACclient  PPP LCP     Protocol Reject
+MACserver  MACclient  PPP IPCP    Configuration Ack
+MACserver  MACclient  PPP IPCP    Configuration Request
+MACclient  MACserver  PPP IPCP    Configuration Ack
+MACclient  MACserver  PPP LCP     Echo Request
+MACserver  MACclient  PPP LCP     Echo Reply
+MACclient  MACserver  PPP LCP     Echo Request
+MACserver  MACclient  PPP LCP     Echo Reply
+MACclient  MACserver  PPP LCP     Echo Request
+MACserver  MACclient  PPP LCP     Echo Reply
+MACclient  MACserver  PPP LCP     Echo Request
+MACserver  MACclient  PPP LCP     Echo Reply
+</pre></div>
+</div>
+</div>
+<div class="section" id="header">
+<h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Version (4 bits): Siempre es 1.</li>
+<li>Type (4 bits): Siempre es 1.</li>
+<li>Code (8 bits):<ul>
+<li>9: PADI.</li>
+<li>7: PADO.</li>
+<li>25: PADR.</li>
+<li>101: PADS.</li>
+<li>0: Estado de sesión, se envían paquetes IP.</li>
+</ul>
+</li>
+<li>Session ID (16 bits): Identifica la sesión PPPoE.</li>
+<li>Length (16 bits): Largo de los datos en bytes.</li>
+<li>Datos (variable).</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vlan.html" class="btn btn-neutral float-right" title="VLAN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ppp.html" class="btn btn-neutral" title="PPP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

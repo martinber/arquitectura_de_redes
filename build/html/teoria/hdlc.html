@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HDLC &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="PPP" href="ppp.html"/>
+        <link rel="prev" title="DHCP" href="dhcp.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Teoría</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethernet.html">Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arp.html">ARP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv4.html">IPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv4.html">ICMPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nat.html">NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dhcp.html">DHCP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HDLC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#control-de-flujo">Control de flujo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#deteccion-de-errores">Detección de errores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tramas">Tramas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#header">Header</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#control">Control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fases-de-operacion">Fases de operación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bit-stuffing">Bit stuffing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ppp.html">PPP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html">PPPoE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlan.html">VLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv6.html">ICMPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6to4.html">6to4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rip.html">RIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ospf.html">OSPF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="igrp.html">IGRP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bgp.html">BGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpls.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html">TCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="udp.html">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gns3.html">GNS3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../comandos/index.html">Comandos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Teoría</a> &raquo;</li>
+        
+      <li>HDLC</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/teoria/hdlc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hdlc">
+<h1>HDLC<a class="headerlink" href="#hdlc" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>High-Level Data Link Control</p>
+<ul class="simple">
+<li>Es un protocolo de capa 2 para WAN. Se usa en por ejemplo Serial.</li>
+<li>Provee control de flujo y detección de errores.</li>
+<li>Es Punto - Multipunto.</li>
+<li>Está cayendo en desuso por PPP.</li>
+</ul>
+<div class="section" id="control-de-flujo">
+<h2>Control de flujo<a class="headerlink" href="#control-de-flujo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Es una técnica para que el emisor no sobrecargue al receptor al enviarle más
+datos de los que pueda procesar. Vemos los protocolos ARQ, que según tengo
+entendido no son específicos a ningún protocolo de capa de enlace.</p>
+<ul class="simple">
+<li>Tiempos:<ul>
+<li>Tiempo de transmisión: Tiempo que se tarda en inyectar datos al medio.</li>
+<li>Tiempo de propagación: Lo que tardan los datos en moverse por el medio.</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="metodos">
+<h3>Métodos<a class="headerlink" href="#metodos" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li>On-Off:<ul>
+<li>No se usa. Creo que no es un protocolo ARQ.</li>
+<li>La fuente envía mensajes sin esperar ACKs.</li>
+<li>Cuando se está por llenar el buffer del receptor, éste envía una señal de
+stop que sería RNR (Receptor Not Ready).</li>
+<li>Cuando vuelve a estar listo envía RR (Receptor Ready).</li>
+</ul>
+</li>
+<li>Stop and wait ARQ:<ul>
+<li>No se usa.</li>
+<li>La fuente espera que le respondan un ACK antes de mandar la siguiente
+trama.</li>
+<li>El destino detiene el flujo al no responder un ACK.</li>
+<li>Es ineficiente</li>
+</ul>
+</li>
+<li>Ventanas deslizantes (Go Back N ARQ):<ul>
+<li>Al conectar define tamaño de ventana W.</li>
+<li>Se transmiten W tramas numeradas sin esperar confirmación.</li>
+<li>El receptor tiene un buffer de tamaño W.</li>
+<li>El ACK dice cuál es la trama que espero que llegue. Se llama RR (Receptor
+Ready)</li>
+<li>El receptor puede dar un RNR (Receptor Not Ready).</li>
+<li>En full-duplex, al mandar información al mismo tiempo envía los RR.</li>
+<li>Hay un timeout.</li>
+<li>Si hay errores pido todas las tramas desde que ocurrio el error, REJ.</li>
+<li>Si hay una trama que no llegó, el receptor se da cuenta porque se salteó un
+número, entonces pido todas las tramas desde que ocurrió el error.</li>
+<li>Si la trama que no llegó es justo la última, el receptor nunca nunca envía
+el ACK, entonces en el transmisor salta el timeout y pide un ACK al receptor
+para saber si se cayó la conexión y si llegó el último mensaje.</li>
+<li>Puede pasar que se pierda un ACK se pierda pero que el siguiente ACK llegue,
+en ese caso confirma todas las anteriores.</li>
+</ul>
+</li>
+<li>Selective Repeat ARQ/Selective Reject ARQ:<ul>
+<li>No lo vimos.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="deteccion-de-errores">
+<h2>Detección de errores<a class="headerlink" href="#deteccion-de-errores" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Se usa CRC.</li>
+<li>Se debe decidir un polinomio <code class="docutils literal notranslate"><span class="pre">P</span></code> de largo <code class="docutils literal notranslate"><span class="pre">k</span></code>, el polinomio debe ser el
+mismo en el emisor y en el receptor.</li>
+<li>Para cada secuencia de datos genera <code class="docutils literal notranslate"><span class="pre">k-1</span></code> bits de CRC. Para generar el CRC
+se agregan <code class="docutils literal notranslate"><span class="pre">k-1</span></code> ceros al final de los datos y se divide por el polinomio
+<code class="docutils literal notranslate"><span class="pre">P</span></code>. El resto es el CRC, que se coloca en el lugar de los <code class="docutils literal notranslate"><span class="pre">k-1</span></code> ceros que
+se agregaron.</li>
+<li>Al recibir se dividen los datos y el CRC concatenado por el mismo polinomio
+<code class="docutils literal notranslate"><span class="pre">P</span></code>, si el resto da cero esta bien.</li>
+</ul>
+</div>
+<div class="section" id="tramas">
+<h2>Tramas<a class="headerlink" href="#tramas" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Tramas de información (I-frames): Transporte de datos, puede incluir
+información de control flujo y errores.</li>
+<li>Tramas de supervisión (S-frames): Control de flujo y errores.</li>
+<li>Tramas no numeradas (U-frames): Control de enlace, al inicio de la conexión
+generalmente.</li>
+</ul>
+</div>
+<div class="section" id="header">
+<h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Flag (8 bits): Delimitador de trama <code class="docutils literal notranslate"><span class="pre">01111110</span></code>, <em>bit stuffing</em> si en los
+datos está este patrón.</li>
+<li>Address (8 bits o múltiplo de 8 bits): Identifica la estación secundaria, si
+son todos unos se trata de broadcast. Si el primer bit es un cero, significa
+que la dirección continúa en los siguientes 8 bits, se puede extender
+múltiples veces. Por culpa de ese bit, las direcciones tienen un múltiplo de 7
+bits.</li>
+<li>Control (8 o 16 bits): Identifica tipo de trama.</li>
+<li>Tipo (16 bits): Sólo presente en <em>Cisco HDLC</em>, indica el protocolo
+encapsulado.</li>
+<li>Information (variable): Datos (IP). Sólo presente en tramas de información.</li>
+<li>FCS (16 o 32 bits): CRC.</li>
+<li>Flag (8 bits): El mismo delimitador de trama.</li>
+</ul>
+<div class="section" id="control">
+<h3>Control<a class="headerlink" href="#control" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los tamaños en bits dependen del tipo de trama y de si se usa control de 8 o 16
+bits, cuando se usan 16 bits las secuencias son de 6 bits en vez de 3 bits:</p>
+<ul class="simple">
+<li>Información (8 o 16 bits):<ul>
+<li><code class="docutils literal notranslate"><span class="pre">0</span></code> (1 bit).</li>
+<li>N(S) (3 o 6 bits): Secuencia de envío.</li>
+<li>P/F (1 bit): Poll/Final bit.</li>
+<li>N(R) (3 o 6 bits): Secuencia de recepción.</li>
+</ul>
+</li>
+<li>Supervisión (8 o 16 bits):<ul>
+<li><code class="docutils literal notranslate"><span class="pre">10</span></code> (2 bits).</li>
+<li>S (2 bits): Opción de supervisión.</li>
+<li>Padding (0 o 4 bits): Padding en el caso que se use control de 16 bits.</li>
+<li>P/F (1 bit): Poll/Final bit.</li>
+<li>N(R) (3 o 6 bits): Secuencia de recepción.</li>
+</ul>
+</li>
+<li>No numeradas (8 bits):<ul>
+<li><code class="docutils literal notranslate"><span class="pre">11</span></code> (2 bits).</li>
+<li>S (2 bits): Opción no numerada</li>
+<li>P/F (1 bit): Poll/Final bit.</li>
+<li>M (3 bits): Opción no numerada.</li>
+</ul>
+</li>
+</ul>
+<p>El significado del Poll/Final bit depende del contexto:</p>
+<ul class="simple">
+<li>En tramas de órdenes solicita respuesta.</li>
+<li>En tramas de respuesta indica respuesta a una solicitud o final de
+transmisión.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="fases-de-operacion">
+<h2>Fases de operación<a class="headerlink" href="#fases-de-operacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Inicialización.</li>
+<li>Transferencia de datos.</li>
+<li>Desconexión.</li>
+</ul>
+</div>
+<div class="section" id="bit-stuffing">
+<h2>Bit stuffing<a class="headerlink" href="#bit-stuffing" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se necesita porque el delimitador de trama tiene 6 unos seguidos, y se necesita
+un sistema para impedir que esa secuencia ocurra en los datos.</p>
+<p>Al enviar, si hay 5 unos seguidos se inserta un cero.</p>
+<p>Al recibir, si recibe 5 unos seguidos mira el sexto bit:</p>
+<ul class="simple">
+<li>Si es un cero, se trata de datos, entonces borra el cero.</li>
+<li>Si es uno miro el séptimo bit:<ul>
+<li>Si es un cero se trata de un delimitador.</li>
+<li>Si es un uno hubo algún error.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ppp.html" class="btn btn-neutral float-right" title="PPP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dhcp.html" class="btn btn-neutral" title="DHCP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
