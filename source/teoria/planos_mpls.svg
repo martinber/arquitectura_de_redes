@@ -16,7 +16,10 @@
    height="369.96301"
    viewBox="0 0 1285.5555 369.96301"
    sodipodi:docname="planos_mpls.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:export-filename="/home/mbernardi/documents/repos/html/arquitectura_de_redes/teoria/planos_mpls.png"
+   inkscape:export-xdpi="296.33499"
+   inkscape:export-ydpi="296.33499">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -232,9 +235,9 @@
      fit-margin-right="20"
      fit-margin-bottom="20"
      inkscape:zoom="0.79192938"
-     inkscape:cx="691.80837"
-     inkscape:cy="251.82777"
-     inkscape:window-x="1920"
+     inkscape:cx="654.38392"
+     inkscape:cy="263.39071"
+     inkscape:window-x="0"
      inkscape:window-y="20"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg2" />

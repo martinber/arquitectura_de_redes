@@ -16,7 +16,7 @@
    id="svg3449"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="estados_dhcp.svg"
-   inkscape:export-filename="/home/mbernardi/documents/repos/html/arquitectura_de_redes/teoria/estados_ppp.png"
+   inkscape:export-filename="/home/mbernardi/documents/repos/html/arquitectura_de_redes/teoria/estados_dhcp.png"
    inkscape:export-xdpi="300.05301"
    inkscape:export-ydpi="300.05301">
   <defs
@@ -294,8 +294,8 @@
      inkscape:object-paths="true"
      inkscape:snap-midpoints="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1040"
-     inkscape:window-x="1920"
+     inkscape:window-height="1060"
+     inkscape:window-x="0"
      inkscape:window-y="20"
      inkscape:window-maximized="1"
      inkscape:snap-bbox="true"

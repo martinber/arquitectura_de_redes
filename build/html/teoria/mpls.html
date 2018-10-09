@@ -109,9 +109,11 @@
 <li class="toctree-l2"><a class="reference internal" href="bgp.html">BGP</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">MPLS</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#definiciones">Definiciones</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#planos">Planos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mensajes-ldp">Mensajes LDP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#funcionamiento">Funcionamiento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#planos">Planos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problemas-a-solucionar-en-el-futuro">Problemas a solucionar en el futuro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#links">Links</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tcp.html">TCP</a></li>
@@ -212,8 +214,8 @@ una desventaja que los routers deban ser MPLS.</li>
 <div class="section" id="definiciones">
 <h2>Definiciones<a class="headerlink" href="#definiciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>LSR (Label Switcher Router): Router MPLS, sobre todo los router dentro de la
-red MPLS, porque los de borde se llaman LER.</li>
+<li>LSR (Label Switcher Router): Router MPLS que conmuta etiquetas, están dentro
+de la red MPLS, porque los de borde se llaman LER.</li>
 <li>LER (Label Edge Router): Router MPLS de borde.</li>
 <li>FEC (Forwarding Equivalence Class): Es un flujo de tráfico, está asociado a un
 LSP.</li>
@@ -224,6 +226,19 @@ a los LSR informar la relación FEC/etiqueta. Hay más protocolos de
 distribución de etiquetas, como BGP y RSVP.</li>
 <li>AToM (Any Transport Over MPLS): Permite usar MPLS para enviar tráfico de capa
 2 como Ethernet, PPP o ATM. Por lo tanto se pueden hacer VLAN sobre MPLS.</li>
+<li>RIB (Routing Information Base): Es la tabla de ruteo, la que se ve cuando uno
+hace <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">ip</span> <span class="pre">route</span></code>. Tiene cosas como métricas.</li>
+<li>FIB (Forwarding Information Base): Es una versión optimizada de la RIB, con
+sólo las mejores rutas. En Cisco se llama CEF.</li>
+<li>LIB (Label Information Base): Tabla que contiene todas las etiquetas MPLS. Es
+formada a partir de la tabla RIB y del intercambio de información con otros
+LSR.</li>
+<li>LFIB (Label Forwarding Information Base): Es la versión optimizada de la tabla
+LIB.</li>
+<li>PHP (Penultimate Hop Popping): Es una de las configuraciones que se pueden
+usar, en la que el penúltimo router del trayecto quita (pop) la etiqueta
+porque sabe que el siguiente es el último. Permite reducir el consumo de CPU y
+se usa generalmente por defecto.</li>
 <li>Upstream: Construcción de camino, se eligen las etiquetas.</li>
 <li>Downstream: Ya está el camino, pasan datos.</li>
 </ul>
@@ -236,27 +251,45 @@ distribución de etiquetas, como BGP y RSVP.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="planos">
-<h2>Planos<a class="headerlink" href="#planos" title="Enlazar permanentemente con este título">¶</a></h2>
-<img alt="../_images/planos_mpls.png" src="../_images/planos_mpls.png" />
+<div class="section" id="mensajes-ldp">
+<h2>Mensajes LDP<a class="headerlink" href="#mensajes-ldp" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Plano de control: Donde se establece el vinculo. MPLS construye una tabla LIB
-de etiquetas.</li>
-<li>Plano de datos: Por donde se mandan datos. Está FIB y LFIB.</li>
+<li>Discovery: Anuncia y mantiene la presencia de un LSR en al red. Son multicast
+UDP.</li>
+<li>Session: Establece, mantiene y finaliza la sesión LDP, una vez establecida la
+sesión se pueden transferir <em>Advertisements</em>. Usa TCP.</li>
+<li>Advertisement: Crea, cambia y borra mapeos para FECs.</li>
+<li>Notification: Avisa o señaliza errores.</li>
 </ul>
 </div>
 <div class="section" id="funcionamiento">
 <h2>Funcionamiento<a class="headerlink" href="#funcionamiento" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Cuando un paquete o flujo de paquetes llega a un LER, éste les asigna una
-etiqueta determinada.</p>
-<p>Los LSR reenvían paquetes dependiendo la Label que
-llevan. Antes de reenviar le asignan la nueva etiqueta (swap).</p>
-<p>En la red se generan de esta forma LSP (túneles), cada par de LSR deciden la
-etiqueta a usar entre ellos.</p>
-<p>Cuando el paquete está por salir de la red MPLS, el LER extrae las etiquetas
-(pop).</p>
-<p>Los LSP pueden ser creados de forma estática o por un protocolo de señalización
-como LDP.</p>
+<p>Cuando un paquete llega desde fuera a un LER, se le asocia una etiqueta que
+contiene información de la ruta que debe tomar el paquete en la red MPLS. Los
+LSR leen las etiquetas, y mirando su LFIB, determinan la interfaz de salida y le
+asignan una nueva etiqueta (swap). Antes de salir, si se usa PHP, el penúltimo
+router le quita la etiqueta y el último lo rutea correctamente hacia el destino.</p>
+</div>
+<div class="section" id="planos">
+<h2>Planos<a class="headerlink" href="#planos" title="Enlazar permanentemente con este título">¶</a></h2>
+<img alt="../_images/planos_mpls.png" src="../_images/planos_mpls.png" />
+<p>Cada plano tiene varios componentes.</p>
+<ul class="simple">
+<li>Plano de control o ruteo: Lleva una tarea lenta y compleja.<ul>
+<li>Protocolo de ruteo: Por ejemplo OSPF, RIP, BGP.</li>
+<li>RIB (Routing Information Base).</li>
+<li>LDP (Label Distribution Protocol).</li>
+<li>LIB (Label Information Base).</li>
+</ul>
+</li>
+<li>Plano de datos o forwarding: Tiene dos tables construidas gracias a la
+información creada en el plano de control. La tarea que tiene es simple y
+rápida.<ul>
+<li>FIB: Tabla de forwarding IP.</li>
+<li>LFIB: Tabla de forwarding de etiquetas.</li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="problemas-a-solucionar-en-el-futuro">
 <h2>Problemas a solucionar en el futuro<a class="headerlink" href="#problemas-a-solucionar-en-el-futuro" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -268,6 +301,12 @@ restricciones explícitas, como que la pérdida de paquetes sea menor a cierto
 valor o que el retardo sea menor a un cierto tiempo.</li>
 <li>Balanceo de Carga: Se intenta dividir el tráfico (de varios flujos) a través
 de distintos caminos.</li>
+</ul>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://networkstatic.net/juniper-and-cisco-comparisons-of-rib-lib-fib-and-lfib-tables/">http://networkstatic.net/juniper-and-cisco-comparisons-of-rib-lib-fib-and-lfib-tables/</a></li>
 </ul>
 </div>
 </div>

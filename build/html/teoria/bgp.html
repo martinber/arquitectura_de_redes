@@ -109,11 +109,13 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">BGP</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#formas-de-aceptar-rutas">Formas de aceptar rutas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sincronizacion">Sincronización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tipos-de-mensajes">Tipos de mensajes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mi-escenario-en-gns3">Mi escenario en GNS3</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#rutas">Rutas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#configuraciones">Configuraciones</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#links">Links</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mpls.html">MPLS</a></li>
@@ -266,6 +268,20 @@ conozca todavía esa ruta.</p>
 <p>Al activar la sincronización uno se asegura que no se anuncian por EBGP rutas
 que temporalmente no son alcanzables. Si se deshabilita se logra la convergencia
 de EBGP más rápidamente a expensas de perder paquetes al principio.</p>
+</div>
+<div class="section" id="tipos-de-mensajes">
+<h2>Tipos de mensajes<a class="headerlink" href="#tipos-de-mensajes" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Open: Una vez que se estableció una conexión TCP se establece una sesión BGP
+mediante mensajes Open que informan de parámetros básicos como los IDs,
+números de AS, etc.</li>
+<li>Update: Contiene información sobre los prefijos publicados.</li>
+<li>Keepalive: Se usan para indicar que el host sigue activo.</li>
+<li>Notification: Indica que hubo un error, luego de este mensaje se cierra la
+conexión TCP.</li>
+<li>Route refresh: Es opcional, se usa para solicitar o enviar actualizaciones de
+rutas.</li>
+</ul>
 </div>
 <div class="section" id="mi-escenario-en-gns3">
 <h2>Mi escenario en GNS3<a class="headerlink" href="#mi-escenario-en-gns3" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -537,6 +553,12 @@ ip route 1.0.3.0 255.255.255.0 Null0 250
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.juniper.net/documentation/en_US/junos/topics/concept/bgp-routing-messages-overview.html">https://www.juniper.net/documentation/en_US/junos/topics/concept/bgp-routing-messages-overview.html</a></li>
+</ul>
 </div>
 </div>
 
