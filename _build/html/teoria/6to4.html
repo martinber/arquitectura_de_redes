@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6to4 &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="RIP" href="rip.html"/>
+        <link rel="prev" title="ICMPv6" href="icmpv6.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Teoría</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethernet.html">Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arp.html">ARP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv4.html">IPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv4.html">ICMPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nat.html">NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dhcp.html">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdlc.html">HDLC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppp.html">PPP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html">PPPoE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlan.html">VLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv6.html">ICMPv6</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6to4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#direcciones">Direcciones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rip.html">RIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ospf.html">OSPF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="igrp.html">IGRP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bgp.html">BGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpls.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html">TCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="udp.html">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gns3.html">GNS3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../comandos/index.html">Comandos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Teoría</a> &raquo;</li>
+        
+      <li>6to4</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/teoria/6to4.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="to4">
+<h1>6to4<a class="headerlink" href="#to4" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li>Permite transmitir paquetes IPv6 por una red IPv4 gracias a un router de
+borde.</li>
+<li>Es un mecanismo de transición para la migración de IPv4 a IPv6.</li>
+<li>No facilita la comunicación de hosts IPv4 con hosts IPv6, es para conectar
+hosts IPv6 con IPv6 a través de IPv4.</li>
+<li>Las direcciones comienzan con <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</li>
+<li>Un router con 6to4 toma como decisión:<ul>
+<li>Si quiere llegar a una IPv6 dentro de la LAN sabe que está directamente
+conectada.</li>
+<li>Si quiere llegar a una <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code> sabe que tiene que mandar el paquete
+por la red IPv4, el destino IPv4 se determina de la dirección IPv6.</li>
+<li>Si quiere llegar a alguna <code class="docutils literal notranslate"><span class="pre">2001::/16</span></code> tiene que enviar a algún router IPv6
+que tenga acceso a la IPv6 nativa.</li>
+</ul>
+</li>
+<li>Los paquetes IPv6 van dentro de los datos del paquete IPv4.</li>
+<li>Para permitir tráfico hacia redes IPv6 nativas (<code class="docutils literal notranslate"><span class="pre">2001::/16</span></code>) se
+establecieron los <em>Relay Routers</em>.</li>
+<li>Los <em>Relay routers</em> tienen, del lado IPv6, redes IPv6 nativas (<code class="docutils literal notranslate"><span class="pre">2001::/16</span></code>).
+Los routers de borde tienen redes con prefijo <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</li>
+<li>Para que las IPv6 nativas envíen cosas a un IPv6 6to4, usan como gateway el
+<em>Relay router</em> más cercano, ya que éstos anuncian la ruta <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</li>
+</ul>
+<div class="section" id="direcciones">
+<h2>Direcciones<a class="headerlink" href="#direcciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hay un bloque de direcciones IPv6 para cada dirección IPv4:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2002:xxyy:wwzz::/48
+</pre></div>
+</div>
+<p>En donde <code class="docutils literal notranslate"><span class="pre">xxyy:wwzz</span></code> es la dirección IPv4 en formato hexadecimal. Quedan 16
+bits para hacer subredes</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p><a class="reference external" href="http://packetlife.net/blog/2010/mar/15/6to4-ipv6-tunneling/">http://packetlife.net/blog/2010/mar/15/6to4-ipv6-tunneling/</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rip.html" class="btn btn-neutral float-right" title="RIP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="icmpv6.html" class="btn btn-neutral" title="ICMPv6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martin Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

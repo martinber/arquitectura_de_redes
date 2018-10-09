@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Arquitectura de Redes &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="#"/>
+        <link rel="next" title="Teoría" href="teoria/index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="teoria/index.html">Teoría</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comandos/index.html">Comandos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Arquitectura de Redes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="arquitectura-de-redes">
+<h1>Arquitectura de Redes<a class="headerlink" href="#arquitectura-de-redes" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="teoria/index.html">Teoría</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="teoria/general.html">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/general.html#capas">Capas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/general.html#tamanos">Tamaños</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/general.html#diagramas-de-flujo">Diagramas de flujo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/general.html#internet">Internet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/general.html#serial">Serial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/general.html#resumen-headers">Resumen headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/general.html#ruteo">Ruteo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/general.html#ruteo-dinamico">Ruteo dinamico</a></li>
+<li class="toctree-l4"><a class="reference internal" href="teoria/general.html#route-redistribution">Route redistribution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/ethernet.html">Ethernet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ethernet.html#header">Header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ethernet.html#mtu">MTU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ethernet.html#cableado">Cableado</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/ethernet.html#normas">Normas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ethernet.html#switch">Switch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/arp.html">ARP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/arp.html#header">Header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/arp.html#funcionamiento">Funcionamiento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/arp.html#capturas">Capturas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/arp.html#arp-gratuitous">ARP gratuitous</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/ipv4.html">IPv4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv4.html#header">Header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv4.html#asignacion">Asignación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv4.html#tipos-de-direcciones">Tipos de direcciones</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/ipv4.html#clases">Clases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="teoria/ipv4.html#redes-privadas">Redes privadas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="teoria/ipv4.html#redes-reservadas">Redes reservadas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv4.html#vlsm-y-cidr">VLSM y CIDR</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/ipv4.html#mascaras-comunes">Máscaras comunes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv4.html#fragmentacion">Fragmentación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv4.html#traceroute">Traceroute</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/icmpv4.html">ICMPv4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/icmpv4.html#header">Header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/icmpv4.html#ping">Ping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/icmpv4.html#otros-usos">Otros usos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/icmpv4.html#redireccion-icmp">Redirección ICMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/icmpv4.html#capturas">Capturas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/nat.html">NAT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/nat.html#basic-nat">Basic NAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/nat.html#napt">NAPT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/nat.html#tipos">Tipos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/nat.html#otras-terminologias">Otras terminologías</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/dhcp.html">DHCP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/dhcp.html#header">Header</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/dhcp.html#opciones">Opciones</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/dhcp.html#funcionamiento">Funcionamiento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/dhcp.html#estados">Estados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/dhcp.html#dhcp-relaying">DHCP relaying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/dhcp.html#capturas">Capturas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/hdlc.html">HDLC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/hdlc.html#control-de-flujo">Control de flujo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/hdlc.html#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/hdlc.html#deteccion-de-errores">Detección de errores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/hdlc.html#tramas">Tramas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/hdlc.html#header">Header</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/hdlc.html#control">Control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/hdlc.html#fases-de-operacion">Fases de operación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/hdlc.html#bit-stuffing">Bit stuffing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/ppp.html">PPP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ppp.html#header">Header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ppp.html#estados">Estados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ppp.html#control-de-enlace">Control de enlace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ppp.html#control-de-red">Control de red</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/pppoe.html">PPPoE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/pppoe.html#estados">Estados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/pppoe.html#capturas">Capturas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/pppoe.html#header">Header</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/vlan.html">VLAN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/vlan.html#q">802.1Q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/vlan.html#isl">ISL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/ipv6.html">IPv6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv6.html#header">Header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv6.html#tipos-de-direcciones">Tipos de direcciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv6.html#slaac">SLAAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv6.html#migracion-desde-ipv4">Migración desde IPv4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ipv6.html#fragmentacion">Fragmentación</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/icmpv6.html">ICMPv6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/icmpv6.html#header">Header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/icmpv6.html#ping">Ping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/icmpv6.html#id1">Header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/icmpv6.html#ndp">NDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/icmpv6.html#otros-usos">Otros usos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/icmpv6.html#capturas">Capturas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/6to4.html">6to4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/6to4.html#direcciones">Direcciones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/rip.html">RIP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/rip.html#bellman-ford">Bellman-Ford</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/rip.html#ripng">RIPng</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/rip.html#captura">Captura</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/ospf.html">OSPF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ospf.html#dijkstra">Dijkstra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ospf.html#ospfv3">OSPFv3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/ospf.html#captura">Captura</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/igrp.html">IGRP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/bgp.html">BGP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/bgp.html#formas-de-aceptar-rutas">Formas de aceptar rutas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/bgp.html#sincronizacion">Sincronización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/bgp.html#mi-escenario-en-gns3">Mi escenario en GNS3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/bgp.html#rutas">Rutas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="teoria/bgp.html#configuraciones">Configuraciones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/mpls.html">MPLS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/mpls.html#definiciones">Definiciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/mpls.html#planos">Planos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/mpls.html#funcionamiento">Funcionamiento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/mpls.html#problemas-a-solucionar-en-el-futuro">Problemas a solucionar en el futuro</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/tcp.html">TCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/udp.html">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/gns3.html">GNS3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/gns3.html#elementos-usados">Elementos usados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/gns3.html#otros-tips">Otros tips</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/wireshark.html">Wireshark</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/wireshark.html#ejemplos-de-filtros">Ejemplos de filtros</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="comandos/index.html">Comandos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="comandos/linux.html">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#basico">Básico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#arp">ARP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#nat">NAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#servidor-dhcp">Servidor DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#cliente-dhcp">Cliente DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#servidor-pppoe">Servidor PPPoE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#cliente-pppoe">Cliente PPPoE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#ipv6">IPv6</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="comandos/cisco.html">Cisco</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#basico">Básico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#nat">NAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#servidor-dhcp">Servidor DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#enlace-serial">Enlace serial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#servidor-pppoe">Servidor PPPoE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#vlan-switch">VLAN (switch)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#vlan-router">VLAN (router)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#ipv6">IPv6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#to4">6to4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#rip">RIP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="comandos/cisco.html#ripv2">RIPv2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="comandos/cisco.html#ripng">RIPng</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#ospf">OSPF</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="comandos/cisco.html#ospfv2">OSPFv2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="comandos/cisco.html#ospfv3">OSPFv3</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#bgp">BGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/cisco.html#mpls">MPLS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="comandos/mikrotik.html">Mikrotik</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="comandos/mikrotik.html#nat">NAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/mikrotik.html#servidor-dhcp">Servidor DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/mikrotik.html#servidor-pppoe">Servidor PPPoE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/mikrotik.html#ipv6">IPv6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/mikrotik.html#to4">6to4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/mikrotik.html#rip">RIP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="comandos/mikrotik.html#ripv2">RIPv2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="comandos/mikrotik.html#ripng">RIPng</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="comandos/mikrotik.html#ospf">OSPF</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="comandos/mikrotik.html#ospfv2">OSPFv2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="comandos/mikrotik.html#ospfv3">OSPFv3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://wiki.wireshark.org/FrontPage">https://wiki.wireshark.org/FrontPage</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="teoria/index.html" class="btn btn-neutral float-right" title="Teoría" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martin Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

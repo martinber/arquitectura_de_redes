@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mikrotik &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Comandos" href="index.html"/>
+        <link rel="prev" title="Cisco" href="cisco.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../teoria/index.html">Teoría</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Comandos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cisco.html">Cisco</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mikrotik</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nat">NAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#servidor-dhcp">Servidor DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#servidor-pppoe">Servidor PPPoE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ipv6">IPv6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#to4">6to4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rip">RIP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ripv2">RIPv2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ripng">RIPng</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ospf">OSPF</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ospfv2">OSPFv2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ospfv3">OSPFv3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Comandos</a> &raquo;</li>
+        
+      <li>Mikrotik</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/comandos/mikrotik.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mikrotik">
+<h1>Mikrotik<a class="headerlink" href="#mikrotik" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li>Generalmente usuario <code class="docutils literal notranslate"><span class="pre">admin</span></code> sin contraseña.</li>
+<li>Se usa puerto de consola serial a 115200 baudios<ul>
+<li>Modelo 230: 9600 baudios</li>
+</ul>
+</li>
+<li>Para ayuda ir poniendo <code class="docutils literal notranslate"><span class="pre">?</span></code>.</li>
+<li>Si se pone un comando incompleto se entra a un sub-menu, para ir volviendo
+atrás poner <code class="docutils literal notranslate"><span class="pre">..</span></code>.</li>
+</ul>
+<p>Mostrar cosas:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip address print
+ip route print
+
+ipv6 address print
+ipv6 route print
+
+interface print
+</pre></div>
+</div>
+<p>Habilitar o deshabilitar interfaz:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface print
+interface enable numbers={numero_interfaz}
+interface disable numbers={numero_interfaz}
+</pre></div>
+</div>
+<p>Agregar IP:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip address add interface=eth0 address=192.168.1.1/24
+ip address remove numbers=1
+
+ipv6 address add interface=eth0 address=2001:AA::2/64 advertise=no
+ipv6 address remove numbers=1
+</pre></div>
+</div>
+<p>El <code class="docutils literal notranslate"><span class="pre">advertise</span></code> al agregar una IPv6 indica si se habilita RA en esa interfaz.
+El intervalo por defecto es bastante lento y puede parecer que el RA no anda.</p>
+<p>Agregar rutas:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip route add dst-address=0.0.0.0/0 gateway=192.168.1.1
+ip route remove numbers=1
+
+ipv6 route add dst-address=::/0 gateway=2001:A::1/64
+ipv6 route remove numbers=1
+</pre></div>
+</div>
+<p>Configurar DNS:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip dns set servers=8.8.8.8
+</pre></div>
+</div>
+<p>Crear loopback y dar IP:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface bridge add name=loopback0
+ip address add interface=loopback0 address=1.1.1.1
+</pre></div>
+</div>
+<p>Ver y habilitar paquetes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>system package print
+system package enable numbers={numero paquete}
+system reboot
+</pre></div>
+</div>
+<p>Reiniciar configuración:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>system reset-configuration
+</pre></div>
+</div>
+<div class="section" id="nat">
+<h2>NAT<a class="headerlink" href="#nat" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip firewall nat add chain=srcnat action=masquerade out-interface={interfaz salida}
+</pre></div>
+</div>
+</div>
+<div class="section" id="servidor-dhcp">
+<h2>Servidor DHCP<a class="headerlink" href="#servidor-dhcp" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip pool add name=dhcppool ranges=10.0.0.10-10.0.0.50
+
+ip dhcp-server network add address=10.0.0.0/8 gateway=10.0.0.1 dns-server=8.8.8.8
+
+ip dhcp-server add name=dhcpserver interface=ether2 address-pool=dhcppool disabled=no
+</pre></div>
+</div>
+</div>
+<div class="section" id="servidor-pppoe">
+<h2>Servidor PPPoE<a class="headerlink" href="#servidor-pppoe" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Poner NAT:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip firewall nat add chain=srcnat action=masquerade out-interface={interfaz salida}
+</pre></div>
+</div>
+<p>Configurar rango:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip pool add name={nombre pool} ranges={primera IP} {ultima IP}
+</pre></div>
+</div>
+<p>Agregar perfil cliente:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ppp profile add name={nombre perfil} local-address {IP placa interna}
+remote-address={nombre pool} dns-server={IP DNS} rate-limit=1024kbps
+</pre></div>
+</div>
+<p>Cargar clientes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ppp secret add name={nombre usuario} password={pass usuario} service=pppoe
+profile={nombre perfil}
+</pre></div>
+</div>
+<p>Asignar servicio a interfaz:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface pppoe-server server add service-name={nombre servidor}
+interface={interfaz interna} default-profile={nombre perfil} disabled=no
+</pre></div>
+</div>
+<p>Ver problemas:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>log print
+</pre></div>
+</div>
+</div>
+<div class="section" id="ipv6">
+<h2>IPv6<a class="headerlink" href="#ipv6" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Puede que el paquete <code class="docutils literal notranslate"><span class="pre">ipv6</span></code> esté deshabilitado, ver arriba cómo se hace para
+habilitarlo.</p>
+<p>Para cambiar el intervalo, imprimir la lista de RA activos y configurar el
+intervalo. El intervalo tiene un valor mínimo y uno máximo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ipv6 nd print
+ipv6 nd set ra-interval=10s-20s numbers=0
+</pre></div>
+</div>
+</div>
+<div class="section" id="to4">
+<h2>6to4<a class="headerlink" href="#to4" title="Enlazar permanentemente con este título">¶</a></h2>
+<img alt="../_images/6to4.svg" src="../_images/6to4.svg" /><p>Primero agregar la IPv4 de WAN y agregar ruta por defecto para el gateway ipv4:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip address add interface={if_wan} address={ipv4_if_wan}/{ipv4_mask_if_wan}
+ip route add dst-address=0.0.0.0/0 gateway={ipv4_if_gw}
+</pre></div>
+</div>
+<p>Configurar la interface 6to4:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface 6to4 add mtu=1280 name={nombre_tunel} local-address={ipv4_if_wan} remote-address={ipv4_if_wan_destino} disabled=no
+</pre></div>
+</div>
+<p>Asociar la ipv6 calculada previamente a la interfaz creada:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ipv6 address add address={ipv6_if_wan}/3 interface={nombre_tunel}
+</pre></div>
+</div>
+<p>Agregar una ruta ipv6 por defecto a través del túnel:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ipv6 route add dst-address=2000::/3 gateway=::{ipv4_if_wan_destino}%{nombre_tunel}
+</pre></div>
+</div>
+<p>Configurar la interfaz con IPv6 que da a la LAN, a diferencia de Cisco no tiene
+que estar en una subred, la <code class="docutils literal notranslate"><span class="pre">{ipv6_if_lan}</span></code> puede ser igual a
+<code class="docutils literal notranslate"><span class="pre">{ipv6_if_wan}</span></code>. Pero es mejor ponerlo en una subred:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ipv6 address add address={ipv6_if_lan}/64 interface={if_lan} advertise=yes disabled=no
+</pre></div>
+</div>
+</div>
+<div class="section" id="rip">
+<h2>RIP<a class="headerlink" href="#rip" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="ripv2">
+<h3>RIPv2<a class="headerlink" href="#ripv2" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Por defecto es V2. Nunca probé usar V1.</p>
+<p>Agregar redes en donde trabajar y redes a publicar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing rip network add network={red}/{mascara}
+</pre></div>
+</div>
+<p>Pasivar interfaces:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing rip interface add passive=yes interface={interfaz}
+</pre></div>
+</div>
+</div>
+<div class="section" id="ripng">
+<h3>RIPng<a class="headerlink" href="#ripng" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Agregar redes en donde trabajar y redes a publicar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing ripng interface add interface={interfaz}
+</pre></div>
+</div>
+<p>Cambiar tiempo de publicación en segundos (agregar <code class="docutils literal notranslate"><span class="pre">s</span></code> al final):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing ripng set update-timer={tiempo}s
+</pre></div>
+</div>
+<p>Hay más opciones a configurar, se muestran con:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing ripng print
+</pre></div>
+</div>
+<p>Para distribuir otros rutas:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing ripng set distribute-default={never|always|if-installed}
+routing ripng set redistribute-static={yes|no}
+routing ripng set redistribute-bgp={yes|no}
+routing ripng set redistribute-ospf={yes|no}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ospf">
+<h2>OSPF<a class="headerlink" href="#ospf" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="ospfv2">
+<h3>OSPFv2<a class="headerlink" href="#ospfv2" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Crear loopback y dar IP:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface bridge add name=loopback0
+ip address add interface=loopback0 address={ip}/{mascara}
+</pre></div>
+</div>
+<p>Crear instancia OSPF (no sé como se relaciona el nombre con los números usados
+en Cisco):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing ospf instance add name=default
+</pre></div>
+</div>
+<p>Agregar redes en donde trabajar y redes a publicar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing ospf network add network={red}/{mascara} area={area}
+</pre></div>
+</div>
+<p>Pasivar interfaces:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing ospf interface add interface={interfaz} passive=yes
+routing ospf interface add interface=loopback0 passive=yes
+</pre></div>
+</div>
+</div>
+<div class="section" id="ospfv3">
+<h3>OSPFv3<a class="headerlink" href="#ospfv3" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Configurar OSPFv3, no sé por qué los comandos son tan raros. Se debe dar una
+IPv4 cualquiera como ID para este router:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing ospf-v3 instance set default redistribute-connected=as-type-1 router-id={ipv4_id}
+routing ospf-v3 area set {area} instance=default
+</pre></div>
+</div>
+<p>Agregar redes en donde trabajar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing ospf-v3 interface add interface={interfaz} area={area} network-type=broadcast
+</pre></div>
+</div>
+<p>Agregar redes pasivas:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>routing ospf-v3 interface add interface={interfaz} area={area} network-type=broadcast passive=yes
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="cisco.html" class="btn btn-neutral" title="Cisco" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martin Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
