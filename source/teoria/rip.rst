@@ -26,6 +26,8 @@ la tercera para IPV6.
 - RIPv2 envía las máscaras de red y por lo tanto soporta VLSM, también
   autentica los routers.
 
+- RIPng es como RIPv2 pero para IPv6.
+
 - Conviene para redes chicas que no cambian mucho.
 
 - Usa el algoritmo de vector distancia Bellman-Ford.

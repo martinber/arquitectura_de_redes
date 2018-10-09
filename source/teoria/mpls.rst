@@ -78,9 +78,7 @@ Definiciones
 
   Terminar.
 
-  - HELLO: Protocolo de hello, empieza con UDP y pasa a TCP.
-
-  - LFIB (Label Forwarding Information Base):
+  - HELLO: Protocolo de hello, empieza con UDP y pasa a TCP?
 
 Mensajes LDP
 ------------

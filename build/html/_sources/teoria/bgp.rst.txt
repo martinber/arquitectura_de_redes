@@ -71,12 +71,12 @@ Se aplica a AS de tránsito que tienen algún IGP dentro. Cuando se activa la
 sincronización, un AS de tránsito no anuncia por EBGP que puede alcanzar
 determinadas rutas hasta que se asegura de que su IGP haya convergido.
 
-Suponiendo que hay un AS de tránsito 100 conectado a dos AS: 200 y 300. Si la
-sincronización no está habilitada puede pasar que por el AS de tránsito 100
+Suponiendo que hay un AS de tránsito 200 conectado a dos AS: 100 y 300. Si la
+sincronización no está habilitada puede pasar que el AS de tránsito 200
 anuncie al AS 300 que posee una ruta hacia al AS 100. Esto está bien siempre y
 cuando el IGP dentro del AS de tránsito 100 haya logrado la convergencia, de lo
 contrario cuando llegue un paquete desde el AS 300 hacia el AS 100 puede ocurrir
-que algún router dentro del AS de tránsito 100 que corre IGP pero no EGBP no
+que algún router dentro del AS de tránsito 200 que corre EBGP pero no IGP no
 conozca todavía esa ruta.
 
 Al activar la sincronización uno se asegura que no se anuncian por EBGP rutas
