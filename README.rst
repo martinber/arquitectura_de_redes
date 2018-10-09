@@ -1,5 +1,13 @@
 Esto está hecho con Sphinx.
 
+Para verlo online
+-----------------
+
+https://martinber.github.io/arquitectura_de_redes
+
+Para generarlo uno mismo
+------------------------
+
 Instalar, rst2pdf necesita Python 2::
 
   pip install sphinx sphinx_rtd_theme rst2pdf
