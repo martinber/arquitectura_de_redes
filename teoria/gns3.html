@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GNS3 &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="Wireshark" href="wireshark.html"/>
+        <link rel="prev" title="UDP" href="udp.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Teoría</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethernet.html">Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arp.html">ARP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv4.html">IPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv4.html">ICMPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nat.html">NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dhcp.html">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdlc.html">HDLC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppp.html">PPP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html">PPPoE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlan.html">VLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv6.html">ICMPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6to4.html">6to4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rip.html">RIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ospf.html">OSPF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="igrp.html">IGRP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bgp.html">BGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpls.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html">TCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="udp.html">UDP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GNS3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#elementos-usados">Elementos usados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otros-tips">Otros tips</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../comandos/index.html">Comandos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Teoría</a> &raquo;</li>
+        
+      <li>GNS3</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/teoria/gns3.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gns3">
+<h1>GNS3<a class="headerlink" href="#gns3" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>No me acuerdo bien como instalé GNS3, la cosa es que anduvo y que no lo quise
+tocar. Pongo algunas notas de lo que hago a partir de ahora y de lo que me
+acuerdo que hice.</p>
+<div class="section" id="elementos-usados">
+<h2>Elementos usados<a class="headerlink" href="#elementos-usados" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul>
+<li><p class="first">Hosts: Como host uso un Docker con la imagen de <code class="docutils literal notranslate"><span class="pre">gns3-ipterm</span></code>, que es un
+Linux bien básico con las herramientas de red básicas ya instaladas, por eso
+es mejor que un Alpine Linux o un Debian pelado.</p>
+<p>Hay que instalar Docker en la computadora, después en las preferencias de GNS3
+hay una sección que se llama «Docker containers», agregué el contenedor de
+<code class="docutils literal notranslate"><span class="pre">gns3/ipterm</span></code>, GNS3 se encarga de descargarlo y todo.</p>
+</li>
+<li><p class="first">Router Mikrotik: En este caso descargué un «Appliance» oficial desde la wiki
+de GNS3 y al mismo tiempo una imagen que se llama <code class="docutils literal notranslate"><span class="pre">chr-6.41.4.img</span></code>. Una vez
+que se hayan descargado esas dos cosas, en el GNS3 se importa el «Appliance»
+que te permite buscar el <code class="docutils literal notranslate"><span class="pre">.img</span></code> descargado y te deja todo listo para usar.</p>
+<p>Una vez agregado, en las preferencias de GNS3 este router aparece en la parte
+de «QEMU VMs». Al abrir una consola el usuario es <code class="docutils literal notranslate"><span class="pre">admin</span></code> y no tiene
+contraseña, no hay que escribir nada. Para usar ipv6 en este router Mikrotik
+ver abajo.</p>
+</li>
+<li><p class="first">Router Cisco: Uso el modelo 3745, lo importé usando la imagen
+<code class="docutils literal notranslate"><span class="pre">c3745-advipservicesk9-mz.124-25d.bin</span></code> que no se puede obtener gratis de
+forma legal. No me acuerdo como hice para agregarlo al GNS3, ahora que veo, en
+las preferencias de GNS3 aparece en la parte de «IOS Routers».</p>
+</li>
+<li><p class="first">Switch Cisco: Este fué dificilisimo de conseguir, no se al final que modelo
+tengo. Hay que conseguir:</p>
+<ul class="simple">
+<li>El Appliance <code class="docutils literal notranslate"><span class="pre">cisco-iosvl2.gns3a</span></code>. Este es fácil de conseguir.</li>
+<li>Las imágenes <code class="docutils literal notranslate"><span class="pre">vios_l2-adventerprisek9-m.03.2017.qcow2</span></code> y
+<code class="docutils literal notranslate"><span class="pre">vios_l2-adventerprisek9-m.vmdk.SSA.152-4.0.55.E</span></code>. Estas son muy difíciles
+de conseguir, el único lugar en donde las encontré es en una pagina en chino
+y árabe.</li>
+</ul>
+<p>Hay que agregar al Appliance, al agregarlo te va a pedir que busques las dos
+imágenes y listo. Una vez terminado aparece en la parte de «QEMU VMs» con el
+nombre de <code class="docutils literal notranslate"><span class="pre">Cisco</span> <span class="pre">IOSvL2</span> <span class="pre">15.2.4055</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="otros-tips">
+<h2>Otros tips<a class="headerlink" href="#otros-tips" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Cuando intenté usar ipv6 en el router Mikrotik no encotraba los comandos. En
+mi caso pasaba que el paquete <code class="docutils literal notranslate"><span class="pre">ipv6</span></code> del router no estaba habilitado, esto
+se puede ver al hacer <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">package</span> <span class="pre">print</span></code> y viendo qué paquetes tienen
+una <code class="docutils literal notranslate"><span class="pre">X</span></code> al lado. Para habilitar un paquete hay que hacer <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">package</span>
+<span class="pre">enable</span> <span class="pre">numbers=</span></code> y poniendo el número correspondiente a ese paquete (el
+número se ve al hacer <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">package</span> <span class="pre">print</span></code>). Finalmente hay que hacer un
+<code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">reboot</span></code> paar que se termine de activar.</li>
+<li>Cuando te pasan un proyecto con Ciscos adentro puede que ande lento, para
+acelerarlo hay que hacer click derecho en un Cisco cualquiera y poner <em>Auto
+Idle-PC value</em>.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wireshark.html" class="btn btn-neutral float-right" title="Wireshark" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="udp.html" class="btn btn-neutral" title="UDP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

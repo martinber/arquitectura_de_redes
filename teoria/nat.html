@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NAT &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="DHCP" href="dhcp.html"/>
+        <link rel="prev" title="ICMPv4" href="icmpv4.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Teoría</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethernet.html">Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arp.html">ARP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv4.html">IPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv4.html">ICMPv4</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NAT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-nat">Basic NAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#napt">NAPT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tipos">Tipos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otras-terminologias">Otras terminologías</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dhcp.html">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdlc.html">HDLC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppp.html">PPP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html">PPPoE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlan.html">VLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv6.html">ICMPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6to4.html">6to4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rip.html">RIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ospf.html">OSPF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="igrp.html">IGRP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bgp.html">BGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpls.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html">TCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="udp.html">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gns3.html">GNS3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../comandos/index.html">Comandos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Teoría</a> &raquo;</li>
+        
+      <li>NAT</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/teoria/nat.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nat">
+<h1>NAT<a class="headerlink" href="#nat" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Network Address Translation.</p>
+<div class="section" id="basic-nat">
+<h2>Basic NAT<a class="headerlink" href="#basic-nat" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Hace un mapeo de direcciones IP uno a uno.</li>
+</ul>
+</div>
+<div class="section" id="napt">
+<h2>NAPT<a class="headerlink" href="#napt" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El tipo de NAT más usado es NAPT Dinámico (Network Address Port Translation):</p>
+<ul class="simple">
+<li>Hace IP masquerading o One-to-many NAT: es una técnica que esconde un espacio
+de direcciones IP (privadas) detrás de una sola IP pública.</li>
+<li>Se cambia la IP de origen de los paquetes que salen del Router.</li>
+<li>Hace falta porque las IP privadas no son ruteables en la internet.</li>
+<li>Para permitir que salgan varios usuarios se debe cambiar también el puerto de
+origen TCP o UDP, para de esa forma identificar las conexiones a distintos
+usuarios.</li>
+<li>En el caso de ping ICMP se cambia el Identifier.</li>
+</ul>
+</div>
+<div class="section" id="tipos">
+<h2>Tipos<a class="headerlink" href="#tipos" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Según los campos que modifican:<ul>
+<li>NAT Básico: Sólo se cambia la dirección IP, requiere una IP pública por cada
+IP privada en uso.</li>
+<li>NAPT (Network Address Port Translation): Modifica la dirección IP y además
+el puerto TCP o UDP. Permite sacar muchas IP privadas por un número menor de
+direcciones públicas.</li>
+</ul>
+</li>
+<li>Según si es estático o dinámico:<ul>
+<li>Estático: La tabla de correspondencias es estáticas.</li>
+<li>Dinámico: La tabla se va modificando, permite reutilizar direcciones de
+salida.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="otras-terminologias">
+<h2>Otras terminologías<a class="headerlink" href="#otras-terminologias" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>DNAT (Destination Network Address Translation): Cambia la dirección IP de
+destino.</li>
+<li>SNAT: Puede significar:<ul>
+<li>Source NAT: Se cambia la IP de origen, lo común.</li>
+<li>Stateful NAT, Secure NAT, que se yo.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dhcp.html" class="btn btn-neutral float-right" title="DHCP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="icmpv4.html" class="btn btn-neutral" title="ICMPv4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

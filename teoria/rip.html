@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RIP &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="OSPF" href="ospf.html"/>
+        <link rel="prev" title="6to4" href="6to4.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Teoría</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethernet.html">Ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arp.html">ARP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv4.html">IPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv4.html">ICMPv4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nat.html">NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dhcp.html">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hdlc.html">HDLC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppp.html">PPP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pppoe.html">PPPoE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vlan.html">VLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icmpv6.html">ICMPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6to4.html">6to4</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RIP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bellman-ford">Bellman-Ford</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ripng">RIPng</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#captura">Captura</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ospf.html">OSPF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="igrp.html">IGRP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bgp.html">BGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpls.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html">TCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="udp.html">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gns3.html">GNS3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../comandos/index.html">Comandos</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Teoría</a> &raquo;</li>
+        
+      <li>RIP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/teoria/rip.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rip">
+<h1>RIP<a class="headerlink" href="#rip" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Routing Information Protocol.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Completar teoría.</p>
+</div>
+<p>Hay tres versiones de RIP: RIPv1, RIPv2 y RIPng. Las primeras dos son para IPv4,
+la tercera para IPV6.</p>
+<ul class="simple">
+<li>Sólo mira la cantidad de saltos.</li>
+<li>Cantidad máxima de saltos es 16.</li>
+<li>Cantidad máxima de redes es 25.</li>
+<li>Va sobre UDP 520.</li>
+<li>Se envían las rutas cada 30 segundos.</li>
+<li>Las rutas vencen 180 segundos después de caerse, para prevenir oscilaciones.</li>
+<li>RIPv1 no admite VLSM y es inseguro, porque no se identifica al que envía el
+paquete y un atacante podría redirigir todo por donde quiera.</li>
+<li>RIPv2 envía las máscaras de red y por lo tanto soporta VLSM, también
+autentica los routers.</li>
+<li>Conviene para redes chicas que no cambian mucho.</li>
+<li>Usa el algoritmo de vector distancia Bellman-Ford.</li>
+<li>RIPv1 anuncia por broadcast, RIPv2 anuncia por multicast.</li>
+</ul>
+<div class="section" id="bellman-ford">
+<h2>Bellman-Ford<a class="headerlink" href="#bellman-ford" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Es el algoritmo que usa RIP para determinar el mejor camino.</p>
+<ul class="simple">
+<li>Cada router tiene una tabla con las mejores distancias conocidas y los
+enlaces a utilizar para cada destino.</li>
+<li>Se intercambian las tablas de ruteo con los vecinos cada cierto tiempo.</li>
+<li>Una vez que el router tiene toda la información actualiza su tabla e informa
+a los vecinos de los cambios.</li>
+<li>A diferencia del algoritmo de Dijkstra:<ul>
+<li>Se intercambian tablas de ruteo en lugar de estados de enlace.</li>
+<li>Se envía la información a sólo los vecinos en lugar de enviar a todos los
+routers.</li>
+<li>La convergencia es más lenta, hay mayor carga en la red pero se necesita
+una capacidad de procesamiento menor.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ripng">
+<h2>RIPng<a class="headerlink" href="#ripng" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="captura">
+<h3>Captura<a class="headerlink" href="#captura" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En el GNS3 puse varios Mikrotik y varios Cisco. Después capturé los paquetes RIP
+en una de las conexiones.</p>
+<img alt="../_images/captura_rip.svg" src="../_images/captura_rip.svg" /><p>En la foto se pueden ver los Cisco (routers azules), Mikrotik (routers azules y
+rojos) y el punto de captura (la lupa). En la captura se ven los paquetes RIP
+que se envían entre el Mikrotik encerrado con rojo (R3) y el Cisco encerrado en
+azul (R1), estos paquetes llevan las distancias entre el router que envía el
+paquete y una red determinada.</p>
+<p>Los números en rojo son las distancias que informa el Mikrotik y los números en
+azul las distancias que informa el Cisco.</p>
+<p>Paquete de Mikrotik a Cisco:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 320: 266 bytes on wire (2128 bits), 266 bytes captured (2128 bits) on interface 0
+Ethernet II, Src: 0c:45:23:ee:a3:00 (0c:45:23:ee:a3:00), Dst: IPv6mcast_09 (33:33:00:00:00:09)
+Internet Protocol Version 6, Src: fe80::e45:23ff:feee:a300, Dst: ff02::9
+User Datagram Protocol, Src Port: 521, Dst Port: 521
+RIPng
+  Command: Response (2)
+  Version: 1
+  Reserved: 0000
+  Route Table Entry: IPv6 Prefix: 2001:1::/64 Metric: 16
+  Route Table Entry: IPv6 Prefix: 2001:2::/64 Metric: 2
+  Route Table Entry: IPv6 Prefix: 2001:3::/64 Metric: 1
+  Route Table Entry: IPv6 Prefix: 2001:4::/64 Metric: 2
+  Route Table Entry: IPv6 Prefix: 2001:5::/64 Metric: 3
+  Route Table Entry: IPv6 Prefix: 2001:a::/64 Metric: 16
+  Route Table Entry: IPv6 Prefix: 2001:b::/64 Metric: 16
+  Route Table Entry: IPv6 Prefix: 2001:c::/64 Metric: 1
+  Route Table Entry: IPv6 Prefix: 2001:d::/64 Metric: 1
+  Route Table Entry: IPv6 Prefix: 2001:e::/64 Metric: 2
+</pre></div>
+</div>
+<p>Paquete de Cisco a Mikrotik:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 317: 186 bytes on wire (1488 bits), 186 bytes captured (1488 bits) on interface 0
+Ethernet II, Src: c4:01:09:68:00:10 (c4:01:09:68:00:10), Dst: IPv6mcast_09 (33:33:00:00:00:09)
+Internet Protocol Version 6, Src: fe80::c601:9ff:fe68:10, Dst: ff02::9
+User Datagram Protocol, Src Port: 521, Dst Port: 521
+RIPng
+  Command: Response (2)
+  Version: 1
+  Reserved: 0000
+  Route Table Entry: IPv6 Prefix: 2001:1::/64 Metric: 1
+  Route Table Entry: IPv6 Prefix: 2001:a::/64 Metric: 1
+  Route Table Entry: IPv6 Prefix: 2001:b::/64 Metric: 1
+  Route Table Entry: IPv6 Prefix: 2001:e::/64 Metric: 2
+  Route Table Entry: IPv6 Prefix: 2001:2::/64 Metric: 2
+  Route Table Entry: IPv6 Prefix: 2001:5::/64 Metric: 3
+</pre></div>
+</div>
+<p>Yo creo que el Mikrotik cuando informa las métricas pone la cantidad de saltos.
+Pero cuando sabe de el Cisco tiene una ruta más corta que a través de él,
+informa 16 que significa inalcanzable. El Cisco hace lo mismo pero en vez de
+poner métrica 16 directamente no informa de la ruta.</p>
+<p>Al final la ruta del Cisco quedó:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IPv6 Routing Table - 15 entries
+Codes: C - Connected, L - Local, S - Static, R - RIP, B - BGP
+       U - Per-user Static route
+       I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary
+       O - OSPF intra, OI - OSPF inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+
+C   2001:1::/64 [0/0]
+     via ::, FastEthernet0/0
+L   2001:1::1/128 [0/0]
+     via ::, FastEthernet0/0
+R   2001:2::/64 [120/2]
+     via FE80::C602:AFF:FE0D:1, FastEthernet0/1
+R   2001:3::/64 [120/2]
+     via FE80::E45:23FF:FEEE:A300, FastEthernet1/0
+R   2001:4::/64 [120/3]
+     via FE80::E45:23FF:FEEE:A300, FastEthernet1/0
+R   2001:5::/64 [120/3]
+     via FE80::C602:AFF:FE0D:1, FastEthernet0/1
+C   2001:A::/64 [0/0]
+     via ::, FastEthernet0/1
+L   2001:A::1/128 [0/0]
+     via ::, FastEthernet0/1
+C   2001:B::/64 [0/0]
+     via ::, FastEthernet1/0
+L   2001:B::1/128 [0/0]
+     via ::, FastEthernet1/0
+R   2001:C::/64 [120/2]
+     via FE80::C602:AFF:FE0D:1, FastEthernet0/1
+     via FE80::E45:23FF:FEEE:A300, FastEthernet1/0
+R   2001:D::/64 [120/2]
+     via FE80::E45:23FF:FEEE:A300, FastEthernet1/0
+R   2001:E::/64 [120/2]
+     via FE80::C602:AFF:FE0D:1, FastEthernet0/1
+L   FE80::/10 [0/0]
+     via ::, Null0
+L   FF00::/8 [0/0]
+     via ::, Null0
+</pre></div>
+</div>
+<p>Y la del Mikrotik:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Flags: X - disabled, A - active, D - dynamic, C - connect, S - static,
+r - rip, o - ospf, b - bgp, U - unreachable
+
+ #      DST-ADDRESS    GATEWAY                            DISTANCE
+ 0 ADr  2001:1::/64    fe80::c601:9ff:fe68:1...  {R1}          120
+ 1 ADr  2001:2::/64    fe80::c602:aff:fe0d:2...  {R2}          120
+ 2 ADC  2001:3::/64    ether4                                    0
+ 3 ADr  2001:4::/64    fe80::e45:23ff:fee7:3...  {R4}          120
+ 4 ADr  2001:5::/64    fe80::c602:aff:fe0d:2...  {R2}          120
+ 5 ADr  2001:a::/64    fe80::c601:9ff:fe68:1...  {R1}          120
+ 6 ADC  2001:b::/64    ether1                                    0
+ 7 ADC  2001:c::/64    ether2                                    0
+ 8 ADC  2001:d::/64    ether3                                    0
+ 9 ADr  2001:e::/64    fe80::c602:aff:fe0d:2...  {R2}          120
+</pre></div>
+</div>
+<p>Revisé mirando el dibujo y todas las rutas están bien.</p>
+<p>Algo raro es que en el caso del Cisco, para llegar a la red <code class="docutils literal notranslate"><span class="pre">2001:c::/64</span></code>, es
+lo mismo usar como gateway al R2 que al R3, por lo tanto en la ruta están ambos
+gateway. El Mikrotik para llegar a la <code class="docutils literal notranslate"><span class="pre">2001:a::/64</span></code> también tiene dos
+opciones, R1 y R2, pero solamente tiene como gateway a R2.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ospf.html" class="btn btn-neutral float-right" title="OSPF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="6to4.html" class="btn btn-neutral" title="6to4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
