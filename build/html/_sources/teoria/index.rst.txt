@@ -23,5 +23,9 @@ Teoría
    mpls
    tcp
    udp
+   dns
+   mail
+   ftp
+   http
    gns3
    wireshark

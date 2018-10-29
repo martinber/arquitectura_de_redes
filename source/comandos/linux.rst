@@ -1,6 +1,9 @@
 Linux
 =====
 
+.. toctree::
+   bind
+
 Básico
 ------
 
