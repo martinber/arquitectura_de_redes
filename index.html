@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -24,26 +24,18 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="genindex.html"/>
-        <link rel="search" title="Búsqueda" href="search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="#"/>
-        <link rel="next" title="Teoría" href="teoria/index.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Teoría" href="teoria/index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -99,7 +91,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="#">Arquitectura de Redes</a>
@@ -107,9 +99,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -327,6 +320,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="teoria/tcp.html">TCP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="teoria/udp.html">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/dns.html">DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/mail.html">Mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/ftp.html">FTP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/ftp.html#tftp">TFTP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/http.html">HTTP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="teoria/gns3.html">GNS3</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="teoria/gns3.html#elementos-usados">Elementos usados</a></li>
 <li class="toctree-l3"><a class="reference internal" href="teoria/gns3.html#otros-tips">Otros tips</a></li>
@@ -340,6 +340,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="comandos/index.html">Comandos</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="comandos/linux.html">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="comandos/bind.html">BIND</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="comandos/bind.html#cache">Cache</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#basico">Básico</a></li>
 <li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#arp">ARP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="comandos/linux.html#nat">NAT</a></li>
@@ -403,67 +407,73 @@
 <p class="last">Ver si eso de dar la interfaz pasa por algo de linux o porque ipc6
 funciona asi</p>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="comandos/linux.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/comandos/linux.rst, línea 141.)</p>
+<p class="todo-source">(La  <a class="reference internal" href="comandos/linux.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/comandos/linux.rst, línea 144.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Hacer</p>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/6to4.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/6to4.rst, línea 47.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Reordenar y poner cosas en otros documentos. Ver como separar IPV4 de
-IPV6.</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/general.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/general.rst, línea 4.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Buscar sobre ICMP Redirect. Creo que un router informa a un host de
-una ruta más corta</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/icmpv4.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/icmpv4.rst, línea 56.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Agregar un poco más.</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/igrp.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/igrp.rst, línea 4.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/tcp.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/tcp.rst, línea 26.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/udp.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/udp.rst, línea 7.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Explicar los distintos tipos de LSAs?</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/ospf.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/ospf.rst, línea 45.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Intentar entender las capturas del Wireshark</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/ospf.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/ospf.rst, línea 163.)</p>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/6to4.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/6to4.rst, línea 47.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <ul class="last simple">
 <li>Usa UDP para algunas cosas y TCP para otras</li>
 </ul>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/bgp.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/bgp.rst, línea 17.)</p>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/bgp.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/bgp.rst, línea 17.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Buscar atributos de rutas, como AS-Path.</p>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/bgp.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/bgp.rst, línea 40.)</p>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/bgp.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/bgp.rst, línea 40.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p>Hacer</p>
+<p class="last">Quien tiene autoridad sobre la zona</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 4.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Tipos de registros</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 34.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/ftp.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/ftp.rst, línea 4.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Reordenar y poner cosas en otros documentos. Ver como separar IPV4 de
+IPV6.</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/general.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/general.rst, línea 4.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/http.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/http.rst, línea 4.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Buscar sobre ICMP Redirect. Creo que un router informa a un host de
+una ruta más corta</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/icmpv4.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/icmpv4.rst, línea 56.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Agregar un poco más.</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/igrp.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/igrp.rst, línea 4.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Agregar sobre como obtener parte de host: 64 bits EUI-64, a partir de
 MAC, aleatorio, dhcp o manual</p>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/ipv6.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/ipv6.rst, línea 90.)</p>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/ipv6.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/ipv6.rst, línea 90.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/mail.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/mail.rst, línea 4.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p>Terminar.</p>
@@ -471,12 +481,32 @@ MAC, aleatorio, dhcp o manual</p>
 <li>HELLO: Protocolo de hello, empieza con UDP y pasa a TCP?</li>
 </ul>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/mpls.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/mpls.rst, línea 77.)</p>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/mpls.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/mpls.rst, línea 77.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Explicar los distintos tipos de LSAs?</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/ospf.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/ospf.rst, línea 45.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Intentar entender las capturas del Wireshark</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/ospf.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/ospf.rst, línea 163.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Completar teoría.</p>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/rip.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos-ssd/Documentos/repos/html/arquitectura_de_redes/source/teoria/rip.rst, línea 6.)</p>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/rip.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/rip.rst, línea 6.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/tcp.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/tcp.rst, línea 26.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/udp.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/udp.rst, línea 7.)</p>
 </div>
 <div class="section" id="links">
 <h2>Links<a class="headerlink" href="#links" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -488,9 +518,7 @@ MAC, aleatorio, dhcp o manual</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -510,7 +538,7 @@ MAC, aleatorio, dhcp o manual</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -529,6 +557,7 @@ MAC, aleatorio, dhcp o manual</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'',
+            LANGUAGE:'es',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -542,19 +571,13 @@ MAC, aleatorio, dhcp o manual</p>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

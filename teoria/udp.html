@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -24,28 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="GNS3" href="gns3.html"/>
-        <link rel="prev" title="TCP" href="tcp.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="DNS" href="dns.html" />
+    <link rel="prev" title="TCP" href="tcp.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -110,6 +101,10 @@
 <li class="toctree-l2"><a class="reference internal" href="mpls.html">MPLS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tcp.html">TCP</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mail.html">Mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ftp.html">FTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http.html">HTTP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gns3.html">GNS3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
@@ -126,7 +121,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -134,9 +129,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -193,15 +189,13 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gns3.html" class="btn btn-neutral float-right" title="GNS3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dns.html" class="btn btn-neutral float-right" title="DNS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="tcp.html" class="btn btn-neutral" title="TCP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -217,7 +211,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -236,6 +230,7 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'',
+            LANGUAGE:'es',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -249,19 +244,13 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
