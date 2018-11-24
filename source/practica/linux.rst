@@ -143,3 +143,8 @@ Para hacer ping a una link-local hay que dar la interfaz::
 
 .. todo:: Ver si eso de dar la interfaz pasa por algo de linux o porque ipc6
    funciona asi
+
+iptables
+--------
+
+.. todo:: Hacer
