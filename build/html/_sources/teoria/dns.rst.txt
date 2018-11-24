@@ -1,6 +1,8 @@
 DNS
 ===
 
+Domain Name System.
+
 .. todo:: Hacer
 
   Quien tiene autoridad sobre la zona

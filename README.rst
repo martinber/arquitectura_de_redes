@@ -5,7 +5,7 @@ Para verlo online
 
 - `HTML <https://martinber.github.io/arquitectura_de_redes>`_.
 
-- `PDF <https://github.com/martinber/arquitectura_de_redes/tree/master/build/pdf`_.
+- `PDF <https://github.com/martinber/arquitectura_de_redes/tree/master/build/pdf>`_.
 
 Para generarlo uno mismo
 ------------------------

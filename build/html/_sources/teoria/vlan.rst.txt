@@ -30,6 +30,8 @@ Se agrega un tag en el header Ethernet que tiene:
 
 Se puede hacer *double tagging*, en tal caso hay dos tags uno al lado de otro.
 
+.. todo:: Creo que el double  tagging es 802.1ac
+
 .. image:: ./8021q.png
 
 By `Luca Ghio <https://commons.wikimedia.org/wiki/User:Luca_Ghio>`_ `CC BY-SA

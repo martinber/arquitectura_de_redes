@@ -1,4 +1,79 @@
 HTTP
 ====
 
+Hypertext Transfer Protocol.
+
 .. todo:: Hacer
+
+Versiones
+---------
+
+- HTTP/0.9: Obsoleta. Soporta sólo un comando, GET, no especifica el número de
+  versión HTTP.
+
+- HTTP/1.0 (mayo 1996): Especifica su versión en las comunicaciones, y todavía
+  se usa ampliamente, sobre todo en servidores proxy.
+
+- HTTP/1.1 (junio 1999): Las conexiones persistentes están activadas por defecto
+  y funcionan bien con los proxies. También permite al cliente enviar múltiples
+  peticiones a la vez (pipelining) lo que hace posible eliminar el tiempo de
+  round-trip delay por cada petición.
+
+- HTTP/2.0 (mayo 2015): Minimiza el número de peticiones ya que el servidor
+  responde con datos que no fueron requeridos por el cliente en los casos en
+  donde el servidor conoce lo que necesita el cliente. De esta forma no es
+  necesario que el cliente analice la respuesta y haga otra petición.
+
+Requests
+--------
+
+.. todo:: Ver si es lo mismo que HTTP methods.
+
+- GET: Solicita un recurso determinado.
+
+- HEAD: Igual que HEAD, pero solicita sólo el encabezado, dejando atrás el
+  cuerpo de la respuesta.
+
+- POST: Solicita al servidor ubicar los datos presentes en esta solicitud en una
+  determinada ubicación, ya sea modificando o creando un recurso nuevo.
+
+.. todo:: Ver diferencia POST y PUT.
+
+- PUT:
+
+- DELETE: Solicita el borrado de un determinado recurso.
+
+- TRACE: Solicita al servidor que responda con todos los datos que recibe, una
+  especie de *echo*. Se usa para observar si servidores intermedios hacen
+  modificaciones en la petición.
+
+- OPTIONS: Solicita que el servidor responda con los métodos HTTP que soporta en
+  determinada URL.
+
+.. todo:: CONNECT, no entend, ver si es importante.
+
+- CONNECT:
+
+- PATCH: Produce determinadas modificaciones en un recurso.
+
+- Entre otros...
+
+Algunas solicitudes como GET, HEAD, OPTIONS y TRACE son métodos seguros, ya que
+no realizan modificaciones en el servidor, a diferencia de por ejemplo PUT,
+POST, DELETE, etc.
+
+Códigos de estado
+-----------------
+
+.. todo:: Agregar mas.
+
+- Informational: 1XX
+
+- Successful: 2XX
+
+- Redirection: 3XX
+
+- Client Error: 4XX
+
+- Server Error: 5XX
+

@@ -104,12 +104,17 @@
 <li class="toctree-l2"><a class="reference internal" href="dns.html">DNS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mail.html">Mail</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ftp.html">FTP</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">HTTP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HTTP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#versiones">Versiones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requests">Requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#codigos-de-estado">Códigos de estado</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="gns3.html">GNS3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../comandos/index.html">Comandos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practica/index.html">Práctica</a></li>
 </ul>
 
             
@@ -178,9 +183,80 @@
             
   <div class="section" id="http">
 <h1>HTTP<a class="headerlink" href="#http" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Hypertext Transfer Protocol.</p>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Hacer</p>
+</div>
+<div class="section" id="versiones">
+<h2>Versiones<a class="headerlink" href="#versiones" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>HTTP/0.9: Obsoleta. Soporta sólo un comando, GET, no especifica el número de
+versión HTTP.</li>
+<li>HTTP/1.0 (mayo 1996): Especifica su versión en las comunicaciones, y todavía
+se usa ampliamente, sobre todo en servidores proxy.</li>
+<li>HTTP/1.1 (junio 1999): Las conexiones persistentes están activadas por defecto
+y funcionan bien con los proxies. También permite al cliente enviar múltiples
+peticiones a la vez (pipelining) lo que hace posible eliminar el tiempo de
+round-trip delay por cada petición.</li>
+<li>HTTP/2.0 (mayo 2015): Minimiza el número de peticiones ya que el servidor
+responde con datos que no fueron requeridos por el cliente en los casos en
+donde el servidor conoce lo que necesita el cliente. De esta forma no es
+necesario que el cliente analice la respuesta y haga otra petición.</li>
+</ul>
+</div>
+<div class="section" id="requests">
+<h2>Requests<a class="headerlink" href="#requests" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Ver si es lo mismo que HTTP methods.</p>
+</div>
+<ul class="simple">
+<li>GET: Solicita un recurso determinado.</li>
+<li>HEAD: Igual que HEAD, pero solicita sólo el encabezado, dejando atrás el
+cuerpo de la respuesta.</li>
+<li>POST: Solicita al servidor ubicar los datos presentes en esta solicitud en una
+determinada ubicación, ya sea modificando o creando un recurso nuevo.</li>
+</ul>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Ver diferencia POST y PUT.</p>
+</div>
+<ul class="simple">
+<li>PUT:</li>
+<li>DELETE: Solicita el borrado de un determinado recurso.</li>
+<li>TRACE: Solicita al servidor que responda con todos los datos que recibe, una
+especie de <em>echo</em>. Se usa para observar si servidores intermedios hacen
+modificaciones en la petición.</li>
+<li>OPTIONS: Solicita que el servidor responda con los métodos HTTP que soporta en
+determinada URL.</li>
+</ul>
+<div class="admonition-todo admonition" id="index-3">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">CONNECT, no entend, ver si es importante.</p>
+</div>
+<ul class="simple">
+<li>CONNECT:</li>
+<li>PATCH: Produce determinadas modificaciones en un recurso.</li>
+<li>Entre otros…</li>
+</ul>
+<p>Algunas solicitudes como GET, HEAD, OPTIONS y TRACE son métodos seguros, ya que
+no realizan modificaciones en el servidor, a diferencia de por ejemplo PUT,
+POST, DELETE, etc.</p>
+</div>
+<div class="section" id="codigos-de-estado">
+<h2>Códigos de estado<a class="headerlink" href="#codigos-de-estado" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="admonition-todo admonition" id="index-4">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Agregar mas.</p>
+</div>
+<ul class="simple">
+<li>Informational: 1XX</li>
+<li>Successful: 2XX</li>
+<li>Redirection: 3XX</li>
+<li>Client Error: 4XX</li>
+<li>Server Error: 5XX</li>
+</ul>
 </div>
 </div>
 
@@ -204,7 +280,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi.
+        &copy; Copyright 2018, Martín Bernardi
 
     </p>
   </div>
@@ -223,21 +299,14 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            LANGUAGE:'es',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 

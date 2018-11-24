@@ -27,5 +27,6 @@ Teoría
    mail
    ftp
    http
+   seguridad
    gns3
    wireshark

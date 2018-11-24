@@ -1,7 +1,9 @@
 TCP
 ===
 
-- EL numero de secuencia empieza aleatorio, porque cuenta cada no se cuantos
+Transmission Control Protocol.
+
+- El numero de secuencia empieza aleatorio, porque cuenta cada no se cuantos
   microsegundos, a partir de la conexion cuenta de a uno.
 
 - Ventana deslizante pero cuenta bytes. Hasta 65000.
