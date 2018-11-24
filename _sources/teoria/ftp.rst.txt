@@ -1,6 +1,8 @@
 FTP
 ===
 
+File Transfer Protocol.
+
 .. todo:: Hacer
 
 TFTP

@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Seguridad &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Teoría</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practica/index.html">Práctica</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Seguridad</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/teoria/seguridad.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="seguridad">
+<h1>Seguridad<a class="headerlink" href="#seguridad" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<ul class="simple">
+<li>IDS (Intruder Detection System): Como que analiza el tráfico con interligencia
+artificial.</li>
+<li>IPS (Intruder Protection System): Es como IDS pero actúa (creo).</li>
+</ul>
+<div class="section" id="tipos-de-firmas">
+<h2>Tipos de firmas<a class="headerlink" href="#tipos-de-firmas" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Digital: Es una firma que cumple la ley, como el certificado del SIAL.</li>
+<li>Electronica: No cumple la ley.</li>
+<li>Digitalizada: Es como cuando firmas en una tablet para el carnet.</li>
+</ul>
+</div>
+<div class="section" id="firewall">
+<h2>Firewall<a class="headerlink" href="#firewall" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="iptables">
+<h3>iptables<a class="headerlink" href="#iptables" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Como ventajas se le pueden ir agregando módulos. También se pueden hacer filtros
+stateless y stateful, pero no vamos a hacer filtros stateful.</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Explicar mejor esta lista:</p>
+</div>
+<ul class="simple">
+<li>Tablas: Conjunto de cadenas.</li>
+<li>Cadenas: Conjunto de reglas.</li>
+<li>Reglas:</li>
+<li>Objetivos: Es lo que quiero hacer</li>
+</ul>
+<p>Tablas que hay:</p>
+<ul class="simple">
+<li>filter:</li>
+<li>nat:</li>
+<li>mangle:</li>
+<li>raw:</li>
+</ul>
+<p>Cadenas que hay:</p>
+<ul class="simple">
+<li>Prerouting:</li>
+<li>Input:</li>
+<li>Forward:</li>
+<li>Output:</li>
+<li>Postrouting:</li>
+</ul>
+<p>Objetivos:</p>
+<ul class="simple">
+<li>ACCEPT:</li>
+<li>REJECT:</li>
+<li>DROP:</li>
+<li>SNAT/MASQUERADE:</li>
+<li>DNAT:</li>
+<li>LOG:</li>
+</ul>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Poner dibujo de las tablas y cadenas
+<a class="reference external" href="https://commons.wikimedia.org/wiki/Category:Netfilter#/media/File:Netfilter-diagram-rus.png">https://commons.wikimedia.org/wiki/Category:Netfilter#/media/File:Netfilter-diagram-rus.png</a></p>
+</div>
+<p><a class="reference external" href="https://www.net.t-labs.tu-berlin.de/teaching/ss08/RL_labcourse/docs/08-lartc.pdf">https://www.net.t-labs.tu-berlin.de/teaching/ss08/RL_labcourse/docs/08-lartc.pdf</a></p>
+<p><a class="reference external" href="https://www.booleanworld.com/depth-guide-iptables-linux-firewall/#How_does_iptables_work">https://www.booleanworld.com/depth-guide-iptables-linux-firewall/#How_does_iptables_work</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martín Bernardi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

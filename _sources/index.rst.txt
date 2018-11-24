@@ -3,7 +3,7 @@ Arquitectura de Redes
 
 .. toctree::
    teoria/index
-   comandos/index
+   practica/index
 
 Para hacer
 ----------
