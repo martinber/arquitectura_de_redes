@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="GNS3" href="gns3.html" />
+    <link rel="next" title="Seguridad" href="seguridad.html" />
     <link rel="prev" title="FTP" href="ftp.html" /> 
 
   
@@ -108,8 +108,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#versiones">Versiones</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#requests">Requests</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#codigos-de-estado">Códigos de estado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proxy-http">Proxy HTTP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tipos">Tipos</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gns3.html">GNS3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
@@ -258,6 +263,27 @@ POST, DELETE, etc.</p>
 <li>Server Error: 5XX</li>
 </ul>
 </div>
+<div class="section" id="proxy-http">
+<h2>Proxy HTTP<a class="headerlink" href="#proxy-http" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="tipos">
+<h3>Tipos<a class="headerlink" href="#tipos" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li>Elite Proxy: El proxy hace la request hacia el servidor destino normalmente,
+como si la petición se originara desde el proxy.</li>
+<li>Anonymous Proxy: Al hacer la petición, el proxy coloca el header <em>HTTP_VIA</em>
+para indicar que se está utilizando un proxy. Opcionalmente utiliza también el
+header <em>HTTP_X_FORWARDED_FOR</em> indicando la IP del proxy.</li>
+<li>Transparent Proxy: El proxy utiliza el header <em>HTTP_X_FORWARDED_FOR</em> colocando
+la IP del cliente, de esta forma el servidor de destino conoce la IP del
+cliente. También se envía <em>HTTP_VIA</em> indicando que se está utilizando un
+servidor proxy.</li>
+<li>Inline, Forced o Transparent Proxy: A veces se usa el término <em>Transparent
+Proxy</em> para bomprar a los servidores proxy que interceptan las comunicaciones
+entre el cliente y el servidor web, por lo tanto no es necesaria la
+configuración de los clientes.</li>
+</ul>
+</div>
+</div>
 </div>
 
 
@@ -268,7 +294,7 @@ POST, DELETE, etc.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gns3.html" class="btn btn-neutral float-right" title="GNS3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="seguridad.html" class="btn btn-neutral float-right" title="Seguridad" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ftp.html" class="btn btn-neutral" title="FTP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
