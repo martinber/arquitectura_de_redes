@@ -77,3 +77,25 @@ Códigos de estado
 
 - Server Error: 5XX
 
+Proxy HTTP
+----------
+
+Tipos
+~~~~~
+
+- Elite Proxy: El proxy hace la request hacia el servidor destino normalmente,
+  como si la petición se originara desde el proxy.
+
+- Anonymous Proxy: Al hacer la petición, el proxy coloca el header *HTTP_VIA*
+  para indicar que se está utilizando un proxy. Opcionalmente utiliza también el
+  header *HTTP_X_FORWARDED_FOR* indicando la IP del proxy.
+
+- Transparent Proxy: El proxy utiliza el header *HTTP_X_FORWARDED_FOR* colocando
+  la IP del cliente, de esta forma el servidor de destino conoce la IP del
+  cliente. También se envía *HTTP_VIA* indicando que se está utilizando un
+  servidor proxy.
+
+- Inline, Forced o Transparent Proxy: A veces se usa el término *Transparent
+  Proxy* para bomprar a los servidores proxy que interceptan las comunicaciones
+  entre el cliente y el servidor web, por lo tanto no es necesaria la
+  configuración de los clientes.
