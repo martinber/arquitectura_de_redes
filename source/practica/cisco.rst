@@ -215,16 +215,17 @@ Agregar VLAN::
   switch(config-vlan)# name {nombre_vlan}
   switch(config-vlan)# exit
 
-Agregar interfaces a una VLAN::
+Agregar interfaces a una VLAN, especificando rango::
 
-  switch(config)# interface range fastEthernet 0/{x}-{y}
-  switch(config-if)# switchport mode access
-  switch(config-if)# switchport access vlan 2
+  switch(config)# interface range fastEthernet 0/{x} - {y}
+  switch(config-if-range)# switchport mode access
+  switch(config-if-range)# switchport access vlan 2
 
-Agregar trunk::
+Agregar trunk, también se puede especificar un rango pero este es ejemplo de la
+configuración de solo una::
 
   switch(config)# interface fastEthernet 0/{x}
-  switch(config-if)# switchport switchport trunk encapsulation dot1q
+  switch(config-if)# encapsulation dot1q
   switch(config-if)# switchport mode trunk
   switch(config-if)# switchport trunk native vlan 1
   switch(config-if)# switchport trunk allowed vlan all
