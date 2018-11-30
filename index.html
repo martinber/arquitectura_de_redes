@@ -328,6 +328,14 @@
 <li class="toctree-l3"><a class="reference internal" href="teoria/dns.html#glue-records">Glue records</a></li>
 <li class="toctree-l3"><a class="reference internal" href="teoria/dns.html#cacheo">Cacheo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="teoria/dns.html#dns-reverso">DNS reverso</a></li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/dns.html#configuracion-de-un-servidor">Configuración de un servidor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/dns.html#zonas-obligatorias">Zonas obligatorias</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/dns.html#capturas">Capturas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/dns.html#transferencia-de-zona">Transferencia de zona</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="teoria/mail.html">Mail</a></li>
@@ -353,6 +361,18 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="teoria/gestion.html">Gestión de redes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="teoria/gestion.html#osi">OSI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/gestion.html#areas-funcionales">Áreas funcionales</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="teoria/gestion.html#snmp">SNMP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="teoria/gestion.html#mib">MIB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="teoria/gestion.html#comandos">Comandos</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="teoria/gns3.html">GNS3</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="teoria/gns3.html#elementos-usados">Elementos usados</a></li>
 <li class="toctree-l3"><a class="reference internal" href="teoria/gns3.html#otros-tips">Otros tips</a></li>
@@ -368,7 +388,13 @@
 <li class="toctree-l2"><a class="reference internal" href="practica/index.html#comandos">Comandos</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="practica/linux.html">Linux</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="practica/bind.html">BIND</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="practica/bind.html#general">General</a></li>
 <li class="toctree-l5"><a class="reference internal" href="practica/bind.html#cache">Cache</a></li>
+<li class="toctree-l5"><a class="reference internal" href="practica/bind.html#primario">Primario</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="practica/bind.html#archivo-de-registros">Archivo de registros</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="practica/bind.html#secundario">Secundario</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="practica/linux.html#basico">Básico</a></li>
@@ -428,7 +454,13 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="practica/index.html#servidores">Servidores</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="practica/bind.html">BIND</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="practica/bind.html#general">General</a></li>
 <li class="toctree-l4"><a class="reference internal" href="practica/bind.html#cache">Cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="practica/bind.html#primario">Primario</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="practica/bind.html#archivo-de-registros">Archivo de registros</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="practica/bind.html#secundario">Secundario</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="practica/apache2.html">Apache2</a></li>
@@ -436,6 +468,15 @@
 <li class="toctree-l3"><a class="reference internal" href="practica/asterix.html">Asterix</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="practica/asterix.html#tipos-de-usuario">Tipos de usuario</a></li>
 <li class="toctree-l4"><a class="reference internal" href="practica/asterix.html#otras-opciones-para-el-usuario">Otras opciones para el usuario</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="practica/index.html#varios">Varios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="practica/gestion.html">Gestion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="practica/gestion.html#snmpd-en-linux">SNMPD en linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="practica/gestion.html#snmp-en-linux">SNMP en linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="practica/gestion.html#cacti">Cacti</a></li>
 </ul>
 </li>
 </ul>
@@ -456,11 +497,6 @@
 <p class="last">Hacer</p>
 </div>
 <p class="todo-source">(La  <a class="reference internal" href="practica/asterix.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/asterix.rst, línea 4.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="practica/bind.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/bind.rst, línea 4.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Ver si eso de dar la interfaz pasa por algo de linux o porque ipc6
@@ -585,32 +621,6 @@ MAC, aleatorio, dhcp o manual</p>
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Hacer</p>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 30.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p>Hacer</p>
-<p class="last">Quien tiene autoridad sobre la zona</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 43.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Tipos de registros</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-2"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 66.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Ver bien cuando se usan servidores de cacheo y autoritativos.</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-3"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 114.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-4"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 150.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
-</div>
 <p class="todo-source">(La  <a class="reference internal" href="teoria/http.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/http.rst, línea 6.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
@@ -632,6 +642,100 @@ MAC, aleatorio, dhcp o manual</p>
 <p class="last">Agregar mas.</p>
 </div>
 <p class="todo-source">(La  <a class="reference internal" href="teoria/http.html#index-4"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/http.rst, línea 68.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="practica/bind.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/bind.rst, línea 4.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<ul class="last simple">
+<li>Agregar DNS reverso.</li>
+<li>Aprender bien la diferencia entre zona, dominio y nombre y arreglar esto.</li>
+</ul>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="practica/bind.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/bind.rst, línea 278.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">VLAN Trunking protocol (VTP) es un protocolo propietario de cisco que tiene 3
+modos: Server,Client, y Transparent. A mi no me dejaba configurar vlans porque
+estaba en modo cliente, por lo tanto lo tuve que cambiar el switch a modo
+server.
+__SW_P__(config)#vtp  mode server
+«At least one server is required in a VTP domain to propagate VLAN Information
+within the VTP domain. We can create, add, or delete VLANs of a VTP domain in a
+Switch which is in VTP servver mode and change VLAN Information  in a VTP
+server»
+VTP cliente necesita un switch servidor que le informe sobre los cambios o
+configuraciones de las VLANs y escucha avisos de otros switches. NO podemos
+crear,modificar, o eliminar VLANs en un switch VTP cliente.
+VTP transparente no participa en un dominio VTP, pero pueden recibir mensajes
+protocolares y switchearlos.</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="practica/cisco.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/cisco.rst, línea 235.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Terminar</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="practica/gestion.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/gestion.rst, línea 52.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Pasar a otras paginas</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="practica/index.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/index.rst, línea 24.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<ul class="last simple">
+<li>Aprender bien la diferencia entre zona, dominio y nombre y arreglar esto.</li>
+</ul>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 27.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 34.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p>Hacer</p>
+<p class="last">Quien tiene autoridad sobre la zona</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-2"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 47.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Tipos de registros</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-3"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 72.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Ver bien cuando se usan servidores de cacheo y autoritativos.</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-4"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 120.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/dns.html#index-5"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/dns.rst, línea 156.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer y revisar</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/gestion.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/gestion.rst, línea 4.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Ver versiones. Ver diferencias entre NetFlow, Nagios, Cacti.</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/gestion.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/gestion.rst, línea 54.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Agregar primitivas TRAPS (coldstart, warmstart, etc.)</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/gestion.html#index-2"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/gestion.rst, línea 93.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Ver System, AT, TCP, UDP, EGP, etc.</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/gestion.html#index-3"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/gestion.rst, línea 95.)</p>
 </div>
 <div class="section" id="links">
 <h2>Links<a class="headerlink" href="#links" title="Enlazar permanentemente con este título">¶</a></h2>

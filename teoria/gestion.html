@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>GNS3 &mdash; documentación de Arquitectura de Redes - </title>
+  <title>Gestión de redes &mdash; documentación de Arquitectura de Redes - </title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Wireshark" href="wireshark.html" />
-    <link rel="prev" title="Gestión de redes" href="gestion.html" /> 
+    <link rel="next" title="GNS3" href="gns3.html" />
+    <link rel="prev" title="Seguridad" href="seguridad.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -106,12 +106,19 @@
 <li class="toctree-l2"><a class="reference internal" href="ftp.html">FTP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="http.html">HTTP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">GNS3</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#elementos-usados">Elementos usados</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#otros-tips">Otros tips</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Gestión de redes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#osi">OSI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#areas-funcionales">Áreas funcionales</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#snmp">SNMP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mib">MIB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comandos">Comandos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gns3.html">GNS3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
 </li>
@@ -163,13 +170,13 @@
         
           <li><a href="index.html">Teoría</a> &raquo;</li>
         
-      <li>GNS3</li>
+      <li>Gestión de redes</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/teoria/gns3.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/teoria/gestion.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -182,67 +189,91 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="gns3">
-<h1>GNS3<a class="headerlink" href="#gns3" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>No me acuerdo bien como instalé GNS3, la cosa es que anduvo y que no lo quise
-tocar. Pongo algunas notas de lo que hago a partir de ahora y de lo que me
-acuerdo que hice.</p>
-<div class="section" id="elementos-usados">
-<h2>Elementos usados<a class="headerlink" href="#elementos-usados" title="Enlazar permanentemente con este título">¶</a></h2>
-<ul>
-<li><p class="first">Hosts: Como host uso un Docker con la imagen de <code class="docutils literal notranslate"><span class="pre">gns3-ipterm</span></code>, que es un
-Linux bien básico con las herramientas de red básicas ya instaladas, por eso
-es mejor que un Alpine Linux o un Debian pelado.</p>
-<p>Hay que instalar Docker en la computadora, después en las preferencias de GNS3
-hay una sección que se llama «Docker containers», agregué el contenedor de
-<code class="docutils literal notranslate"><span class="pre">gns3/ipterm</span></code>, GNS3 se encarga de descargarlo y todo.</p>
-</li>
-<li><p class="first">Router Mikrotik: En este caso descargué un «Appliance» oficial desde la wiki
-de GNS3 y al mismo tiempo una imagen que se llama <code class="docutils literal notranslate"><span class="pre">chr-6.41.4.img</span></code>. Una vez
-que se hayan descargado esas dos cosas, en el GNS3 se importa el «Appliance»
-que te permite buscar el <code class="docutils literal notranslate"><span class="pre">.img</span></code> descargado y te deja todo listo para usar.</p>
-<p>Una vez agregado, en las preferencias de GNS3 este router aparece en la parte
-de «QEMU VMs». Al abrir una consola el usuario es <code class="docutils literal notranslate"><span class="pre">admin</span></code> y no tiene
-contraseña, no hay que escribir nada. Para usar ipv6 en este router Mikrotik
-ver abajo.</p>
-</li>
-<li><p class="first">Router Cisco: Uso el modelo 3745, lo importé usando la imagen
-<code class="docutils literal notranslate"><span class="pre">c3745-advipservicesk9-mz.124-25d.bin</span></code> que no se puede obtener gratis de
-forma legal. No me acuerdo como hice para agregarlo al GNS3, ahora que veo, en
-las preferencias de GNS3 aparece en la parte de «IOS Routers».</p>
-</li>
-<li><p class="first">Switch Cisco: Este fué dificilisimo de conseguir, no se al final que modelo
-tengo. Hay que conseguir:</p>
+  <div class="section" id="gestion-de-redes">
+<h1>Gestión de redes<a class="headerlink" href="#gestion-de-redes" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer y revisar</p>
+</div>
 <ul class="simple">
-<li>El Appliance <code class="docutils literal notranslate"><span class="pre">cisco-iosvl2.gns3a</span></code>. Este es fácil de conseguir.</li>
-<li>Las imágenes <code class="docutils literal notranslate"><span class="pre">vios_l2-adventerprisek9-m.03.2017.qcow2</span></code> y
-<code class="docutils literal notranslate"><span class="pre">vios_l2-adventerprisek9-m.vmdk.SSA.152-4.0.55.E</span></code>. Estas son muy difíciles
-de conseguir, el único lugar en donde las encontré es en una pagina en chino
-y árabe.</li>
+<li>Hay dos estándares: SNMP y OSI.</li>
+<li>Aplicación de gestión de red</li>
+<li>Entidad de administración de red: Envía información</li>
+<li>MIB: Management Information Base</li>
 </ul>
-<p>Hay que agregar al Appliance, al agregarlo te va a pedir que busques las dos
-imágenes y listo. Una vez terminado aparece en la parte de «QEMU VMs» con el
-nombre de <code class="docutils literal notranslate"><span class="pre">Cisco</span> <span class="pre">IOSvL2</span> <span class="pre">15.2.4055</span></code>.</p>
-</li>
+<div class="section" id="osi">
+<h2>OSI<a class="headerlink" href="#osi" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="areas-funcionales">
+<h3>Áreas funcionales<a class="headerlink" href="#areas-funcionales" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li>Administración de la contabilidad: Proporciona información sobre costos y los
+usos contables.</li>
+<li>Administración de la configuración: Administra la configuración real de la
+red.</li>
+<li>Administración de fallos: Detecta, aísla y corrige los fallos, incluyendo el
+mantenimiento de un registro y un diagnóstico de los errores.</li>
+<li>Administración del desempeño (prestaciones): Mantiene una eficiencia y un
+desempeño máximos, incluyendo la recopilación de estadísticas y el
+mantenimiento de registros para definir un “baseline”. Para ver si el tráfico
+es anormalmente alto o bajo.</li>
+<li>Administración de la seguridad: Mantiene un sistema seguro y administra el
+acceso.</li>
 </ul>
 </div>
-<div class="section" id="otros-tips">
-<h2>Otros tips<a class="headerlink" href="#otros-tips" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<div class="section" id="snmp">
+<h2>SNMP<a class="headerlink" href="#snmp" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Simple Network Management Protocol.</p>
 <ul class="simple">
-<li>Cuando intenté usar ipv6 en el router Mikrotik no encotraba los comandos. En
-mi caso pasaba que el paquete <code class="docutils literal notranslate"><span class="pre">ipv6</span></code> del router no estaba habilitado, esto
-se puede ver al hacer <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">package</span> <span class="pre">print</span></code> y viendo qué paquetes tienen
-una <code class="docutils literal notranslate"><span class="pre">X</span></code> al lado. Para habilitar un paquete hay que hacer <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">package</span>
-<span class="pre">enable</span> <span class="pre">numbers=</span></code> y poniendo el número correspondiente a ese paquete (el
-número se ve al hacer <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">package</span> <span class="pre">print</span></code>). Finalmente hay que hacer un
-<code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">reboot</span></code> paar que se termine de activar.</li>
-<li>Cuando te pasan un proyecto con Ciscos adentro puede que ande lento, para
-acelerarlo hay que hacer click derecho en un Cisco cualquiera y poner <em>Auto
-Idle-PC value</em>.</li>
-<li>Para hacer una imagen de Docker para algún servidor, me hago una carpeta con
-algún <em>Dockerfile</em>, creo la imagen con <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">image</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">nombre_image</span>
-<span class="pre">.</span></code> y la agrego a GNS3.</li>
+<li>Todos los equipos administrables tienen MIB y usan SNMP.</li>
+<li>La MIB tiene estructura SMI.</li>
+<li>Puede informarse por consulta o evento extraordinario.</li>
+<li>Usamos NetFlow, Nagios y Cacti, se complementan.</li>
+<li>Puerto IDP 161 o 162.</li>
+<li>Es importante en las nuevas versiones que se autentique para mejor seguridad.</li>
 </ul>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Ver versiones. Ver diferencias entre NetFlow, Nagios, Cacti.</p>
+</div>
+<div class="section" id="mib">
+<h3>MIB<a class="headerlink" href="#mib" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li>Se usa MIB-II, versión 2. Y SMI.</li>
+<li>Es jerárquica en vez de relacional, en forma de árbol.</li>
+<li>El formato de SMI es Abstract Syntax Notation One (ASN.1). Entonces es
+independiente del dispositivo, lenguaje, etc. Define los tipos de variables
+entre otras cosas.</li>
+<li>Se puede acceder en formato ASCII o por números.</li>
+</ul>
+</div>
+<div class="section" id="comandos">
+<h3>Comandos<a class="headerlink" href="#comandos" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li>get<ul>
+<li>request</li>
+<li>next request</li>
+<li>bulk request</li>
+<li>response</li>
+</ul>
+</li>
+<li>set<ul>
+<li>request</li>
+<li>next request</li>
+</ul>
+</li>
+<li>trap</li>
+<li>inform request</li>
+</ul>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Agregar primitivas TRAPS (coldstart, warmstart, etc.)</p>
+</div>
+<div class="admonition-todo admonition" id="index-3">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Ver System, AT, TCP, UDP, EGP, etc.</p>
+</div>
+</div>
 </div>
 </div>
 
@@ -254,10 +285,10 @@ algún <em>Dockerfile</em>, creo la imagen con <code class="docutils literal not
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="wireshark.html" class="btn btn-neutral float-right" title="Wireshark" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gns3.html" class="btn btn-neutral float-right" title="GNS3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gestion.html" class="btn btn-neutral" title="Gestión de redes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="seguridad.html" class="btn btn-neutral" title="Seguridad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
