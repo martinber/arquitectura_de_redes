@@ -28,5 +28,6 @@ Teoría
    ftp
    http
    seguridad
+   gestion
    gns3
    wireshark

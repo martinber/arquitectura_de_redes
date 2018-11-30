@@ -103,6 +103,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#servidores">Servidores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#varios">Varios</a></li>
 </ul>
 </li>
 </ul>
@@ -380,21 +381,39 @@ switch(config-vlan)# name {nombre_vlan}
 switch(config-vlan)# exit
 </pre></div>
 </div>
-<p>Agregar interfaces a una VLAN:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch(config)# interface range fastEthernet 0/{x}-{y}
-switch(config-if)# switchport mode access
-switch(config-if)# switchport access vlan 2
+<p>Agregar interfaces a una VLAN, especificando rango:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch(config)# interface range fastEthernet 0/{x} - {y}
+switch(config-if-range)# switchport mode access
+switch(config-if-range)# switchport access vlan 2
 </pre></div>
 </div>
-<p>Agregar trunk:</p>
+<p>Agregar trunk, también se puede especificar un rango pero este es ejemplo de la
+configuración de solo una:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch(config)# interface fastEthernet 0/{x}
-switch(config-if)# switchport switchport trunk encapsulation dot1q
+switch(config-if)# encapsulation dot1q
 switch(config-if)# switchport mode trunk
 switch(config-if)# switchport trunk native vlan 1
 switch(config-if)# switchport trunk allowed vlan all
 switch(config-if)# switchport trunk allowed vlan add 2
 switch(config-if)# switchport trunk allowed vlan remove 3
 </pre></div>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">VLAN Trunking protocol (VTP) es un protocolo propietario de cisco que tiene 3
+modos: Server,Client, y Transparent. A mi no me dejaba configurar vlans porque
+estaba en modo cliente, por lo tanto lo tuve que cambiar el switch a modo
+server.
+__SW_P__(config)#vtp  mode server
+«At least one server is required in a VTP domain to propagate VLAN Information
+within the VTP domain. We can create, add, or delete VLANs of a VTP domain in a
+Switch which is in VTP servver mode and change VLAN Information  in a VTP
+server»
+VTP cliente necesita un switch servidor que le informe sobre los cambios o
+configuraciones de las VLANs y escucha avisos de otros switches. NO podemos
+crear,modificar, o eliminar VLANs en un switch VTP cliente.
+VTP transparente no participa en un dominio VTP, pero pueden recibir mensajes
+protocolares y switchearlos.</p>
 </div>
 </div>
 <div class="section" id="vlan-router">
