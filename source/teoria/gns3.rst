@@ -59,3 +59,7 @@ Otros tips
 - Cuando te pasan un proyecto con Ciscos adentro puede que ande lento, para
   acelerarlo hay que hacer click derecho en un Cisco cualquiera y poner *Auto
   Idle-PC value*.
+
+- Para hacer una imagen de Docker para algún servidor, me hago una carpeta con
+  algún *Dockerfile*, creo la imagen con ``docker image build -t nombre_image
+  .`` y la agrego a GNS3.

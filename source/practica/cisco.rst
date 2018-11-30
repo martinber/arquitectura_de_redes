@@ -232,6 +232,23 @@ configuración de solo una::
   switch(config-if)# switchport trunk allowed vlan add 2
   switch(config-if)# switchport trunk allowed vlan remove 3
 
+.. todo::
+
+  VLAN Trunking protocol (VTP) es un protocolo propietario de cisco que tiene 3
+  modos: Server,Client, y Transparent. A mi no me dejaba configurar vlans porque
+  estaba en modo cliente, por lo tanto lo tuve que cambiar el switch a modo
+  server.
+  __SW_P__(config)#vtp  mode server
+  "At least one server is required in a VTP domain to propagate VLAN Information
+  within the VTP domain. We can create, add, or delete VLANs of a VTP domain in a
+  Switch which is in VTP servver mode and change VLAN Information  in a VTP
+  server"
+  VTP cliente necesita un switch servidor que le informe sobre los cambios o
+  configuraciones de las VLANs y escucha avisos de otros switches. NO podemos
+  crear,modificar, o eliminar VLANs en un switch VTP cliente.
+  VTP transparente no participa en un dominio VTP, pero pueden recibir mensajes
+  protocolares y switchearlos.
+
 VLAN (router)
 -------------
 
