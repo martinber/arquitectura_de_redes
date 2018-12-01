@@ -115,6 +115,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gns3.html">GNS3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
@@ -280,8 +281,17 @@ servidor proxy.</li>
 <li>Inline, Forced o Transparent Proxy: A veces se usa el término <em>Transparent
 Proxy</em> para bomprar a los servidores proxy que interceptan las comunicaciones
 entre el cliente y el servidor web, por lo tanto no es necesaria la
-configuración de los clientes.</li>
+configuración de los clientes. Se necesita habilitar el forwarding IP en el
+proxy.</li>
+<li>Accelerator proxy: Se coloca en frente de uno o unos pocos servidores web y se
+apunta al DNS para que las consultas de los clientes vayan al proxy. De esta
+forma el proxy permite mejorar el rendimiento de un servidor web lento gracias
+a los cachés.</li>
 </ul>
+<div class="admonition-todo admonition" id="index-5">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Buscar sobre la aquitectura multinivel</p>
+</div>
 </div>
 </div>
 </div>
