@@ -98,4 +98,12 @@ Tipos
 - Inline, Forced o Transparent Proxy: A veces se usa el término *Transparent
   Proxy* para bomprar a los servidores proxy que interceptan las comunicaciones
   entre el cliente y el servidor web, por lo tanto no es necesaria la
-  configuración de los clientes.
+  configuración de los clientes. Se necesita habilitar el forwarding IP en el
+  proxy.
+
+- Accelerator proxy: Se coloca en frente de uno o unos pocos servidores web y se
+  apunta al DNS para que las consultas de los clientes vayan al proxy. De esta
+  forma el proxy permite mejorar el rendimiento de un servidor web lento gracias
+  a los cachés.
+
+.. todo:: Buscar sobre la aquitectura multinivel
