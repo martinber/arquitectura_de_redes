@@ -77,8 +77,17 @@ Códigos de estado
 
 - Server Error: 5XX
 
-Proxy HTTP
-----------
+HTTPS
+-----
+
+.. warning:: No tengo mucha idea sobre esto así que a lo mejor le pifio en algo.
+
+.. todo:: Explicar en forma general que es HTTPS, TLS, SSL, etc.
+
+Proxy
+-----
+
+Voy a hablar sobre proxy centrandome en el servidor Squid, pero hay más.
 
 Tipos
 ~~~~~
@@ -107,3 +116,59 @@ Tipos
   a los cachés.
 
 .. todo:: Buscar sobre la aquitectura multinivel
+
+Proxy HTTPS
+~~~~~~~~~~~
+
+.. warning:: No tengo mucha idea, esto es lo que leí por ahí. Pongo las
+  referencias a todo lo que pueda.
+
+Como la comunicación es punto a punto no se puede descifrar la información, pero
+sí se puede hacer de túnel por donde pasarán las comunicaciones cifradas. Para
+el proxy el tráfico no es más que una conexión TCP, y no puede obtener ningún
+tipo de información. Esto se llama `túnel CONNECT`__.
+
+__ https://en.wikipedia.org/wiki/HTTP_tunnel
+
+Como el tráfico es simplemente una conexión TCP, el proxy no tiene forma de
+saber si es realmente tráfico HTTPS o una conexión TCP cualquiera. Por eso Squid
+usa la directiva ``deny CONNECT !SSL_Ports`` que impide túneles *CONNECT* en
+puertos que no sean específicos de SSL (`ver acá`__).
+
+__ https://wiki.squid-cache.org/Features/HTTPS
+
+Si uno quiere realmente descifrar tráfico HTTPS tiene que hacer una conexión
+cifrada entre el proxy y el servidor web y otra entre el proxy y el cliente. La
+conexión entre el proxy y el servidor web no es un problema, ya que el servidor
+web ve al proxy como un cliente más. El problema está en que el cliente no se
+debe dar cuenta de que está conectándose al proxy en vez del servidor web, por
+lo tanto el proxy debe crear un certificado temporal generado dinámicamente para
+cada conexión en particular. Esto se llama ataque *Man-in-the-middle*.
+
+.. todo:: Leer un poco más sobre CAs.
+
+Cuando uno se conecta a una página web con HTTPS, obtiene un certificado firmado
+por un *Certificate Authority* (*CA*) que es una organización confiable, la
+lista de organizaciones confiables es seleccionada por Google/Mozilla ya que
+viene dentro del navegador. Cuando uno solicita un certificado, el *CA* se
+asegura de que uno realmente tiene posesión del sitio por el cual uno solicita
+el certificado, esta es la razón por la cual no es posible hacer ataques
+*Man-in-the-middle* y por lo tanto proxies que descifren tráfico HTTPS.
+
+Una alternativa es crear certificados que no están firmados por una *CA*, estos
+certificados se llaman *self-signed* ya que están cifrados por nosotros mismos.
+El problema con estos certificados es que los navegadores no confían en ellos y
+al conectarse muestran una pantalla roja de advertencia. Para eliminar esto uno
+debe configurar el navegador de cada cliente para que confíe en nuestros
+certificados.
+
+`Como dice la documentación de Squid`__ no es imposible de que un *CA* otorgue
+permisos para generar certificados firmados a discreción, pero esto puede llevar
+a que los navegadores dejen de confiar en estos *CAs* `como pasó`__ `con
+Trustwave`__.
+
+__ https://wiki.squid-cache.org/ConfigExamples/Intercept/SslBumpExplicit
+
+__ https://bugzilla.mozilla.org/show_bug.cgi?id=724929
+
+__ https://www.computerworld.com/article/2501291/internet/trustwave-admits-issuing-man-in-the-middle-digital-certificate--mozilla-debates-punishment.html
