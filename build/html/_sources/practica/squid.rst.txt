@@ -23,10 +23,13 @@ Cada opción de configuración tiene un nombre o *KEY*, por lo tanto para buscar
 de opción en opción usar ``#  KEY``, o para buscar una opción específica buscar
 por ejemplo ``KEY: request_timeout``.
 
-Para iniciar, reiniciar el servidor usar::
+Para iniciar/parar el servidor::
 
-  sudo service squid start
-  sudo service squid restart
+  service squid status
+  service squid start
+  service squid stop
+  service squid restart
+  service squid reload
 
 Configuración general
 ---------------------

@@ -14,6 +14,14 @@ __ https://www-uxsup.csx.cam.ac.uk/pub/doc/redhat/redhat7.3/rhl-rg-en-7.3/s1-bin
 
 __ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-bind
 
+Para iniciar/parar el servidor::
+
+  service bind9 status
+  service bind9 start
+  service bind9 stop
+  service bind9 restart
+  service bind9 reload
+
 General
 -------
 
@@ -35,10 +43,7 @@ Inicialmente existen los siguientes archivos en ``/etc/bind/``:
 
 El archivo de configuración principal es ``/etc/bind/named.conf``, en Debian se
 recomienda no editarlo ya que ese archivo lo unico que hace es importar la
-configuración presente en:
-
-Los archivos que empiezan en ``db`` contienen los registros DNS, por lo tanto
-estos archivos son los que más nos importan.
+configuración presente en los otros tres archivos de configuración:
 
 - ``named.conf.default-zones``: Tiene configuradas los servidores root y las
   zonas por defecto, ya sean forward, reverse o de broadcast. Esto es
@@ -105,6 +110,11 @@ estos archivos son los que más nos importan.
       listen-on-v6 { any; };
     };
 
+Los archivos que empiezan en ``db`` contienen los registros DNS, por lo tanto
+estos archivos son los que más nos importan cuando configuramos un servidor
+primario. Por convención, si contiene los registros del dominio ``dominio.com``
+se llama ``db.dominio.com``.
+
 Cache
 -----
 
@@ -126,7 +136,7 @@ anterior, y agregando a ``8.8.8.8`` y ``8.8.4.4`` quedaría::
 
     forwarders {
       8.8.8.8;
-      4.4.4.4;
+      8.8.4.4;
     };
 
     //========================================================================
@@ -152,20 +162,20 @@ Primario
 
 Se debe indicar el dominio a administrar en ``/etc/bind/named.conf.local``,
 se debe indicar ahí cuál va a ser el archivo que va ser la base de datos de
-registros, en este caso voy a administrar ``midominio.test``, por lo tanto la
-convención es poner los registros en ``/etc/bind/db.midominio.test``.
+registros, en este caso voy a administrar ``midominio.com``, por lo tanto la
+convención es poner los registros en ``/etc/bind/db.midominio.com``.
 
 El archivo ``/etc/bind/named.conf.local`` quedaría::
 
-  zone "midominio.test" {
+  zone "midominio.com" {
     type master;
-    file "/etc/bind/db.midominio.test";
+    file "/etc/bind/db.midominio.com";
     allow-transfer {
       10.0.0.11;
     };
   };
 
-El archivo ``/etc/bind/db.midominio.test`` va a llevar los registros, que
+El archivo ``/etc/bind/db.midominio.com`` va a llevar los registros, que
 explico ahora. ``allow-transfer`` especifica los servidores secundarios.
 
 Archivo de registros
@@ -183,8 +193,8 @@ Dentro de este archivo, hay dos directivas importantes:
 
 Algo que hay que saber es que todos los nombres que se escriban y no terminen en
 ``.``, serán relativos al dominio, es decir, se le agregará ``$ORIGIN``. Por
-ejemplo al escribir ``host.midominio.test`` se vuelve
-``host.midominio.test.midominio.test``. Si se omite un nombre, se usará
+ejemplo al escribir ``host.midominio.com`` se vuelve
+``host.midominio.com.midominio.com``. Si se omite un nombre, se usará
 ``$ORIGIN``. Por último, si se escribe ``@`` también será reemplazado por
 ``$ORIGIN``.
 
@@ -222,8 +232,8 @@ ejemplo al escribir ``host.midominio.test`` se vuelve
   - ``{servidor_primario}``: Servidor primario de la zona.
 
   - ``{mail_hostmaster}``: Mail del administrador, el primer punto se transforma
-    en ``@``, entonces se deben escapar los puntos. Por ej:
-    ``el\.admin.midominio.test`` se vuelve ``el.admin@midominio.test``.
+    en ``@``, entonces se deben escapar los puntos que son parte del mail. Por
+    ej: ``el\.admin.midominio.com`` se vuelve ``el.admin@midominio.com``.
 
   - ``{serial}``: Es un número que se debe incrementar cada vez que se cambia
     algún registro para indicar cambios a los demás servidores.
@@ -241,10 +251,10 @@ ejemplo al escribir ``host.midominio.test`` se vuelve
 
 El primer registro debe ser el *SOA*, los comentarios se hacen con ``;``.
 
-El archivo ``/etc/bind/db.midominio.test`` quedaría por ejemplo::
+El archivo ``/etc/bind/db.midominio.com`` quedaría por ejemplo::
 
-  ; Especificar como primario a ns1.midominio.test y como administrador
-  ; a admin@midominio.test
+  ; Especificar como primario a ns1.midominio.com y como administrador
+  ; a admin@midominio.com
   @ IN SOA ns1 admin (
            1 ; serial
            10800 ; time_to_refresh: 3 horas
@@ -252,20 +262,20 @@ El archivo ``/etc/bind/db.midominio.test`` quedaría por ejemplo::
            604800 ; time_to_expire: 1 semana
            86400 ) ; ttl_minimo: 1 dia
 
-  ; Configurar como autoritativo a ns1.midominio.test y ns2.midominio.test
+  ; Configurar como autoritativo a ns1.midominio.com y ns2.midominio.com
   @ IN NS ns1
   @ IN NS ns2
 
-  ; Especificar IP de ns1.midominio.test y ns2.midominio.test
+  ; Especificar IP de ns1.midominio.com y ns2.midominio.com
   ns1 IN A 10.0.0.10
   ns2 IN A 10.0.0.11
 
-  ; Especificar IP de host1.midominio.test y host2.midominio.test
+  ; Especificar IP de host1.midominio.com y host2.midominio.com
   host1 IN A 10.0.0.100
   host2 IN A 10.0.0.101
 
 Para comprobar los archivos usar ``sudo named-checkconf`` y ``sudo
-named-checkzone /etc/bind/db.midominio.test``, después reiniciar el
+named-checkzone /etc/bind/db.midominio.com``, después reiniciar el
 servidor con ``sudo service bind9 restart``.
 
 Si se quiere delegar un subdominio, hay que simplemente agregar un record *NS*::
@@ -286,18 +296,18 @@ Secundario
 
 Se debe indicar el dominio a administrar en ``/etc/bind/named.conf.local``, se
 debe indicar ahí cuál va a ser el archivo que va ser la base de datos de
-registros, en este caso voy a administrar ``midominio.test``, por lo tanto la
-convención es poner los registros en ``/etc/bind/db.midominio.test``.
+registros, en este caso voy a administrar ``midominio.com``, por lo tanto la
+convención es poner los registros en ``/etc/bind/db.midominio.com``.
 
 El archivo ``/etc/bind/named.conf.local`` quedaría::
 
-  zone "midominio.test" {
+  zone "midominio.com" {
     type slave;
-    file "/etc/bind/db.midominio.test";
+    file "/etc/bind/db.midominio.com";
     masters {
       10.0.0.10;
     };
   };
 
-El archivo ``/etc/bind/db.midominio.test`` va a llevar los registros traídos del
+El archivo ``/etc/bind/db.midominio.com`` va a llevar los registros traídos del
 servidor maestro indicado en ``masters``.

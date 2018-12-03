@@ -145,3 +145,5 @@ Problemas que tuve
 
 - Siempre reniego con los cachés de los navegadores, usar *Ctrl-F5* para
   recargar sin caché.
+
+__ https://askubuntu.com/a/846654
