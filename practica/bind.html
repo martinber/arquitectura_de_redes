@@ -195,6 +195,14 @@ versión 9.10.3.</li>
 <li><a class="reference external" href="https://www-uxsup.csx.cam.ac.uk/pub/doc/redhat/redhat7.3/rhl-rg-en-7.3/s1-bind-configuration.html">Documentación sobre la configuración</a>.</li>
 <li><a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-bind">Documentación de Red Hat sobre BIND</a>.</li>
 </ul>
+<p>Para iniciar/parar el servidor:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>service bind9 status
+service bind9 start
+service bind9 stop
+service bind9 restart
+service bind9 reload
+</pre></div>
+</div>
 <div class="section" id="general">
 <h2>General<a class="headerlink" href="#general" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Inicialmente existen los siguientes archivos en <code class="docutils literal notranslate"><span class="pre">/etc/bind/</span></code>:</p>
@@ -215,9 +223,7 @@ versión 9.10.3.</li>
 </ul>
 <p>El archivo de configuración principal es <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf</span></code>, en Debian se
 recomienda no editarlo ya que ese archivo lo unico que hace es importar la
-configuración presente en:</p>
-<p>Los archivos que empiezan en <code class="docutils literal notranslate"><span class="pre">db</span></code> contienen los registros DNS, por lo tanto
-estos archivos son los que más nos importan.</p>
+configuración presente en los otros tres archivos de configuración:</p>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">named.conf.default-zones</span></code>: Tiene configuradas los servidores root y las
 zonas por defecto, ya sean forward, reverse o de broadcast. Esto es
@@ -287,6 +293,10 @@ dominios.</p>
 </div>
 </li>
 </ul>
+<p>Los archivos que empiezan en <code class="docutils literal notranslate"><span class="pre">db</span></code> contienen los registros DNS, por lo tanto
+estos archivos son los que más nos importan cuando configuramos un servidor
+primario. Por convención, si contiene los registros del dominio <code class="docutils literal notranslate"><span class="pre">dominio.com</span></code>
+se llama <code class="docutils literal notranslate"><span class="pre">db.dominio.com</span></code>.</p>
 </div>
 <div class="section" id="cache">
 <h2>Cache<a class="headerlink" href="#cache" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -307,7 +317,7 @@ anterior, y agregando a <code class="docutils literal notranslate"><span class="
 
   forwarders {
     8.8.8.8;
-    4.4.4.4;
+    8.8.4.4;
   };
 
   //========================================================================
@@ -334,19 +344,19 @@ servidor con <code class="docutils literal notranslate"><span class="pre">sudo</
 <h2>Primario<a class="headerlink" href="#primario" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se debe indicar el dominio a administrar en <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf.local</span></code>,
 se debe indicar ahí cuál va a ser el archivo que va ser la base de datos de
-registros, en este caso voy a administrar <code class="docutils literal notranslate"><span class="pre">midominio.test</span></code>, por lo tanto la
-convención es poner los registros en <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.test</span></code>.</p>
+registros, en este caso voy a administrar <code class="docutils literal notranslate"><span class="pre">midominio.com</span></code>, por lo tanto la
+convención es poner los registros en <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.com</span></code>.</p>
 <p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf.local</span></code> quedaría:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;midominio.test&quot; {
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;midominio.com&quot; {
   type master;
-  file &quot;/etc/bind/db.midominio.test&quot;;
+  file &quot;/etc/bind/db.midominio.com&quot;;
   allow-transfer {
     10.0.0.11;
   };
 };
 </pre></div>
 </div>
-<p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.test</span></code> va a llevar los registros, que
+<p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.com</span></code> va a llevar los registros, que
 explico ahora. <code class="docutils literal notranslate"><span class="pre">allow-transfer</span></code> especifica los servidores secundarios.</p>
 <div class="section" id="archivo-de-registros">
 <h3>Archivo de registros<a class="headerlink" href="#archivo-de-registros" title="Enlazar permanentemente con este título">¶</a></h3>
@@ -360,8 +370,8 @@ es el escrito en <code class="docutils literal notranslate"><span class="pre">/e
 </ul>
 <p>Algo que hay que saber es que todos los nombres que se escriban y no terminen en
 <code class="docutils literal notranslate"><span class="pre">.</span></code>, serán relativos al dominio, es decir, se le agregará <code class="docutils literal notranslate"><span class="pre">$ORIGIN</span></code>. Por
-ejemplo al escribir <code class="docutils literal notranslate"><span class="pre">host.midominio.test</span></code> se vuelve
-<code class="docutils literal notranslate"><span class="pre">host.midominio.test.midominio.test</span></code>. Si se omite un nombre, se usará
+ejemplo al escribir <code class="docutils literal notranslate"><span class="pre">host.midominio.com</span></code> se vuelve
+<code class="docutils literal notranslate"><span class="pre">host.midominio.com.midominio.com</span></code>. Si se omite un nombre, se usará
 <code class="docutils literal notranslate"><span class="pre">$ORIGIN</span></code>. Por último, si se escribe <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> también será reemplazado por
 <code class="docutils literal notranslate"><span class="pre">$ORIGIN</span></code>.</p>
 <ul>
@@ -404,8 +414,8 @@ secundario:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">{servidor_primario}</span></code>: Servidor primario de la zona.</li>
 <li><code class="docutils literal notranslate"><span class="pre">{mail_hostmaster}</span></code>: Mail del administrador, el primer punto se transforma
-en <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, entonces se deben escapar los puntos. Por ej:
-<code class="docutils literal notranslate"><span class="pre">el\.admin.midominio.test</span></code> se vuelve <code class="docutils literal notranslate"><span class="pre">el.admin&#64;midominio.test</span></code>.</li>
+en <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, entonces se deben escapar los puntos que son parte del mail. Por
+ej: <code class="docutils literal notranslate"><span class="pre">el\.admin.midominio.com</span></code> se vuelve <code class="docutils literal notranslate"><span class="pre">el.admin&#64;midominio.com</span></code>.</li>
 <li><code class="docutils literal notranslate"><span class="pre">{serial}</span></code>: Es un número que se debe incrementar cada vez que se cambia
 algún registro para indicar cambios a los demás servidores.</li>
 <li><code class="docutils literal notranslate"><span class="pre">{time_to_refresh}</span></code>: Indica el tiempo que debe esperar el servidor
@@ -419,9 +429,9 @@ servidor secundario deja de responder como autoritativo.</li>
 </li>
 </ul>
 <p>El primer registro debe ser el <em>SOA</em>, los comentarios se hacen con <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
-<p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.test</span></code> quedaría por ejemplo:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>; Especificar como primario a ns1.midominio.test y como administrador
-; a admin@midominio.test
+<p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.com</span></code> quedaría por ejemplo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>; Especificar como primario a ns1.midominio.com y como administrador
+; a admin@midominio.com
 @ IN SOA ns1 admin (
          1 ; serial
          10800 ; time_to_refresh: 3 horas
@@ -429,21 +439,21 @@ servidor secundario deja de responder como autoritativo.</li>
          604800 ; time_to_expire: 1 semana
          86400 ) ; ttl_minimo: 1 dia
 
-; Configurar como autoritativo a ns1.midominio.test y ns2.midominio.test
+; Configurar como autoritativo a ns1.midominio.com y ns2.midominio.com
 @ IN NS ns1
 @ IN NS ns2
 
-; Especificar IP de ns1.midominio.test y ns2.midominio.test
+; Especificar IP de ns1.midominio.com y ns2.midominio.com
 ns1 IN A 10.0.0.10
 ns2 IN A 10.0.0.11
 
-; Especificar IP de host1.midominio.test y host2.midominio.test
+; Especificar IP de host1.midominio.com y host2.midominio.com
 host1 IN A 10.0.0.100
 host2 IN A 10.0.0.101
 </pre></div>
 </div>
 <p>Para comprobar los archivos usar <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">named-checkconf</span></code> y <code class="docutils literal notranslate"><span class="pre">sudo</span>
-<span class="pre">named-checkzone</span> <span class="pre">/etc/bind/db.midominio.test</span></code>, después reiniciar el
+<span class="pre">named-checkzone</span> <span class="pre">/etc/bind/db.midominio.com</span></code>, después reiniciar el
 servidor con <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">bind9</span> <span class="pre">restart</span></code>.</p>
 <p>Si se quiere delegar un subdominio, hay que simplemente agregar un record <em>NS</em>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>subdominio IN NS ns1.subdominio
@@ -465,19 +475,19 @@ ns2,subdominio IN A 20.0.0.11
 <h2>Secundario<a class="headerlink" href="#secundario" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se debe indicar el dominio a administrar en <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf.local</span></code>, se
 debe indicar ahí cuál va a ser el archivo que va ser la base de datos de
-registros, en este caso voy a administrar <code class="docutils literal notranslate"><span class="pre">midominio.test</span></code>, por lo tanto la
-convención es poner los registros en <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.test</span></code>.</p>
+registros, en este caso voy a administrar <code class="docutils literal notranslate"><span class="pre">midominio.com</span></code>, por lo tanto la
+convención es poner los registros en <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.com</span></code>.</p>
 <p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf.local</span></code> quedaría:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;midominio.test&quot; {
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;midominio.com&quot; {
   type slave;
-  file &quot;/etc/bind/db.midominio.test&quot;;
+  file &quot;/etc/bind/db.midominio.com&quot;;
   masters {
     10.0.0.10;
   };
 };
 </pre></div>
 </div>
-<p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.test</span></code> va a llevar los registros traídos del
+<p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.com</span></code> va a llevar los registros traídos del
 servidor maestro indicado en <code class="docutils literal notranslate"><span class="pre">masters</span></code>.</p>
 </div>
 </div>

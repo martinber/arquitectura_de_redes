@@ -1,6 +1,9 @@
 Teoría
 ======
 
+Principal
+---------
+
 .. toctree::
    general
    ethernet
@@ -9,24 +12,35 @@ Teoría
    icmpv4
    nat
    dhcp
-   hdlc
-   ppp
-   pppoe
    vlan
    ipv6
    icmpv6
-   6to4
+   tcp
+   udp
+
+WAN y ruteo
+-----------
+
+.. toctree::
+   hdlc
+   ppp
+   pppoe
    rip
    ospf
    igrp
    bgp
    mpls
-   tcp
-   udp
+
+Capa aplicación y otros
+-----------------------
+
+.. toctree::
+   6to4
    dns
    mail
    ftp
    http
+   voip
    seguridad
    gestion
    gns3

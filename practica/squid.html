@@ -182,9 +182,12 @@ primeros comentarios de ese archivo porque explica un poco la estructura.</p>
 <p>Cada opción de configuración tiene un nombre o <em>KEY</em>, por lo tanto para buscar
 de opción en opción usar <code class="docutils literal notranslate"><span class="pre">#</span>&#160; <span class="pre">KEY</span></code>, o para buscar una opción específica buscar
 por ejemplo <code class="docutils literal notranslate"><span class="pre">KEY:</span> <span class="pre">request_timeout</span></code>.</p>
-<p>Para iniciar, reiniciar el servidor usar:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo service squid start
-sudo service squid restart
+<p>Para iniciar/parar el servidor:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>service squid status
+service squid start
+service squid stop
+service squid restart
+service squid reload
 </pre></div>
 </div>
 <div class="section" id="configuracion-general">

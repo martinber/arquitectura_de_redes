@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>UDP &mdash; documentación de Arquitectura de Redes - </title>
+  <title>VOIP &mdash; documentación de Arquitectura de Redes - </title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="HDLC" href="hdlc.html" />
-    <link rel="prev" title="TCP" href="tcp.html" /> 
+    <link rel="next" title="Seguridad" href="seguridad.html" />
+    <link rel="prev" title="HTTP" href="http.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -80,23 +80,21 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Teoría</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#principal">Principal</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ethernet.html">Ethernet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="arp.html">ARP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ipv4.html">IPv4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="icmpv4.html">ICMPv4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="nat.html">NAT</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dhcp.html">DHCP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlan.html">VLAN</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ipv6.html">IPv6</a></li>
-<li class="toctree-l3"><a class="reference internal" href="icmpv6.html">ICMPv6</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tcp.html">TCP</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#principal">Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#wan-y-ruteo">WAN y ruteo</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#capa-aplicacion-y-otros">Capa aplicación y otros</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="6to4.html">6to4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mail.html">Mail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ftp.html">FTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html">HTTP</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">VOIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gns3.html">GNS3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#wan-y-ruteo">WAN y ruteo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#capa-aplicacion-y-otros">Capa aplicación y otros</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../practica/index.html">Práctica</a></li>
@@ -147,13 +145,13 @@
         
           <li><a href="index.html">Teoría</a> &raquo;</li>
         
-      <li>UDP</li>
+      <li>VOIP</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/teoria/udp.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/teoria/voip.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -166,9 +164,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="udp">
-<h1>UDP<a class="headerlink" href="#udp" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>User Datagram Protocol.</p>
+  <div class="section" id="voip">
+<h1>VOIP<a class="headerlink" href="#voip" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Hacer</p>
@@ -183,10 +180,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hdlc.html" class="btn btn-neutral float-right" title="HDLC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="seguridad.html" class="btn btn-neutral float-right" title="Seguridad" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tcp.html" class="btn btn-neutral" title="TCP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="http.html" class="btn btn-neutral" title="HTTP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

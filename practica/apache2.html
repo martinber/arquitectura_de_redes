@@ -84,11 +84,17 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#comandos">Comandos</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#servidores">Servidores</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="bind.html">BIND</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Apache2</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Apache2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuracion-general">Configuración general</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sitio-web-estatico">Sitio web estático</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#problemas-que-tuve">Problemas que tuve</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="squid.html">Squid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="asterix.html">Asterix</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#varios">Varios</a></li>
 </ul>
 </li>
 </ul>
@@ -159,9 +165,134 @@
             
   <div class="section" id="apache2">
 <h1>Apache2<a class="headerlink" href="#apache2" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
+<p>Para iniciar/parar el servidor:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>service apache2 status
+service apache2 start
+service apache2 stop
+service apache2 restart
+service apache2 reload
+</pre></div>
+</div>
+<div class="section" id="configuracion-general">
+<h2>Configuración general<a class="headerlink" href="#configuracion-general" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Conozco solamente la estructura de archivos de configuración que usa Debian,
+puede ser un poco distinto a otras distribuciones:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/apache2.conf</span></code>: Es el archivo de configuración general. No se
+debería tocar en lo posible.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/ports.conf</span></code>: Está incluido desde el archivo de configuración
+general, permite configurar los puertos desde donde escuchar.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/envvars</span></code>: Tiene variables de entorno que se pueden usar en la
+configuración.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/magic</span></code>: Patrones para mod_mime_magic. No se que significa.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-available/*.conf</span></code>: Contiene un archivo para cada sitio
+web que está disponible, estos son los archivos que vamos a configurar
+nosotros. De por sí estos archivos no son usados hasta que no sean
+habilitados.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-enabled/*.conf</span></code>: Contiene enlaces simbólicos a cada
+archivo de configuración presente en <code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-available</span></code> que
+queremos habilitar. Todo lo que esté acá sí será leído por Apache.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-available/*.conf</span></code>: En esta carpeta se pueden poner
+archivos de configuración que cumplen una función específica. Por defecto no
+son leídos.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-enabled/*.conf</span></code>: Contiene symlinks a las configuraciones
+habilitadas presentes en <code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-available/</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/mods-available/*.conf</span></code>: Módulos disponibles.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/mods-enabled/*.conf</span></code>: Módulos habilitados.</li>
+</ul>
+<p>Para hacer symlinks de una configuración desde un <em>-available</em> a un <em>-enabled</em>
+no se suele usar el comando <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span></code> sino unos comandos específicos:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">a2ensite</span></code> y <code class="docutils literal notranslate"><span class="pre">a2dissite</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">a2enconf</span></code> y <code class="docutils literal notranslate"><span class="pre">a2disconf</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">a2enmod</span></code> y <code class="docutils literal notranslate"><span class="pre">a2dismod</span></code>.</li>
+</ul>
+<p>Al ejecutar el comando se le debe dar como argumento el nombre del archivo de
+configuración sin incluir la extensión <code class="docutils literal notranslate"><span class="pre">.conf</span></code>.</p>
+<p>Todo lo que expliqué hasta ahora son los archivos de configuración, los cuales
+están presentes en <code class="docutils literal notranslate"><span class="pre">/etc/apache2</span></code>. Los sitios web en sí (es decir, los
+archivos HTML, CSS, etc.) están ubicados en <code class="docutils literal notranslate"><span class="pre">/var/www</span></code>.</p>
+</div>
+<div class="section" id="sitio-web-estatico">
+<h2>Sitio web estático<a class="headerlink" href="#sitio-web-estatico" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Voy a hacer 2 sitios, <code class="docutils literal notranslate"><span class="pre">sitio1.com</span></code> y <code class="docutils literal notranslate"><span class="pre">sitio2.com</span></code>. Primero hay que
+deshabilitar los sitios habilitados, para ver los sitios habilitados:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls /etc/apache2/sites-enabled/
+</pre></div>
+</div>
+<p>En mi caso el único habilitado era <code class="docutils literal notranslate"><span class="pre">000-default.conf</span></code>, deshabilitar uno a
+uno:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo a2dissite 000-default
+</pre></div>
+</div>
+<p>Ahora crear configuración de los dos sitios en <code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-available</span></code>
+copiando la configuración de un sitio ya existente:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/sitio1.com.conf
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/sitio2.com.conf
+</pre></div>
+</div>
+<p>Después hay que configurar cada uno, este es un ejemplo de configuración para
+<code class="docutils literal notranslate"><span class="pre">sitio1.com.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
+    ServerName sitio1.com
+    ServerAlias www.sitio1.com
+
+    DocumentRoot /var/www/sitio1
+    DocumentIndex index.html
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+</pre></div>
+</div>
+<p>La configuración indica que:</p>
+<ul class="simple">
+<li>El sitio responde peticiones hacia <code class="docutils literal notranslate"><span class="pre">sitio1.com</span></code> o <code class="docutils literal notranslate"><span class="pre">www.sitio1.com</span></code>.</li>
+<li>Sirve los archivos presentes en <code class="docutils literal notranslate"><span class="pre">/var/www/sitio/</span></code>.</li>
+<li>Por defecto sirve el archivo <code class="docutils literal notranslate"><span class="pre">/var/www/sitio1/index.html</span></code>. Vendría a ser la
+página principal.</li>
+<li>Los logs se guardan en <code class="docutils literal notranslate"><span class="pre">/var/log/apache2/error.log</span></code> y
+<code class="docutils literal notranslate"><span class="pre">/var/log/apache2/access.log</span></code>.</li>
+</ul>
+<p>Finalmente hay que poner los archivos del sitio web (HTML, CSS, JS, etc.) en el
+directorio especificado en la configuración. Debería quedar al menos esta
+estructura de archivos en <code class="docutils literal notranslate"><span class="pre">/var/www</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/var/www
+├── sitio1
+│   └── index.html
+└── sitio2
+    └── index.html
+</pre></div>
+</div>
+<p>Habilitar los dos sitios, verificar que la configuración es correcta y reiniciar
+el servidor:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo a2ensite sitio1.com
+sudo a2ensite sitio2.com
+sudo apache2ctl configtest
+sudo service apache2 reload
+</pre></div>
+</div>
+<p>Si no se tiene un DNS para probar a acceder a los dos sitios, se puede modificar
+<code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> en la PC que realiza las peticiones. Si la IP del servidor web es
+<code class="docutils literal notranslate"><span class="pre">172.17.1.1</span></code> quedaría:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>172.17.1.1    www.sitio1.com sitio1.com
+172.17.1.1    www.sitio2.com sitio2.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="problemas-que-tuve">
+<h2>Problemas que tuve<a class="headerlink" href="#problemas-que-tuve" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Por alguna razón, luego de deshabilitar todos los sitios web y después de
+reiniciar el servidor, la página web por defecto ubicada en <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code>
+seguía siendo servida. Leí por ahí que a veces se soluciona reiniciando la PC
+pero no me funcionó. La respuesta en la que confío es en <a class="reference external" href="https://askubuntu.com/a/846654">esta</a>:
+<code class="docutils literal notranslate"><span class="pre">DocumentRoot</span></code> tiene un valor que es usado por defecto, incluso cuando no
+hay sitios web habilitados. La solución es siempre tener un sitio web
+habilitado.</li>
+<li>Siempre reniego con los cachés de los navegadores, usar <em>Ctrl-F5</em> para
+recargar sin caché.</li>
+</ul>
 </div>
 </div>
 
