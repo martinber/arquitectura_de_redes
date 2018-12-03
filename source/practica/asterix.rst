@@ -3,6 +3,14 @@ Asterix
 
 .. todo:: Hacer
 
+Para iniciar/parar el servidor::
+
+  service asterix status
+  service asterix start
+  service asterix stop
+  service asterix restart
+  service asterix reload
+
 Los usuarios pueden estar en más de un contexto al mismo tiempo.
 
 Tipos de usuario
