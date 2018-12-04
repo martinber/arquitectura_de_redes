@@ -1,13 +1,7 @@
 Linux
 =====
 
-.. toctree::
-   bind
-
-Básico
-------
-
-.. note:: Está la guía de comandos para Linux.
+Los comandos mas básicos están en :doc:`linux_basico`.
 
 ARP
 ---

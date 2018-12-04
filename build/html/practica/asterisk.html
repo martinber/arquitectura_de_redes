@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Asterisk &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Gestion" href="gestion.html" />
+    <link rel="prev" title="Squid" href="squid.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../teoria/index.html">Teoría</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Práctica</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#comandos">Comandos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#servidores">Servidores</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bind.html">BIND</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apache2.html">Apache2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="squid.html">Squid</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Asterisk</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tipos-de-usuario">Tipos de usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#otras-opciones-para-el-usuario">Otras opciones para el usuario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuracion">Configuración</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#varios">Varios</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Práctica</a> &raquo;</li>
+        
+      <li>Asterisk</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/practica/asterisk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="asterisk">
+<h1>Asterisk<a class="headerlink" href="#asterisk" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p>Para iniciar/parar el servidor:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>service asterisk status
+service asterisk start
+service asterisk stop
+service asterisk restart
+service asterisk reload
+</pre></div>
+</div>
+<div class="section" id="tipos-de-usuario">
+<h2>Tipos de usuario<a class="headerlink" href="#tipos-de-usuario" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>user: Solo llamadas salientes</li>
+<li>peer: Solo llamadas entrantes</li>
+<li>friend: Entradas salientes y entrantes</li>
+</ul>
+</div>
+<div class="section" id="otras-opciones-para-el-usuario">
+<h2>Otras opciones para el usuario<a class="headerlink" href="#otras-opciones-para-el-usuario" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">canreinvite</span></code>: Permite que las conexiones RTP de audio ocurran punto a punto
+entre los usuarios, si se desactiva pasan por el servidor, si se activa
+generalmente va por el servidor pero generalmente va punto a punto.</li>
+<li><code class="docutils literal notranslate"><span class="pre">qualify</span></code>: Algo del retardo, no se.</li>
+<li><code class="docutils literal notranslate"><span class="pre">nat</span></code>: Indica si el usuario esta atrás de un NAT.</li>
+</ul>
+</div>
+<div class="section" id="configuracion">
+<h2>Configuración<a class="headerlink" href="#configuracion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Tiene un montón de archivos de configuración en <code class="docutils literal notranslate"><span class="pre">/etc/asterisk</span></code>. Los que más
+importan me parece que son:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/etc/asterisk/asterisk.conf</span></code>: Es el archivo principal pero no tiene nada
+interesante.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/asterisk/extensions.conf</span></code>: Establece cómo serán manejadas y ruteadas
+las llamadas entrantes y salientes.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/asterisk/sip.conf</span></code>: Configuración para los canales SIP.</li>
+</ul>
+<div class="section" id="extensions-conf">
+<h3>extensions.conf<a class="headerlink" href="#extensions-conf" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Este archivo establece cómo serán manejadas y ruteadas las llamadas entrantes y
+salientes. Es muy largo, tiene varias secciones:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">[general]</span></code>: Define algunas opciones generales.</li>
+<li><code class="docutils literal notranslate"><span class="pre">[globals]</span></code>: Acá se pueden definiar variables globales que se podrán usar en
+otros contextos.</li>
+<li>Las demás secciones son contextos, llevan el nombre entre corchetes.</li>
+</ul>
+<p>Hay varias definiciones:</p>
+<ul class="simple">
+<li>Dialplan: Es el conjunto de contextos.</li>
+<li>Contexto: Permite separar funcionalidades, cada contexto tiene extensiones.</li>
+<li>Extensión: Es un conjunto de aplicaciones que se ejecutarán cuando el número
+de esa extensión es marcado.</li>
+<li>Aplicación: Es una acción.</li>
+</ul>
+<p>Los usuarios se colocan en contextos (puede que en más de un contexto al mismo
+tiempo), y los contextos pueden incluir a otros contextos.</p>
+<p>La sintaxis de la extensión es simple pero se complejiza cuando se empiezan a
+usar variables y ese tipo de cosas, pongo solamente la sintaxis general junto
+con un ejemplo que llama al número 1234 cuando se marca 5000:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>exten =&gt; number,priority,application([parameter[,parameter2...]])
+exten =&gt; 5000,1,Dial(SIP/1234,20)
+</pre></div>
+</div>
+<p>Una configuración normal sería la que pongo ahora:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[general]
+; por razones de seguridad
+static = yes
+writeprotect = yes
+comandos.
+
+[default]
+; poner un echotest al llamar al numero 999
+exten =&gt; 999,1,Answer()
+exten =&gt; 999,2,Playback(demo-echotest)
+exten =&gt; 999,3,Echo()
+exten =&gt; 999,4,Playback(demo-echodone)
+exten =&gt; 999,5,Hangup()
+
+[internos]
+; incluir al contexto default y permitir llamar a numeros que sean 1XX.
+include =&gt; default
+exten =&gt; _1XX,1,Dial(SIP/${EXTEN},30,Ttm)
+exten =&gt; _1XX,n,Hangup()
+</pre></div>
+</div>
+</div>
+<div class="section" id="sip-conf">
+<h3>sip.conf<a class="headerlink" href="#sip-conf" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Este archivo configura los canales SIP. Lo que nos interesa es registrar acá a
+todos los usuarios. La sección <code class="docutils literal notranslate"><span class="pre">[general]</span></code> se aplica a todos los usuarios,
+luego se pueden hacer templates para usuarios similares:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[general]
+context=default
+udpbindaddr=0.0.0.0:5060 ; Escuchar en todas las IP, puerto 5060
+tcpbindaddr=0.0.0.0:5060 ; Escuchar en todas las IP, puerto 5060
+tcpenable=no
+transport=udp ; Transporte por defecto
+srvlookup=yes
+
+[estandar](!)
+type=friend
+context=internos
+disallow=all ; Deshabilitar todos los codecs
+allow=ulaw ; Habilitar codec
+allow=gsm
+host=dynamic ; IP dinamica
+canreinvite=no ; Impide a los usuarios hacer conexiones RTP punto a punto sin
+               ; pasar por el servidor
+qualify=300 ; Cortar si la latencia es mayor a 300ms
+nat=no ; No dar tratamiento especial para nat, puede que funcione igual
+
+[101](estandar)
+callerid=Martin &lt;101&gt;
+secret=password101
+
+[102](estandar)
+callerid=Juan &lt;102&gt;
+secret=password102
+
+[103](estandar)
+callerid=Francisco &lt;103&gt;
+secret=password103
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gestion.html" class="btn btn-neutral float-right" title="Gestion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="squid.html" class="btn btn-neutral" title="Squid" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martín Bernardi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

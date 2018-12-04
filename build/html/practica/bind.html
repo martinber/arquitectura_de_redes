@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Cisco" href="cisco.html" />
-    <link rel="prev" title="Linux" href="linux.html" /> 
+    <link rel="next" title="Apache2" href="apache2.html" />
+    <link rel="prev" title="Mikrotik" href="mikrotik.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -81,24 +81,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../teoria/index.html">Teoría</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Práctica</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#comandos">Comandos</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="linux.html">Linux</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">BIND</a></li>
-<li class="toctree-l4"><a class="reference internal" href="linux.html#basico">Básico</a></li>
-<li class="toctree-l4"><a class="reference internal" href="linux.html#arp">ARP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="linux.html#nat">NAT</a></li>
-<li class="toctree-l4"><a class="reference internal" href="linux.html#servidor-dhcp">Servidor DHCP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="linux.html#cliente-dhcp">Cliente DHCP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="linux.html#servidor-pppoe">Servidor PPPoE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="linux.html#cliente-pppoe">Cliente PPPoE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="linux.html#ipv6">IPv6</a></li>
-<li class="toctree-l4"><a class="reference internal" href="linux.html#iptables">iptables</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cisco.html">Cisco</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mikrotik.html">Mikrotik</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#comandos">Comandos</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#servidores">Servidores</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">BIND</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
@@ -109,7 +92,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="apache2.html">Apache2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="squid.html">Squid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="asterix.html">Asterix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asterisk.html">Asterisk</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#varios">Varios</a></li>
@@ -161,8 +144,6 @@
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
           <li><a href="index.html">Práctica</a> &raquo;</li>
-        
-          <li><a href="linux.html">Linux</a> &raquo;</li>
         
       <li>BIND</li>
     
@@ -476,19 +457,21 @@ ns2,subdominio IN A 20.0.0.11
 <p>Se debe indicar el dominio a administrar en <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf.local</span></code>, se
 debe indicar ahí cuál va a ser el archivo que va ser la base de datos de
 registros, en este caso voy a administrar <code class="docutils literal notranslate"><span class="pre">midominio.com</span></code>, por lo tanto la
-convención es poner los registros en <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.com</span></code>.</p>
+convención es poner los registros en <code class="docutils literal notranslate"><span class="pre">/var/lib/bind/db.midominio.com</span></code>. Se pone
+en <code class="docutils literal notranslate"><span class="pre">/var/lib/bind</span></code> en lugar de <code class="docutils literal notranslate"><span class="pre">/etc/bind</span></code> ya que de otra forma BIND no
+tiene permisos para guardar el archivo.</p>
 <p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf.local</span></code> quedaría:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;midominio.com&quot; {
   type slave;
-  file &quot;/etc/bind/db.midominio.com&quot;;
+  file &quot;/var/lib/bind/db.midominio.com&quot;;
   masters {
     10.0.0.10;
   };
 };
 </pre></div>
 </div>
-<p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/bind/db.midominio.com</span></code> va a llevar los registros traídos del
-servidor maestro indicado en <code class="docutils literal notranslate"><span class="pre">masters</span></code>.</p>
+<p>El archivo <code class="docutils literal notranslate"><span class="pre">/var/lib/bind/db.midominio.com</span></code> va a llevar los registros traídos
+del servidor maestro indicado en <code class="docutils literal notranslate"><span class="pre">masters</span></code>.</p>
 </div>
 </div>
 
@@ -500,10 +483,10 @@ servidor maestro indicado en <code class="docutils literal notranslate"><span cl
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cisco.html" class="btn btn-neutral float-right" title="Cisco" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="apache2.html" class="btn btn-neutral float-right" title="Apache2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="linux.html" class="btn btn-neutral" title="Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mikrotik.html" class="btn btn-neutral" title="Mikrotik" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

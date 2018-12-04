@@ -297,17 +297,19 @@ Secundario
 Se debe indicar el dominio a administrar en ``/etc/bind/named.conf.local``, se
 debe indicar ahí cuál va a ser el archivo que va ser la base de datos de
 registros, en este caso voy a administrar ``midominio.com``, por lo tanto la
-convención es poner los registros en ``/etc/bind/db.midominio.com``.
+convención es poner los registros en ``/var/lib/bind/db.midominio.com``. Se pone
+en ``/var/lib/bind`` en lugar de ``/etc/bind`` ya que de otra forma BIND no
+tiene permisos para guardar el archivo.
 
 El archivo ``/etc/bind/named.conf.local`` quedaría::
 
   zone "midominio.com" {
     type slave;
-    file "/etc/bind/db.midominio.com";
+    file "/var/lib/bind/db.midominio.com";
     masters {
       10.0.0.10;
     };
   };
 
-El archivo ``/etc/bind/db.midominio.com`` va a llevar los registros traídos del
-servidor maestro indicado en ``masters``.
+El archivo ``/var/lib/bind/db.midominio.com`` va a llevar los registros traídos
+del servidor maestro indicado en ``masters``.

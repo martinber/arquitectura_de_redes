@@ -192,6 +192,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="practica/index.html">Práctica</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="practica/index.html#comandos">Comandos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="practica/linux_basico.html">Linux básico</a></li>
 <li class="toctree-l3"><a class="reference internal" href="practica/linux.html">Linux</a></li>
 <li class="toctree-l3"><a class="reference internal" href="practica/cisco.html">Cisco</a></li>
 <li class="toctree-l3"><a class="reference internal" href="practica/mikrotik.html">Mikrotik</a></li>
@@ -201,7 +202,7 @@
 <li class="toctree-l3"><a class="reference internal" href="practica/bind.html">BIND</a></li>
 <li class="toctree-l3"><a class="reference internal" href="practica/apache2.html">Apache2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="practica/squid.html">Squid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="practica/asterix.html">Asterix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="practica/asterisk.html">Asterisk</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="practica/index.html#varios">Varios</a><ul>
@@ -214,24 +215,6 @@
 </div>
 <div class="section" id="para-hacer">
 <h2>Para hacer<a class="headerlink" href="#para-hacer" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="practica/asterix.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/asterix.rst, línea 4.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="practica/bind.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/bind.rst, línea 4.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
-<ul class="last simple">
-<li>Agregar DNS reverso.</li>
-<li>Aprender bien la diferencia entre zona, dominio y nombre y arreglar esto.</li>
-</ul>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="practica/bind.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/bind.rst, línea 288.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">VLAN Trunking protocol (VTP) es un protocolo propietario de cisco que tiene 3
@@ -257,20 +240,15 @@ protocolares y switchearlos.</p>
 <p class="todo-source">(La  <a class="reference internal" href="practica/gestion.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/gestion.rst, línea 52.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
-<p class="last">Pasar a otras paginas</p>
-</div>
-<p class="todo-source">(La  <a class="reference internal" href="practica/index.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/index.rst, línea 24.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Por hacer</p>
 <p class="last">Ver si eso de dar la interfaz pasa por algo de linux o porque ipc6
 funciona asi</p>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="practica/linux.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/linux.rst, línea 144.)</p>
+<p class="todo-source">(La  <a class="reference internal" href="practica/linux.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/linux.rst, línea 138.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Hacer</p>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="practica/linux.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/linux.rst, línea 150.)</p>
+<p class="todo-source">(La  <a class="reference internal" href="practica/linux.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/linux.rst, línea 144.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Hacer</p>
@@ -384,9 +362,19 @@ IPV6.</p>
 <p class="todo-source">(La  <a class="reference internal" href="teoria/http.html#index-4"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/http.rst, línea 68.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
+<p class="last">Explicar en forma general que es HTTPS, TLS, SSL, etc.</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/http.html#index-5"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/http.rst, línea 85.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
 <p class="last">Buscar sobre la aquitectura multinivel</p>
 </div>
-<p class="todo-source">(La  <a class="reference internal" href="teoria/http.html#index-5"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/http.rst, línea 109.)</p>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/http.html#index-6"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/http.rst, línea 118.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Leer un poco más sobre CAs.</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="teoria/http.html#index-7"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/http.rst, línea 148.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Buscar sobre ICMP Redirect. Creo que un router informa a un host de
@@ -466,6 +454,33 @@ MAC, aleatorio, dhcp o manual</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Hacer</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="practica/asterisk.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/asterisk.rst, línea 4.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Hacer</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="practica/bind.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/bind.rst, línea 4.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<ul class="last simple">
+<li>Agregar DNS reverso.</li>
+<li>Aprender bien la diferencia entre zona, dominio y nombre y arreglar esto.</li>
+</ul>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="practica/bind.html#index-1"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/bind.rst, línea 288.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Pasar a otras paginas</p>
+</div>
+<p class="todo-source">(La  <a class="reference internal" href="practica/index.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/practica/index.rst, línea 25.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Por hacer</p>
+<ul class="last simple">
+<li>Hacer</li>
+<li>Explicar un poquito de SIP y RTP</li>
+<li>Buscar que es PBX, RTB</li>
+</ul>
 </div>
 <p class="todo-source">(La  <a class="reference internal" href="teoria/voip.html#index-0"><em>entrada original</em></a> se encuentra en /media/mbernardi/datos/Documentos/repos/html/arquitectura_de_redes/source/teoria/voip.rst, línea 4.)</p>
 </div>

@@ -91,7 +91,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#versiones">Versiones</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#requests">Requests</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#codigos-de-estado">Códigos de estado</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#proxy-http">Proxy HTTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#https">HTTPS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proxy">Proxy</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="voip.html">VOIP</a></li>
@@ -247,8 +248,20 @@ POST, DELETE, etc.</p>
 <li>Server Error: 5XX</li>
 </ul>
 </div>
-<div class="section" id="proxy-http">
-<h2>Proxy HTTP<a class="headerlink" href="#proxy-http" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="https">
+<h2>HTTPS<a class="headerlink" href="#https" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">No tengo mucha idea sobre esto así que a lo mejor le pifio en algo.</p>
+</div>
+<div class="admonition-todo admonition" id="index-5">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Explicar en forma general que es HTTPS, TLS, SSL, etc.</p>
+</div>
+</div>
+<div class="section" id="proxy">
+<h2>Proxy<a class="headerlink" href="#proxy" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Voy a hablar sobre proxy centrandome en el servidor Squid, pero hay más.</p>
 <div class="section" id="tipos">
 <h3>Tipos<a class="headerlink" href="#tipos" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
@@ -271,10 +284,54 @@ apunta al DNS para que las consultas de los clientes vayan al proxy. De esta
 forma el proxy permite mejorar el rendimiento de un servidor web lento gracias
 a los cachés.</li>
 </ul>
-<div class="admonition-todo admonition" id="index-5">
+<div class="admonition-todo admonition" id="index-6">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Buscar sobre la aquitectura multinivel</p>
 </div>
+</div>
+<div class="section" id="proxy-https">
+<h3>Proxy HTTPS<a class="headerlink" href="#proxy-https" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">No tengo mucha idea, esto es lo que leí por ahí. Pongo las
+referencias a todo lo que pueda.</p>
+</div>
+<p>Como la comunicación es punto a punto no se puede descifrar la información, pero
+sí se puede hacer de túnel por donde pasarán las comunicaciones cifradas. Para
+el proxy el tráfico no es más que una conexión TCP, y no puede obtener ningún
+tipo de información. Esto se llama <a class="reference external" href="https://en.wikipedia.org/wiki/HTTP_tunnel">túnel CONNECT</a>.</p>
+<p>Como el tráfico es simplemente una conexión TCP, el proxy no tiene forma de
+saber si es realmente tráfico HTTPS o una conexión TCP cualquiera. Por eso Squid
+usa la directiva <code class="docutils literal notranslate"><span class="pre">deny</span> <span class="pre">CONNECT</span> <span class="pre">!SSL_Ports</span></code> que impide túneles <em>CONNECT</em> en
+puertos que no sean específicos de SSL (<a class="reference external" href="https://wiki.squid-cache.org/Features/HTTPS">ver acá</a>).</p>
+<p>Si uno quiere realmente descifrar tráfico HTTPS tiene que hacer una conexión
+cifrada entre el proxy y el servidor web y otra entre el proxy y el cliente. La
+conexión entre el proxy y el servidor web no es un problema, ya que el servidor
+web ve al proxy como un cliente más. El problema está en que el cliente no se
+debe dar cuenta de que está conectándose al proxy en vez del servidor web, por
+lo tanto el proxy debe crear un certificado temporal generado dinámicamente para
+cada conexión en particular. Esto se llama ataque <em>Man-in-the-middle</em>.</p>
+<div class="admonition-todo admonition" id="index-7">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Leer un poco más sobre CAs.</p>
+</div>
+<p>Cuando uno se conecta a una página web con HTTPS, obtiene un certificado firmado
+por un <em>Certificate Authority</em> (<em>CA</em>) que es una organización confiable, la
+lista de organizaciones confiables es seleccionada por Google/Mozilla ya que
+viene dentro del navegador. Cuando uno solicita un certificado, el <em>CA</em> se
+asegura de que uno realmente tiene posesión del sitio por el cual uno solicita
+el certificado, esta es la razón por la cual no es posible hacer ataques
+<em>Man-in-the-middle</em> y por lo tanto proxies que descifren tráfico HTTPS.</p>
+<p>Una alternativa es crear certificados que no están firmados por una <em>CA</em>, estos
+certificados se llaman <em>self-signed</em> ya que están cifrados por nosotros mismos.
+El problema con estos certificados es que los navegadores no confían en ellos y
+al conectarse muestran una pantalla roja de advertencia. Para eliminar esto uno
+debe configurar el navegador de cada cliente para que confíe en nuestros
+certificados.</p>
+<p><a class="reference external" href="https://wiki.squid-cache.org/ConfigExamples/Intercept/SslBumpExplicit">Como dice la documentación de Squid</a> no es imposible de que un <em>CA</em> otorgue
+permisos para generar certificados firmados a discreción, pero esto puede llevar
+a que los navegadores dejen de confiar en estos <em>CAs</em> <a class="reference external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=724929">como pasó</a> <a class="reference external" href="https://www.computerworld.com/article/2501291/internet/trustwave-admits-issuing-man-in-the-middle-digital-certificate--mozilla-debates-punishment.html">con
+Trustwave</a>.</p>
 </div>
 </div>
 </div>

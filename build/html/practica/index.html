@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Linux" href="linux.html" />
+    <link rel="next" title="Linux básico" href="linux_basico.html" />
     <link rel="prev" title="Wireshark" href="../teoria/wireshark.html" /> 
 
   
@@ -82,6 +82,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../teoria/index.html">Teoría</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Práctica</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#comandos">Comandos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux_basico.html">Linux básico</a></li>
 <li class="toctree-l3"><a class="reference internal" href="linux.html">Linux</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cisco.html">Cisco</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mikrotik.html">Mikrotik</a></li>
@@ -91,7 +92,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bind.html">BIND</a></li>
 <li class="toctree-l3"><a class="reference internal" href="apache2.html">Apache2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="squid.html">Squid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="asterix.html">Asterix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asterisk.html">Asterisk</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#varios">Varios</a><ul>
@@ -170,18 +171,24 @@
 <h2>Comandos<a class="headerlink" href="#comandos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="linux_basico.html">Linux básico</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux_basico.html#varios">Varios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux_basico.html#sobre-el-comando-ip">Sobre el comando ip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux_basico.html#sobre-etc-network-interfaces">Sobre /etc/network/interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux_basico.html#sobre-la-nueva-nomenclatura-de-las-interfaces">Sobre la nueva nomenclatura de las interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linux_basico.html#ip-link">ip link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux_basico.html#ip-address">ip address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux_basico.html#ip-route">ip route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux_basico.html#dhclient">dhclient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux_basico.html#etc-network-interfaces">/etc/network/interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux_basico.html#etc-resolv-conf">/etc/resolv.conf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux_basico.html#iw">iw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux_basico.html#wpa-supplicant">wpa_supplicant</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bind.html">BIND</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bind.html#general">General</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bind.html#cache">Cache</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bind.html#primario">Primario</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="bind.html#archivo-de-registros">Archivo de registros</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="bind.html#secundario">Secundario</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="linux.html#basico">Básico</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linux.html#arp">ARP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linux.html#nat">NAT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linux.html#servidor-dhcp">Servidor DHCP</a></li>
@@ -272,9 +279,14 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="asterix.html">Asterix</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="asterix.html#tipos-de-usuario">Tipos de usuario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="asterix.html#otras-opciones-para-el-usuario">Otras opciones para el usuario</a></li>
+<li class="toctree-l1"><a class="reference internal" href="asterisk.html">Asterisk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="asterisk.html#tipos-de-usuario">Tipos de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asterisk.html#otras-opciones-para-el-usuario">Otras opciones para el usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asterisk.html#configuracion">Configuración</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="asterisk.html#extensions-conf">extensions.conf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asterisk.html#sip-conf">sip.conf</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -307,7 +319,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="linux.html" class="btn btn-neutral float-right" title="Linux" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="linux_basico.html" class="btn btn-neutral float-right" title="Linux básico" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../teoria/wireshark.html" class="btn btn-neutral" title="Wireshark" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

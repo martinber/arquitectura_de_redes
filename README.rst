@@ -27,3 +27,9 @@ Para exportar::
   make pdf
 
 Lo exportado está en la carpeta ``build``.
+
+Para hacer build y push a GitHub::
+
+  make html
+  make pdf
+  git subtree push --prefix build/html origin gh-pages

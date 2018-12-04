@@ -5,6 +5,7 @@ Comandos
 --------
 
 .. toctree::
+   linux_basico
    linux
    cisco
    mikrotik
@@ -16,7 +17,7 @@ Servidores
    bind
    apache2
    squid
-   asterix
+   asterisk
 
 Varios
 ------
