@@ -24,7 +24,12 @@ Ver tabla::
 
 Agregar regla con IP de salida::
 
-  iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to {IP salida}
+  iptables -t nat -A POSTROUTING -o {interfaz WAN} -j SNAT --to {IP salida}
+
+Si la IP no es estática se puede usar ``MASQUERADE`` que chequea la IP de salida
+pero es más lento::
+
+  iptables -t nat -A POSTROUTING -o {interfaz WAN} -j MASQUERADE
 
 Servidor DHCP
 -------------
@@ -142,3 +147,23 @@ iptables
 --------
 
 .. todo:: Hacer
+
+Además de ver ``man iptables`` habría que ver ``iptables-extensions`` porque
+tiene más opciones, por ejemplo ``--destination-port``.
+
+Sino se puede usar por ejemplo ``iptables -p tcp --help``.
+
+Algunos ejemplos::
+
+  iptables -t filter -F FORWARD
+  iptables -t filter -F INPUT
+
+  iptables -t filter -A FORWARD -s 10.0.0.2/32 -d 10.1.0.2/32 -p icmp -j ACCEPT
+  iptables -t filter -A FORWARD -s 10.1.0.0/16 -p tcp --destination-port 80 -j DROP
+  iptables -t filter -A FORWARD -o emp2s0 -p tcp --destination-port 80 -j DROP
+  iptables -t filter -A FORWARD -s 10.0.0.2/32 -p icmp -j DROP
+  iptables -t filter -A INPUT -s 10.0.0.2/32 -p icmp -j REJECT
+  iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
+
+  iptables -t filter -L
+

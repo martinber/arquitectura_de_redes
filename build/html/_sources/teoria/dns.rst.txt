@@ -3,8 +3,27 @@ DNS
 
 Domain Name System.
 
-- Traduce entre nombres de dominio e IPs gracias a los servidores de nombres de
-  dominio (*name server*).
+- Definiciones mas o menos porque no la tengo bien clara todavía:
+
+  - *Hostname* o nombre de host: Es un nombre que identifica a un host, por
+    ejemplo ``pc1`` o ``pc1.dominio.com``.
+
+  - *Dominio*: Es un nombre que identifica un espacio de autonomía
+    administrativa, control, etc. Dentro puede tener varios hostnames y varios
+    dominios que se pueden llamar subdominios. Por ejemplo ``dominio`` o
+    ``dominio.com`` o ``subdominio.dominio.com``, se puede decir que
+    ``subdominio.dominio.com`` además de estar en el dominio ``dominio.com``
+    está en el dominio ``com``.
+
+  - *FQDN* (Fully Qualified Domain Name): Es un hostname o dominio nombrado de
+    forma completa, especificando todos los niveles en la jerarquía. Por ejemplo
+    ``dominio.com`` o ``pc1.dominio.com``.
+
+  - *Zona*: Es una zona de autoridad, es un dominio menos todos los subdominios
+    delegados a otros servidores DNS.
+
+- Traduce entre nombres e IPs gracias a los servidores de nombres de dominio
+  (*domain name server*).
 
 - Puerto 53.
 
@@ -69,7 +88,26 @@ Tipos de servidores
 Los servidores raíz (*root name servers*) responden por el dominio raíz y
 responden con los servidores de los TLDs.
 
-.. todo:: Tipos de registros
+Tipos de registros
+------------------
+
+- **A**: 
+
+- **AAAA**:
+
+- **NS**:
+
+- **CNAME**:
+
+- **PTR**:
+
+- **MX**:
+
+- **TXT**:
+
+- **SOA**:
+
+
 
 Tipos de consultas
 ------------------
