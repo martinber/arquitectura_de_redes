@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#header">Header</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#jerarquia">Jerarquía</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tipos-de-servidores">Tipos de servidores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tipos-de-registros">Tipos de registros</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tipos-de-consultas">Tipos de consultas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#glue-records">Glue records</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cacheo">Cacheo</a></li>
@@ -179,8 +180,24 @@
 <h1>DNS<a class="headerlink" href="#dns" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Domain Name System.</p>
 <ul class="simple">
-<li>Traduce entre nombres de dominio e IPs gracias a los servidores de nombres de
-dominio (<em>name server</em>).</li>
+<li>Definiciones mas o menos porque no la tengo bien clara todavía:<ul>
+<li><em>Hostname</em> o nombre de host: Es un nombre que identifica a un host, por
+ejemplo <code class="docutils literal notranslate"><span class="pre">pc1</span></code> o <code class="docutils literal notranslate"><span class="pre">pc1.dominio.com</span></code>.</li>
+<li><em>Dominio</em>: Es un nombre que identifica un espacio de autonomía
+administrativa, control, etc. Dentro puede tener varios hostnames y varios
+dominios que se pueden llamar subdominios. Por ejemplo <code class="docutils literal notranslate"><span class="pre">dominio</span></code> o
+<code class="docutils literal notranslate"><span class="pre">dominio.com</span></code> o <code class="docutils literal notranslate"><span class="pre">subdominio.dominio.com</span></code>, se puede decir que
+<code class="docutils literal notranslate"><span class="pre">subdominio.dominio.com</span></code> además de estar en el dominio <code class="docutils literal notranslate"><span class="pre">dominio.com</span></code>
+está en el dominio <code class="docutils literal notranslate"><span class="pre">com</span></code>.</li>
+<li><em>FQDN</em> (Fully Qualified Domain Name): Es un hostname o dominio nombrado de
+forma completa, especificando todos los niveles en la jerarquía. Por ejemplo
+<code class="docutils literal notranslate"><span class="pre">dominio.com</span></code> o <code class="docutils literal notranslate"><span class="pre">pc1.dominio.com</span></code>.</li>
+<li><em>Zona</em>: Es una zona de autoridad, es un dominio menos todos los subdominios
+delegados a otros servidores DNS.</li>
+</ul>
+</li>
+<li>Traduce entre nombres e IPs gracias a los servidores de nombres de dominio
+(<em>domain name server</em>).</li>
 <li>Puerto 53.</li>
 <li>UDP para resoluciones.</li>
 <li>TCP para transferencias de zona.</li>
@@ -239,10 +256,19 @@ servidores secundarios.</li>
 </ul>
 <p>Los servidores raíz (<em>root name servers</em>) responden por el dominio raíz y
 responden con los servidores de los TLDs.</p>
-<div class="admonition-todo admonition" id="index-3">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Tipos de registros</p>
 </div>
+<div class="section" id="tipos-de-registros">
+<h2>Tipos de registros<a class="headerlink" href="#tipos-de-registros" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><strong>A</strong>:</li>
+<li><strong>AAAA</strong>:</li>
+<li><strong>NS</strong>:</li>
+<li><strong>CNAME</strong>:</li>
+<li><strong>PTR</strong>:</li>
+<li><strong>MX</strong>:</li>
+<li><strong>TXT</strong>:</li>
+<li><strong>SOA</strong>:</li>
+</ul>
 </div>
 <div class="section" id="tipos-de-consultas">
 <h2>Tipos de consultas<a class="headerlink" href="#tipos-de-consultas" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -283,7 +309,7 @@ registro. Valores típicos son del orden de los 5 días.</li>
 <li>El cacheo negativo es cuando se cachea la inexistencia de un cierto nombre de
 dominio.</li>
 </ul>
-<div class="admonition-todo admonition" id="index-4">
+<div class="admonition-todo admonition" id="index-3">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Ver bien cuando se usan servidores de cacheo y autoritativos.</p>
 </div>
@@ -316,7 +342,7 @@ dominio.</li>
 <code class="docutils literal notranslate"><span class="pre">2001:db8::567:89ab</span></code> se hace una consulta por
 <code class="docutils literal notranslate"><span class="pre">b.a.9.8.7.6.5.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa</span></code>.</li>
 </ul>
-<div class="admonition-todo admonition" id="index-5">
+<div class="admonition-todo admonition" id="index-4">
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Hacer</p>
 </div>
