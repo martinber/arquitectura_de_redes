@@ -212,12 +212,17 @@ Ruteo
 
 - Las tablas de ruteo indican el próximo salto. Si hay varias rutas que
   contienen a la dirección de destino, se elige la ruta que tiene la máscara más
-  larga. Si tienen la misma longitud de máscara se elige la ruta con menor
-  distancia administrativa que sólo tiene significado local.
+  larga.
+  
+- Si tienen la misma longitud de máscara se elige la ruta con menor distancia
+  administrativa que depende del protocolo desde donde se aprendió, sólo tiene
+  significado local.
 
 - Los algoritmos clasifican las rutas de acuerdo a métricas, que son números
   generados a partir de variables como cantidad de saltos, velocidad de enlaces,
-  etc.
+  etc. Si dos rutas coinciden en largo de máscara y en distancia administrativa,
+  se elige la que tiene menor métrica. Se usa cuando hay dos rutas aprendidas
+  con el mismo protocolo.
 
 - Pueden ser protocolos
 
