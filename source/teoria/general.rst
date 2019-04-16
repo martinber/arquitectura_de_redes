@@ -2,7 +2,7 @@ General
 =======
 
 .. todo:: Reordenar y poner cosas en otros documentos. Ver como separar IPV4 de
-   IPV6.
+   IPV6. Hablar sobre RFCs y estandarización.
 
 Capas
 -----
@@ -213,7 +213,7 @@ Ruteo
 - Las tablas de ruteo indican el próximo salto. Si hay varias rutas que
   contienen a la dirección de destino, se elige la ruta que tiene la máscara más
   larga.
-  
+
 - Si tienen la misma longitud de máscara se elige la ruta con menor distancia
   administrativa que depende del protocolo desde donde se aprendió, sólo tiene
   significado local.

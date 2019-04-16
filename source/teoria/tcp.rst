@@ -25,4 +25,10 @@ Transmission Control Protocol.
 - Concurrente: Duplica el socket y sigue atendiendo.
 
 
-.. todo:: Hacer
+.. todo::
+
+   Hacer
+
+   - Control de flujo
+
+   - Control de congestión (Tahoe, Reno, NewReno)

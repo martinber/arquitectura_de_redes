@@ -1,7 +1,15 @@
 Gestión de redes
 ================
 
-.. todo:: Hacer y revisar
+.. todo::
+
+   Hacer y revisar
+
+   - Monitoreo
+
+   - SNMP
+
+   - Gestión remota
 
 - Hay dos estándares: SNMP y OSI.
 
