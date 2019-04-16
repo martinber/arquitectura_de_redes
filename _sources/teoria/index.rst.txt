@@ -40,8 +40,10 @@ Capa aplicación y otros
    mail
    ftp
    http
+   multimedia
    voip
-   seguridad
    gestion
+   seguridad
+   acceso_remoto
    gns3
    wireshark

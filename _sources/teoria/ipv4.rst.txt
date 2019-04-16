@@ -176,7 +176,7 @@ Máscaras comunes
   broadcast. Es útil para enlaces punto a punto en WAN pero no muy usado. `Ver
   RFC-2021`__.
 
-- ``/32``: Tiene dos direcciones de host, una para la red y una para broadcast.
+- ``/30``: Tiene dos direcciones de host, una para la red y una para broadcast.
   Es lo más usado para enlaces punto a punto en WAN.
 
 __ https://tools.ietf.org/html/rfc3021

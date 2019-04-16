@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -24,19 +24,28 @@
 
   
 
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="GNS3" href="gns3.html" />
-    <link rel="prev" title="Seguridad" href="seguridad.html" /> 
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="Seguridad" href="seguridad.html"/>
+        <link rel="prev" title="VOIP" href="voip.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
@@ -88,13 +97,15 @@
 <li class="toctree-l3"><a class="reference internal" href="mail.html">Mail</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ftp.html">FTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="http.html">HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia.html">Multimedia</a></li>
 <li class="toctree-l3"><a class="reference internal" href="voip.html">VOIP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Gestión de redes</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#osi">OSI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snmp">SNMP</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acceso_remoto.html">Acceso remoto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gns3.html">GNS3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
@@ -113,7 +124,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -121,10 +132,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -172,7 +182,12 @@
 <h1>Gestión de redes<a class="headerlink" href="#gestion-de-redes" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer y revisar</p>
+<p>Hacer y revisar</p>
+<ul class="last simple">
+<li>Monitoreo</li>
+<li>SNMP</li>
+<li>Gestión remota</li>
+</ul>
 </div>
 <ul class="simple">
 <li>Hay dos estándares: SNMP y OSI.</li>
@@ -258,16 +273,18 @@ entre otras cosas.</li>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gns3.html" class="btn btn-neutral float-right" title="GNS3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="seguridad.html" class="btn btn-neutral float-right" title="Seguridad" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="seguridad.html" class="btn btn-neutral" title="Seguridad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="voip.html" class="btn btn-neutral" title="VOIP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -276,11 +293,11 @@ entre otras cosas.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi
+        &copy; Copyright 2018, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -295,24 +312,36 @@ entre otras cosas.</li>
 
   
 
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
 
   
 
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
 
+  
+  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.StickyNav.enable();
       });
-  </script> 
+  </script>
+   
 
 </body>
 </html>

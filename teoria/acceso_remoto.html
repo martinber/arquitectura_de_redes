@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Wireshark &mdash; documentación de Arquitectura de Redes - </title>
+  <title>Acceso remoto &mdash; documentación de Arquitectura de Redes - </title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Búsqueda" href="../search.html"/>
     <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
         <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="Práctica" href="../practica/index.html"/>
-        <link rel="prev" title="GNS3" href="gns3.html"/> 
+        <link rel="next" title="GNS3" href="gns3.html"/>
+        <link rel="prev" title="Seguridad" href="seguridad.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -97,14 +97,13 @@
 <li class="toctree-l3"><a class="reference internal" href="mail.html">Mail</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ftp.html">FTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="http.html">HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia.html">Multimedia</a></li>
 <li class="toctree-l3"><a class="reference internal" href="voip.html">VOIP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Acceso remoto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gns3.html">GNS3</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Wireshark</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ejemplos-de-filtros">Ejemplos de filtros</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
 </li>
 </ul>
@@ -156,13 +155,13 @@
         
           <li><a href="index.html">Teoría</a> &raquo;</li>
         
-      <li>Wireshark</li>
+      <li>Acceso remoto</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/teoria/wireshark.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/teoria/acceso_remoto.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -175,34 +174,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="wireshark">
-<h1>Wireshark<a class="headerlink" href="#wireshark" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="ejemplos-de-filtros">
-<h2>Ejemplos de filtros<a class="headerlink" href="#ejemplos-de-filtros" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>ARP e ICMP que salgan o lleguen a una MAC:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(arp || icmp) &amp;&amp; (eth.src == 08:9e:01:43:f2:eb || eth.dst == 08:9e:01:43:f2:eb)
-</pre></div>
-</div>
-<p>Tramas Ethernet de broadcast:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>eth.dst == ff:ff:ff:ff:ff:ff
-</pre></div>
-</div>
-<p>Paquetes IP de broadcast:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip.dst == 192.168.0.255
-</pre></div>
-</div>
-<p>ARP de respuesta:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>arp.opcode == reply
-</pre></div>
-</div>
-<p>ICMP de respuesta:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>icmp.type == 0
-</pre></div>
-</div>
-<p>ICMP de request:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>icmp.type == 8
-</pre></div>
-</div>
+  <div class="section" id="acceso-remoto">
+<h1>Acceso remoto<a class="headerlink" href="#acceso-remoto" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Por hacer</p>
+<ul class="last simple">
+<li>Telnet</li>
+<li>Rlogin</li>
+<li>SSH</li>
+</ul>
 </div>
 </div>
 
@@ -216,10 +196,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../practica/index.html" class="btn btn-neutral float-right" title="Práctica" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gns3.html" class="btn btn-neutral float-right" title="GNS3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gns3.html" class="btn btn-neutral" title="GNS3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="seguridad.html" class="btn btn-neutral" title="Seguridad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
