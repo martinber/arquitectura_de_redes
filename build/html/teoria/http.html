@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -24,28 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="VOIP" href="voip.html"/>
-        <link rel="prev" title="FTP" href="ftp.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Multimedia" href="multimedia.html" />
+    <link rel="prev" title="FTP" href="ftp.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -104,9 +95,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#proxy">Proxy</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia.html">Multimedia</a></li>
 <li class="toctree-l3"><a class="reference internal" href="voip.html">VOIP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acceso_remoto.html">Acceso remoto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gns3.html">GNS3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
@@ -125,7 +118,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -133,9 +126,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -184,7 +178,7 @@
 <p>Hypertext Transfer Protocol.</p>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
+<p class="last">Hacer, ver que onda con los MIME</p>
 </div>
 <div class="section" id="versiones">
 <h2>Versiones<a class="headerlink" href="#versiones" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -346,15 +340,13 @@ Trustwave</a>.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="voip.html" class="btn btn-neutral float-right" title="VOIP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="multimedia.html" class="btn btn-neutral float-right" title="Multimedia" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ftp.html" class="btn btn-neutral" title="FTP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -366,11 +358,11 @@ Trustwave</a>.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi.
+        &copy; Copyright 2018, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -385,36 +377,24 @@ Trustwave</a>.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

@@ -4,11 +4,6 @@ iptables
 Esta página es mitad teoría mitad práctica. Ver también
 :doc:`../teoria/seguridad`.
 
-.. todo:: Hacer
-
-iptables
-~~~~~~~~
-
 Es posible cargar extensiones o módulos con más reglas, objetivos, etc.
 
 Se pueden hacer filtros *stateful*, esto significa que se analiza a cada paquete
@@ -71,6 +66,10 @@ Tablas que hay:
   locally-generated packets before routing), and FORWARD (for altering packets
   being routed through the box).
 
+Para ver alguna tabla::
+
+  iptables [-t table] -L
+
 El uso simplificado del comando `iptables` es::
 
   iptables [-t table] {-A|-C|-D} chain rule-specification
@@ -83,8 +82,10 @@ acción a realizar. Por ejemplo::
   iptables -t filter -A INPUT -i eth0 -s 10.0.0.20 -j DROP
   iptables -A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 
-Opciones, especifican si la regla dada se debe agregar, borrar, reemplazar,
-etc.::
+Opciones
+--------
+
+Especifican si la regla dada se debe agregar, borrar, reemplazar, etc.::
 
   -A, --append chain rule-specification
         Append one or more rules to the end of the selected chain.  When the
@@ -162,8 +163,11 @@ etc.::
 
   -h     Help.  Give a (currently very brief) description of the command syntax.
 
-Parámetros, especifican a la regla. Estas son algunos parámetros disponibles,
-ver `man iptables-extensions`::
+Parámetros
+----------
+
+Especifican a la regla. Estas son algunos parámetros disponibles, ver ``man
+iptables-extensions``::
 
   -4, --ipv4
          This option has no effect in iptables and iptables-restore.  If  a
@@ -263,21 +267,101 @@ ver `man iptables-extensions`::
          This enables the administrator to initialize the packet and byte
          counters of a rule (during  INSERT, APPEND, REPLACE operations).
 
-Objetivos, estos son algunos, ver `man iptables-extensions`:
+Objetivos
+---------
 
-.. todo:: Hacer
+Cada cadena tiene su propia política por defecto, que se puede ver al mostrar
+las tablas. Para cambiarla se usa::
 
-- ACCEPT:
+  iptables [-t table] --policy chain target
 
-- REJECT:
+La política por defecto es la que se utiliza si el paquete no coincide con
+ninguna regla.
 
-- DROP:
+Estos son algunos de los objetivos posibles, ver ``man iptables-extensions``:
 
-- SNAT/MASQUERADE:
+- ACCEPT: Deja pasar el paquete.
 
-- DNAT:
+- DROP: Descarta el paquete.
 
-- LOG:
+- REJECT: Descarta el paquete y responde con un ICMP (*unreachable port* por
+  defecto, pero se puede cambiar).
+
+- SNAT: Significa Source NAT. This target is only valid in the nat table, in the
+  POSTROUTING and INPUT chains, and user-defined chains which are only called
+  from those chains. It specifies that the source address of the packet should
+  be modified (and all future packets in this connection will also be mangled),
+  and rules should cease being examined. Generalmente se usa con la opción
+
+  - ``--to-source [ipaddr[-ipaddr]][:port[-port]]``: Which can specify a single
+    new source IP address, an inclusive range of IP addresses. Optionally a
+    port range, if the rule also specifies one of the following protocols: tcp,
+    udp, dccp or sctp. If no port range is specified, then source ports below 512
+    will be mapped to other ports below 512: those between 512 and 1023 inclusive
+    will be mapped to ports below 1024, and other ports will be mapped to 1024 or
+    above.  Where possible, no port alteration will occur.
+
+  Ejemplo::
+
+    iptables -t nat -A POSTROUTING -o {interfaz WAN} -j SNAT --to {IP salida}
+
+- MASQUERADE: This target is only valid in the nat table, in the POSTROUTING
+  chain. It should only be used with dynamically assigned IP (dialup)
+  connections: if you have a static IP address, you should use the SNAT target.
+  Masquerading is equivalent to specifying a mapping to the IP address of the
+  interface the packet is going out, but also has the effect that connections
+  are forgotten when the interface goes down. This is the correct behavior when
+  the next dialup is unlikely to have the same interface address (and hence any
+  established connections are lost anyway). La única opción interesante que
+  tiene es:
+
+  - ``--to-ports port[-port]``: This specifies a range of source ports to use,
+    overriding the default SNAT source port-selection heuristics (see above). This
+    is only valid if the rule also specifies one of the following protocols: tcp,
+    udp, dccp or sctp.
+
+  Ejemplo::
+
+    iptables -t nat -A POSTROUTING -o {interfaz WAN} -j MASQUERADE
+
+- DNAT: Significa Destination NAT. This target is only valid in the nat table,
+  in the PREROUTING and OUTPUT chains, and user-defined chains which are only
+  called from those chains. It specifies that the destination address of the
+  packet should be modified (and all future packets in this connection will also
+  be mangled), and rules should cease being examined. Generalmente se usa con la
+  opción::
+
+    --to-destination [ipaddr[-ipaddr]][:port[-port]]
+
+  Which can specify a single new destination IP address, an inclusive range of
+  IP addresses. Optionally a port range, if the rule also specifies one of the
+  following protocols: tcp, udp, dccp or sctp. If no port range is specified,
+  then the destination port will never be modified. If no IP address is specified
+  then only the destination port will be modified.
+
+- LOG: Turn on kernel logging of matching packets. When this option is set for
+  a rule, the Linux kernel will print some information on all matching packets
+  (like most IP/IPv6 header fields) via the kernel log (where it can be read
+  with dmesg or read in the syslog). This is a "non-terminating target", i.e.
+  rule traversal continues at the next rule. So if you want to LOG the packets
+  you refuse, use two separate rules with the same matching criteria, first
+  using target LOG then DROP (or REJECT).
+
+  - ``--log-level level``: Level of logging, which can be (system-specific)
+    numeric or a mnemonic. Possible values are (in decreasing order of priority):
+    emerg, alert, crit, error, warning, notice, info or debug.
+
+  - ``--log-prefix prefix``: Prefix log messages with the specified prefix; up
+    to 29 letters long, and useful for distinguishing messages in the logs.
+
+  - ``--log-tcp-sequence``: Log TCP sequence numbers. This is a security risk
+    if the log is readable by users.
+
+  - ``--log-tcp-options``: Log options from the TCP packet header.
+
+  - ``--log-ip-options``: Log options from the IP/IPv6 packet header.
+
+  - ``--log-uid``: Log the userid of the process which generated the packet.
 
 Referencias
 -----------
