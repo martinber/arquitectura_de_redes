@@ -3,7 +3,7 @@ HTTP
 
 Hypertext Transfer Protocol.
 
-.. todo:: Hacer
+.. todo:: Hacer, ver que onda con los MIME
 
 Versiones
 ---------

@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -24,27 +24,18 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Práctica" href="index.html"/>
-        <link rel="prev" title="Gestion" href="gestion.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="Gestion" href="gestion.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -94,7 +85,10 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#varios">Varios</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestion</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">iptables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">iptables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opciones">Opciones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parametros">Parámetros</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objetivos">Objetivos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#referencias">Referencias</a></li>
 </ul>
 </li>
 </ul>
@@ -112,7 +106,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -120,9 +114,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -174,8 +169,6 @@
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Hacer</p>
 </div>
-<div class="section" id="id1">
-<h2>iptables<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Es posible cargar extensiones o módulos con más reglas, objetivos, etc.</p>
 <p>Se pueden hacer filtros <em>stateful</em>, esto significa que se analiza a cada paquete
 teniendo en cuenta su relación con paquetes anteriores (por ejemplo para
@@ -228,6 +221,10 @@ INPUT (for packets coming into the box itself), OUTPUT (for altering
 locally-generated packets before routing), and FORWARD (for altering packets
 being routed through the box).</li>
 </ul>
+<p>Para ver alguna tabla:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables [-t table] -L
+</pre></div>
+</div>
 <p>El uso simplificado del comando <cite>iptables</cite> es:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables [-t table] {-A|-C|-D} chain rule-specification
 </pre></div>
@@ -240,8 +237,9 @@ acción a realizar. Por ejemplo:</p>
 iptables -A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 </pre></div>
 </div>
-<p>Opciones, especifican si la regla dada se debe agregar, borrar, reemplazar,
-etc.:</p>
+<div class="section" id="opciones">
+<h2>Opciones<a class="headerlink" href="#opciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Especifican si la regla dada se debe agregar, borrar, reemplazar, etc.:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-A, --append chain rule-specification
       Append one or more rules to the end of the selected chain.  When the
       source and/or destination names resolve to more than one address, a rule
@@ -319,8 +317,11 @@ etc.:</p>
 -h     Help.  Give a (currently very brief) description of the command syntax.
 </pre></div>
 </div>
-<p>Parámetros, especifican a la regla. Estas son algunos parámetros disponibles,
-ver <cite>man iptables-extensions</cite>:</p>
+</div>
+<div class="section" id="parametros">
+<h2>Parámetros<a class="headerlink" href="#parametros" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Especifican a la regla. Estas son algunos parámetros disponibles, ver <code class="docutils literal notranslate"><span class="pre">man</span>
+<span class="pre">iptables-extensions</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-4, --ipv4
        This option has no effect in iptables and iptables-restore.  If  a
        rule  using  the  -4  option  is inserted  with  (and  only with)
@@ -420,32 +421,111 @@ ver <cite>man iptables-extensions</cite>:</p>
        counters of a rule (during  INSERT, APPEND, REPLACE operations).
 </pre></div>
 </div>
-<p>Objetivos, estos son algunos, ver <cite>man iptables-extensions</cite>:</p>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
 </div>
+<div class="section" id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Cada cadena tiene su propia política por defecto, que se puede ver al mostrar
+las tablas. Para cambiarla se usa:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables [-t table] --policy chain target
+</pre></div>
+</div>
+<p>La política por defecto es la que se utiliza si el paquete no coincide con
+ninguna regla.</p>
+<p>Estos son algunos de los objetivos posibles, ver <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">iptables-extensions</span></code>:</p>
+<ul>
+<li><p class="first">ACCEPT: Deja pasar el paquete.</p>
+</li>
+<li><p class="first">DROP: Descarta el paquete.</p>
+</li>
+<li><p class="first">REJECT: Descarta el paquete y responde con un ICMP (<em>unreachable port</em> por
+defecto, pero se puede cambiar).</p>
+</li>
+<li><p class="first">SNAT: Significa Source NAT. This target is only valid in the nat table, in the
+POSTROUTING and INPUT chains, and user-defined chains which are only called
+from those chains. It specifies that the source address of the packet should
+be modified (and all future packets in this connection will also be mangled),
+and rules should cease being examined. Generalmente se usa con la opción</p>
 <ul class="simple">
-<li>ACCEPT:</li>
-<li>REJECT:</li>
-<li>DROP:</li>
-<li>SNAT/MASQUERADE:</li>
-<li>DNAT:</li>
-<li>LOG:</li>
+<li><code class="docutils literal notranslate"><span class="pre">--to-source</span> <span class="pre">[ipaddr[-ipaddr]][:port[-port]]</span></code>: Which can specify a single
+new source IP address, an inclusive range of IP addresses. Optionally a
+port range, if the rule also specifies one of the following protocols: tcp,
+udp, dccp or sctp. If no port range is specified, then source ports below 512
+will be mapped to other ports below 512: those between 512 and 1023 inclusive
+will be mapped to ports below 1024, and other ports will be mapped to 1024 or
+above.  Where possible, no port alteration will occur.</li>
 </ul>
+<p>Ejemplo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t nat -A POSTROUTING -o {interfaz WAN} -j SNAT --to {IP salida}
+</pre></div>
+</div>
+</li>
+<li><p class="first">MASQUERADE: This target is only valid in the nat table, in the POSTROUTING
+chain. It should only be used with dynamically assigned IP (dialup)
+connections: if you have a static IP address, you should use the SNAT target.
+Masquerading is equivalent to specifying a mapping to the IP address of the
+interface the packet is going out, but also has the effect that connections
+are forgotten when the interface goes down. This is the correct behavior when
+the next dialup is unlikely to have the same interface address (and hence any
+established connections are lost anyway). La única opción interesante que
+tiene es:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">--to-ports</span> <span class="pre">port[-port]</span></code>: This specifies a range of source ports to use,
+overriding the default SNAT source port-selection heuristics (see above). This
+is only valid if the rule also specifies one of the following protocols: tcp,
+udp, dccp or sctp.</li>
+</ul>
+<p>Ejemplo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t nat -A POSTROUTING -o {interfaz WAN} -j MASQUERADE
+</pre></div>
+</div>
+</li>
+<li><p class="first">DNAT: Significa Destination NAT. This target is only valid in the nat table,
+in the PREROUTING and OUTPUT chains, and user-defined chains which are only
+called from those chains. It specifies that the destination address of the
+packet should be modified (and all future packets in this connection will also
+be mangled), and rules should cease being examined. Generalmente se usa con la
+opción:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>--to-destination [ipaddr[-ipaddr]][:port[-port]]
+</pre></div>
+</div>
+<p>Which can specify a single new destination IP address, an inclusive range of
+IP addresses. Optionally a port range, if the rule also specifies one of the
+following protocols: tcp, udp, dccp or sctp. If no port range is specified,
+then the destination port will never be modified. If no IP address is specified
+then only the destination port will be modified.</p>
+</li>
+<li><p class="first">LOG: Turn on kernel logging of matching packets. When this option is set for
+a rule, the Linux kernel will print some information on all matching packets
+(like most IP/IPv6 header fields) via the kernel log (where it can be read
+with dmesg or read in the syslog). This is a «non-terminating target», i.e.
+rule traversal continues at the next rule. So if you want to LOG the packets
+you refuse, use two separate rules with the same matching criteria, first
+using target LOG then DROP (or REJECT).</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">--log-level</span> <span class="pre">level</span></code>: Level of logging, which can be (system-specific)
+numeric or a mnemonic. Possible values are (in decreasing order of priority):
+emerg, alert, crit, error, warning, notice, info or debug.</li>
+<li><code class="docutils literal notranslate"><span class="pre">--log-prefix</span> <span class="pre">prefix</span></code>: Prefix log messages with the specified prefix; up
+to 29 letters long, and useful for distinguishing messages in the logs.</li>
+<li><code class="docutils literal notranslate"><span class="pre">--log-tcp-sequence</span></code>: Log TCP sequence numbers. This is a security risk
+if the log is readable by users.</li>
+<li><code class="docutils literal notranslate"><span class="pre">--log-tcp-options</span></code>: Log options from the TCP packet header.</li>
+<li><code class="docutils literal notranslate"><span class="pre">--log-ip-options</span></code>: Log options from the IP/IPv6 packet header.</li>
+<li><code class="docutils literal notranslate"><span class="pre">--log-uid</span></code>: Log the userid of the process which generated the packet.</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="referencias">
-<h3>Referencias<a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2>Referencias<a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><a class="reference external" href="https://www.net.t-labs.tu-berlin.de/teaching/ss08/RL_labcourse/docs/08-lartc.pdf">https://www.net.t-labs.tu-berlin.de/teaching/ss08/RL_labcourse/docs/08-lartc.pdf</a></p>
 <p><a class="reference external" href="https://www.booleanworld.com/depth-guide-iptables-linux-firewall/#How_does_iptables_work">https://www.booleanworld.com/depth-guide-iptables-linux-firewall/#How_does_iptables_work</a></p>
 </div>
 </div>
-</div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -461,11 +541,11 @@ ver <cite>man iptables-extensions</cite>:</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi.
+        &copy; Copyright 2018, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -480,36 +560,24 @@ ver <cite>man iptables-extensions</cite>:</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
