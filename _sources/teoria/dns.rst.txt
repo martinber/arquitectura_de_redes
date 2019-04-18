@@ -61,7 +61,7 @@ Jerarquía
 - Cada dominio tiene al menos un servidor autoritativo que informa sobre ese
   dominio y sobre los servidores de los subdominios.
 
-.. image:: ./jerarquia_dns.svg
+.. image:: ./jerarquia_dns.png
 
 .. todo:: Hacer
 

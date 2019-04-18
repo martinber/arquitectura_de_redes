@@ -66,7 +66,7 @@ Captura
 En el GNS3 puse varios Mikrotik y varios Cisco. Después capturé los paquetes RIP
 en una de las conexiones.
 
-.. image:: ./captura_rip.svg
+.. image:: ./captura_rip.png
 
 En la foto se pueden ver los Cisco (routers azules), Mikrotik (routers azules y
 rojos) y el punto de captura (la lupa). En la captura se ven los paquetes RIP

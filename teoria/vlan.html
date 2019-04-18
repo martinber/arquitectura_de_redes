@@ -17,34 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="IPv6" href="ipv6.html" />
     <link rel="prev" title="DHCP" href="dhcp.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -173,31 +176,31 @@
   <div class="section" id="vlan">
 <h1>VLAN<a class="headerlink" href="#vlan" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li>Separa dominios de difusión y dominios de colisión. Los dominios de colisión
+<li><p>Separa dominios de difusión y dominios de colisión. Los dominios de colisión
 eran importantes cuando se usaban hubs, en el caso de los switches existen
-dominios de difusión que son separados por medio de VLAN.</li>
-<li>Los switches por defecto tienen todos los puertos en la VLAN 1, la 0 y la 255
-no existen.</li>
-<li>La serie 3000 de Cisco tiene dos protocolos, al crear un trunk hay que elegir
-entre 802.1Q y ISL.</li>
+dominios de difusión que son separados por medio de VLAN.</p></li>
+<li><p>Los switches por defecto tienen todos los puertos en la VLAN 1, la 0 y la 255
+no existen.</p></li>
+<li><p>La serie 3000 de Cisco tiene dos protocolos, al crear un trunk hay que elegir
+entre 802.1Q y ISL.</p></li>
 </ul>
 <div class="section" id="q">
 <h2>802.1Q<a class="headerlink" href="#q" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se agrega un tag en el header Ethernet que tiene:</p>
 <ul class="simple">
-<li>Tag Protocol Identifier (TPID) (2 bytes): Tiene el valor <code class="docutils literal notranslate"><span class="pre">0x8100</span></code> para
+<li><p>Tag Protocol Identifier (TPID) (2 bytes): Tiene el valor <code class="docutils literal notranslate"><span class="pre">0x8100</span></code> para
 indicar que esta es una tag, ya que en paquetes normales esta posición
-llevaría el tipo de paquete Ethernet.</li>
-<li>Priority Code Point (PCP) (3 bits): Se usa para marcar los paquetes con una
-cierta prioridad.</li>
-<li>Drop Eligible Indicator (DEI) (1 bit): Indica si este paquete se puede
-descartar en caso de congestión.</li>
-<li>VLAN Identifier (VID) (12 bits): Identificador de VLAN.</li>
+llevaría el tipo de paquete Ethernet.</p></li>
+<li><p>Priority Code Point (PCP) (3 bits): Se usa para marcar los paquetes con una
+cierta prioridad.</p></li>
+<li><p>Drop Eligible Indicator (DEI) (1 bit): Indica si este paquete se puede
+descartar en caso de congestión.</p></li>
+<li><p>VLAN Identifier (VID) (12 bits): Identificador de VLAN.</p></li>
 </ul>
 <p>Se puede hacer <em>double tagging</em>, en tal caso hay dos tags uno al lado de otro.</p>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Creo que el double  tagging es 802.1ac</p>
+<p class="admonition-title">Por hacer</p>
+<p>Creo que el double  tagging es 802.1ac</p>
 </div>
 <img alt="../_images/8021q.png" src="../_images/8021q.png" />
 <p>By <a class="reference external" href="https://commons.wikimedia.org/wiki/User:Luca_Ghio">Luca Ghio</a> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA
@@ -223,7 +226,7 @@ si queda adentro o afuera.</p>
         <a href="ipv6.html" class="btn btn-neutral float-right" title="IPv6" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dhcp.html" class="btn btn-neutral" title="DHCP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dhcp.html" class="btn btn-neutral float-left" title="DHCP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -249,26 +252,16 @@ si queda adentro o afuera.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
