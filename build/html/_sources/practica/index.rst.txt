@@ -22,8 +22,6 @@ Servidores
 Varios
 ------
 
-.. todo:: Pasar a otras paginas
-
 .. toctree::
    gestion
    iptables

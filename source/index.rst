@@ -14,69 +14,43 @@ Sacado de lista de powerpoints y de programa
 
 - Repaso Arquitectura de Redes
 
-  - RFC
+  - :doc:`RFCs, estandarización <teoria/general>`.
 
-  - Estandarización
+- :doc:`teoria/ipv6`.
 
-- IPv6
+  - :doc:`teoria/6to4`.
 
-  - Transición IPv4 a IPv6
+- :doc:`teoria/rip`.
 
-- RIP
+- :doc:`teoria/ospf`.
 
-- OSPF
+- :doc:`teoria/bgp`.
 
-- BGP
+- :doc:`teoria/mpls`.
 
-- MPLS
+- :doc:`teoria/udp`.
 
-- UDP
-
-- TCP
+- :doc:`teoria/tcp`.
 
   - Control de flujo
 
   - Control de congestión Tahoe, Reno, NewReno
 
-- DNS
+- :doc:`teoria/dns`.
 
-- Telnet
+- :doc:`teoria/acceso_remoto`.
 
-- Rlogin
+- :doc:`teoria/ftp`.
 
-- FTP
+- :doc:`teoria/mail`.
 
-- Correo electronico
+- :doc:`teoria/http`.
 
-  - 822
+- :doc:`teoria/multimedia`.
 
-  - SMTP
+- :doc:`teoria/voip`.
 
-  - MIME
-
-  - POP
-
-  - IMAP
-
-- HTTP
-
-- Video
-
-  - RTCP
-
-  - RTP
-
-  - Compresion, estandares
-
-- VoIP
-
-  - SIP
-
-  - H323
-
-  - Protocolos de compresion
-
-- Seguridad
+- :doc:`teoria/seguridad`.
 
   - Introduccion
 
@@ -100,7 +74,7 @@ Sacado de lista de powerpoints y de programa
 
   - Proxy
 
-- Gestión de Redes
+- :doc:`teoria/gestion`.
 
   - Monitoreo
 

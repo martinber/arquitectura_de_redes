@@ -82,6 +82,19 @@ acción a realizar. Por ejemplo::
   iptables -t filter -A INPUT -i eth0 -s 10.0.0.20 -j DROP
   iptables -A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 
+  iptables -t filter -F FORWARD
+  iptables -t filter -F INPUT
+
+  iptables -t filter -A FORWARD -s 10.0.0.2/32 -d 10.1.0.2/32 -p icmp -j ACCEPT
+  iptables -t filter -A FORWARD -s 10.1.0.0/16 -p tcp --destination-port 80 -j DROP
+  iptables -t filter -A FORWARD -o emp2s0 -p tcp --destination-port 80 -j DROP
+  iptables -t filter -A FORWARD -s 10.0.0.2/32 -p icmp -j DROP
+  iptables -t filter -A INPUT -s 10.0.0.2/32 -p icmp -j REJECT
+  iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
+
+Al buscar ayuda usar ``man iptables`` y ``man iptables-extensions``. Sino se
+puede usar por ejemplo ``iptables -p tcp --help``.
+
 Opciones
 --------
 

@@ -1,7 +1,7 @@
 Squid
 =====
 
-.. todo:: Hacer
+Acá hay algunas notas sobre Squid pero no mucho más.
 
 El archivo de configuración es ``/etc/squid/squid.conf``. Está bueno leer los
 primeros comentarios de ese archivo porque explica un poco la estructura.
