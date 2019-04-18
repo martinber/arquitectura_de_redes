@@ -1,7 +1,7 @@
 BIND
 ====
 
-.. todo:: Hacer
+Acá hay algunas notas sobre Bind pero no mucho más.
 
 - Esta guía parte a partir de la instalación del paquete ``bind9`` en Debian,
   versión 9.10.3.

@@ -231,8 +231,20 @@ regla en sí. Al final se usa <cite>-j</cite> y el objetivo (target) para especi
 acción a realizar. Por ejemplo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t filter -A INPUT -i eth0 -s 10.0.0.20 -j DROP
 iptables -A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+iptables -t filter -F FORWARD
+iptables -t filter -F INPUT
+
+iptables -t filter -A FORWARD -s 10.0.0.2/32 -d 10.1.0.2/32 -p icmp -j ACCEPT
+iptables -t filter -A FORWARD -s 10.1.0.0/16 -p tcp --destination-port 80 -j DROP
+iptables -t filter -A FORWARD -o emp2s0 -p tcp --destination-port 80 -j DROP
+iptables -t filter -A FORWARD -s 10.0.0.2/32 -p icmp -j DROP
+iptables -t filter -A INPUT -s 10.0.0.2/32 -p icmp -j REJECT
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
 </pre></div>
 </div>
+<p>Al buscar ayuda usar <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">iptables</span></code> y <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">iptables-extensions</span></code>. Sino se
+puede usar por ejemplo <code class="docutils literal notranslate"><span class="pre">iptables</span> <span class="pre">-p</span> <span class="pre">tcp</span> <span class="pre">--help</span></code>.</p>
 <div class="section" id="opciones">
 <h2>Opciones<a class="headerlink" href="#opciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Especifican si la regla dada se debe agregar, borrar, reemplazar, etc.:</p>

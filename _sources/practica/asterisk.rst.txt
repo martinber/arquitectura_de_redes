@@ -1,7 +1,7 @@
 Asterisk
 ========
 
-.. todo:: Hacer
+Acá hay algunas notas sobre Asterisk pero no mucho más.
 
 Para iniciar/parar el servidor::
 
@@ -17,7 +17,6 @@ Tipos de usuario
 - user: Solo llamadas salientes
 - peer: Solo llamadas entrantes
 - friend: Entradas salientes y entrantes
-
 
 Otras opciones para el usuario
 ------------------------------

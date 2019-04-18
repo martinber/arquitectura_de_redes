@@ -309,27 +309,7 @@ funciona asi</p>
 </div>
 <div class="section" id="iptables">
 <h2>iptables<a class="headerlink" href="#iptables" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
-</div>
-<p>Además de ver <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">iptables</span></code> habría que ver <code class="docutils literal notranslate"><span class="pre">iptables-extensions</span></code> porque
-tiene más opciones, por ejemplo <code class="docutils literal notranslate"><span class="pre">--destination-port</span></code>.</p>
-<p>Sino se puede usar por ejemplo <code class="docutils literal notranslate"><span class="pre">iptables</span> <span class="pre">-p</span> <span class="pre">tcp</span> <span class="pre">--help</span></code>.</p>
-<p>Algunos ejemplos:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t filter -F FORWARD
-iptables -t filter -F INPUT
-
-iptables -t filter -A FORWARD -s 10.0.0.2/32 -d 10.1.0.2/32 -p icmp -j ACCEPT
-iptables -t filter -A FORWARD -s 10.1.0.0/16 -p tcp --destination-port 80 -j DROP
-iptables -t filter -A FORWARD -o emp2s0 -p tcp --destination-port 80 -j DROP
-iptables -t filter -A FORWARD -s 10.0.0.2/32 -p icmp -j DROP
-iptables -t filter -A INPUT -s 10.0.0.2/32 -p icmp -j REJECT
-iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
-
-iptables -t filter -L
-</pre></div>
-</div>
+<p>Ir a <a class="reference internal" href="iptables.html"><span class="doc">iptables</span></a>.</p>
 </div>
 </div>
 

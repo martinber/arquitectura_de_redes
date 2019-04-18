@@ -42,8 +42,6 @@ Open Shortest Path First.
   información de los estados de los enlaces. La base de datos está compuesta por
   LSAs (Link State Advertisements).
 
-.. todo:: Explicar los distintos tipos de LSAs?
-
 Dijkstra
 --------
 
