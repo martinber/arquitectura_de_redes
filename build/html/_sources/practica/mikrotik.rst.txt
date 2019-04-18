@@ -129,7 +129,7 @@ intervalo. El intervalo tiene un valor mínimo y uno máximo::
 6to4
 ----
 
-.. image:: ./6to4.svg
+.. image:: ./6to4.png
 
 Primero agregar la IPv4 de WAN y agregar ruta por defecto para el gateway ipv4::
 

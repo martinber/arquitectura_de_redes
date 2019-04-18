@@ -17,34 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="Apache2" href="apache2.html" />
     <link rel="prev" title="Mikrotik" href="mikrotik.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -168,10 +171,10 @@
 <h1>BIND<a class="headerlink" href="#bind" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Acá hay algunas notas sobre Bind pero no mucho más.</p>
 <ul class="simple">
-<li>Esta guía parte a partir de la instalación del paquete <code class="docutils literal notranslate"><span class="pre">bind9</span></code> en Debian,
-versión 9.10.3.</li>
-<li><a class="reference external" href="https://www-uxsup.csx.cam.ac.uk/pub/doc/redhat/redhat7.3/rhl-rg-en-7.3/s1-bind-configuration.html">Documentación sobre la configuración</a>.</li>
-<li><a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-bind">Documentación de Red Hat sobre BIND</a>.</li>
+<li><p>Esta guía parte a partir de la instalación del paquete <code class="docutils literal notranslate"><span class="pre">bind9</span></code> en Debian,
+versión 9.10.3.</p></li>
+<li><p><a class="reference external" href="https://www-uxsup.csx.cam.ac.uk/pub/doc/redhat/redhat7.3/rhl-rg-en-7.3/s1-bind-configuration.html">Documentación sobre la configuración</a>.</p></li>
+<li><p><a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-bind">Documentación de Red Hat sobre BIND</a>.</p></li>
 </ul>
 <p>Para iniciar/parar el servidor:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>service bind9 status
@@ -185,25 +188,25 @@ service bind9 reload
 <h2>General<a class="headerlink" href="#general" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Inicialmente existen los siguientes archivos en <code class="docutils literal notranslate"><span class="pre">/etc/bind/</span></code>:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">bind.keys</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">db.0</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">db.127</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">db.255</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">db.empty</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">db.local</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">db.root</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">named.conf</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">named.conf.default-zones</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">named.conf.local</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">named.conf.options</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">rndc.key</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">zones.rfc1918</span></code>.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bind.keys</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db.0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db.127</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db.255</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db.empty</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db.local</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db.root</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">named.conf</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">named.conf.default-zones</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">named.conf.local</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">named.conf.options</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rndc.key</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zones.rfc1918</span></code>.</p></li>
 </ul>
 <p>El archivo de configuración principal es <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf</span></code>, en Debian se
 recomienda no editarlo ya que ese archivo lo unico que hace es importar la
 configuración presente en los otros tres archivos de configuración:</p>
 <ul>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">named.conf.default-zones</span></code>: Tiene configuradas los servidores root y las
+<li><p><code class="docutils literal notranslate"><span class="pre">named.conf.default-zones</span></code>: Tiene configuradas los servidores root y las
 zonas por defecto, ya sean forward, reverse o de broadcast. Esto es
 obligatorio según la RFC 1912 sección 4.1. En mi caso define las zonas:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// prime the server with knowledge of the root servers
@@ -238,10 +241,9 @@ zone &quot;255.in-addr.arpa&quot; {
 </pre></div>
 </div>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">named.conf.local</span></code>: No tiene nada, acá más adelante debemos poner nuestros
-dominios.</p>
-</li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">named.conf.options</span></code>: Tiene las opciones del servidor, en mi caso tenía:</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">named.conf.local</span></code>: No tiene nada, acá más adelante debemos poner nuestros
+dominios.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">named.conf.options</span></code>: Tiene las opciones del servidor, en mi caso tenía:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>options {
   directory &quot;/var/cache/bind&quot;;
 
@@ -310,8 +312,8 @@ anterior, y agregando a <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Nota</p>
-<p class="last">Hay que tener cuidado de que no haya servidores DNS configurados en la
+<p class="admonition-title">Nota</p>
+<p>Hay que tener cuidado de que no haya servidores DNS configurados en la
 máquina, a mi me pasó que BIND terminó preguntando a servidores listados en
 <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code> pero que no estaban en <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf.options</span></code>.</p>
 </div>
@@ -342,9 +344,9 @@ explico ahora. <code class="docutils literal notranslate"><span class="pre">allo
 línea es un registro y los datos que lleva depende del tipo de registro.</p>
 <p>Dentro de este archivo, hay dos directivas importantes:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">$ORIGIN</span></code>: Es reemplazado por el nombre de dominio que estamos configurando,
-es el escrito en <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf.local</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">$TTL</span></code>: Permite establecer el TTL por defecto de esta zona.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$ORIGIN</span></code>: Es reemplazado por el nombre de dominio que estamos configurando,
+es el escrito en <code class="docutils literal notranslate"><span class="pre">/etc/bind/named.conf.local</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$TTL</span></code>: Permite establecer el TTL por defecto de esta zona.</p></li>
 </ul>
 <p>Algo que hay que saber es que todos los nombres que se escriban y no terminen en
 <code class="docutils literal notranslate"><span class="pre">.</span></code>, serán relativos al dominio, es decir, se le agregará <code class="docutils literal notranslate"><span class="pre">$ORIGIN</span></code>. Por
@@ -353,34 +355,34 @@ ejemplo al escribir <code class="docutils literal notranslate"><span class="pre"
 <code class="docutils literal notranslate"><span class="pre">$ORIGIN</span></code>. Por último, si se escribe <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> también será reemplazado por
 <code class="docutils literal notranslate"><span class="pre">$ORIGIN</span></code>.</p>
 <ul>
-<li><p class="first"><strong>A</strong>: Asigna una IP4 a un nombre:</p>
+<li><p><strong>A</strong>: Asigna una IP4 a un nombre:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{nombre} IN A {IPv4}
 </pre></div>
 </div>
 </li>
-<li><p class="first"><strong>A</strong>: Asigna una IPv6 a un nombre:</p>
+<li><p><strong>A</strong>: Asigna una IPv6 a un nombre:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{nombre} IN AAAA {IPv6}
 </pre></div>
 </div>
 </li>
-<li><p class="first"><strong>CNAME</strong>: Asigna un alias a un nombre:</p>
+<li><p><strong>CNAME</strong>: Asigna un alias a un nombre:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{alias} IN CNAME {nombre_real}
 </pre></div>
 </div>
 </li>
-<li><p class="first"><strong>MX</strong>: Especifica a qué host irán los mails que llegan a esta zona, se
+<li><p><strong>MX</strong>: Especifica a qué host irán los mails que llegan a esta zona, se
 prefieren los registros con preferencia menor:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{zona} IN MX {preferencia} {nombre_host}
 </pre></div>
 </div>
 </li>
-<li><p class="first"><strong>NS</strong>: Anuncia servidor autoritativo para cierta zona, ya sea primario o
+<li><p><strong>NS</strong>: Anuncia servidor autoritativo para cierta zona, ya sea primario o
 secundario:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{zona} IN NS {nombre_host}
 </pre></div>
 </div>
 </li>
-<li><p class="first"><strong>SOA</strong>: Anuncia información general, los tiempos van en segundos:</p>
+<li><p><strong>SOA</strong>: Anuncia información general, los tiempos van en segundos:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{zona} IN SOA {servidor_primario} {mail_hostmaster} (
               {serial}
               {time_to_refresh}
@@ -390,19 +392,19 @@ secundario:</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">{servidor_primario}</span></code>: Servidor primario de la zona.</li>
-<li><code class="docutils literal notranslate"><span class="pre">{mail_hostmaster}</span></code>: Mail del administrador, el primer punto se transforma
+<li><p><code class="docutils literal notranslate"><span class="pre">{servidor_primario}</span></code>: Servidor primario de la zona.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{mail_hostmaster}</span></code>: Mail del administrador, el primer punto se transforma
 en <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, entonces se deben escapar los puntos que son parte del mail. Por
-ej: <code class="docutils literal notranslate"><span class="pre">el\.admin.midominio.com</span></code> se vuelve <code class="docutils literal notranslate"><span class="pre">el.admin&#64;midominio.com</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">{serial}</span></code>: Es un número que se debe incrementar cada vez que se cambia
-algún registro para indicar cambios a los demás servidores.</li>
-<li><code class="docutils literal notranslate"><span class="pre">{time_to_refresh}</span></code>: Indica el tiempo que debe esperar el servidor
-secundario para refrescar.</li>
-<li><code class="docutils literal notranslate"><span class="pre">{time_to_retry}</span></code>: Indica el tiempo que debe esperar el servidor
-secundario para reintentar un refresco fallido.</li>
-<li><code class="docutils literal notranslate"><span class="pre">{time_to_expire}</span></code>: Si no se produce un refresco en ese tiempo, el
-servidor secundario deja de responder como autoritativo.</li>
-<li><code class="docutils literal notranslate"><span class="pre">{ttl_minimo}</span></code>: Especifica el TTL mínimo de los registros en los cachés.</li>
+ej: <code class="docutils literal notranslate"><span class="pre">el\.admin.midominio.com</span></code> se vuelve <code class="docutils literal notranslate"><span class="pre">el.admin&#64;midominio.com</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{serial}</span></code>: Es un número que se debe incrementar cada vez que se cambia
+algún registro para indicar cambios a los demás servidores.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{time_to_refresh}</span></code>: Indica el tiempo que debe esperar el servidor
+secundario para refrescar.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{time_to_retry}</span></code>: Indica el tiempo que debe esperar el servidor
+secundario para reintentar un refresco fallido.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{time_to_expire}</span></code>: Si no se produce un refresco en ese tiempo, el
+servidor secundario deja de responder como autoritativo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{ttl_minimo}</span></code>: Especifica el TTL mínimo de los registros en los cachés.</p></li>
 </ul>
 </li>
 </ul>
@@ -441,10 +443,10 @@ ns2,subdominio IN A 20.0.0.11
 </pre></div>
 </div>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<ul class="last simple">
-<li>Agregar DNS reverso.</li>
-<li>Aprender bien la diferencia entre zona, dominio y nombre y arreglar esto.</li>
+<p class="admonition-title">Por hacer</p>
+<ul class="simple">
+<li><p>Agregar DNS reverso.</p></li>
+<li><p>Aprender bien la diferencia entre zona, dominio y nombre y arreglar esto.</p></li>
 </ul>
 </div>
 </div>
@@ -483,7 +485,7 @@ del servidor maestro indicado en <code class="docutils literal notranslate"><spa
         <a href="apache2.html" class="btn btn-neutral float-right" title="Apache2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="mikrotik.html" class="btn btn-neutral" title="Mikrotik" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mikrotik.html" class="btn btn-neutral float-left" title="Mikrotik" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -509,26 +511,16 @@ del servidor maestro indicado en <code class="docutils literal notranslate"><spa
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

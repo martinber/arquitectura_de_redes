@@ -297,7 +297,7 @@ En routers nuevos puede que los comandos sean::
 6to4
 ----
 
-.. image:: ./6to4.svg
+.. image:: ./6to4.png
 
 Activar ruteo IPv6::
 

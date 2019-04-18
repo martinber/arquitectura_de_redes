@@ -116,7 +116,7 @@ OSPFv3
 Captura
 ~~~~~~~
 
-.. image:: captura_ospf.svg
+.. image:: captura_ospf.png
 
 En la foto se pueden ver los Cisco (routers azules), Mikrotik (routers azules y
 rojos) y el punto de captura (la lupa). En la captura se ven los paquetes OSPF

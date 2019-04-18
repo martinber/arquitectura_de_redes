@@ -17,34 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="Mikrotik" href="mikrotik.html" />
     <link rel="prev" title="Linux" href="linux.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -176,9 +179,9 @@
   <div class="section" id="cisco">
 <h1>Cisco<a class="headerlink" href="#cisco" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li>Se usa puerto de consola serial a 9600 baudios</li>
-<li>Para ayuda ir poniendo <code class="docutils literal notranslate"><span class="pre">?</span></code>.</li>
-<li>Para ir volviendo atrás poner <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</li>
+<li><p>Se usa puerto de consola serial a 9600 baudios</p></li>
+<li><p>Para ayuda ir poniendo <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p></li>
+<li><p>Para ir volviendo atrás poner <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p></li>
 </ul>
 <div class="section" id="basico">
 <h2>Básico<a class="headerlink" href="#basico" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -316,8 +319,8 @@ router# show ip dhcp server statistics
 <div class="section" id="enlace-serial">
 <h2>Enlace serial<a class="headerlink" href="#enlace-serial" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>DCE: (Hembra), Configura velocidad.</li>
-<li>DTE: (Macho), Recibe velocidad.</li>
+<li><p>DCE: (Hembra), Configura velocidad.</p></li>
+<li><p>DTE: (Macho), Recibe velocidad.</p></li>
 </ul>
 <p>Para ver interfaces seriales en Cisco (muestra si es DCE o DTE):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router# show controllers Serial0/0/0
@@ -400,8 +403,8 @@ switch(config-if)# switchport trunk allowed vlan remove 3
 </pre></div>
 </div>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">VLAN Trunking protocol (VTP) es un protocolo propietario de cisco que tiene 3
+<p class="admonition-title">Por hacer</p>
+<p>VLAN Trunking protocol (VTP) es un protocolo propietario de cisco que tiene 3
 modos: Server,Client, y Transparent. A mi no me dejaba configurar vlans porque
 estaba en modo cliente, por lo tanto lo tuve que cambiar el switch a modo
 server.
@@ -464,7 +467,8 @@ router(config-if)# ipv6 nd ra interval {intervalo}
 </div>
 <div class="section" id="to4">
 <h2>6to4<a class="headerlink" href="#to4" title="Enlazar permanentemente con este título">¶</a></h2>
-<img alt="../_images/6to4.svg" src="../_images/6to4.svg" /><p>Activar ruteo IPv6:</p>
+<img alt="../_images/6to4.png" src="../_images/6to4.png" />
+<p>Activar ruteo IPv6:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# ipv6 unicast-routing
 </pre></div>
 </div>
@@ -684,11 +688,11 @@ router(config-router)# neighbor {ip_destino} default-originate
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Nota</p>
+<p class="admonition-title">Nota</p>
 <p>Supongo que ese último bloque de comandos se puede resumir, el último comando
 propaga la ruta por defecto a un peer en particular, el problema es que
 cuando lo probé el peer recibía todas las rutas BGP más la por defecto.</p>
-<p class="last">Todos los comandos anteriores lo que hacen es algo así como un filtro de
+<p>Todos los comandos anteriores lo que hacen es algo así como un filtro de
 rutas para el peer, al cual se le daría solamente la ruta por defecto. El
 problema que tuve es que cuando lo probé no propagaba nada, entonces agregué
 el último comando que propaga la ruta por defecto y quedó como me gustaría.</p>
@@ -747,7 +751,7 @@ el último comando que propaga la ruta por defecto y quedó como me gustaría.</
         <a href="mikrotik.html" class="btn btn-neutral float-right" title="Mikrotik" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="linux.html" class="btn btn-neutral" title="Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="linux.html" class="btn btn-neutral float-left" title="Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -773,26 +777,16 @@ el último comando que propaga la ruta por defecto y quedó como me gustaría.</
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

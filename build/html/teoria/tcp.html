@@ -17,34 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="UDP" href="udp.html" />
     <link rel="prev" title="ICMPv6" href="icmpv6.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -170,24 +173,24 @@
 <h1>TCP<a class="headerlink" href="#tcp" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Transmission Control Protocol.</p>
 <ul class="simple">
-<li>El numero de secuencia empieza aleatorio, porque cuenta cada no se cuantos
-microsegundos, a partir de la conexion cuenta de a uno.</li>
-<li>Ventana deslizante pero cuenta bytes. Hasta 65000.</li>
-<li>Telnet usa el flag de urgente cuando se hace Ctrl-C</li>
-<li>En las conexiones sin estado como HTTP se suele usar RST en lugar de FIN.</li>
-<li>No se puede establecer una doble conexion porque se repitirian los 4 cosas.</li>
-<li>Para hacer un firewall que impida conectarse a un host en la LAN hayq ue
-bloquear los SYN=1/ACK=0 entrantes.</li>
-<li>Funciona bien cuando el BDP es bajo.</li>
-<li>Iterativo: Atiende y corta al toque.</li>
-<li>Concurrente: Duplica el socket y sigue atendiendo.</li>
+<li><p>El numero de secuencia empieza aleatorio, porque cuenta cada no se cuantos
+microsegundos, a partir de la conexion cuenta de a uno.</p></li>
+<li><p>Ventana deslizante pero cuenta bytes. Hasta 65000.</p></li>
+<li><p>Telnet usa el flag de urgente cuando se hace Ctrl-C</p></li>
+<li><p>En las conexiones sin estado como HTTP se suele usar RST en lugar de FIN.</p></li>
+<li><p>No se puede establecer una doble conexion porque se repitirian los 4 cosas.</p></li>
+<li><p>Para hacer un firewall que impida conectarse a un host en la LAN hayq ue
+bloquear los SYN=1/ACK=0 entrantes.</p></li>
+<li><p>Funciona bien cuando el BDP es bajo.</p></li>
+<li><p>Iterativo: Atiende y corta al toque.</p></li>
+<li><p>Concurrente: Duplica el socket y sigue atendiendo.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
+<p class="admonition-title">Por hacer</p>
 <p>Hacer</p>
-<ul class="last simple">
-<li>Control de flujo</li>
-<li>Control de congestión (Tahoe, Reno, NewReno)</li>
+<ul class="simple">
+<li><p>Control de flujo</p></li>
+<li><p>Control de congestión (Tahoe, Reno, NewReno)</p></li>
 </ul>
 </div>
 </div>
@@ -203,7 +206,7 @@ bloquear los SYN=1/ACK=0 entrantes.</li>
         <a href="udp.html" class="btn btn-neutral float-right" title="UDP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="icmpv6.html" class="btn btn-neutral" title="ICMPv6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="icmpv6.html" class="btn btn-neutral float-left" title="ICMPv6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -229,26 +232,16 @@ bloquear los SYN=1/ACK=0 entrantes.</li>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
