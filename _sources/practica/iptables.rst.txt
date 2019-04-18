@@ -4,8 +4,6 @@ iptables
 Esta página es mitad teoría mitad práctica. Ver también
 :doc:`../teoria/seguridad`.
 
-.. todo:: Hacer
-
 Es posible cargar extensiones o módulos con más reglas, objetivos, etc.
 
 Se pueden hacer filtros *stateful*, esto significa que se analiza a cada paquete

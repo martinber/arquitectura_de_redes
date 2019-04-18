@@ -69,6 +69,30 @@ Es el algoritmo que usa OSPF para determinar el mejor camino.
   - La convergencia es más rápida, hay menor carga en la red pero se necesita
     una capacidad de procesamiento mayor.
 
+Tipos de LSAs
+-------------
+
+Los LSAs (Link State Advertisements) son pedazos de información que permiten
+saber el estado de la red. Los routers se envían los LSAs entre sí y los guardan
+en una LSDB (Link State Database). Pongo solamente cuatro para dar una idea.
+
+- Router LSA, tipo 1: Cada router crea un LSA tipo 1 que contiene el router ID
+  y estados de enlaces con sus métricas. Estos LSAs son enviados y se propagan
+  por toda una área. Terminan caracterizando los enlaces punto a punto entre
+  routers.
+
+- Network LSA, tipo 2: El router designado lista a los routers unidos en un
+  mismo segmento (pueden ser más de 2 si es un medio de difusión). Se propagan
+  por toda un área. Terminan caracterizando los enlaces por un medio de
+  difusión.
+
+- Summary LSA, tipo 3: Un router de borde toma información aprendida desde la
+  otra área y provee un sumario de esa área.
+
+- External LSA, tipo 5: Contienen información proveniente de otros procesos de
+  ruteo. Se propagan en todas las áreas sin cambios (menos hacia las áreas
+  stub).
+
 Tipos de paquetes
 -----------------
 
@@ -86,7 +110,7 @@ Tipos de paquetes
   se envían por broadcast/multicast regularmente. Contiene información sobre el
   estado de enlaces (LSAs).
 
-- LSAck (Link State Acknowlegment): Indoca que se ha recibido un LSU.
+- LSAck (Link State Acknowlegment): Indica que se ha recibido un LSU.
 
 OSPFv3
 ------
@@ -161,3 +185,12 @@ Se puede ver que todas las rutas están bien, también comprobé que se puede le
 con ping a todos lados.
 
 .. todo:: Intentar entender las capturas del Wireshark
+
+Referencias
+-----------
+
+- https://tutorzine.com/ospf-lsa-types/
+
+- https://en.wikipedia.org/wiki/Link-state_advertisement
+
+- https://networklessons.com/ospf/ospf-lsa-types-explained
