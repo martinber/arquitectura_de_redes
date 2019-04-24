@@ -9,6 +9,7 @@ Comandos
    linux
    cisco
    mikrotik
+   juniper
 
 Servidores
 ----------
