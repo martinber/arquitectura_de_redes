@@ -40,6 +40,7 @@ Capa aplicación y otros
    mail
    ftp
    http
+   p2p
    multimedia
    voip
    gestion

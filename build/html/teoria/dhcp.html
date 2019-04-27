@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="VLAN" href="vlan.html" />
-    <link rel="prev" title="NAT" href="nat.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="VLAN" href="vlan.html"/>
+        <link rel="prev" title="NAT" href="nat.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -121,7 +127,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -129,10 +135,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -180,79 +185,73 @@
 <h1>DHCP<a class="headerlink" href="#dhcp" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Dynamic Host Configuration Protocol.</p>
 <ul class="simple">
-<li><p>Viene por UDP</p>
-<ul>
-<li><p>Puerto 68 en cliente</p></li>
-<li><p>Puerto 67 en servidor</p></li>
+<li>Viene por UDP<ul>
+<li>Puerto 68 en cliente</li>
+<li>Puerto 67 en servidor</li>
 </ul>
 </li>
-<li><p>Es la evolución del protocolo BOOTP.</p></li>
+<li>Es la evolución del protocolo BOOTP.</li>
 </ul>
 <div class="section" id="header">
 <h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Message type (OP) (1 byte): Indica petición (1) o respuesta (2).</p></li>
-<li><p>Hardware type (HTYPE) (1 byte): Protocolo de enlace, si es Ethernet es 1.</p></li>
-<li><p>Hardware address length (HLEN) (1 byte): Longitud de la dirección de enlace en
-bytes, si es Ethernet es 6.</p></li>
-<li><p>Hops (HOPS) (1 byte): Empieza en cero, cada gateway incrementa el salto, si
-llega a 3 se supone que hubo un bucle.</p></li>
-<li><p>Transaction ID (XID) (4 bytes): Número aleatorio que identifica a esta
-transacción (DHCPDISCOVER, DHCPOFFER, DHCPREQUEST y DHCPACK).</p></li>
-<li><p>Seconds elapsed (SECS) (2 bytes): Fijado por el cliente, segundos desde que el
-cliente arrancó.</p></li>
-<li><p>BOOTP flags (FLAGS) (2 bytes): Solamente se usa el primer bit para indicar si
+<li>Message type (OP) (1 byte): Indica petición (1) o respuesta (2).</li>
+<li>Hardware type (HTYPE) (1 byte): Protocolo de enlace, si es Ethernet es 1.</li>
+<li>Hardware address length (HLEN) (1 byte): Longitud de la dirección de enlace en
+bytes, si es Ethernet es 6.</li>
+<li>Hops (HOPS) (1 byte): Empieza en cero, cada gateway incrementa el salto, si
+llega a 3 se supone que hubo un bucle.</li>
+<li>Transaction ID (XID) (4 bytes): Número aleatorio que identifica a esta
+transacción (DHCPDISCOVER, DHCPOFFER, DHCPREQUEST y DHCPACK).</li>
+<li>Seconds elapsed (SECS) (2 bytes): Fijado por el cliente, segundos desde que el
+cliente arrancó.</li>
+<li>BOOTP flags (FLAGS) (2 bytes): Solamente se usa el primer bit para indicar si
 el cliente quiere que el servidor responda como broadcast (1) o unicast (0).
 Se usa siempre unicast salvo en clientes que no puedan recibir unicast
-antes de inicializar su stack TCP/IP.</p></li>
-<li><p>Client IP (CIADDR) (4 bytes): Generalmente es <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code> salvo por ejemplo
-cuando se hace una renovación.</p></li>
-<li><p>Your IP (YIADDR) (4 bytes): Fijado por el servidor si CIADDR era <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</p></li>
-<li><p>Server IP (SIADDR) (4 bytes): IP del servidor, fijada por el servidor.</p></li>
-<li><p>Relay IP (GIADDR) (4 bytes): Fijado por el relay si es que se está usando uno.</p></li>
-<li><p>Client MAC (CHADDR) (16 bytes): Fijada por el cliente, como sobra espacio
-tiene padding de ceros.</p></li>
-<li><p>Server hostname (SNAME) (64 bytes): Es opcional, pero si no se usa queda el
-espacio vacío con ceros.</p></li>
-<li><p>Boot filename (FILE) (128 bytes): En DHCPDISCOVER no tiene nada, en DHCPOFFER
-el servidor fija un nombre de archivo.</p></li>
-<li><p>Opciones (OPTIONS) (variable): Ver abajo</p></li>
+antes de inicializar su stack TCP/IP.</li>
+<li>Client IP (CIADDR) (4 bytes): Generalmente es <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code> salvo por ejemplo
+cuando se hace una renovación.</li>
+<li>Your IP (YIADDR) (4 bytes): Fijado por el servidor si CIADDR era <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</li>
+<li>Server IP (SIADDR) (4 bytes): IP del servidor, fijada por el servidor.</li>
+<li>Relay IP (GIADDR) (4 bytes): Fijado por el relay si es que se está usando uno.</li>
+<li>Client MAC (CHADDR) (16 bytes): Fijada por el cliente, como sobra espacio
+tiene padding de ceros.</li>
+<li>Server hostname (SNAME) (64 bytes): Es opcional, pero si no se usa queda el
+espacio vacío con ceros.</li>
+<li>Boot filename (FILE) (128 bytes): En DHCPDISCOVER no tiene nada, en DHCPOFFER
+el servidor fija un nombre de archivo.</li>
+<li>Opciones (OPTIONS) (variable): Ver abajo</li>
 </ul>
 <div class="section" id="opciones">
 <h3>Opciones<a class="headerlink" href="#opciones" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Hay muchísimas, pongo las mas usadas:</p>
 <ul class="simple">
-<li><p>Generales, se usan siempre:</p>
-<ul>
-<li><p>DHCP Message type (53): Indica el tipo de mensaje, por ejemplo:</p>
-<ul>
-<li><p>DHCPDISCOVER: 1</p></li>
-<li><p>DHCPOFFER: 2</p></li>
-<li><p>DHCPREQUEST: 3</p></li>
-<li><p>DHCPACK: 5</p></li>
+<li>Generales, se usan siempre:<ul>
+<li>DHCP Message type (53): Indica el tipo de mensaje, por ejemplo:<ul>
+<li>DHCPDISCOVER: 1</li>
+<li>DHCPOFFER: 2</li>
+<li>DHCPREQUEST: 3</li>
+<li>DHCPACK: 5</li>
 </ul>
 </li>
-<li><p>Endmark (255): Indica fin de opciones.</p></li>
+<li>Endmark (255): Indica fin de opciones.</li>
 </ul>
 </li>
-<li><p>Usadas en DHCPDISCOVER y DHCPREQUEST.</p>
-<ul>
-<li><p>Parameter request list (55): Lista de parámetros que requiere el cliente.
-Son varios números que se corresponden a las opciones que explico abajo.</p></li>
+<li>Usadas en DHCPDISCOVER y DHCPREQUEST.<ul>
+<li>Parameter request list (55): Lista de parámetros que requiere el cliente.
+Son varios números que se corresponden a las opciones que explico abajo.</li>
 </ul>
 </li>
-<li><p>Usadas en DHCPOFFER y DHCPACK.</p>
-<ul>
-<li><p>Subnet mask (1): Máscara de red a usar por el cliente</p></li>
-<li><p>Router (3): Gateway a usar por el cliente.</p></li>
-<li><p>IP address lease time (51): Tiempo de lease para la IP dada.</p></li>
-<li><p>DNS servers (8): Servidores DNS para el cliente.</p></li>
-<li><p>DHCP server identifier (54): IP del servidor DHCP.</p></li>
+<li>Usadas en DHCPOFFER y DHCPACK.<ul>
+<li>Subnet mask (1): Máscara de red a usar por el cliente</li>
+<li>Router (3): Gateway a usar por el cliente.</li>
+<li>IP address lease time (51): Tiempo de lease para la IP dada.</li>
+<li>DNS servers (8): Servidores DNS para el cliente.</li>
+<li>DHCP server identifier (54): IP del servidor DHCP.</li>
 </ul>
 </li>
-<li><p>Usadas en DHCPREQUEST:</p>
-<ul>
-<li><p>Requested IP address (50): IP que el cliente está solicitando.</p></li>
+<li>Usadas en DHCPREQUEST:<ul>
+<li>Requested IP address (50): IP que el cliente está solicitando.</li>
 </ul>
 </li>
 </ul>
@@ -263,105 +262,89 @@ Son varios números que se corresponden a las opciones que explico abajo.</p></l
 <p>Los datagramas más importantes son DHCPDISCOVER, DHCPOFFER, DHCPREQUEST y
 DHCPACK:</p>
 <ul class="simple">
-<li><p>Descubrimiento (DHCPDISCOVER): Cliente pregunta que DHCPs hay.</p>
-<ul>
-<li><p>Origen:</p>
-<ul>
-<li><p>MAC: MAC Cliente.</p></li>
-<li><p>IP: <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</p></li>
-<li><p>Puerto: 68.</p></li>
+<li>Descubrimiento (DHCPDISCOVER): Cliente pregunta que DHCPs hay.<ul>
+<li>Origen:<ul>
+<li>MAC: MAC Cliente.</li>
+<li>IP: <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</li>
+<li>Puerto: 68.</li>
 </ul>
 </li>
-<li><p>Destino:</p>
-<ul>
-<li><p>MAC: <code class="docutils literal notranslate"><span class="pre">FF:FF:FF:FF:FF:FF</span></code>.</p></li>
-<li><p>IP: <code class="docutils literal notranslate"><span class="pre">255.255.255.255</span></code>.</p></li>
-<li><p>Puerto: 67</p></li>
+<li>Destino:<ul>
+<li>MAC: <code class="docutils literal notranslate"><span class="pre">FF:FF:FF:FF:FF:FF</span></code>.</li>
+<li>IP: <code class="docutils literal notranslate"><span class="pre">255.255.255.255</span></code>.</li>
+<li>Puerto: 67</li>
 </ul>
 </li>
-<li><p>DHCP:</p>
-<ul>
-<li><p>YIADDR: <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</p></li>
-<li><p>DHCP message type: 1 (Discover).</p></li>
-<li><p>Lista de parámetros requeridos.</p></li>
+<li>DHCP:<ul>
+<li>YIADDR: <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</li>
+<li>DHCP message type: 1 (Discover).</li>
+<li>Lista de parámetros requeridos.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Oferta (DHCPOFFER): Servidores DHCP reservan una IP y la ofrecen, indicando
-además el tiempo de lease (arrendamiento).</p>
-<ul>
-<li><p>Origen:</p>
-<ul>
-<li><p>MAC: MAC Servidor.</p></li>
-<li><p>IP: IP Servidor.</p></li>
-<li><p>Puerto: 67.</p></li>
+<li>Oferta (DHCPOFFER): Servidores DHCP reservan una IP y la ofrecen, indicando
+además el tiempo de lease (arrendamiento).<ul>
+<li>Origen:<ul>
+<li>MAC: MAC Servidor.</li>
+<li>IP: IP Servidor.</li>
+<li>Puerto: 67.</li>
 </ul>
 </li>
-<li><p>Destino:</p>
-<ul>
-<li><p>MAC: MAC Cliente</p></li>
-<li><p>IP: IP propuesta para Cliente.</p></li>
-<li><p>Puerto: 68</p></li>
+<li>Destino:<ul>
+<li>MAC: MAC Cliente</li>
+<li>IP: IP propuesta para Cliente.</li>
+<li>Puerto: 68</li>
 </ul>
 </li>
-<li><p>DHCP:</p>
-<ul>
-<li><p>YIADDR: IP propuesta para cliente.</p></li>
-<li><p>DHCP message type: 2 (Offer).</p></li>
-<li><p>Tiempo de <em>lease</em>, máscara de red, gateway, DNS.</p></li>
+<li>DHCP:<ul>
+<li>YIADDR: IP propuesta para cliente.</li>
+<li>DHCP message type: 2 (Offer).</li>
+<li>Tiempo de <em>lease</em>, máscara de red, gateway, DNS.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Solicitud (DHCPREQUEST): Cliente pide a un servidor DHCP esa IP, es broadcast
-para avisarle a los potenciales otros servidores que no los elegi.</p>
-<ul>
-<li><p>Origen:</p>
-<ul>
-<li><p>MAC: MAC Cliente.</p></li>
-<li><p>IP: <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</p></li>
-<li><p>Puerto: 68.</p></li>
+<li>Solicitud (DHCPREQUEST): Cliente pide a un servidor DHCP esa IP, es broadcast
+para avisarle a los potenciales otros servidores que no los elegi.<ul>
+<li>Origen:<ul>
+<li>MAC: MAC Cliente.</li>
+<li>IP: <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</li>
+<li>Puerto: 68.</li>
 </ul>
 </li>
-<li><p>Destino:</p>
-<ul>
-<li><p>MAC: <code class="docutils literal notranslate"><span class="pre">FF:FF:FF:FF:FF:FF</span></code>.</p></li>
-<li><p>IP: <code class="docutils literal notranslate"><span class="pre">255.255.255.255</span></code>.</p></li>
-<li><p>Puerto: 67</p></li>
+<li>Destino:<ul>
+<li>MAC: <code class="docutils literal notranslate"><span class="pre">FF:FF:FF:FF:FF:FF</span></code>.</li>
+<li>IP: <code class="docutils literal notranslate"><span class="pre">255.255.255.255</span></code>.</li>
+<li>Puerto: 67</li>
 </ul>
 </li>
-<li><p>DHCP:</p>
-<ul>
-<li><p>YIADDR: <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</p></li>
-<li><p>DHCP message type: 3 (Request).</p></li>
-<li><p>Lista de parámetros requeridos.</p></li>
-<li><p>IP requerida por el cliente.</p></li>
+<li>DHCP:<ul>
+<li>YIADDR: <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</li>
+<li>DHCP message type: 3 (Request).</li>
+<li>Lista de parámetros requeridos.</li>
+<li>IP requerida por el cliente.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>ACK (DHCPACK): Servidor confirma.</p>
-<ul>
-<li><p>Origen:</p>
-<ul>
-<li><p>MAC: MAC Servidor.</p></li>
-<li><p>IP: IP Servidor.</p></li>
-<li><p>Puerto: 67.</p></li>
+<li>ACK (DHCPACK): Servidor confirma.<ul>
+<li>Origen:<ul>
+<li>MAC: MAC Servidor.</li>
+<li>IP: IP Servidor.</li>
+<li>Puerto: 67.</li>
 </ul>
 </li>
-<li><p>Destino:</p>
-<ul>
-<li><p>MAC: MAC Cliente</p></li>
-<li><p>IP: IP Cliente.</p></li>
-<li><p>Puerto: 68</p></li>
+<li>Destino:<ul>
+<li>MAC: MAC Cliente</li>
+<li>IP: IP Cliente.</li>
+<li>Puerto: 68</li>
 </ul>
 </li>
-<li><p>DHCP:</p>
-<ul>
-<li><p>YIADDR: IP propuesta para cliente.</p></li>
-<li><p>DHCP message type: 5 (ACK).</p></li>
-<li><p>Tiempo de <em>lease</em>, máscara de red, gateway, DNS.</p></li>
+<li>DHCP:<ul>
+<li>YIADDR: IP propuesta para cliente.</li>
+<li>DHCP message type: 5 (ACK).</li>
+<li>Tiempo de <em>lease</em>, máscara de red, gateway, DNS.</li>
 </ul>
 </li>
 </ul>
@@ -372,15 +355,15 @@ para avisarle a los potenciales otros servidores que no los elegi.</p>
 <h2>Estados<a class="headerlink" href="#estados" title="Enlazar permanentemente con este título">¶</a></h2>
 <a class="reference internal image-reference" href="../_images/estados_dhcp.png"><img alt="../_images/estados_dhcp.png" src="../_images/estados_dhcp.png" style="width: 60%;" /></a>
 <ul class="simple">
-<li><p>Initialization</p></li>
-<li><p>Selection: Espera todas las ofertas de los servidores</p></li>
-<li><p>Request: Pide a un servidor y espera respuesta.</p></li>
-<li><p>Bound: Una vez que le llegó la confirmación del servidor. En este momento la
-PC trabaja normalmente.</p></li>
-<li><p>Renew: Envía un DHCPREQUEST para renovar (al 50% del tiempo) y espera
-respuesta.</p></li>
-<li><p>Rebind: Envía un DHCPREQUEST para renovar (al finalizar el tiempo) y espera
-respuesta.</p></li>
+<li>Initialization</li>
+<li>Selection: Espera todas las ofertas de los servidores</li>
+<li>Request: Pide a un servidor y espera respuesta.</li>
+<li>Bound: Una vez que le llegó la confirmación del servidor. En este momento la
+PC trabaja normalmente.</li>
+<li>Renew: Envía un DHCPREQUEST para renovar (al 50% del tiempo) y espera
+respuesta.</li>
+<li>Rebind: Envía un DHCPREQUEST para renovar (al finalizar el tiempo) y espera
+respuesta.</li>
 </ul>
 </div>
 <div class="section" id="dhcp-relaying">
@@ -700,7 +683,9 @@ Bootstrap Protocol (ACK)
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -709,7 +694,7 @@ Bootstrap Protocol (ACK)
         <a href="vlan.html" class="btn btn-neutral float-right" title="VLAN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="nat.html" class="btn btn-neutral float-left" title="NAT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="nat.html" class="btn btn-neutral" title="NAT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -718,11 +703,11 @@ Bootstrap Protocol (ACK)
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi
+        &copy; Copyright 2018, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -735,15 +720,37 @@ Bootstrap Protocol (ACK)
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
