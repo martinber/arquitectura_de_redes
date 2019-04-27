@@ -42,6 +42,8 @@ Sacado de lista de powerpoints y de programa
 
 - :doc:`teoria/ftp`.
 
+- :doc:`teoria/p2p`.
+
 - :doc:`teoria/mail`.
 
 - :doc:`teoria/http`.
