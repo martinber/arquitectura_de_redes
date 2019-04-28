@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Ethernet" href="ethernet.html" />
-    <link rel="prev" title="Teoría" href="index.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="Ethernet" href="ethernet.html"/>
+        <link rel="prev" title="Teoría" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -123,7 +129,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -131,10 +137,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -181,126 +186,126 @@
   <div class="section" id="general">
 <h1>General<a class="headerlink" href="#general" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
-<p class="admonition-title">Por hacer</p>
-<p>Reordenar y poner cosas en otros documentos. Ver como separar IPV4 de
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Reordenar y poner cosas en otros documentos. Ver como separar IPV4 de
 IPV6. Hablar sobre RFCs y estandarización.</p>
 </div>
 <div class="section" id="capas">
 <h2>Capas<a class="headerlink" href="#capas" title="Enlazar permanentemente con este título">¶</a></h2>
 <ol class="arabic simple">
-<li><p>Capa física.</p></li>
+<li>Capa física.</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li><p>Unidad: Símbolos, Bits.</p></li>
+<li>Unidad: Símbolos, Bits.</li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="2">
-<li><p>Capa de enlace.</p></li>
+<li>Capa de enlace.</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li><p>Unidad: Trama.</p></li>
-<li><p>Protocolos: Ethernet, PPP, HDLC, PPPoE (aunque esté dentro de Ethernet).</p></li>
+<li>Unidad: Trama.</li>
+<li>Protocolos: Ethernet, PPP, HDLC, PPPoE (aunque esté dentro de Ethernet).</li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="3">
-<li><p>Capa de red.</p></li>
+<li>Capa de red.</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li><p>Unidad: Paquete.</p></li>
-<li><p>Protocolos: IP, ARP, ICMP (aunque esté dentro de IP).</p></li>
+<li>Unidad: Paquete.</li>
+<li>Protocolos: IP, ARP, ICMP (aunque esté dentro de IP).</li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="4">
-<li><p>Capa de transporte.</p></li>
+<li>Capa de transporte.</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li><p>Unidad: Segmento (TCP), Datagrama (UDP).</p></li>
-<li><p>Protocolos: TCP, UDP</p></li>
+<li>Unidad: Segmento (TCP), Datagrama (UDP).</li>
+<li>Protocolos: TCP, UDP</li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="5">
-<li><p>Capa de aplicación.</p></li>
+<li>Capa de aplicación.</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li><p>Unidad: Datos</p></li>
-<li><p>Protocolos: DHCP, HTTP.</p></li>
+<li>Unidad: Datos</li>
+<li>Protocolos: DHCP, HTTP.</li>
 </ul>
 </div></blockquote>
-<table class="docutils align-center">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 37%" />
-<col style="width: 26%" />
-<col style="width: 37%" />
+<col width="37%" />
+<col width="26%" />
+<col width="37%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>OSI</p></th>
-<th class="head"><p>TCP/IP</p></th>
-<th class="head"><p>Lo que usamos</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OSI</th>
+<th class="head">TCP/IP</th>
+<th class="head">Lo que usamos</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><ol class="arabic simple" start="7">
-<li><p>Aplicación</p></li>
+<tbody valign="top">
+<tr class="row-even"><td><ol class="first last arabic simple" start="7">
+<li>Aplicación</li>
 </ol>
 </td>
-<td rowspan="3"><p>Aplicación</p></td>
-<td rowspan="3"><ol class="arabic simple" start="5">
-<li><p>Aplicación</p></li>
-</ol>
-</td>
-</tr>
-<tr class="row-odd"><td><ol class="arabic simple" start="6">
-<li><p>Presentación</p></li>
+<td rowspan="3">Aplicación</td>
+<td rowspan="3"><ol class="first last arabic simple" start="5">
+<li>Aplicación</li>
 </ol>
 </td>
 </tr>
-<tr class="row-even"><td><ol class="arabic simple" start="5">
-<li><p>Sesión</p></li>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="6">
+<li>Presentación</li>
 </ol>
 </td>
 </tr>
-<tr class="row-odd"><td><ol class="arabic simple" start="4">
-<li><p>Transporte</p></li>
-</ol>
-</td>
-<td><p>Transporte</p></td>
-<td><ol class="arabic simple" start="4">
-<li><p>Transporte</p></li>
+<tr class="row-even"><td><ol class="first last arabic simple" start="5">
+<li>Sesión</li>
 </ol>
 </td>
 </tr>
-<tr class="row-even"><td><ol class="arabic simple" start="3">
-<li><p>Red</p></li>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="4">
+<li>Transporte</li>
 </ol>
 </td>
-<td><p>Internet</p></td>
-<td><ol class="arabic simple" start="3">
-<li><p>Red</p></li>
-</ol>
-</td>
-</tr>
-<tr class="row-odd"><td><ol class="arabic simple" start="2">
-<li><p>Enlace</p></li>
-</ol>
-</td>
-<td rowspan="2"><p>Acceso a
-la red</p></td>
-<td><ol class="arabic simple" start="2">
-<li><p>Enlace</p></li>
+<td>Transporte</td>
+<td><ol class="first last arabic simple" start="4">
+<li>Transporte</li>
 </ol>
 </td>
 </tr>
-<tr class="row-even"><td><ol class="arabic simple">
-<li><p>Física</p></li>
+<tr class="row-even"><td><ol class="first last arabic simple" start="3">
+<li>Red</li>
 </ol>
 </td>
-<td><ol class="arabic simple">
-<li><p>Física</p></li>
+<td>Internet</td>
+<td><ol class="first last arabic simple" start="3">
+<li>Red</li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="2">
+<li>Enlace</li>
+</ol>
+</td>
+<td rowspan="2">Acceso a
+la red</td>
+<td><ol class="first last arabic simple" start="2">
+<li>Enlace</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple">
+<li>Física</li>
+</ol>
+</td>
+<td><ol class="first last arabic simple">
+<li>Física</li>
 </ol>
 </td>
 </tr>
@@ -310,57 +315,51 @@ la red</p></td>
 <div class="section" id="tamanos">
 <h2>Tamaños<a class="headerlink" href="#tamanos" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Tamaños de cabeceras</p>
-<ul>
-<li><p>Ethernet:</p>
-<ul>
-<li><p>Sin contar preámbulo ni CRC: 14 bytes.</p></li>
-<li><p>Sin contar preámbulo y contando CRC: 18 bytes.</p></li>
-<li><p>Contando preámbulo y CRC: 26 bytes.</p></li>
-<li><p>Si incluye tags (VLAN): + 4 bytes.</p></li>
+<li>Tamaños de cabeceras<ul>
+<li>Ethernet:<ul>
+<li>Sin contar preámbulo ni CRC: 14 bytes.</li>
+<li>Sin contar preámbulo y contando CRC: 18 bytes.</li>
+<li>Contando preámbulo y CRC: 26 bytes.</li>
+<li>Si incluye tags (VLAN): + 4 bytes.</li>
 </ul>
 </li>
-<li><p>ARP: 28 bytes.</p></li>
-<li><p>IP: 20 bytes.</p></li>
-<li><p>ICMP: 8 bytes.</p></li>
-<li><p>PPPoE: 6 bytes.</p></li>
-<li><p>PPP:</p>
-<ul>
-<li><p>Sin contar flags (delimitadores) ni FCS: 4 bytes.</p></li>
-<li><p>Sin contar flags (delimitadores) pero sí FCS: 6 bytes.</p></li>
-<li><p>Contando flags (delimitadores) y FCS: 8 bytes.</p></li>
-<li><p>Dentro de PPPoE solo lleva el campo Protocol: 2 bytes.</p></li>
+<li>ARP: 28 bytes.</li>
+<li>IP: 20 bytes.</li>
+<li>ICMP: 8 bytes.</li>
+<li>PPPoE: 6 bytes.</li>
+<li>PPP:<ul>
+<li>Sin contar flags (delimitadores) ni FCS: 4 bytes.</li>
+<li>Sin contar flags (delimitadores) pero sí FCS: 6 bytes.</li>
+<li>Contando flags (delimitadores) y FCS: 8 bytes.</li>
+<li>Dentro de PPPoE solo lleva el campo Protocol: 2 bytes.</li>
 </ul>
 </li>
-<li><p>DHCP:</p>
-<ul>
-<li><p>Sin contar SNAME, ni FILE, ni opciones: 44 bytes.</p></li>
+<li>DHCP:<ul>
+<li>Sin contar SNAME, ni FILE, ni opciones: 44 bytes.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Tamaños de tramas:</p>
-<ul>
-<li><p>Longitud total máxima de datos que puede llevar Ethernet es 1500 bytes, que
-sumado al header, CRC y preambulo Ethernet dan 1526 bytes por trama.</p></li>
-<li><p>Restando los 20 bytes de header IP, la cantidad máxima que puede llevar IP
+<li>Tamaños de tramas:<ul>
+<li>Longitud total máxima de datos que puede llevar Ethernet es 1500 bytes, que
+sumado al header, CRC y preambulo Ethernet dan 1526 bytes por trama.</li>
+<li>Restando los 20 bytes de header IP, la cantidad máxima que puede llevar IP
 es 1480 bytes. Esto es suponiendo que no hay opciones en el header, en tal
-caso éstas opciones pueden ocupar hasta 32 bytes más.</p></li>
-<li><p>Las tramas Ethernet que llevan un poco más de 1500 bytes se llaman <strong>baby
-giant</strong>.</p></li>
-<li><p>Los <strong>jumbo frames</strong> Ethernet llevan hasta 9000 bytes de datos, son
-soportados por placas Gigabit, pero la mayoría de los ISP no los aceptan.</p></li>
-<li><p>PPPoE:</p>
-<ul>
-<li><p>PPPoE va dentro de Ethernet, después del header PPPoE va el header PPP y
+caso éstas opciones pueden ocupar hasta 32 bytes más.</li>
+<li>Las tramas Ethernet que llevan un poco más de 1500 bytes se llaman <strong>baby
+giant</strong>.</li>
+<li>Los <strong>jumbo frames</strong> Ethernet llevan hasta 9000 bytes de datos, son
+soportados por placas Gigabit, pero la mayoría de los ISP no los aceptan.</li>
+<li>PPPoE:<ul>
+<li>PPPoE va dentro de Ethernet, después del header PPPoE va el header PPP y
 después va el paquete IP. Por lo tanto, si el MTU de Ethernet es 1500, lo
-máximo que puede llevarse de datos es <code class="docutils literal notranslate"><span class="pre">1500</span> <span class="pre">-</span> <span class="pre">6</span> <span class="pre">-</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">1492</span> <span class="pre">bytes</span></code>.</p></li>
-<li><p>Dentro de PPPoE va IP, por lo tanto hay que restar 20 bytes más para saber
-cuántos bytes entran en IP: 1472 bytes.</p></li>
+máximo que puede llevarse de datos es <code class="docutils literal notranslate"><span class="pre">1500</span> <span class="pre">-</span> <span class="pre">6</span> <span class="pre">-</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">1492</span> <span class="pre">bytes</span></code>.</li>
+<li>Dentro de PPPoE va IP, por lo tanto hay que restar 20 bytes más para saber
+cuántos bytes entran en IP: 1472 bytes.</li>
 </ul>
 </li>
-<li><p>Al usar VLAN, el header Ethernet aumenta en 4 bytes pero sigue teniendo un
-MTU de 1500.</p></li>
+<li>Al usar VLAN, el header Ethernet aumenta en 4 bytes pero sigue teniendo un
+MTU de 1500.</li>
 </ul>
 </li>
 </ul>
@@ -389,39 +388,38 @@ MTU de 1500.</p></li>
 <h2>Internet<a class="headerlink" href="#internet" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Algunas definiciones:</p>
 <ul class="simple">
-<li><p>ISP: Internet Service Provider.</p></li>
-<li><p>NSP: National Service Provider.</p></li>
-<li><p>NAP: Network Access Point.</p></li>
-<li><p>CABASE: Cámara Argentina de Internet.</p></li>
-<li><p>ICANN: Internet Corporation for Assigned Names and Numbers, coordina la
-asignación de DNS, direcciones IP y sistemas autónomos.</p></li>
-<li><p>IANA: Internet Assigned Numbers Authority, es la autoridad que asigna nombes
+<li>ISP: Internet Service Provider.</li>
+<li>NSP: National Service Provider.</li>
+<li>NAP: Network Access Point.</li>
+<li>CABASE: Cámara Argentina de Internet.</li>
+<li>ICANN: Internet Corporation for Assigned Names and Numbers, coordina la
+asignación de DNS, direcciones IP y sistemas autónomos.</li>
+<li>IANA: Internet Assigned Numbers Authority, es la autoridad que asigna nombes
 de dominio, direcciones IP y sistemas autónomos. En este momento a esta
-función la posee el ICANN.</p></li>
-<li><p>RIR: Regional Internet Registry, organización que asigna direcciones IP y
-números de sistemas autónomos en una región:</p>
-<ul>
-<li><p>ARIN: Estados Unidos, Canadá.</p></li>
-<li><p>RIPE NCC: Europa, medio oriente y Asia central</p></li>
-<li><p>APNIC: Asia y Pacífico.</p></li>
-<li><p>LACNIC: Latin American and Caribbean Internet Addresses Registry.</p></li>
-<li><p>AfriNIC: África.</p></li>
+función la posee el ICANN.</li>
+<li>RIR: Regional Internet Registry, organización que asigna direcciones IP y
+números de sistemas autónomos en una región:<ul>
+<li>ARIN: Estados Unidos, Canadá.</li>
+<li>RIPE NCC: Europa, medio oriente y Asia central</li>
+<li>APNIC: Asia y Pacífico.</li>
+<li>LACNIC: Latin American and Caribbean Internet Addresses Registry.</li>
+<li>AfriNIC: África.</li>
 </ul>
 </li>
-<li><p>AS: Sistema Autónomo, un conjunto de routers y redes bajo una misma
-administración, se identifican por un número de 16 bits.</p></li>
-<li><p>IETF: Internet Engineering Task Force, se encarga de crear los estándares RFC.</p></li>
-<li><p>RFC: Request For Comments, para que un protocolo se estandarice tiene que
+<li>AS: Sistema Autónomo, un conjunto de routers y redes bajo una misma
+administración, se identifican por un número de 16 bits.</li>
+<li>IETF: Internet Engineering Task Force, se encarga de crear los estándares RFC.</li>
+<li>RFC: Request For Comments, para que un protocolo se estandarice tiene que
 estár publicado en una RFC, pero no todos los RFC son estándares. Son
-publicados por la IETF.</p></li>
+publicados por la IETF.</li>
 </ul>
 </div>
 <div class="section" id="serial">
 <h2>Serial<a class="headerlink" href="#serial" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se puede usar HDLC o PPPoE. El cable tiene dos extremos:</p>
 <ul class="simple">
-<li><p>DSE: (Hembra), Configura velocidad.</p></li>
-<li><p>DTE: (Macho).</p></li>
+<li>DSE: (Hembra), Configura velocidad.</li>
+<li>DTE: (Macho).</li>
 </ul>
 </div>
 <div class="section" id="resumen-headers">
@@ -433,66 +431,64 @@ que es tan grande que lo dibujé a 4 bytes por renglón.</p>
 <div class="section" id="ruteo">
 <h2>Ruteo<a class="headerlink" href="#ruteo" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Una ruta es un prefijo más el próximo salto.</p></li>
-<li><p>Hay dos funciones básicas:</p>
-<ul>
-<li><p>RIB (Routing Information Base): Para determinación de ruta.</p></li>
-<li><p>FIB (Forwarding Information Base): Para conmutación de paquetes, la
-información que tiene deriva de las mejores rutas de la RIB.</p></li>
+<li>Una ruta es un prefijo más el próximo salto.</li>
+<li>Hay dos funciones básicas:<ul>
+<li>RIB (Routing Information Base): Para determinación de ruta.</li>
+<li>FIB (Forwarding Information Base): Para conmutación de paquetes, la
+información que tiene deriva de las mejores rutas de la RIB.</li>
 </ul>
 </li>
-<li><p>Las tablas de ruteo indican el próximo salto. Si hay varias rutas que
+<li>Las tablas de ruteo indican el próximo salto. Si hay varias rutas que
 contienen a la dirección de destino, se elige la ruta que tiene la máscara más
-larga.</p></li>
-<li><p>Si tienen la misma longitud de máscara se elige la ruta con menor distancia
+larga.</li>
+<li>Si tienen la misma longitud de máscara se elige la ruta con menor distancia
 administrativa que depende del protocolo desde donde se aprendió, sólo tiene
-significado local.</p></li>
-<li><p>Los algoritmos clasifican las rutas de acuerdo a métricas, que son números
+significado local.</li>
+<li>Los algoritmos clasifican las rutas de acuerdo a métricas, que son números
 generados a partir de variables como cantidad de saltos, velocidad de enlaces,
 etc. Si dos rutas coinciden en largo de máscara y en distancia administrativa,
 se elige la que tiene menor métrica. Se usa cuando hay dos rutas aprendidas
-con el mismo protocolo.</p></li>
-<li><p>Pueden ser protocolos</p></li>
+con el mismo protocolo.</li>
+<li>Pueden ser protocolos</li>
 </ul>
 <div class="section" id="ruteo-dinamico">
 <h3>Ruteo dinamico<a class="headerlink" href="#ruteo-dinamico" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><p>Pueden ser IGP (Interior Gateway Protocol) o EGP (External Gateway Protocol)
-dependiendo de si es interno a un sistema autónomo o no. El único EGP es BGP.</p></li>
-<li><p>La distancia administrativa (grado de conocimiento y confiabilidad) depende
-del protocolo, tiene un valor por defecto pero se puede cambiar:</p>
-<ul>
-<li><p>RIP: 120.</p></li>
-<li><p>Redes directamente conectadas: 0.</p></li>
-<li><p>Rutas estáticas: 1.</p></li>
-<li><p>eBGP: 20.</p></li>
-<li><p>OSPF: 110.</p></li>
-<li><p>IS-IS: 115.</p></li>
-<li><p>iBGP: 200.</p></li>
+<li>Pueden ser IGP (Interior Gateway Protocol) o EGP (External Gateway Protocol)
+dependiendo de si es interno a un sistema autónomo o no. El único EGP es BGP.</li>
+<li>La distancia administrativa (grado de conocimiento y confiabilidad) depende
+del protocolo, tiene un valor por defecto pero se puede cambiar:<ul>
+<li>RIP: 120.</li>
+<li>Redes directamente conectadas: 0.</li>
+<li>Rutas estáticas: 1.</li>
+<li>eBGP: 20.</li>
+<li>OSPF: 110.</li>
+<li>IS-IS: 115.</li>
+<li>iBGP: 200.</li>
 </ul>
 </li>
-<li><p>Un protocolo elige entre distintos caminos para llegar a un destino mirando
-las métricas.</p></li>
-<li><p>Si hay una ruta aprendidas por más de un protocolo, se elige las ruta con
-menor distancia administrativa.</p></li>
-<li><p>Por como funcionan los sistemas operativos de routers, en protocolos como RIP
+<li>Un protocolo elige entre distintos caminos para llegar a un destino mirando
+las métricas.</li>
+<li>Si hay una ruta aprendidas por más de un protocolo, se elige las ruta con
+menor distancia administrativa.</li>
+<li>Por como funcionan los sistemas operativos de routers, en protocolos como RIP
 o OSPF hay dos formas de propagar rutas directamente conectadas: usando
 comandos como <code class="docutils literal notranslate"><span class="pre">network</span></code> en todas las redes y pasivando algunas si es
 necesario, o usando <code class="docutils literal notranslate"><span class="pre">network</span></code> en las activas y anunciando las demás con un
-comando como <code class="docutils literal notranslate"><span class="pre">redistribute</span> <span class="pre">connected</span></code>.</p></li>
+comando como <code class="docutils literal notranslate"><span class="pre">redistribute</span> <span class="pre">connected</span></code>.</li>
 </ul>
 </div>
 <div class="section" id="route-redistribution">
 <h3>Route redistribution<a class="headerlink" href="#route-redistribution" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><p>Para propagar rutas de un protocolo de ruteo dinamico a otro protocolo se usa
+<li>Para propagar rutas de un protocolo de ruteo dinamico a otro protocolo se usa
 <em>Route Redistribution</em>, no es un estándar y varía un poco dependiendo de los
-fabricantes.</p></li>
-<li><p>En el caso de que hayan dos routers de borde, pueden ocurrir loops. Por lo
+fabricantes.</li>
+<li>En el caso de que hayan dos routers de borde, pueden ocurrir loops. Por lo
 tanto una ruta recibida desde un protocolo no debe ser reinyectada en el mismo
-protocolo.</p></li>
-<li><p>Creo que este tema es complejo cuando se desistribuye entre dos IGP. En cambio
-cuando se resistribuye entre BGP y un IGP debería ser más estándar y fácil.</p></li>
+protocolo.</li>
+<li>Creo que este tema es complejo cuando se desistribuye entre dos IGP. En cambio
+cuando se resistribuye entre BGP y un IGP debería ser más estándar y fácil.</li>
 </ul>
 </div>
 </div>
@@ -500,7 +496,9 @@ cuando se resistribuye entre BGP y un IGP debería ser más estándar y fácil.<
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -509,7 +507,7 @@ cuando se resistribuye entre BGP y un IGP debería ser más estándar y fácil.<
         <a href="ethernet.html" class="btn btn-neutral float-right" title="Ethernet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Teoría" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Teoría" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -518,11 +516,11 @@ cuando se resistribuye entre BGP y un IGP debería ser más estándar y fácil.<
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi
+        &copy; Copyright 2018, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -535,15 +533,37 @@ cuando se resistribuye entre BGP y un IGP debería ser más estándar y fácil.<
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

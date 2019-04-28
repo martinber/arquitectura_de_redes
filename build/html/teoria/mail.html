@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="FTP" href="ftp.html" />
-    <link rel="prev" title="DNS" href="dns.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="FTP" href="ftp.html"/>
+        <link rel="prev" title="DNS" href="dns.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -90,6 +96,11 @@
 <li class="toctree-l3"><a class="reference internal" href="dns.html">DNS</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Mail</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#explicacion-desde-wikipedia">Explicación desde Wikipedia</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smtp">SMTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mime">MIME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pop">POP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imap">IMAP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#referencias">Referencias</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ftp.html">FTP</a></li>
@@ -118,7 +129,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -126,10 +137,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -176,48 +186,61 @@
   <div class="section" id="mail">
 <h1>Mail<a class="headerlink" href="#mail" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
-<p class="admonition-title">Por hacer</p>
+<p class="first admonition-title">Por hacer</p>
 <p>Hacer</p>
-<ul class="simple">
-<li><p>822</p></li>
-<li><p>SMTP</p></li>
-<li><p>MIME</p></li>
-<li><p>POP</p></li>
-<li><p>IMAP</p></li>
+<ul class="last simple">
+<li>822</li>
+<li>SMTP</li>
+<li>MIME</li>
+<li>POP</li>
+<li>IMAP</li>
 </ul>
 </div>
 <p>Para entenderlo bien creo que habría que saberse un poco la historia de cómo fue
 evolucionando porque es como que siempre se fueron corrigiendo cosas, sobre todo
 para intentar mejorar la seguridad, disminuir el SPAM, impedir el <a class="reference external" href="https://en.wikipedia.org/wiki/Email_spoofing">spoofing</a>,
 etc.</p>
+<ul class="simple">
+<li>Las direcciones de mail llevan el nombre de usuario seguido del nombre de
+dominio.</li>
+<li>Los servidores utilizan el record MX del protocolo DNS para encontrar a los
+servidores hacia dónde enviar los correos.</li>
+<li>Existe el estándar SMTP que establece cómo se intercambian los correos, el
+formato del correo en sí está definido en las RFCs 822 y 1049. Finalmente
+existen los protocolos POP3 e IMAP que permite a los clientes obtener correos
+desde su servidor de correo.</li>
+<li>El formato de correo era originalmente ASCII de 7 bits con el bit superior en
+cero, más adelante se define el estándar MIME (Multipurpose Internet Mail
+Extensions) que permite codificar texto y datos binarios en ASCII de 7 bits.</li>
+</ul>
 <p>Hay distintos agentes (programas/servidores), al final hay servidores que son
 más de una cosa a la vez pero la división sería la siguiente:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Mail User Agent (MUA): Es un cliente de correo, es el programa que usa el
-usuario.</p></li>
-<li><p>Mail Submission Agent (MSA): Recibe correos desde un MUA y lo envía a un
+<li>Mail User Agent (MUA): Es un cliente de correo, es el programa que usa el
+usuario.</li>
+<li>Mail Submission Agent (MSA): Recibe correos desde un MUA y lo envía a un
 MTA. Es el primer servidor de la cadena y es recibe sólo correos de MUAs
-autorizados.</p></li>
-<li><p>Mail Transfer Agent (MTA): Transfiere correos de un agente a otro usando
-SMTP, recibe correos desde MSAs o MTAs potencialmente desde otros dominios.</p></li>
-<li><p>Mail Delivery Agent (MDA): Recibe mensajes desde un MTA y lleva los mensajes
+autorizados.</li>
+<li>Mail Transfer Agent (MTA): Transfiere correos de un agente a otro usando
+SMTP, recibe correos desde MSAs o MTAs potencialmente desde otros dominios.</li>
+<li>Mail Delivery Agent (MDA): Recibe mensajes desde un MTA y lleva los mensajes
 a una casilla de correo local de un usuario. Hace también por ejemplo
-filtrado de SPAM y separación de correos en carpetas.</p></li>
-<li><p>Mail Retrieval Agent (MRA): Solicita mensajes a un MDA y los muestra al
-usuario. Generalmente es el mismo software que el MUA.</p></li>
+filtrado de SPAM y separación de correos en carpetas.</li>
+<li>Mail Retrieval Agent (MRA): Solicita mensajes a un MDA y los muestra al
+usuario. Generalmente es el mismo software que el MUA.</li>
 </ul>
 </div></blockquote>
-<p>Todos los pasos de de la cadena menos el último usan SMTP. El último paso usa
+<p>Todos los pasos de la cadena menos el último usan SMTP. El último paso usa
 POP3 o IMAP:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[MUA] --SMTP--&gt; [MSA] --SMTP--&gt; [MTA] --SMTP--&gt; [MDA] --POP3/IMAP--&gt; [MRA]
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[MUA] --SMTP--&gt; [MSA] --SMTP--&gt; [MTA] --SMTP--&gt; [MTA] --SMTP--&gt; [MDA] --POP3/IMAP--&gt; [MRA]
 </pre></div>
 </div>
 <div class="section" id="explicacion-desde-wikipedia">
 <h2>Explicación desde Wikipedia<a class="headerlink" href="#explicacion-desde-wikipedia" title="Enlazar permanentemente con este título">¶</a></h2>
-<img alt="../_images/mail.svg" src="../_images/mail.svg" /><p>Modificado por mí, original de Ale2006-from-en
-[CC BY-SA 3.0 (<a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0">https://creativecommons.org/licenses/by-sa/3.0</a>)]</p>
-<p>Email is submitted by a mail client (mail user agent, MUA) to a mail server
+<img alt="../_images/mail.svg" src="../_images/mail.svg" /><p>Diagrama modificado por mí, original de Ale2006-from-en [<a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>].</p>
+<blockquote>
+<div><p>Email is submitted by a mail client (mail user agent, MUA) to a mail server
 (mail submission agent, MSA) using SMTP on TCP port 587. Most mailbox providers
 still allow submission on traditional port 25. The MSA delivers the mail to its
 mail transfer agent (mail transfer agent, MTA). Often, these two agents are
@@ -257,26 +280,396 @@ mail envelope and its parameters, such as the envelope sender, but not the
 header (except trace information) nor the body of the message itself. STD 10
 and RFC 5321 define SMTP (the envelope), while STD 11 and RFC 5322 define the
 message (header and body), formally referred to as the Internet Message Format.</p>
+</div></blockquote>
+</div>
 <div class="section" id="smtp">
-<h3>SMTP<a class="headerlink" href="#smtp" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2>SMTP<a class="headerlink" href="#smtp" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Simple Mail Transfer Protocol.</p>
 <ul class="simple">
-<li><p>Usa TCP normalmente con puerto 25.</p></li>
-<li><p>Es importante que el correo permita la entrega con retardo en el caso que se
-pierda la conexión o la máquina remota falle.</p></li>
+<li>Especifica cómo se deben enviar los mails.</li>
+<li>Usa TCP normalmente con puerto 25.</li>
+<li>Es importante que el correo permita la entrega con retardo en el caso que se
+pierda la conexión o la máquina remota falle.</li>
+<li>Está basado en texto, se envían comandos de junto con argumentos separados por
+espacios. Se responde similar a HTTP.</li>
+<li>Diseñado para enviar mensajes en texto plano, más adelante con STARTTLS los
+correos viajan cifrados entre servidor y servidor pero no es un cifrado
+extremo a extremo, ya que cada agente intermediario puede leer el correo.</li>
+</ul>
+<div class="section" id="comandos">
+<h3>Comandos<a class="headerlink" href="#comandos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Estos son los más importantes.</p>
+<ul>
+<li><p class="first"><strong>HELO</strong>: Enviado por el cliente para iniciar la conversación, generalmente se
+envía como argumento el nombre de dominio del cliente.</p>
+</li>
+<li><p class="first"><strong>EHLO</strong>: Lo mismo que HELO pero indica que se va a usar Extended SMTP.</p>
+</li>
+<li><p class="first"><strong>STARTTLS</strong>: Solicita que se inicie una negociación TLS para que los siguientes
+datos transmitidos viajen cifrados.</p>
+</li>
+<li><p class="first"><strong>AUTH</strong>: Autentica el cliente ante el servidor, envía el nombre de usuario y
+contraseña en algún formato que puede ser en BASE64 (basicamente lo mismo que
+texto plano) o CRAM-MD5 que es más seguro pero no tanto, por lo tanto conviene
+usarlo junto con STARTTLS.</p>
+</li>
+<li><p class="first"><strong>MAIL FROM</strong>: Indica la dirección de mail del remitente.</p>
+</li>
+<li><p class="first"><strong>RCPT TO</strong>: Indica la dirección de mail del destino, se puede utilizar varias
+veces para agregar más destinatarios.</p>
+</li>
+<li><p class="first"><strong>DATA</strong>: Comienza la transmisión de los contenidos del correo incluyendo los
+archivos adjuntos. Para indicar el fin del mensaje se envía una línea con un
+punto, es decir <code class="docutils literal notranslate"><span class="pre">\r\n.\r\n</span></code>.</p>
+<p>El formato del mensaje no es parte de SMTP. Al comienzo del mensaje se
+utilizan encabezados definidos en la RFC 822, luego se envía el mensaje en
+formato MIME.</p>
+<ul class="simple">
+<li><strong>Date</strong>: Momento en el cuál el usuario envió el mensaje.</li>
+<li><strong>From</strong>: Especifica quién escribió el mensaje</li>
+<li><strong>Sender</strong>: Especifica quién fue en realidad el que envió el mensaje.</li>
+<li><strong>To</strong>: Destinatarios principales del mensaje.</li>
+<li><strong>Cc</strong>: Destinatarios secundarios del mensaje.</li>
+<li><strong>Bcc</strong>: Destinatarios ocultos del mensaje, es leído por el MUA y el campo es
+borrado antes de enviar el mensaje.</li>
+<li><strong>Subject</strong>: Resumen del mensaje.</li>
+<li><strong>Message-ID</strong>: Identifica al mensaje.</li>
+</ul>
+</li>
+<li><p class="first"><strong>QUIT</strong>: Cierra la conversación.</p>
+</li>
 </ul>
 </div>
+<div class="section" id="respuestas">
+<h3>Respuestas<a class="headerlink" href="#respuestas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Algunas de las respuestas son:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">2XX</span></code>: Success.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">220</span></code>: Servicio listo.</li>
+<li><code class="docutils literal notranslate"><span class="pre">221</span></code>: Servicio cerrando conexión.</li>
+<li><code class="docutils literal notranslate"><span class="pre">250</span></code>: Solicitud completada (Ok).</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">3XX</span></code>: ???<ul>
+<li><code class="docutils literal notranslate"><span class="pre">354</span></code>: Listo para recibir mensaje, enviado por el servidor luego del
+comando DATA.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">4XX</span></code>: Falla temporal.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">421</span></code>: Servicio no disponible.</li>
+<li><code class="docutils literal notranslate"><span class="pre">450</span></code>: Casilla de correo no disponible u ocupada.</li>
+<li><code class="docutils literal notranslate"><span class="pre">451</span></code>: Error local en el procesamiento.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">5XX</span></code>: Falla permanente.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">501</span></code>: Error de sintaxis.</li>
+<li><code class="docutils literal notranslate"><span class="pre">502</span></code>: Comando no implementado.</li>
+<li><code class="docutils literal notranslate"><span class="pre">550</span></code>: Casilla de correo no disponible.</li>
+<li><code class="docutils literal notranslate"><span class="pre">551</span></code>: Usuario no local, significa que ni la dirección de recipiente ni
+destinatario pertenecen al servidor.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ejemplos">
+<h3>Ejemplos<a class="headerlink" href="#ejemplos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En cada ejemplo, se agregó <code class="docutils literal notranslate"><span class="pre">C:</span></code> para representar al cliente y <code class="docutils literal notranslate"><span class="pre">S:</span></code> para
+representar al servidor.</p>
+<p>Ejemplo
+<a class="reference external" href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">simple desde Wikipedia</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>S: 220 smtp.example.com ESMTP Postfix
+C: HELO relay.example.com
+S: 250 smtp.example.com, I am glad to meet you
+C: MAIL FROM:&lt;bob@example.com&gt;
+S: 250 Ok
+C: RCPT TO:&lt;alice@example.com&gt;
+S: 250 Ok
+C: RCPT TO:&lt;theboss@example.com&gt;
+S: 250 Ok
+C: DATA
+S: 354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
+C: From: &quot;Bob Example&quot; &lt;bob@example.com&gt;
+C: To: Alice Example &lt;alice@example.com&gt;
+C: Cc: theboss@example.com
+C: Date: Tue, 15 Jan 2008 16:02:43 -0500
+C: Subject: Test message
+C:
+C: Hello Alice.
+C: This is a test message with 5 header fields and 4 lines in the message body.
+C: Your friend,
+C: Bob
+C: .
+S: 250 Ok: queued as 12345
+C: QUIT
+S: 221 Bye
+{The server closes the connection}
+</pre></div>
+</div>
+<p>Ejemplo
+<a class="reference external" href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">de EHLO desde Wikipedia</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>S: 220 smtp2.example.com ESMTP Postfix
+C: EHLO bob.example.com
+S: 250-smtp2.example.com Hello bob.example.org [192.0.2.201]
+S: 250-SIZE 14680064
+S: 250-PIPELINING
+S: 250 HELP
+</pre></div>
+</div>
+<p>Ejemplo
+<a class="reference external" href="http://www.samlogic.net/articles/smtp-commands-reference-auth.htm">que utiliza AUTH desde SamLogic</a>,
+la contraseña viaja cifrada en BASE64 pero no es seguro, ya que convertirlo a
+texto plano es fácil:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>S: 220 smtp.server.com Simple Mail Transfer Service Ready
+C: EHLO client.example.com
+S: 250-smtp.server.com Hello client.example.com
+S: 250-SIZE 1000000
+S: 250 AUTH LOGIN PLAIN CRAM-MD5
+C: AUTH PLAIN dGVzdAB0ZXN0ADEyMzQ= *
+S: 235 2.7.0 Authentication successful
+</pre></div>
+</div>
+<p>Ejemplo
+<a class="reference external" href="http://www.samlogic.net/articles/smtp-commands-reference-auth.htm">que utiliza STARTTLS y AUTH desde SamLogic</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>S: 220 smtp.server.com Simple Mail Transfer Service Ready
+C: EHLO client.example.com
+S: 250-smtp.server.com Hello client.example.com
+S: 250-SIZE 1000000
+S: 250-AUTH LOGIN PLAIN CRAM-MD5
+S: 250-STARTTLS
+S: 250 HELP
+C: STARTTLS
+S: 220 TLS go ahead
+[A partir de acá la comunicación viaja cifrada por TLS]
+C: EHLO client.example.com
+S: 250-smtp.server.com Hello client.example.com
+S: 250-SIZE 1000000
+S: 250-AUTH LOGIN PLAIN CRAM-MD5
+S: 250 HELP
+C: AUTH LOGIN
+S: 334 VXNlcm5hbWU6
+C: adlxdkej
+S: 334 UGFzc3dvcmQ6
+C: lkujsefxlj
+S: 235 2.7.0 Authentication successful
+C: MAIL FROM:&lt;mail@samlogic.com&gt;
+S: 250 OK
+C: RCPT TO:&lt;john@mail.com&gt;
+S: 250 OK
+C: DATA
+S: 354 Send message, end with a &quot;.&quot; on a line by itself
+C: &lt;The message data (body text, subject, e-mail header, attachments etc) is sent&gt;
+S .
+S: 250 OK, message accepted for delivery: queued as 12345
+C: QUIT
+S: 221 Bye
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="mime">
+<h2>MIME<a class="headerlink" href="#mime" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Multipurpose Internet Mail Extensions.</p>
+<ul class="simple">
+<li>Permite codificar texto y datos binarios en ASCII de 7 bits para permitir su
+transmisión por SMTP.</li>
+<li>Define una gran variedad de <em>content types</em> que se utilizan en HTTP.</li>
+<li>Si se usa el <em>content type</em> <code class="docutils literal notranslate"><span class="pre">multipart</span></code>, se pueden enviar muchos archivos
+codificados en MIME uno abajo del otro. Se define en estos casos una
+<em>boundary</em> para separar cada parte del mensaje.</li>
+</ul>
+<div class="section" id="headers">
+<h3>Headers<a class="headerlink" href="#headers" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><strong>MIME-Version:</strong>: Indica que el mensaje está codificado en MIME, siempre
+lleva <code class="docutils literal notranslate"><span class="pre">1.0</span></code></li>
+<li><strong>Content-Type:</strong>: Indica el tipo de medio del contenido, incluyendo el tipo y
+el subtipo. Si no se especifica se supone que es <code class="docutils literal notranslate"><span class="pre">text/plain</span></code>. También puede
+llevar el argumento <code class="docutils literal notranslate"><span class="pre">charset</span></code> que especifica la codificación de caracteres
+en uso en el caso que no sea ASCII, por ejemplo <code class="docutils literal notranslate"><span class="pre">iso-8859-1</span></code>.</li>
+<li><strong>Content-Disposition:</strong>: Tiene campos que especifican el nombre del archivo,
+fechas de creación y modificación. También lleva <code class="docutils literal notranslate"><span class="pre">inline</span></code> si el archivo debe
+mostrarse dentro del mensaje o <code class="docutils literal notranslate"><span class="pre">attachment</span></code> si es un archivo adjunto.</li>
+<li><strong>Content-ID</strong>: Se usa sobre todo en mensajes multiparte, identifica una parte
+de un mensaje.</li>
+<li><strong>Content-Transfer-Encoding</strong>: Especifica cómo se enviarán caracteres no
+ASCII, <code class="docutils literal notranslate"><span class="pre">base64</span></code> es apropiado para datos binarios mientras que
+<code class="docutils literal notranslate"><span class="pre">quoted-printable</span></code> es útil para texto que por ejemplo tiene unos pocos
+acentos.</li>
+<li><strong>Content-Description</strong>: Describe al contenido, no muy usado.</li>
+</ul>
+</div>
+<div class="section" id="tipos-de-contenido">
+<h3>Tipos de contenido<a class="headerlink" href="#tipos-de-contenido" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El <em>content type</em> se especifica como <code class="docutils literal notranslate"><span class="pre">tipo/subtipo</span></code>, algunos de los más
+conocidos son:</p>
+<ul class="simple">
+<li><strong>text</strong>:<ul>
+<li><strong>plain</strong>: Texto plano, generalmente ASCII. Es el <em>content type</em> por defecto.</li>
+<li><strong>html</strong>.</li>
+<li><strong>css</strong>.</li>
+<li><strong>javascript</strong>.</li>
+</ul>
+</li>
+<li><strong>application</strong>:<ul>
+<li><strong>octet-stream</strong>: Es el formato por defecto para tipos de archivos desconocidos.</li>
+<li><strong>x-rar-compressed</strong>: Para archivos <code class="docutils literal notranslate"><span class="pre">.rar</span></code>.</li>
+<li><strong>vnd.oasis.opendocument.text</strong>: Para <code class="docutils literal notranslate"><span class="pre">.odt</span></code>.</li>
+<li><strong>msword</strong>: Para archivos <code class="docutils literal notranslate"><span class="pre">.doc</span></code>.</li>
+<li><strong>vnd.openxmlformats-officedocument.wordprocessingml.document</strong>:
+Para <code class="docutils literal notranslate"><span class="pre">.docx</span></code>.</li>
+</ul>
+</li>
+<li><strong>multipart</strong>:<ul>
+<li><strong>mixed</strong>: Especifica que cada sección es parte de un mismo mensaje. Es el más
+común.</li>
+<li><strong>alternative</strong>: Cada parte es una versión alternativa o similar del mismo
+contenido.</li>
+</ul>
+</li>
+<li><strong>image</strong>:<ul>
+<li><strong>bmp</strong>.</li>
+<li><strong>png</strong>.</li>
+<li><strong>jpeg</strong>.</li>
+</ul>
+</li>
+<li><strong>audio</strong>:<ul>
+<li><strong>aac</strong>.</li>
+<li><strong>mpeg</strong>: Para <code class="docutils literal notranslate"><span class="pre">.mp3</span></code>.</li>
+</ul>
+</li>
+<li><strong>video</strong>:<ul>
+<li><strong>webm</strong>.</li>
+<li><strong>x-msvideo</strong>: Para <code class="docutils literal notranslate"><span class="pre">.avi</span></code>.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Ejemplos<a class="headerlink" href="#id3" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Ejemplo de
+<a class="reference external" href="https://hunnysoft.com/mime/samples/index.html">imagen PNG sacado de HunnySoft</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Content-Type: image/png; name=&quot;2aa5e03a.png&quot;
+Content-ID: &lt;4.2.0.58.20000519003903.00a859b0@pop.example.com.2&gt;
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename=&quot;2aa5e03a.png&quot;
+
+iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAMAAAC6CgRnAAADAFBMVEX///8AAAgAABAAABgAAAAA
+CCkAEEIAEEoACDEAEFIIIXMIKXsIKYQIIWsAGFoACDkIIWMQOZwYQqUYQq0YQrUQOaUQMZQAGFIQ
+MYwpUrU5Y8Y5Y84pWs4YSs4YQs4YQr1Ca8Z7nNacvd6Mtd5jlOcxa94hUt4YStYYQsYQMaUAACHO
+5+/n7++cxu9ShO8pWucQOa1Ke86tzt6lzu9ajO8QMZxahNat1ufO7++Mve9Ke+8YOaUYSsaMvee1
+5++Uve8AAClajOdzpe9rnO8IKYwxY+8pWu8IIXsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAADBMg1VAAAAAXRSTlMAQObYZgAAABZ0RVh0U29mdHdhcmUAZ2lmMnBuZyAyLjAu
+MT1evmgAAAGISURBVHicddJtV5swGAbgEk6AJhBSk4bMCUynBSLaqovbrG/bfPn/vyh70lbssceb
+L5xznTsh5BmNhgQoRChwo50EOIohUYLDj4zHhKYQkrEoQdvock4ne0IKMVUpKZLQDeqSTIsv+18P
+yqqWUw2IBsRM7307PPp+fDJrWtnpLDJvewYxnewfnvanZ+fzpmwXijC8KbqEa3Fx2ff91Y95U9XC
+UpaDeQwiMpHXP/v+1++bWVPWQoGFawtjury9vru/f/C1Vi7ezT0WWpQHf/7+u/G71aLThK/MjRxm
+T6KdzZ9fGk9yatMsTgZLl3XVgFRAC6spj/13enssqJVtWVa3NdBSacL8+VZmYqKmdd1CSYoOiMOS
+GwtzlqqlFFIuOqv0a1ZEZrUkWICLLFW266y1KvWE1zV/iDAH1EopnVLCiygZCIomH3NCKX0lnI+B
+1iuuzCGTxwXjnDO4d7NpbX42YJJHkBwmAm2TxwAZg40J3+Xtbv1rgOAZwG0NxW62p+lT+Yi747sD
+/wEUVMzYmWkOvwAAACV0RVh0Q29tbWVudABjbGlwMmdpZiB2LjAuNiBieSBZdmVzIFBpZ3VldDZz
+O7wAAAAASUVORK5CYII=
+</pre></div>
+</div>
+<p>Ejemplo de mail multiparte desde RFC 1341, las primeras tres líneas vienen del
+estándar proveniente del RFC 822, luego viene el mensaje en MIME:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>From: Nathaniel Borenstein &lt;nsb@bellcore.com&gt;
+To:  Ned Freed &lt;ned@innosoft.com&gt;
+Subject: Sample message
+MIME-Version: 1.0
+Content-type: multipart/mixed; boundary=&quot;simple
+boundary&quot;
+
+This is the preamble.  It is to be ignored, though it
+is a handy place for mail composers to include an
+explanatory note to non-MIME compliant readers.
+--simple boundary
+
+This is implicitly typed plain ASCII text.
+It does NOT end with a linebreak.
+--simple boundary
+Content-type: text/plain; charset=us-ascii
+
+This is explicitly typed plain ASCII text.
+It DOES end with a linebreak.
+
+--simple boundary--
+This is the epilogue.  It is also to be ignored.
+</pre></div>
+</div>
+<p>Ejemplo de
+<a class="reference external" href="https://en.wikipedia.org/wiki/MIME">mensaje multiparte desde Wikipedia</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+This is a message with multiple parts in MIME format.
+--frontier
+Content-Type: text/plain
+
+This is the body of the message.
+--frontier
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+
+PGh0bWw+CiAgPGhlYWQ+CiAgPC9oZWFkPgogIDxib2R5PgogICAgPHA+VGhpcyBpcyB0aGUg
+Ym9keSBvZiB0aGUgbWVzc2FnZS48L3A+CiAgPC9ib2R5Pgo8L2h0bWw+Cg==
+--frontier--
+</pre></div>
+</div>
+<p>Ejemplo de mail que utiliza <code class="docutils literal notranslate"><span class="pre">quoted-printable</span></code>,
+<a class="reference external" href="https://hunnysoft.com/mime/samples/index.html">tomado de HunnySoft</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MIME-Version: 1.0
+Content-Type: text/plain;
+  charset=&quot;iso-8859-1&quot;
+Content-Transfer-Encoding: quoted-printabl
+
+Die Hasen und die Fr=F6sche
+
+Die Hasen klagten einst =FCber ihre mi=DFliche Lage; &quot;wir leben&quot;, sprach =
+ein Redner, &quot;in steter Furcht vor Menschen und Tieren, eine Beute der =
+Hunde, der Adler, ja fast aller Raubtiere! Unsere stete Angst ist =
+=E4rger als der Tod selbst. Auf, la=DFt uns ein f=FCr allemal sterben.&quot;=20
+
+In einem nahen Teich wollten sie sich nun ers=E4ufen; sie eilten ihm zu; =
+allein das au=DFerordentliche Get=F6se und ihre wunderbare Gestalt =
+erschreckte eine Menge Fr=F6sche, die am Ufer sa=DFen, so sehr, da=DF =
+sie aufs schnellste untertauchten.=20
+
+&quot;Halt&quot;, rief nun eben dieser Sprecher, &quot;wir wollen das Ers=E4ufen noch =
+ein wenig aufschieben, denn auch uns f=FCrchten, wie ihr seht, einige =
+Tiere, welche also wohl noch ungl=FCcklicher sein m=FCssen als wir.&quot;=20
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="pop">
-<h3>POP<a class="headerlink" href="#pop" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2>POP<a class="headerlink" href="#pop" title="Enlazar permanentemente con este título">¶</a></h2>
 </div>
 <div class="section" id="imap">
-<h3>IMAP<a class="headerlink" href="#imap" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2>IMAP<a class="headerlink" href="#imap" title="Enlazar permanentemente con este título">¶</a></h2>
 </div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol</a></li>
+<li><a class="reference external" href="https://cr.yp.to/immhf.html">https://cr.yp.to/immhf.html</a></li>
+</ul>
 </div>
 </div>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -285,7 +678,7 @@ pierda la conexión o la máquina remota falle.</p></li>
         <a href="ftp.html" class="btn btn-neutral float-right" title="FTP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dns.html" class="btn btn-neutral float-left" title="DNS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dns.html" class="btn btn-neutral" title="DNS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -294,11 +687,11 @@ pierda la conexión o la máquina remota falle.</p></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi
+        &copy; Copyright 2018, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -311,15 +704,37 @@ pierda la conexión o la máquina remota falle.</p></li>
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

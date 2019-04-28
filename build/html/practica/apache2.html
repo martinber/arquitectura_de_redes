@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Squid" href="squid.html" />
-    <link rel="prev" title="BIND" href="bind.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Práctica" href="index.html"/>
+        <link rel="next" title="Squid" href="squid.html"/>
+        <link rel="prev" title="BIND" href="bind.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -111,7 +117,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -119,10 +125,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -181,34 +186,34 @@ service apache2 reload
 <p>Conozco solamente la estructura de archivos de configuración que usa Debian,
 puede ser un poco distinto a otras distribuciones:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/apache2.conf</span></code>: Es el archivo de configuración general. No se
-debería tocar en lo posible.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/ports.conf</span></code>: Está incluido desde el archivo de configuración
-general, permite configurar los puertos desde donde escuchar.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/envvars</span></code>: Tiene variables de entorno que se pueden usar en la
-configuración.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/magic</span></code>: Patrones para mod_mime_magic. No se que significa.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-available/*.conf</span></code>: Contiene un archivo para cada sitio
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/apache2.conf</span></code>: Es el archivo de configuración general. No se
+debería tocar en lo posible.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/ports.conf</span></code>: Está incluido desde el archivo de configuración
+general, permite configurar los puertos desde donde escuchar.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/envvars</span></code>: Tiene variables de entorno que se pueden usar en la
+configuración.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/magic</span></code>: Patrones para mod_mime_magic. No se que significa.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-available/*.conf</span></code>: Contiene un archivo para cada sitio
 web que está disponible, estos son los archivos que vamos a configurar
 nosotros. De por sí estos archivos no son usados hasta que no sean
-habilitados.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-enabled/*.conf</span></code>: Contiene enlaces simbólicos a cada
+habilitados.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-enabled/*.conf</span></code>: Contiene enlaces simbólicos a cada
 archivo de configuración presente en <code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-available</span></code> que
-queremos habilitar. Todo lo que esté acá sí será leído por Apache.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-available/*.conf</span></code>: En esta carpeta se pueden poner
+queremos habilitar. Todo lo que esté acá sí será leído por Apache.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-available/*.conf</span></code>: En esta carpeta se pueden poner
 archivos de configuración que cumplen una función específica. Por defecto no
-son leídos.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-enabled/*.conf</span></code>: Contiene symlinks a las configuraciones
-habilitadas presentes en <code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-available/</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/mods-available/*.conf</span></code>: Módulos disponibles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/mods-enabled/*.conf</span></code>: Módulos habilitados.</p></li>
+son leídos.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-enabled/*.conf</span></code>: Contiene symlinks a las configuraciones
+habilitadas presentes en <code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-available/</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/mods-available/*.conf</span></code>: Módulos disponibles.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/apache2/mods-enabled/*.conf</span></code>: Módulos habilitados.</li>
 </ul>
 <p>Para hacer symlinks de una configuración desde un <em>-available</em> a un <em>-enabled</em>
 no se suele usar el comando <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span></code> sino unos comandos específicos:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">a2ensite</span></code> y <code class="docutils literal notranslate"><span class="pre">a2dissite</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a2enconf</span></code> y <code class="docutils literal notranslate"><span class="pre">a2disconf</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a2enmod</span></code> y <code class="docutils literal notranslate"><span class="pre">a2dismod</span></code>.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">a2ensite</span></code> y <code class="docutils literal notranslate"><span class="pre">a2dissite</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">a2enconf</span></code> y <code class="docutils literal notranslate"><span class="pre">a2disconf</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">a2enmod</span></code> y <code class="docutils literal notranslate"><span class="pre">a2dismod</span></code>.</li>
 </ul>
 <p>Al ejecutar el comando se le debe dar como argumento el nombre del archivo de
 configuración sin incluir la extensión <code class="docutils literal notranslate"><span class="pre">.conf</span></code>.</p>
@@ -250,12 +255,12 @@ cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/si
 </div>
 <p>La configuración indica que:</p>
 <ul class="simple">
-<li><p>El sitio responde peticiones hacia <code class="docutils literal notranslate"><span class="pre">sitio1.com</span></code> o <code class="docutils literal notranslate"><span class="pre">www.sitio1.com</span></code>.</p></li>
-<li><p>Sirve los archivos presentes en <code class="docutils literal notranslate"><span class="pre">/var/www/sitio/</span></code>.</p></li>
-<li><p>Por defecto sirve el archivo <code class="docutils literal notranslate"><span class="pre">/var/www/sitio1/index.html</span></code>. Vendría a ser la
-página principal.</p></li>
-<li><p>Los logs se guardan en <code class="docutils literal notranslate"><span class="pre">/var/log/apache2/error.log</span></code> y
-<code class="docutils literal notranslate"><span class="pre">/var/log/apache2/access.log</span></code>.</p></li>
+<li>El sitio responde peticiones hacia <code class="docutils literal notranslate"><span class="pre">sitio1.com</span></code> o <code class="docutils literal notranslate"><span class="pre">www.sitio1.com</span></code>.</li>
+<li>Sirve los archivos presentes en <code class="docutils literal notranslate"><span class="pre">/var/www/sitio/</span></code>.</li>
+<li>Por defecto sirve el archivo <code class="docutils literal notranslate"><span class="pre">/var/www/sitio1/index.html</span></code>. Vendría a ser la
+página principal.</li>
+<li>Los logs se guardan en <code class="docutils literal notranslate"><span class="pre">/var/log/apache2/error.log</span></code> y
+<code class="docutils literal notranslate"><span class="pre">/var/log/apache2/access.log</span></code>.</li>
 </ul>
 <p>Finalmente hay que poner los archivos del sitio web (HTML, CSS, JS, etc.) en el
 directorio especificado en la configuración. Debería quedar al menos esta
@@ -286,22 +291,24 @@ sudo service apache2 reload
 <div class="section" id="problemas-que-tuve">
 <h2>Problemas que tuve<a class="headerlink" href="#problemas-que-tuve" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Por alguna razón, luego de deshabilitar todos los sitios web y después de
+<li>Por alguna razón, luego de deshabilitar todos los sitios web y después de
 reiniciar el servidor, la página web por defecto ubicada en <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code>
 seguía siendo servida. Leí por ahí que a veces se soluciona reiniciando la PC
 pero no me funcionó. La respuesta en la que confío es en <a class="reference external" href="https://askubuntu.com/a/846654">esta</a>:
 <code class="docutils literal notranslate"><span class="pre">DocumentRoot</span></code> tiene un valor que es usado por defecto, incluso cuando no
 hay sitios web habilitados. La solución es siempre tener un sitio web
-habilitado.</p></li>
-<li><p>Siempre reniego con los cachés de los navegadores, usar <em>Ctrl-F5</em> para
-recargar sin caché.</p></li>
+habilitado.</li>
+<li>Siempre reniego con los cachés de los navegadores, usar <em>Ctrl-F5</em> para
+recargar sin caché.</li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -310,7 +317,7 @@ recargar sin caché.</p></li>
         <a href="squid.html" class="btn btn-neutral float-right" title="Squid" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="bind.html" class="btn btn-neutral float-left" title="BIND" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bind.html" class="btn btn-neutral" title="BIND" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -319,11 +326,11 @@ recargar sin caché.</p></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi
+        &copy; Copyright 2018, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -336,15 +343,37 @@ recargar sin caché.</p></li>
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
