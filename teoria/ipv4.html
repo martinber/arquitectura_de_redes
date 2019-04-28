@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="ICMPv4" href="icmpv4.html"/>
-        <link rel="prev" title="ARP" href="arp.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="ICMPv4" href="icmpv4.html" />
+    <link rel="prev" title="ARP" href="arp.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -128,7 +122,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -136,9 +130,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -186,69 +181,71 @@
 <h1>IPv4<a class="headerlink" href="#ipv4" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Internet Protocol version 4.</p>
 <ul class="simple">
-<li>Va sobre Ethernet o PPPoE.</li>
-<li>Tiene direcciones de 32 bits.</li>
+<li><p>Va sobre Ethernet o PPPoE.</p></li>
+<li><p>Tiene direcciones de 32 bits.</p></li>
 </ul>
 <div class="section" id="header">
 <h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Version (4 bits): Siempre es 4.</li>
-<li>Internet Header Lengtn (IHL) (4 bits): Cantidad de palabras de 32 bits en el
-header, si no hay opciones es 5, que equivale a 20 bytes.</li>
-<li>Differentiated Services Code Point (DSCP) (6 bits): Tipo de servicio, usado
-para QoS.</li>
-<li>Explicit Congestion Notification (ECN) (2 bits): Se usa poco, indica que hay
-congestión en la red.</li>
-<li>Total Length (16 bits): Largo del header y datos en bytes.</li>
-<li>Identification (16 bits): Identifican un grupo de paquetes al fragmentar.</li>
-<li>Flags (3 bits): El bit 2 indica que vienen más fragmentos, el bit 1 indica que
-no se debe fragmentar este paquete, el bit 0 no se usa.</li>
-<li>Fragment offset (13 bits): Especifica el offset de este fragmento en
-particular, cuenta de a 8 bytes.</li>
-<li>Time to live (TTL) (8 bits): Cantidad de saltos hasta que el paquete se
-descarte, disminuye en cada salto.</li>
-<li>Protocol (8 bits): Identifica al protocolo encapsulado.</li>
-<li>Header checksum (16 bits): Checksum del header, cada vez que un router
-disminuye el TTL debe recalcular este checksum, esto es ineficiente.</li>
-<li>Source address (32 bits): IP de origen.</li>
-<li>Destination address (32 bits): IP de destino.</li>
-<li>Options (variable): Opciones que no se usan normalmente, se debe hacer un
-padding para que sea múltiplo de 32 bits.</li>
+<li><p>Version (4 bits): Siempre es 4.</p></li>
+<li><p>Internet Header Lengtn (IHL) (4 bits): Cantidad de palabras de 32 bits en el
+header, si no hay opciones es 5, que equivale a 20 bytes.</p></li>
+<li><p>Differentiated Services Code Point (DSCP) (6 bits): Tipo de servicio, usado
+para QoS.</p></li>
+<li><p>Explicit Congestion Notification (ECN) (2 bits): Se usa poco, indica que hay
+congestión en la red.</p></li>
+<li><p>Total Length (16 bits): Largo del header y datos en bytes.</p></li>
+<li><p>Identification (16 bits): Identifican un grupo de paquetes al fragmentar.</p></li>
+<li><p>Flags (3 bits): El bit 2 indica que vienen más fragmentos, el bit 1 indica que
+no se debe fragmentar este paquete, el bit 0 no se usa.</p></li>
+<li><p>Fragment offset (13 bits): Especifica el offset de este fragmento en
+particular, cuenta de a 8 bytes.</p></li>
+<li><p>Time to live (TTL) (8 bits): Cantidad de saltos hasta que el paquete se
+descarte, disminuye en cada salto.</p></li>
+<li><p>Protocol (8 bits): Identifica al protocolo encapsulado.</p></li>
+<li><p>Header checksum (16 bits): Checksum del header, cada vez que un router
+disminuye el TTL debe recalcular este checksum, esto es ineficiente.</p></li>
+<li><p>Source address (32 bits): IP de origen.</p></li>
+<li><p>Destination address (32 bits): IP de destino.</p></li>
+<li><p>Options (variable): Opciones que no se usan normalmente, se debe hacer un
+padding para que sea múltiplo de 32 bits.</p></li>
 </ul>
 </div>
 <div class="section" id="asignacion">
 <h2>Asignación<a class="headerlink" href="#asignacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>La mitad superior del espacio de direcciones de clase A se reserva
+<li><p>La mitad superior del espacio de direcciones de clase A se reserva
 indefinidamente para tener la posibilidad de usarlo en la transición a un
-nuevo sistema de numeración.</li>
-<li>Las redes de clase B sólo se asignan a organizaciones que puedan probar
-claramente que las necesitan.</li>
-<li>Los requerimientos para las redes de clase B son que la organización
-solicitante:<ul>
-<li>Tenga un esquema de subnetting con más de 32 subredes dentro de su red
-operativa.</li>
-<li>Tenga más de 4096 hosts.</li>
+nuevo sistema de numeración.</p></li>
+<li><p>Las redes de clase B sólo se asignan a organizaciones que puedan probar
+claramente que las necesitan.</p></li>
+<li><p>Los requerimientos para las redes de clase B son que la organización
+solicitante:</p>
+<ul>
+<li><p>Tenga un esquema de subnetting con más de 32 subredes dentro de su red
+operativa.</p></li>
+<li><p>Tenga más de 4096 hosts.</p></li>
 </ul>
 </li>
-<li>A las organizaciones que no satisfacen los requerimientos para una red de
+<li><p>A las organizaciones que no satisfacen los requerimientos para una red de
 clase B se les asigna un bloque de redes clase C numeradas consecutivamente,
-para que se pueda hacer supernetting y rutear a todas juntas.</li>
-<li>La mitad inferior del espacio de direcciones de clase C (números de red del
+para que se pueda hacer supernetting y rutear a todas juntas.</p></li>
+<li><p>La mitad inferior del espacio de direcciones de clase C (números de red del
 192.0.0 al 223.255.245) se divide en 8 bloques que separa las autoridades
-regionales. Están reservadas del siguiente modo:<ul>
-<li>192.0.0 - 193.255.255: Multiregional.</li>
-<li>194.0.0 - 195.255.255: Europa.</li>
-<li>196.0.0 - 197.255.255: Otros.</li>
-<li>198.0.0 - 199.255.255: Norte América.</li>
-<li>200.0.0 - 201.255.255: Centro y Sudamérica.</li>
-<li>202.0.0 - 203.255.255: Borde del Pacífico.</li>
-<li>204.0.0 - 205.255.255: Otros.</li>
-<li>206.0.0 - 207.255.255: Otros.</li>
+regionales. Están reservadas del siguiente modo:</p>
+<ul>
+<li><p>192.0.0 - 193.255.255: Multiregional.</p></li>
+<li><p>194.0.0 - 195.255.255: Europa.</p></li>
+<li><p>196.0.0 - 197.255.255: Otros.</p></li>
+<li><p>198.0.0 - 199.255.255: Norte América.</p></li>
+<li><p>200.0.0 - 201.255.255: Centro y Sudamérica.</p></li>
+<li><p>202.0.0 - 203.255.255: Borde del Pacífico.</p></li>
+<li><p>204.0.0 - 205.255.255: Otros.</p></li>
+<li><p>206.0.0 - 207.255.255: Otros.</p></li>
 </ul>
 </li>
-<li>La mitad superior del espacio de direcciones de clase C(208.0.0 a 223.255.255)
-permanece sin asignar y sin reservar.</li>
+<li><p>La mitad superior del espacio de direcciones de clase C(208.0.0 a 223.255.255)
+permanece sin asignar y sin reservar.</p></li>
 </ul>
 </div>
 <div class="section" id="tipos-de-direcciones">
@@ -256,33 +253,38 @@ permanece sin asignar y sin reservar.</li>
 <div class="section" id="clases">
 <h3>Clases<a class="headerlink" href="#clases" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li>A:<ul>
-<li>Comienzan con: <code class="docutils literal notranslate"><span class="pre">0b0</span></code></li>
-<li>Redes: 0.0.0.0 - 127.0.0.0</li>
-<li>Redes privadas: 10.0.0.0</li>
-<li>Numero de hosts: 2^24 - 2</li>
+<li><p>A:</p>
+<ul>
+<li><p>Comienzan con: <code class="docutils literal notranslate"><span class="pre">0b0</span></code></p></li>
+<li><p>Redes: 0.0.0.0 - 127.0.0.0</p></li>
+<li><p>Redes privadas: 10.0.0.0</p></li>
+<li><p>Numero de hosts: 2^24 - 2</p></li>
 </ul>
 </li>
-<li>B:<ul>
-<li>Comienzan con: <code class="docutils literal notranslate"><span class="pre">0b10</span></code></li>
-<li>Redes: 128.0.0.0 - 191.255.0.0</li>
-<li>Redes privadas: 172.16.0.0 - 172.31.0.0</li>
-<li>Numero de hosts: 2^16 - 2</li>
+<li><p>B:</p>
+<ul>
+<li><p>Comienzan con: <code class="docutils literal notranslate"><span class="pre">0b10</span></code></p></li>
+<li><p>Redes: 128.0.0.0 - 191.255.0.0</p></li>
+<li><p>Redes privadas: 172.16.0.0 - 172.31.0.0</p></li>
+<li><p>Numero de hosts: 2^16 - 2</p></li>
 </ul>
 </li>
-<li>C:<ul>
-<li>Comienzan con: <code class="docutils literal notranslate"><span class="pre">0b110</span></code></li>
-<li>Redes: 192.0.0.0 - 255.255.255.0</li>
-<li>Redes privadas: 192.168.0.0 - 192.168.255.0</li>
-<li>Numero de hosts: 2^8 - 2</li>
+<li><p>C:</p>
+<ul>
+<li><p>Comienzan con: <code class="docutils literal notranslate"><span class="pre">0b110</span></code></p></li>
+<li><p>Redes: 192.0.0.0 - 255.255.255.0</p></li>
+<li><p>Redes privadas: 192.168.0.0 - 192.168.255.0</p></li>
+<li><p>Numero de hosts: 2^8 - 2</p></li>
 </ul>
 </li>
-<li>D (multicast):<ul>
-<li>Redes: 224.0.0.0 - 239.255.255.0</li>
+<li><p>D (multicast):</p>
+<ul>
+<li><p>Redes: 224.0.0.0 - 239.255.255.0</p></li>
 </ul>
 </li>
-<li>E (reservado):<ul>
-<li>Redes: 240.0.0.0 - 255.255.255.255</li>
+<li><p>E (reservado):</p>
+<ul>
+<li><p>Redes: 240.0.0.0 - 255.255.255.255</p></li>
 </ul>
 </li>
 </ul>
@@ -290,21 +292,21 @@ permanece sin asignar y sin reservar.</li>
 <div class="section" id="redes-privadas">
 <h3>Redes privadas<a class="headerlink" href="#redes-privadas" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li>Clase A: 10.0.0.0</li>
-<li>Clase B: 172.16.0.0 - 172.31.0.0</li>
-<li>Clase C: 192.168.0.0 - 192.168.255.0</li>
+<li><p>Clase A: 10.0.0.0</p></li>
+<li><p>Clase B: 172.16.0.0 - 172.31.0.0</p></li>
+<li><p>Clase C: 192.168.0.0 - 192.168.255.0</p></li>
 </ul>
 </div>
 <div class="section" id="redes-reservadas">
 <h3>Redes reservadas<a class="headerlink" href="#redes-reservadas" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Estas son algunas pero hay más.</p>
 <ul class="simple">
-<li>0.0.0.0 - 0.255.255.255: Para representar la red actual.</li>
-<li>127.0.0.0 - 127.255.255.255: Para loopback.</li>
-<li>169.254.0.0 - 169.254.255.255: para link-local.</li>
-<li>192.0.2.0 - 192.0.2.255: TEST-NET-1, Para documentación y ejemplos.</li>
-<li>198.51.100.0 - 198.51.100.255: TEST-NET-2, Para documentación y ejemplos.</li>
-<li>203.0.113.0 - 203.0.113.255: TEST-NET-3, Para documentación y ejemplos.</li>
+<li><p>0.0.0.0 - 0.255.255.255: Para representar la red actual.</p></li>
+<li><p>127.0.0.0 - 127.255.255.255: Para loopback.</p></li>
+<li><p>169.254.0.0 - 169.254.255.255: para link-local.</p></li>
+<li><p>192.0.2.0 - 192.0.2.255: TEST-NET-1, Para documentación y ejemplos.</p></li>
+<li><p>198.51.100.0 - 198.51.100.255: TEST-NET-2, Para documentación y ejemplos.</p></li>
+<li><p>203.0.113.0 - 203.0.113.255: TEST-NET-3, Para documentación y ejemplos.</p></li>
 </ul>
 </div>
 </div>
@@ -314,10 +316,10 @@ permanece sin asignar y sin reservar.</li>
 reemplazan a la división de redes por clases y permiten crear redes con
 cualquier máscara de red. Los dos son mas o menos lo mismo pero técnicamente:</p>
 <ul class="simple">
-<li>CIDR: Permite que que las direcciones dadas por la IANA no estén limitadas a
-ser clase A, B o C sino que tengan cualquier mascara.</li>
-<li>VLSM: Es una estrategia para subdividir una red en varias más chicas usando
-CIDR.</li>
+<li><p>CIDR: Permite que que las direcciones dadas por la IANA no estén limitadas a
+ser clase A, B o C sino que tengan cualquier mascara.</p></li>
+<li><p>VLSM: Es una estrategia para subdividir una red en varias más chicas usando
+CIDR.</p></li>
 </ul>
 <p>Los profes dicen que si uno agarra por ejemplo una /16, si se corre la máscara a
 la izquierda es CIDR/Supernetting, si se corre a la derecha es VLSM/Subnetting.</p>
@@ -326,14 +328,14 @@ la izquierda es CIDR/Supernetting, si se corre a la derecha es VLSM/Subnetting.<
 <div class="section" id="mascaras-comunes">
 <h3>Máscaras comunes<a class="headerlink" href="#mascaras-comunes" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">/32</span></code>: Se usa por ejemplo para publicar direcciones de loopback por medio de
+<li><p><code class="docutils literal notranslate"><span class="pre">/32</span></code>: Se usa por ejemplo para publicar direcciones de loopback por medio de
 algún protocolo de ruteo dinámico. Solamente tiene un host, no tiene dirección
-de red ni de broadcast.</li>
-<li><code class="docutils literal notranslate"><span class="pre">/31</span></code>: Tiene dos direcciones de host, no tiene dirección de red ni de
+de red ni de broadcast.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/31</span></code>: Tiene dos direcciones de host, no tiene dirección de red ni de
 broadcast. Es útil para enlaces punto a punto en WAN pero no muy usado. <a class="reference external" href="https://tools.ietf.org/html/rfc3021">Ver
-RFC-2021</a>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">/30</span></code>: Tiene dos direcciones de host, una para la red y una para broadcast.
-Es lo más usado para enlaces punto a punto en WAN.</li>
+RFC-2021</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/30</span></code>: Tiene dos direcciones de host, una para la red y una para broadcast.
+Es lo más usado para enlaces punto a punto en WAN.</p></li>
 </ul>
 </div>
 </div>
@@ -505,9 +507,7 @@ ping con <code class="docutils literal notranslate"><span class="pre">ping</span
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -516,7 +516,7 @@ ping con <code class="docutils literal notranslate"><span class="pre">ping</span
         <a href="icmpv4.html" class="btn btn-neutral float-right" title="ICMPv4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="arp.html" class="btn btn-neutral" title="ARP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="arp.html" class="btn btn-neutral float-left" title="ARP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -525,11 +525,11 @@ ping con <code class="docutils literal notranslate"><span class="pre">ping</span
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi.
+        &copy; Copyright 2018, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -542,37 +542,15 @@ ping con <code class="docutils literal notranslate"><span class="pre">ping</span
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

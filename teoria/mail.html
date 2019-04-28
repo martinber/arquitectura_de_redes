@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="FTP" href="ftp.html"/>
-        <link rel="prev" title="DNS" href="dns.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="FTP" href="ftp.html" />
+    <link rel="prev" title="DNS" href="dns.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -94,9 +88,13 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#capa-aplicacion-y-otros">Capa aplicación y otros</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="6to4.html">6to4</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dns.html">DNS</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Mail</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#explicacion-desde-wikipedia">Explicación desde Wikipedia</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="ftp.html">FTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="http.html">HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p2p.html">P2P</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multimedia.html">Multimedia</a></li>
 <li class="toctree-l3"><a class="reference internal" href="voip.html">VOIP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
@@ -120,7 +118,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -128,9 +126,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -177,23 +176,107 @@
   <div class="section" id="mail">
 <h1>Mail<a class="headerlink" href="#mail" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
+<p class="admonition-title">Por hacer</p>
 <p>Hacer</p>
-<ul class="last simple">
-<li>822</li>
-<li>SMTP</li>
-<li>MIME</li>
-<li>POP</li>
-<li>IMAP</li>
+<ul class="simple">
+<li><p>822</p></li>
+<li><p>SMTP</p></li>
+<li><p>MIME</p></li>
+<li><p>POP</p></li>
+<li><p>IMAP</p></li>
 </ul>
 </div>
+<p>Para entenderlo bien creo que habría que saberse un poco la historia de cómo fue
+evolucionando porque es como que siempre se fueron corrigiendo cosas, sobre todo
+para intentar mejorar la seguridad, disminuir el SPAM, impedir el <a class="reference external" href="https://en.wikipedia.org/wiki/Email_spoofing">spoofing</a>,
+etc.</p>
+<p>Hay distintos agentes (programas/servidores), al final hay servidores que son
+más de una cosa a la vez pero la división sería la siguiente:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Mail User Agent (MUA): Es un cliente de correo, es el programa que usa el
+usuario.</p></li>
+<li><p>Mail Submission Agent (MSA): Recibe correos desde un MUA y lo envía a un
+MTA. Es el primer servidor de la cadena y es recibe sólo correos de MUAs
+autorizados.</p></li>
+<li><p>Mail Transfer Agent (MTA): Transfiere correos de un agente a otro usando
+SMTP, recibe correos desde MSAs o MTAs potencialmente desde otros dominios.</p></li>
+<li><p>Mail Delivery Agent (MDA): Recibe mensajes desde un MTA y lleva los mensajes
+a una casilla de correo local de un usuario. Hace también por ejemplo
+filtrado de SPAM y separación de correos en carpetas.</p></li>
+<li><p>Mail Retrieval Agent (MRA): Solicita mensajes a un MDA y los muestra al
+usuario. Generalmente es el mismo software que el MUA.</p></li>
+</ul>
+</div></blockquote>
+<p>Todos los pasos de de la cadena menos el último usan SMTP. El último paso usa
+POP3 o IMAP:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[MUA] --SMTP--&gt; [MSA] --SMTP--&gt; [MTA] --SMTP--&gt; [MDA] --POP3/IMAP--&gt; [MRA]
+</pre></div>
+</div>
+<div class="section" id="explicacion-desde-wikipedia">
+<h2>Explicación desde Wikipedia<a class="headerlink" href="#explicacion-desde-wikipedia" title="Enlazar permanentemente con este título">¶</a></h2>
+<img alt="../_images/mail.svg" src="../_images/mail.svg" /><p>Modificado por mí, original de Ale2006-from-en
+[CC BY-SA 3.0 (<a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0">https://creativecommons.org/licenses/by-sa/3.0</a>)]</p>
+<p>Email is submitted by a mail client (mail user agent, MUA) to a mail server
+(mail submission agent, MSA) using SMTP on TCP port 587. Most mailbox providers
+still allow submission on traditional port 25. The MSA delivers the mail to its
+mail transfer agent (mail transfer agent, MTA). Often, these two agents are
+instances of the same software launched with different options on the same
+machine. Local processing can be done either on a single machine, or split among
+multiple machines; mail agent processes on one machine can share files, but if
+processing is on multiple machines, they transfer messages between each other
+using SMTP, where each machine is configured to use the next machine as a smart
+host. Each process is an MTA (an SMTP server) in its own right.</p>
+<p>The boundary MTA uses the Domain name system (DNS) to look up the mail exchanger
+record (MX record) for the recipient’s domain (the part of the email address on
+the right of &#64;). Based on the target host and other factors the MTA selects an
+exchange server, the MTA connects to the exchange server as an SMTP client.</p>
+<p>Message transfer can occur in a single connection between two MTAs, or in a
+series of hops through intermediary systems. A receiving SMTP server may be the
+ultimate destination, an intermediate «relay» (that is, it stores and forwards
+the message) or a «gateway» (that is, it may forward the message using some
+protocol other than SMTP). Each hop is a formal handoff of responsibility for
+the message, whereby the receiving server must either deliver the message or
+properly report the failure to do so.</p>
+<p>Once the final hop accepts the incoming message, it hands it to a mail delivery
+agent (MDA) for local delivery. An MDA saves messages in the relevant mailbox
+format. As with sending, this reception can be done using one or multiple
+computers, but in the diagram above the MDA is depicted as one box near the
+mail exchanger box. An MDA may deliver messages directly to storage, or forward
+them over a network using SMTP or other protocol such as Local Mail Transfer
+Protocol (LMTP), a derivative of SMTP designed for this purpose.</p>
+<p>Once delivered to the local mail server, the mail is stored for batch retrieval
+by authenticated mail clients (MUAs/MRAs). Mail is retrieved by end-user
+applications, called email clients, using Internet Message Access Protocol
+(IMAP), a protocol that both facilitates access to mail and manages stored mail,
+or the Post Office Protocol (POP) which typically uses the traditional mbox mail
+file format. Webmail clients may use either method, but the retrieval protocol
+is often not a formal standard.</p>
+<p>SMTP defines message transport, not the message content. Thus, it defines the
+mail envelope and its parameters, such as the envelope sender, but not the
+header (except trace information) nor the body of the message itself. STD 10
+and RFC 5321 define SMTP (the envelope), while STD 11 and RFC 5322 define the
+message (header and body), formally referred to as the Internet Message Format.</p>
+<div class="section" id="smtp">
+<h3>SMTP<a class="headerlink" href="#smtp" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><p>Usa TCP normalmente con puerto 25.</p></li>
+<li><p>Es importante que el correo permita la entrega con retardo en el caso que se
+pierda la conexión o la máquina remota falle.</p></li>
+</ul>
+</div>
+<div class="section" id="pop">
+<h3>POP<a class="headerlink" href="#pop" title="Enlazar permanentemente con este título">¶</a></h3>
+</div>
+<div class="section" id="imap">
+<h3>IMAP<a class="headerlink" href="#imap" title="Enlazar permanentemente con este título">¶</a></h3>
+</div>
+</div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -202,7 +285,7 @@
         <a href="ftp.html" class="btn btn-neutral float-right" title="FTP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dns.html" class="btn btn-neutral" title="DNS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dns.html" class="btn btn-neutral float-left" title="DNS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -211,11 +294,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi.
+        &copy; Copyright 2018, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -228,37 +311,15 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
