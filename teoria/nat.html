@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="DHCP" href="dhcp.html" />
-    <link rel="prev" title="ICMPv4" href="icmpv4.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="DHCP" href="dhcp.html"/>
+        <link rel="prev" title="ICMPv4" href="icmpv4.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -120,7 +126,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -128,10 +134,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -181,40 +186,38 @@
 <div class="section" id="basic-nat">
 <h2>Basic NAT<a class="headerlink" href="#basic-nat" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Hace un mapeo de direcciones IP uno a uno.</p></li>
+<li>Hace un mapeo de direcciones IP uno a uno.</li>
 </ul>
 </div>
 <div class="section" id="napt">
 <h2>NAPT<a class="headerlink" href="#napt" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El tipo de NAT más usado es NAPT Dinámico (Network Address Port Translation):</p>
 <ul class="simple">
-<li><p>Hace IP masquerading o One-to-many NAT: es una técnica que esconde un espacio
-de direcciones IP (privadas) detrás de una sola IP pública.</p></li>
-<li><p>Se cambia la IP de origen de los paquetes que salen del Router.</p></li>
-<li><p>Hace falta porque las IP privadas no son ruteables en la internet.</p></li>
-<li><p>Para permitir que salgan varios usuarios se debe cambiar también el puerto de
+<li>Hace IP masquerading o One-to-many NAT: es una técnica que esconde un espacio
+de direcciones IP (privadas) detrás de una sola IP pública.</li>
+<li>Se cambia la IP de origen de los paquetes que salen del Router.</li>
+<li>Hace falta porque las IP privadas no son ruteables en la internet.</li>
+<li>Para permitir que salgan varios usuarios se debe cambiar también el puerto de
 origen TCP o UDP, para de esa forma identificar las conexiones a distintos
-usuarios.</p></li>
-<li><p>En el caso de ping ICMP se cambia el Identifier.</p></li>
+usuarios.</li>
+<li>En el caso de ping ICMP se cambia el Identifier.</li>
 </ul>
 </div>
 <div class="section" id="tipos">
 <h2>Tipos<a class="headerlink" href="#tipos" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Según los campos que modifican:</p>
-<ul>
-<li><p>NAT Básico: Sólo se cambia la dirección IP, requiere una IP pública por cada
-IP privada en uso.</p></li>
-<li><p>NAPT (Network Address Port Translation): Modifica la dirección IP y además
+<li>Según los campos que modifican:<ul>
+<li>NAT Básico: Sólo se cambia la dirección IP, requiere una IP pública por cada
+IP privada en uso.</li>
+<li>NAPT (Network Address Port Translation): Modifica la dirección IP y además
 el puerto TCP o UDP. Permite sacar muchas IP privadas por un número menor de
-direcciones públicas.</p></li>
+direcciones públicas.</li>
 </ul>
 </li>
-<li><p>Según si es estático o dinámico:</p>
-<ul>
-<li><p>Estático: La tabla de correspondencias es estáticas.</p></li>
-<li><p>Dinámico: La tabla se va modificando, permite reutilizar direcciones de
-salida.</p></li>
+<li>Según si es estático o dinámico:<ul>
+<li>Estático: La tabla de correspondencias es estáticas.</li>
+<li>Dinámico: La tabla se va modificando, permite reutilizar direcciones de
+salida.</li>
 </ul>
 </li>
 </ul>
@@ -222,12 +225,11 @@ salida.</p></li>
 <div class="section" id="otras-terminologias">
 <h2>Otras terminologías<a class="headerlink" href="#otras-terminologias" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>DNAT (Destination Network Address Translation): Cambia la dirección IP de
-destino.</p></li>
-<li><p>SNAT: Puede significar:</p>
-<ul>
-<li><p>Source NAT: Se cambia la IP de origen, lo común.</p></li>
-<li><p>Stateful NAT, Secure NAT, que se yo.</p></li>
+<li>DNAT (Destination Network Address Translation): Cambia la dirección IP de
+destino.</li>
+<li>SNAT: Puede significar:<ul>
+<li>Source NAT: Se cambia la IP de origen, lo común.</li>
+<li>Stateful NAT, Secure NAT, que se yo.</li>
 </ul>
 </li>
 </ul>
@@ -236,7 +238,9 @@ destino.</p></li>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -245,7 +249,7 @@ destino.</p></li>
         <a href="dhcp.html" class="btn btn-neutral float-right" title="DHCP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="icmpv4.html" class="btn btn-neutral float-left" title="ICMPv4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="icmpv4.html" class="btn btn-neutral" title="ICMPv4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -254,11 +258,11 @@ destino.</p></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi
+        &copy; Copyright 2018, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -271,15 +275,37 @@ destino.</p></li>
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

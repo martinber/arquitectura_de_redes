@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Juniper" href="juniper.html" />
-    <link rel="prev" title="Cisco" href="cisco.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Práctica" href="index.html"/>
+        <link rel="next" title="Juniper" href="juniper.html"/>
+        <link rel="prev" title="Cisco" href="cisco.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -116,7 +122,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -124,10 +130,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -174,15 +179,14 @@
   <div class="section" id="mikrotik">
 <h1>Mikrotik<a class="headerlink" href="#mikrotik" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p>Generalmente usuario <code class="docutils literal notranslate"><span class="pre">admin</span></code> sin contraseña.</p></li>
-<li><p>Se usa puerto de consola serial a 115200 baudios</p>
-<ul>
-<li><p>Modelo 230: 9600 baudios</p></li>
+<li>Generalmente usuario <code class="docutils literal notranslate"><span class="pre">admin</span></code> sin contraseña.</li>
+<li>Se usa puerto de consola serial a 115200 baudios<ul>
+<li>Modelo 230: 9600 baudios</li>
 </ul>
 </li>
-<li><p>Para ayuda ir poniendo <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p></li>
-<li><p>Si se pone un comando incompleto se entra a un sub-menu, para ir volviendo
-atrás poner <code class="docutils literal notranslate"><span class="pre">..</span></code>.</p></li>
+<li>Para ayuda ir poniendo <code class="docutils literal notranslate"><span class="pre">?</span></code>.</li>
+<li>Si se pone un comando incompleto se entra a un sub-menu, para ir volviendo
+atrás poner <code class="docutils literal notranslate"><span class="pre">..</span></code>.</li>
 </ul>
 <p>Mostrar cosas:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip address print
@@ -404,7 +408,9 @@ routing ospf-v3 area set {area} instance=default
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -413,7 +419,7 @@ routing ospf-v3 area set {area} instance=default
         <a href="juniper.html" class="btn btn-neutral float-right" title="Juniper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cisco.html" class="btn btn-neutral float-left" title="Cisco" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cisco.html" class="btn btn-neutral" title="Cisco" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -422,11 +428,11 @@ routing ospf-v3 area set {area} instance=default
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi
+        &copy; Copyright 2018, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -439,15 +445,37 @@ routing ospf-v3 area set {area} instance=default
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
