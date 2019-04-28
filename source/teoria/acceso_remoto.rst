@@ -30,7 +30,9 @@ Teletype Network.
   actualmente se usa SSH en su lugar.
 
 - Cuando se establece la conexión, ambos extremos asumen que debe generarse una
-  NVT (Network Virtual Terminal).
+  NVT (Network Virtual Terminal). También se asumen algunas cosas como que por
+  ejemplo el servidor haga eco de lo recibido (teclas presionadas) para que sea
+  mostrado en la terminal virtual del cliente.
 
 - Define algunos comandos especiales que se envían luego del carácter `0xFF`
   llamado IAC (Interpret As Command), algunos de los comandos posibles son:
@@ -52,6 +54,8 @@ Teletype Network.
 rlogin y rsh
 ------------
 
+Remote Login y Remote Shell.
+
 - rlogin provee mejoras respecto de telnet ya que se aprovecha del hecho que
   asume que ambos extremos son sistemas operativos UNIX.
 
@@ -61,6 +65,10 @@ rlogin y rsh
 
 SSH
 ---
+
+Secure Shell.
+
+- Va sobre TCP puerto 22.
 
 - Las contraseñas y los datos son cifrados antes de su transmisión.
 

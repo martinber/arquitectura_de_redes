@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="TCP" href="tcp.html"/>
-        <link rel="prev" title="IPv6" href="ipv6.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="TCP" href="tcp.html" />
+    <link rel="prev" title="IPv6" href="ipv6.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -127,7 +121,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -135,9 +129,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -185,18 +180,18 @@
 <h1>ICMPv6<a class="headerlink" href="#icmpv6" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Internet Control Message Protocol</p>
 <ul class="simple">
-<li>Va sobre IP.</li>
-<li>Se usa para diagnóstico y control de IP.</li>
+<li><p>Va sobre IP.</p></li>
+<li><p>Se usa para diagnóstico y control de IP.</p></li>
 </ul>
 <div class="section" id="header">
 <h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Type (1 byte): Tipo de mensaje.</li>
-<li>Code (1 byte): Es como un subtipo.</li>
-<li>Checksum (2 bytes): Checksum de todo el header pero también de un
-pseudo-header IPv6 para hacer checksum además a las direcciones IP.</li>
-<li>Resto del header (4 bytes): Los contenidos dependen del tipo de mensaje.</li>
-<li>Datos: Son cualquier cosa.</li>
+<li><p>Type (1 byte): Tipo de mensaje.</p></li>
+<li><p>Code (1 byte): Es como un subtipo.</p></li>
+<li><p>Checksum (2 bytes): Checksum de todo el header pero también de un
+pseudo-header IPv6 para hacer checksum además a las direcciones IP.</p></li>
+<li><p>Resto del header (4 bytes): Los contenidos dependen del tipo de mensaje.</p></li>
+<li><p>Datos: Son cualquier cosa.</p></li>
 </ul>
 </div>
 <div class="section" id="ping">
@@ -204,14 +199,15 @@ pseudo-header IPv6 para hacer checksum además a las direcciones IP.</li>
 <div class="section" id="id1">
 <h3>Header<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li>Type: 128 en request, 129 en reply.</li>
-<li>Code: 0 en ambos.</li>
-<li>Resto del header:<ul>
-<li>Identifier (2 bytes): Identifica el proceso que envía los pings.</li>
-<li>Sequence number (2 bytes): Número de ping enviado.</li>
+<li><p>Type: 128 en request, 129 en reply.</p></li>
+<li><p>Code: 0 en ambos.</p></li>
+<li><p>Resto del header:</p>
+<ul>
+<li><p>Identifier (2 bytes): Identifica el proceso que envía los pings.</p></li>
+<li><p>Sequence number (2 bytes): Número de ping enviado.</p></li>
 </ul>
 </li>
-<li>Datos: Puede ser cualquier cosa, suele llevar timestamp.</li>
+<li><p>Datos: Puede ser cualquier cosa, suele llevar timestamp.</p></li>
 </ul>
 </div>
 </div>
@@ -219,16 +215,17 @@ pseudo-header IPv6 para hacer checksum además a las direcciones IP.</li>
 <h2>NDP<a class="headerlink" href="#ndp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Neighbor Discovery Protocol.</p>
 <ul class="simple">
-<li>Permite encontrar vecinos y gateways, también cumple funciones similares a
-ARP.</li>
-<li>Define cinco mensajes ICMPv6:<ul>
-<li>Router Solicitation (133): Mensajes enviados por hosts para solicitar
-mensajes de Router Advertisement y así encontrar a Routers/Gateways.</li>
-<li>Router Advertisement (134): Mensajes enviados periódicamente por routers
-para anunciar sus servicios y varios parámetros, permite aplicar SLAAC.</li>
-<li>Neighbor Solicitation (135): Permite a los dispositivos determinar la
-dirección MAC de un vecino.</li>
-<li>Neighbor Advertisement (136): Son las respuestas a Neighbor Solicitation.</li>
+<li><p>Permite encontrar vecinos y gateways, también cumple funciones similares a
+ARP.</p></li>
+<li><p>Define cinco mensajes ICMPv6:</p>
+<ul>
+<li><p>Router Solicitation (133): Mensajes enviados por hosts para solicitar
+mensajes de Router Advertisement y así encontrar a Routers/Gateways.</p></li>
+<li><p>Router Advertisement (134): Mensajes enviados periódicamente por routers
+para anunciar sus servicios y varios parámetros, permite aplicar SLAAC.</p></li>
+<li><p>Neighbor Solicitation (135): Permite a los dispositivos determinar la
+dirección MAC de un vecino.</p></li>
+<li><p>Neighbor Advertisement (136): Son las respuestas a Neighbor Solicitation.</p></li>
 </ul>
 </li>
 </ul>
@@ -237,14 +234,14 @@ dirección MAC de un vecino.</li>
 <h2>Otros usos<a class="headerlink" href="#otros-usos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Hay muchos más, pongo los más comunes junto a sus valores (Type, Code):</p>
 <ul class="simple">
-<li>Router Solicitation (133, 0).</li>
-<li>Router Advertisement (134, 0).</li>
-<li>Neighbor Solicitation (135, 0).</li>
-<li>Neighbor Advertisement (136, 0).</li>
-<li>Cuando se termina el TTL se envía un «Time Exceeded» (3, 0).</li>
-<li>No hay ruta a destino (1, 0).</li>
-<li>Dirección inalcanzable (3, 3).</li>
-<li>Puerto de destino inalcanzable (3, 4).</li>
+<li><p>Router Solicitation (133, 0).</p></li>
+<li><p>Router Advertisement (134, 0).</p></li>
+<li><p>Neighbor Solicitation (135, 0).</p></li>
+<li><p>Neighbor Advertisement (136, 0).</p></li>
+<li><p>Cuando se termina el TTL se envía un «Time Exceeded» (3, 0).</p></li>
+<li><p>No hay ruta a destino (1, 0).</p></li>
+<li><p>Dirección inalcanzable (3, 3).</p></li>
+<li><p>Puerto de destino inalcanzable (3, 4).</p></li>
 </ul>
 </div>
 <div class="section" id="capturas">
@@ -402,9 +399,7 @@ Internet Control Message Protocol v6
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -413,7 +408,7 @@ Internet Control Message Protocol v6
         <a href="tcp.html" class="btn btn-neutral float-right" title="TCP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ipv6.html" class="btn btn-neutral" title="IPv6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ipv6.html" class="btn btn-neutral float-left" title="IPv6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -422,11 +417,11 @@ Internet Control Message Protocol v6
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi.
+        &copy; Copyright 2018, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -439,37 +434,15 @@ Internet Control Message Protocol v6
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
