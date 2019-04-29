@@ -3,17 +3,7 @@ Mail
 
 .. todo::
 
-   Hacer
-
-   - 822
-
-   - SMTP
-
-   - MIME
-
-   - POP
-
-   - IMAP
+  Separar SMTP y RFC 822?
 
 Para entenderlo bien creo que habría que saberse un poco la historia de cómo fue
 evolucionando porque es como que siempre se fueron corrigiendo cosas, sobre todo
@@ -34,6 +24,16 @@ etc.
 - El formato de correo era originalmente ASCII de 7 bits con el bit superior en
   cero, más adelante se define el estándar MIME (Multipurpose Internet Mail
   Extensions) que permite codificar texto y datos binarios en ASCII de 7 bits.
+
+- El envío de los correos se realiza directamente desde la PC del usuario usando
+  SMTP. El mensaje llega hasta una casilla de correo en un servidor de correo y
+  es descargado en la PC del destinatario usando el protocolo POP3 o IMAP.
+
+- POP3 está pensado para descargar los correos desde un solo dispositivo, es muy
+  básico y normalmente los mensajes on borrados de la casilla de correo luego de
+  la descarga. IMAP está pensado para ser utilizado en línea desde varios
+  dispositivos, ya que permite solicitar mensajes específicos, ordenar y
+  mantener los mails en la casilla de correo.
 
 __ https://en.wikipedia.org/wiki/Email_spoofing
 
@@ -124,7 +124,8 @@ Simple Mail Transfer Protocol.
 
 - Especifica cómo se deben enviar los mails.
 
-- Usa TCP normalmente con puerto 25.
+- Usa TCP, normalmente puerto 587 al conectarse a un MSA y puerto 25 en los
+  demás casos.
 
 - Es importante que el correo permita la entrega con retardo en el caso que se
   pierda la conexión o la máquina remota falle.
@@ -174,6 +175,8 @@ Estos son los más importantes.
   - **Sender**: Especifica quién fue en realidad el que envió el mensaje.
 
   - **To**: Destinatarios principales del mensaje.
+
+  - **Reply-To**: Hacia dónde se deben enviar las respuestas.
 
   - **Cc**: Destinatarios secundarios del mensaje.
 
@@ -519,12 +522,183 @@ Ejemplo de mail que utiliza ``quoted-printable``,
   ein wenig aufschieben, denn auch uns f=FCrchten, wie ihr seht, einige =
   Tiere, welche also wohl noch ungl=FCcklicher sein m=FCssen als wir."=20
 
-POP
----
+POP3
+----
 
+Post Office Protocol.
+
+- Permite al usuario obtener mails desde un servidor de correos.
+
+- Al descargar los correos generalmente éstos son borrados del servidor.
+
+- Usa el puerto TCP 110 para la conexión sin cifrado, luego con el comando STLS
+  es posible cifrar la conexión. Para iniciar la conexión directamente con TLS
+  se utiliza el puerto 995.
+
+Comandos
+~~~~~~~~
+
+Los más comunes son:
+
+- **USER**: Indica el nombre de usuario.
+
+- **PASS**: Indica la contraseña.
+
+- **APOP**: Método alternativo de autenticación utilizando MD5.
+
+- **STAT**: Solicita cantidad de mensajes y el tamaño total de ellos.
+
+- **LIST**: Solicita información sobre los mensajes disponibles.
+
+- **RETR**: Se envía como argumento el número de mensaje a obtener.
+
+- **DELE**: Se envía como argumento el número de mensaje a borrar.
+
+- **QUIT**: Termina la sesión.
+
+Respuestas
+~~~~~~~~~~
+
+Llevan además una descripción.
+
+- **OK**.
+
+- **ERR**.
+
+Ejemplos
+~~~~~~~~
+
+En cada ejemplo, se agregó ``C:`` para representar al cliente y ``S:`` para
+representar al servidor.
+
+Ejemplo proveniente de RFC 1939::
+
+  S: +OK POP3 server ready <1896.697170952@dbc.mtview.ca.us>
+  C: APOP mrose c4c9334bac560ecc979e58001b3e22fb
+  S: +OK mrose's maildrop has 2 messages (320 octets)
+  C: STAT
+  S: +OK 2 320
+  C: LIST
+  S: +OK 2 messages (320 octets)
+  S: 1 120
+  S: 2 200
+  S: .
+  C: RETR 1
+  S: +OK 120 octets
+  S: <the POP3 server sends message 1>
+  S: .
+  C: DELE 1
+  S: +OK message 1 deleted
+  C: RETR 2
+  S: +OK 200 octets
+  S: <the POP3 server sends message 2>
+  S: .
+  C: DELE 2
+  S: +OK message 2 deleted
+  C: QUIT
+  S: +OK dewey POP3 server signing off (maildrop empty)
 
 IMAP
 ----
+
+Internet Message Access Protocol.
+
+- Permite al usuario obtener mails desde un servidor de correos.
+
+- Al descargar los correos generalmente éstos se mantienen en el servidor.
+
+- Usa el puerto TCP 143 para la conexión sin cifrado. IMAP sobre TLS (IMAPS)
+  utiliza el puerto 993.
+
+Comandos
+~~~~~~~~
+
+Hay muchos, algunos son:
+
+- **LOGIN**: Se envía el nombre de usuario y contraseña en texto plano.
+
+- **AUTHENTICATE**: Inicia un mecanismo de autenticación SASL más seguro.
+
+- **CREATE**: Crea una casilla de correo con el nombre dado.
+
+- **CREATE**: Borra una casilla de correo con el nombre dado.
+
+- **SELECT**: Selecciona una casilla de correo, el servidor responde con el
+  número de mensajes e información extra.
+
+- **SEARCH**: Busca mensajes en la casilla seleccionada.
+
+- **FETCH**: Solicita partes de un correo o un correo completo.
+
+- **CLOSE**: Deselecciona una casilla de correo.
+
+Respuestas
+~~~~~~~~~~
+
+Llevan también información adicional.
+
+- **OK**.
+
+- **NO**: Describe un error operacional.
+
+- **BAD**: Describe un error de nivel de protocolo en el comando dado.
+
+- **PREAUTH**: Indica que ya se ha autenticado al usuario por otros medios.
+
+- **BYE**.
+
+Ejemplos
+~~~~~~~~
+
+En cada ejemplo, se agregó ``C:`` para representar al cliente y ``S:`` para
+representar al servidor.
+
+Ejemplo proveniente de RFC 3501::
+
+  S: * OK IMAP4rev1 Service Ready
+  C: a001 login mrc secret
+  S: a001 OK LOGIN completed
+  C: a002 select inbox
+  S: * 18 EXISTS
+  S: * FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
+  S: * 2 RECENT
+  S: * OK [UNSEEN 17] Message 17 is the first unseen message
+  S: * OK [UIDVALIDITY 3857529045] UIDs valid
+  S: a002 OK [READ-WRITE] SELECT completed
+  C: a003 fetch 12 full
+  S: * 12 FETCH (FLAGS (\Seen) INTERNALDATE "17-Jul-1996 02:44:25 -0700"
+      RFC822.SIZE 4286 ENVELOPE ("Wed, 17 Jul 1996 02:23:25 -0700 (PDT)"
+      "IMAP4rev1 WG mtg summary and minutes"
+      (("Terry Gray" NIL "gray" "cac.washington.edu"))
+      (("Terry Gray" NIL "gray" "cac.washington.edu"))
+      (("Terry Gray" NIL "gray" "cac.washington.edu"))
+      ((NIL NIL "imap" "cac.washington.edu"))
+      ((NIL NIL "minutes" "CNRI.Reston.VA.US")
+      ("John Klensin" NIL "KLENSIN" "MIT.EDU")) NIL NIL
+      "<B27397-0100000@cac.washington.edu>")
+       BODY ("TEXT" "PLAIN" ("CHARSET" "US-ASCII") NIL NIL "7BIT" 3028
+       92))
+  S:  a003 OK FETCH completed
+  C:  a004 fetch 12 body[header]
+  S:  * 12 FETCH (BODY[HEADER] {342}
+  S:  Date: Wed, 17 Jul 1996 02:23:25 -0700 (PDT)
+  S:  From: Terry Gray <gray@cac.washington.edu>
+  S:  Subject: IMAP4rev1 WG mtg summary and minutes
+  S:  To: imap@cac.washington.edu
+  S:  cc: minutes@CNRI.Reston.VA.US, John Klensin <KLENSIN@MIT.EDU>
+  S:  Message-Id: <B27397-0100000@cac.washington.edu>
+  S:  MIME-Version: 1.0
+  S:  Content-Type: TEXT/PLAIN; CHARSET=US-ASCII
+  S:
+  S:  )
+  S:  a004 OK FETCH completed
+  C:  a005 store 12 +flags \deleted
+  S:  * 12 FETCH (FLAGS (\Seen \Deleted))
+  S:  a005 OK +FLAGS completed
+  C:  a006 logout
+  S:  * BYE IMAP4rev1 server terminating connection
+  S:  a006 OK LOGOUT completed
+
 
 Referencias
 -----------
