@@ -98,7 +98,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#explicacion-desde-wikipedia">Explicación desde Wikipedia</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#smtp">SMTP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mime">MIME</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pop">POP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pop3">POP3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imap">IMAP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#referencias">Referencias</a></li>
 </ul>
@@ -187,14 +187,7 @@
 <h1>Mail<a class="headerlink" href="#mail" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Por hacer</p>
-<p>Hacer</p>
-<ul class="last simple">
-<li>822</li>
-<li>SMTP</li>
-<li>MIME</li>
-<li>POP</li>
-<li>IMAP</li>
-</ul>
+<p class="last">Separar SMTP y RFC 822?</p>
 </div>
 <p>Para entenderlo bien creo que habría que saberse un poco la historia de cómo fue
 evolucionando porque es como que siempre se fueron corrigiendo cosas, sobre todo
@@ -212,6 +205,14 @@ desde su servidor de correo.</li>
 <li>El formato de correo era originalmente ASCII de 7 bits con el bit superior en
 cero, más adelante se define el estándar MIME (Multipurpose Internet Mail
 Extensions) que permite codificar texto y datos binarios en ASCII de 7 bits.</li>
+<li>El envío de los correos se realiza directamente desde la PC del usuario usando
+SMTP. El mensaje llega hasta una casilla de correo en un servidor de correo y
+es descargado en la PC del destinatario usando el protocolo POP3 o IMAP.</li>
+<li>POP3 está pensado para descargar los correos desde un solo dispositivo, es muy
+básico y normalmente los mensajes on borrados de la casilla de correo luego de
+la descarga. IMAP está pensado para ser utilizado en línea desde varios
+dispositivos, ya que permite solicitar mensajes específicos, ordenar y
+mantener los mails en la casilla de correo.</li>
 </ul>
 <p>Hay distintos agentes (programas/servidores), al final hay servidores que son
 más de una cosa a la vez pero la división sería la siguiente:</p>
@@ -287,7 +288,8 @@ message (header and body), formally referred to as the Internet Message Format.<
 <p>Simple Mail Transfer Protocol.</p>
 <ul class="simple">
 <li>Especifica cómo se deben enviar los mails.</li>
-<li>Usa TCP normalmente con puerto 25.</li>
+<li>Usa TCP, normalmente puerto 587 al conectarse a un MSA y puerto 25 en los
+demás casos.</li>
 <li>Es importante que el correo permita la entrega con retardo en el caso que se
 pierda la conexión o la máquina remota falle.</li>
 <li>Está basado en texto, se envían comandos de junto con argumentos separados por
@@ -329,6 +331,7 @@ formato MIME.</p>
 <li><strong>From</strong>: Especifica quién escribió el mensaje</li>
 <li><strong>Sender</strong>: Especifica quién fue en realidad el que envió el mensaje.</li>
 <li><strong>To</strong>: Destinatarios principales del mensaje.</li>
+<li><strong>Reply-To</strong>: Hacia dónde se deben enviar las respuestas.</li>
 <li><strong>Cc</strong>: Destinatarios secundarios del mensaje.</li>
 <li><strong>Bcc</strong>: Destinatarios ocultos del mensaje, es leído por el MUA y el campo es
 borrado antes de enviar el mensaje.</li>
@@ -650,11 +653,157 @@ Tiere, welche also wohl noch ungl=FCcklicher sein m=FCssen als wir.&quot;=20
 </div>
 </div>
 </div>
-<div class="section" id="pop">
-<h2>POP<a class="headerlink" href="#pop" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="pop3">
+<h2>POP3<a class="headerlink" href="#pop3" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Post Office Protocol.</p>
+<ul class="simple">
+<li>Permite al usuario obtener mails desde un servidor de correos.</li>
+<li>Al descargar los correos generalmente éstos son borrados del servidor.</li>
+<li>Usa el puerto TCP 110 para la conexión sin cifrado, luego con el comando STLS
+es posible cifrar la conexión. Para iniciar la conexión directamente con TLS
+se utiliza el puerto 995.</li>
+</ul>
+<div class="section" id="id4">
+<h3>Comandos<a class="headerlink" href="#id4" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los más comunes son:</p>
+<ul class="simple">
+<li><strong>USER</strong>: Indica el nombre de usuario.</li>
+<li><strong>PASS</strong>: Indica la contraseña.</li>
+<li><strong>APOP</strong>: Método alternativo de autenticación utilizando MD5.</li>
+<li><strong>STAT</strong>: Solicita cantidad de mensajes y el tamaño total de ellos.</li>
+<li><strong>LIST</strong>: Solicita información sobre los mensajes disponibles.</li>
+<li><strong>RETR</strong>: Se envía como argumento el número de mensaje a obtener.</li>
+<li><strong>DELE</strong>: Se envía como argumento el número de mensaje a borrar.</li>
+<li><strong>QUIT</strong>: Termina la sesión.</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Respuestas<a class="headerlink" href="#id5" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Llevan además una descripción.</p>
+<ul class="simple">
+<li><strong>OK</strong>.</li>
+<li><strong>ERR</strong>.</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>Ejemplos<a class="headerlink" href="#id6" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En cada ejemplo, se agregó <code class="docutils literal notranslate"><span class="pre">C:</span></code> para representar al cliente y <code class="docutils literal notranslate"><span class="pre">S:</span></code> para
+representar al servidor.</p>
+<p>Ejemplo proveniente de RFC 1939:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>S: +OK POP3 server ready &lt;1896.697170952@dbc.mtview.ca.us&gt;
+C: APOP mrose c4c9334bac560ecc979e58001b3e22fb
+S: +OK mrose&#39;s maildrop has 2 messages (320 octets)
+C: STAT
+S: +OK 2 320
+C: LIST
+S: +OK 2 messages (320 octets)
+S: 1 120
+S: 2 200
+S: .
+C: RETR 1
+S: +OK 120 octets
+S: &lt;the POP3 server sends message 1&gt;
+S: .
+C: DELE 1
+S: +OK message 1 deleted
+C: RETR 2
+S: +OK 200 octets
+S: &lt;the POP3 server sends message 2&gt;
+S: .
+C: DELE 2
+S: +OK message 2 deleted
+C: QUIT
+S: +OK dewey POP3 server signing off (maildrop empty)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="imap">
 <h2>IMAP<a class="headerlink" href="#imap" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Internet Message Access Protocol.</p>
+<ul class="simple">
+<li>Permite al usuario obtener mails desde un servidor de correos.</li>
+<li>Al descargar los correos generalmente éstos se mantienen en el servidor.</li>
+<li>Usa el puerto TCP 143 para la conexión sin cifrado. IMAP sobre TLS (IMAPS)
+utiliza el puerto 993.</li>
+</ul>
+<div class="section" id="id7">
+<h3>Comandos<a class="headerlink" href="#id7" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Hay muchos, algunos son:</p>
+<ul class="simple">
+<li><strong>LOGIN</strong>: Se envía el nombre de usuario y contraseña en texto plano.</li>
+<li><strong>AUTHENTICATE</strong>: Inicia un mecanismo de autenticación SASL más seguro.</li>
+<li><strong>CREATE</strong>: Crea una casilla de correo con el nombre dado.</li>
+<li><strong>CREATE</strong>: Borra una casilla de correo con el nombre dado.</li>
+<li><strong>SELECT</strong>: Selecciona una casilla de correo, el servidor responde con el
+número de mensajes e información extra.</li>
+<li><strong>SEARCH</strong>: Busca mensajes en la casilla seleccionada.</li>
+<li><strong>FETCH</strong>: Solicita partes de un correo o un correo completo.</li>
+<li><strong>CLOSE</strong>: Deselecciona una casilla de correo.</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>Respuestas<a class="headerlink" href="#id8" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Llevan también información adicional.</p>
+<ul class="simple">
+<li><strong>OK</strong>.</li>
+<li><strong>NO</strong>: Describe un error operacional.</li>
+<li><strong>BAD</strong>: Describe un error de nivel de protocolo en el comando dado.</li>
+<li><strong>PREAUTH</strong>: Indica que ya se ha autenticado al usuario por otros medios.</li>
+<li><strong>BYE</strong>.</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>Ejemplos<a class="headerlink" href="#id9" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En cada ejemplo, se agregó <code class="docutils literal notranslate"><span class="pre">C:</span></code> para representar al cliente y <code class="docutils literal notranslate"><span class="pre">S:</span></code> para
+representar al servidor.</p>
+<p>Ejemplo proveniente de RFC 3501:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>S: * OK IMAP4rev1 Service Ready
+C: a001 login mrc secret
+S: a001 OK LOGIN completed
+C: a002 select inbox
+S: * 18 EXISTS
+S: * FLAGS (\Answered \Flagged \Deleted \Seen \Draft)
+S: * 2 RECENT
+S: * OK [UNSEEN 17] Message 17 is the first unseen message
+S: * OK [UIDVALIDITY 3857529045] UIDs valid
+S: a002 OK [READ-WRITE] SELECT completed
+C: a003 fetch 12 full
+S: * 12 FETCH (FLAGS (\Seen) INTERNALDATE &quot;17-Jul-1996 02:44:25 -0700&quot;
+    RFC822.SIZE 4286 ENVELOPE (&quot;Wed, 17 Jul 1996 02:23:25 -0700 (PDT)&quot;
+    &quot;IMAP4rev1 WG mtg summary and minutes&quot;
+    ((&quot;Terry Gray&quot; NIL &quot;gray&quot; &quot;cac.washington.edu&quot;))
+    ((&quot;Terry Gray&quot; NIL &quot;gray&quot; &quot;cac.washington.edu&quot;))
+    ((&quot;Terry Gray&quot; NIL &quot;gray&quot; &quot;cac.washington.edu&quot;))
+    ((NIL NIL &quot;imap&quot; &quot;cac.washington.edu&quot;))
+    ((NIL NIL &quot;minutes&quot; &quot;CNRI.Reston.VA.US&quot;)
+    (&quot;John Klensin&quot; NIL &quot;KLENSIN&quot; &quot;MIT.EDU&quot;)) NIL NIL
+    &quot;&lt;B27397-0100000@cac.washington.edu&gt;&quot;)
+     BODY (&quot;TEXT&quot; &quot;PLAIN&quot; (&quot;CHARSET&quot; &quot;US-ASCII&quot;) NIL NIL &quot;7BIT&quot; 3028
+     92))
+S:  a003 OK FETCH completed
+C:  a004 fetch 12 body[header]
+S:  * 12 FETCH (BODY[HEADER] {342}
+S:  Date: Wed, 17 Jul 1996 02:23:25 -0700 (PDT)
+S:  From: Terry Gray &lt;gray@cac.washington.edu&gt;
+S:  Subject: IMAP4rev1 WG mtg summary and minutes
+S:  To: imap@cac.washington.edu
+S:  cc: minutes@CNRI.Reston.VA.US, John Klensin &lt;KLENSIN@MIT.EDU&gt;
+S:  Message-Id: &lt;B27397-0100000@cac.washington.edu&gt;
+S:  MIME-Version: 1.0
+S:  Content-Type: TEXT/PLAIN; CHARSET=US-ASCII
+S:
+S:  )
+S:  a004 OK FETCH completed
+C:  a005 store 12 +flags \deleted
+S:  * 12 FETCH (FLAGS (\Seen \Deleted))
+S:  a005 OK +FLAGS completed
+C:  a006 logout
+S:  * BYE IMAP4rev1 server terminating connection
+S:  a006 OK LOGOUT completed
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="referencias">
 <h2>Referencias<a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -687,7 +836,7 @@ Tiere, welche also wohl noch ungl=FCcklicher sein m=FCssen als wir.&quot;=20
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
