@@ -20,6 +20,8 @@ Sacado de lista de powerpoints y de programa
 
   - :doc:`teoria/6to4`.
 
+  - :doc:`teoria/icmpv6`.
+
 - :doc:`teoria/rip`.
 
 - :doc:`teoria/ospf`.

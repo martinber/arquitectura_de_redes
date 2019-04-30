@@ -76,6 +76,8 @@ Tipos de direcciones
 SLAAC
 -----
 
+.. todo:: Ver que multucast usa
+
 Stateless Address Autoconfiguration.
 
 - Permite a los hosts obtener direcciones IPv6 ruteables por medio de Router

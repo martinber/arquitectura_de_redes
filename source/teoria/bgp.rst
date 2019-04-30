@@ -22,8 +22,6 @@ Border Gateway Protocol.
 
 - Los ID de router deben ser únicos dentro del sistema autónomo.
 
-- Utiliza un algoritmo de vector distancia modificado.
-
 - Para evitar bucles descarta las rutas que pasan por él mismo.
 
 - Permite introducir restricciones o reglas políticas.
