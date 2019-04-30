@@ -96,6 +96,9 @@
 <li class="toctree-l3"><a class="reference internal" href="dns.html">DNS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mail.html">Mail</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">FTP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modos">Modos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comandos">Comandos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#respuestas">Respuestas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#variaciones">Variaciones</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tftp">TFTP</a></li>
 </ul>
@@ -193,6 +196,90 @@ servidor.</li>
 <li>La sesión se establece de la misma forma que una sesión Telnet. Después se
 hace otra conexión para la transferencia de datos.</li>
 </ul>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Anonimo</p>
+</div>
+<div class="section" id="modos">
+<h2>Modos<a class="headerlink" href="#modos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>FTP puede usar dos modos de conexión:</p>
+<ul class="simple">
+<li><strong>Activo</strong>: El cliente se conecta al puerto 21 del servidor para establecer la
+sesión de comandos, luego el cliente envía el comando <code class="docutils literal notranslate"><span class="pre">PORT</span></code> indicando un
+número de puerto aleatorio al cuál el servidor se conectará (por ej 2056) para
+establecer la conexión para la transferencia de datos. El problema de este
+modo es que generalmente el usuario tiene un firewall y NAT, por lo tanto el
+servidor no puede conectarse al cliente.</li>
+<li><strong>Pasivo</strong>: El cliente se conecta al puerto 21 del servidor para establecer la
+sesión de comandos, luego el cliente envía el comando <code class="docutils literal notranslate"><span class="pre">PASV</span></code> y el servidor
+responde con un número de puerto aleatorio al cual el cliente se conectará
+para establecer la conexión para la transferencia de datos.</li>
+</ul>
+<img alt="../_images/ftp_activo.svg" src="../_images/ftp_activo.svg" /><img alt="../_images/ftp_pasivo.svg" src="../_images/ftp_pasivo.svg" /><p>Gabiwxp [<a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>]</p>
+</div>
+<div class="section" id="comandos">
+<h2>Comandos<a class="headerlink" href="#comandos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>No son todos obligatorios, hay algunos que no están disponibles en todas las
+implementaciones. Estos son los comandos más básicos:</p>
+<ul class="simple">
+<li><strong>USER</strong>: Se envía como argumento el nombre de usuario.</li>
+<li><strong>PASS</strong>: Se envía la contraseña en texto plano.</li>
+<li><strong>PORT</strong>: Se envía como argumento una IP y puerto del host para iniciar la
+conexión activa, el servidor luego se conectará a esa IP y puerto para iniciar
+la conexión para la transferencia de datos.</li>
+<li><strong>PASV</strong>: El cliente solicita al servidor un puerto para iniciar una conexión
+pasiva, el cliente luego se conectará al puerto que indique el servidor para
+iniciar la conexión para la transferencia de datos.</li>
+<li><strong>CWD</strong> (Change Working Directory): Cambia el directorio actual en el
+servidor.</li>
+<li><strong>MKD</strong> (Make Directory): Crea un directorio en el servidor.</li>
+<li><strong>DELE</strong>: Elimina un archivo en el servidor.</li>
+<li><strong>LIST</strong>: Solicita una lista de archivos disponibles en el directorio
+especificado.</li>
+<li><strong>RETR</strong>: Solicita al servidor la transferencia de un archivo.</li>
+<li><strong>STORE</strong>: Solicita al servidor a aceptar los datos enviados por la conexión
+de datos y a almacenarlos en el nombre de archivo dado.</li>
+<li><strong>QUIT</strong>: Cierra la conexión.</li>
+</ul>
+</div>
+<div class="section" id="respuestas">
+<h2>Respuestas<a class="headerlink" href="#respuestas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Algunas de las respuestas son:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">1XX</span></code>: La operación se ha iniciado correctamente.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">150</span></code>: Iniciando transferencia de archivos.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">2XX</span></code>: La operación se ha completado correctamente.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">200</span></code>: Comando OK.</li>
+<li><code class="docutils literal notranslate"><span class="pre">211</span></code>: Estado del sistema.</li>
+<li><code class="docutils literal notranslate"><span class="pre">212</span></code>: Estado de directorio.</li>
+<li><code class="docutils literal notranslate"><span class="pre">213</span></code>: Estado de archivo.</li>
+<li><code class="docutils literal notranslate"><span class="pre">220</span></code>: Servicio OK.</li>
+<li><code class="docutils literal notranslate"><span class="pre">221</span></code>: Cerrando conexión de control.</li>
+<li><code class="docutils literal notranslate"><span class="pre">226</span></code>: Transferencia de archivo correcta.</li>
+<li><code class="docutils literal notranslate"><span class="pre">227</span></code>: Entrando a modo pasivo, lleva como argumento IP y puerto.</li>
+<li><code class="docutils literal notranslate"><span class="pre">230</span></code>: Sesión iniciada.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">3XX</span></code>: El comando ha sido aceptado pero se necesita más información.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">331</span></code>: Usuario correcto, contraseña necesaria.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">4XX</span></code>: Falla temporal.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">450</span></code>: Archivo no disponible: archivo ocupado.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">5XX</span></code>: Falla permanente.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">500</span></code>: Error de sintaxis, comando no reconocido.</li>
+<li><code class="docutils literal notranslate"><span class="pre">501</span></code>: Error de sintaxis en los argumentos.</li>
+<li><code class="docutils literal notranslate"><span class="pre">502</span></code>: Comando no implementado.</li>
+<li><code class="docutils literal notranslate"><span class="pre">504</span></code>: Comando no implementado para ese argumento.</li>
+<li><code class="docutils literal notranslate"><span class="pre">550</span></code>: Archivo no disponible: archivo no encontrado.</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="variaciones">
 <h2>Variaciones<a class="headerlink" href="#variaciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
