@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="P2P" href="p2p.html"/>
-        <link rel="prev" title="FTP" href="ftp.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="P2P" href="p2p.html" />
+    <link rel="prev" title="FTP" href="ftp.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -128,7 +122,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -136,9 +130,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -186,60 +181,60 @@
 <h1>HTTP<a class="headerlink" href="#http" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Hypertext Transfer Protocol.</p>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer, ver que onda con los MIME</p>
+<p class="admonition-title">Por hacer</p>
+<p>Hacer, ver que onda con los MIME</p>
 </div>
 <div class="section" id="versiones">
 <h2>Versiones<a class="headerlink" href="#versiones" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>HTTP/0.9: Obsoleta. Soporta sólo un comando, GET, no especifica el número de
-versión HTTP.</li>
-<li>HTTP/1.0 (mayo 1996): Especifica su versión en las comunicaciones, y todavía
-se usa ampliamente, sobre todo en servidores proxy.</li>
-<li>HTTP/1.1 (junio 1999): Las conexiones persistentes están activadas por defecto
+<li><p>HTTP/0.9: Obsoleta. Soporta sólo un comando, GET, no especifica el número de
+versión HTTP.</p></li>
+<li><p>HTTP/1.0 (mayo 1996): Especifica su versión en las comunicaciones, y todavía
+se usa ampliamente, sobre todo en servidores proxy.</p></li>
+<li><p>HTTP/1.1 (junio 1999): Las conexiones persistentes están activadas por defecto
 y funcionan bien con los proxies. También permite al cliente enviar múltiples
 peticiones a la vez (pipelining) lo que hace posible eliminar el tiempo de
-round-trip delay por cada petición.</li>
-<li>HTTP/2.0 (mayo 2015): Minimiza el número de peticiones ya que el servidor
+round-trip delay por cada petición.</p></li>
+<li><p>HTTP/2.0 (mayo 2015): Minimiza el número de peticiones ya que el servidor
 responde con datos que no fueron requeridos por el cliente en los casos en
 donde el servidor conoce lo que necesita el cliente. De esta forma no es
-necesario que el cliente analice la respuesta y haga otra petición.</li>
+necesario que el cliente analice la respuesta y haga otra petición.</p></li>
 </ul>
 </div>
 <div class="section" id="requests">
 <h2>Requests<a class="headerlink" href="#requests" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Ver si es lo mismo que HTTP methods.</p>
+<p class="admonition-title">Por hacer</p>
+<p>Ver si es lo mismo que HTTP methods.</p>
 </div>
 <ul class="simple">
-<li>GET: Solicita un recurso determinado.</li>
-<li>HEAD: Igual que HEAD, pero solicita sólo el encabezado, dejando atrás el
-cuerpo de la respuesta.</li>
-<li>POST: Solicita al servidor ubicar los datos presentes en esta solicitud en una
-determinada ubicación, ya sea modificando o creando un recurso nuevo.</li>
+<li><p>GET: Solicita un recurso determinado.</p></li>
+<li><p>HEAD: Igual que HEAD, pero solicita sólo el encabezado, dejando atrás el
+cuerpo de la respuesta.</p></li>
+<li><p>POST: Solicita al servidor ubicar los datos presentes en esta solicitud en una
+determinada ubicación, ya sea modificando o creando un recurso nuevo.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-2">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Ver diferencia POST y PUT.</p>
+<p class="admonition-title">Por hacer</p>
+<p>Ver diferencia POST y PUT.</p>
 </div>
 <ul class="simple">
-<li>PUT:</li>
-<li>DELETE: Solicita el borrado de un determinado recurso.</li>
-<li>TRACE: Solicita al servidor que responda con todos los datos que recibe, una
+<li><p>PUT:</p></li>
+<li><p>DELETE: Solicita el borrado de un determinado recurso.</p></li>
+<li><p>TRACE: Solicita al servidor que responda con todos los datos que recibe, una
 especie de <em>echo</em>. Se usa para observar si servidores intermedios hacen
-modificaciones en la petición.</li>
-<li>OPTIONS: Solicita que el servidor responda con los métodos HTTP que soporta en
-determinada URL.</li>
+modificaciones en la petición.</p></li>
+<li><p>OPTIONS: Solicita que el servidor responda con los métodos HTTP que soporta en
+determinada URL.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-3">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">CONNECT, no entend, ver si es importante.</p>
+<p class="admonition-title">Por hacer</p>
+<p>CONNECT, no entend, ver si es importante.</p>
 </div>
 <ul class="simple">
-<li>CONNECT:</li>
-<li>PATCH: Produce determinadas modificaciones en un recurso.</li>
-<li>Entre otros…</li>
+<li><p>CONNECT:</p></li>
+<li><p>PATCH: Produce determinadas modificaciones en un recurso.</p></li>
+<li><p>Entre otros…</p></li>
 </ul>
 <p>Algunas solicitudes como GET, HEAD, OPTIONS y TRACE son métodos seguros, ya que
 no realizan modificaciones en el servidor, a diferencia de por ejemplo PUT,
@@ -248,26 +243,26 @@ POST, DELETE, etc.</p>
 <div class="section" id="codigos-de-estado">
 <h2>Códigos de estado<a class="headerlink" href="#codigos-de-estado" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="admonition-todo admonition" id="index-4">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Agregar mas.</p>
+<p class="admonition-title">Por hacer</p>
+<p>Agregar mas.</p>
 </div>
 <ul class="simple">
-<li>Informational: 1XX</li>
-<li>Successful: 2XX</li>
-<li>Redirection: 3XX</li>
-<li>Client Error: 4XX</li>
-<li>Server Error: 5XX</li>
+<li><p>Informational: 1XX</p></li>
+<li><p>Successful: 2XX</p></li>
+<li><p>Redirection: 3XX</p></li>
+<li><p>Client Error: 4XX</p></li>
+<li><p>Server Error: 5XX</p></li>
 </ul>
 </div>
 <div class="section" id="https">
 <h2>HTTPS<a class="headerlink" href="#https" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="admonition warning">
-<p class="first admonition-title">Advertencia</p>
-<p class="last">No tengo mucha idea sobre esto así que a lo mejor le pifio en algo.</p>
+<p class="admonition-title">Advertencia</p>
+<p>No tengo mucha idea sobre esto así que a lo mejor le pifio en algo.</p>
 </div>
 <div class="admonition-todo admonition" id="index-5">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Explicar en forma general que es HTTPS, TLS, SSL, etc.</p>
+<p class="admonition-title">Por hacer</p>
+<p>Explicar en forma general que es HTTPS, TLS, SSL, etc.</p>
 </div>
 </div>
 <div class="section" id="proxy">
@@ -276,35 +271,35 @@ POST, DELETE, etc.</p>
 <div class="section" id="tipos">
 <h3>Tipos<a class="headerlink" href="#tipos" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li>Elite Proxy: El proxy hace la request hacia el servidor destino normalmente,
-como si la petición se originara desde el proxy.</li>
-<li>Anonymous Proxy: Al hacer la petición, el proxy coloca el header <em>HTTP_VIA</em>
+<li><p>Elite Proxy: El proxy hace la request hacia el servidor destino normalmente,
+como si la petición se originara desde el proxy.</p></li>
+<li><p>Anonymous Proxy: Al hacer la petición, el proxy coloca el header <em>HTTP_VIA</em>
 para indicar que se está utilizando un proxy. Opcionalmente utiliza también el
-header <em>HTTP_X_FORWARDED_FOR</em> indicando la IP del proxy.</li>
-<li>Transparent Proxy: El proxy utiliza el header <em>HTTP_X_FORWARDED_FOR</em> colocando
+header <em>HTTP_X_FORWARDED_FOR</em> indicando la IP del proxy.</p></li>
+<li><p>Transparent Proxy: El proxy utiliza el header <em>HTTP_X_FORWARDED_FOR</em> colocando
 la IP del cliente, de esta forma el servidor de destino conoce la IP del
 cliente. También se envía <em>HTTP_VIA</em> indicando que se está utilizando un
-servidor proxy.</li>
-<li>Inline, Forced o Transparent Proxy: A veces se usa el término <em>Transparent
+servidor proxy.</p></li>
+<li><p>Inline, Forced o Transparent Proxy: A veces se usa el término <em>Transparent
 Proxy</em> para bomprar a los servidores proxy que interceptan las comunicaciones
 entre el cliente y el servidor web, por lo tanto no es necesaria la
 configuración de los clientes. Se necesita habilitar el forwarding IP en el
-proxy.</li>
-<li>Accelerator proxy: Se coloca en frente de uno o unos pocos servidores web y se
+proxy.</p></li>
+<li><p>Accelerator proxy: Se coloca en frente de uno o unos pocos servidores web y se
 apunta al DNS para que las consultas de los clientes vayan al proxy. De esta
 forma el proxy permite mejorar el rendimiento de un servidor web lento gracias
-a los cachés.</li>
+a los cachés.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-6">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Buscar sobre la aquitectura multinivel</p>
+<p class="admonition-title">Por hacer</p>
+<p>Buscar sobre la aquitectura multinivel</p>
 </div>
 </div>
 <div class="section" id="proxy-https">
 <h3>Proxy HTTPS<a class="headerlink" href="#proxy-https" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="admonition warning">
-<p class="first admonition-title">Advertencia</p>
-<p class="last">No tengo mucha idea, esto es lo que leí por ahí. Pongo las
+<p class="admonition-title">Advertencia</p>
+<p>No tengo mucha idea, esto es lo que leí por ahí. Pongo las
 referencias a todo lo que pueda.</p>
 </div>
 <p>Como la comunicación es punto a punto no se puede descifrar la información, pero
@@ -323,8 +318,8 @@ debe dar cuenta de que está conectándose al proxy en vez del servidor web, por
 lo tanto el proxy debe crear un certificado temporal generado dinámicamente para
 cada conexión en particular. Esto se llama ataque <em>Man-in-the-middle</em>.</p>
 <div class="admonition-todo admonition" id="index-7">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Leer un poco más sobre CAs.</p>
+<p class="admonition-title">Por hacer</p>
+<p>Leer un poco más sobre CAs.</p>
 </div>
 <p>Cuando uno se conecta a una página web con HTTPS, obtiene un certificado firmado
 por un <em>Certificate Authority</em> (<em>CA</em>) que es una organización confiable, la
@@ -349,9 +344,7 @@ Trustwave</a>.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -360,7 +353,7 @@ Trustwave</a>.</p>
         <a href="p2p.html" class="btn btn-neutral float-right" title="P2P" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ftp.html" class="btn btn-neutral" title="FTP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ftp.html" class="btn btn-neutral float-left" title="FTP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -369,11 +362,11 @@ Trustwave</a>.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -386,37 +379,15 @@ Trustwave</a>.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

@@ -3,6 +3,8 @@ DNS
 
 Domain Name System.
 
+- En :doc:`../practica/bind` hay más información.
+
 - Definiciones mas o menos porque no la tengo bien clara todavía:
 
   - *Hostname* o nombre de host: Es un nombre que identifica a un host, por
