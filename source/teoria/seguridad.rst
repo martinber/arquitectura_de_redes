@@ -22,10 +22,18 @@ Seguridad
 
    - Proxy
 
-- IDS (Intruder Detection System): Como que analiza el tráfico con interligencia
+   - Perfect Forward Secrecy?
+
+   - Diffie-Hellman
+
+   - Se usa claves simetricas para que sea mas rapido computacionalmente
+
+- IDS (Intruder Detection System): Como que analiza el tráfico con inteligencia
   artificial.
 
 - IPS (Intruder Protection System): Es como IDS pero actúa (creo).
+
+- Ver también :doc:`tls`.
 
 Tipos de firmas
 ----------------

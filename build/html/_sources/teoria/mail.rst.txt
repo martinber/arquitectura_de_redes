@@ -10,8 +10,8 @@ evolucionando porque es como que siempre se fueron corrigiendo cosas, sobre todo
 para intentar mejorar la seguridad, disminuir el SPAM, impedir el `spoofing`__,
 etc.
 
-- Las direcciones de mail llevan el nombre de usuario seguido del nombre de
-  dominio.
+- Las direcciones de mail llevan el nombre de usuario seguido de arroba y el
+  nombre de dominio.
 
 - Los servidores utilizan el record MX del protocolo DNS para encontrar a los
   servidores hacia dónde enviar los correos.
@@ -128,7 +128,8 @@ Simple Mail Transfer Protocol.
   demás casos.
 
 - Es importante que el correo permita la entrega con retardo en el caso que se
-  pierda la conexión o la máquina remota falle.
+  pierda la conexión o la máquina remota falle, o sea si el otro servidor está
+  caído intentar de nuevo en unos minutos.
 
 - Está basado en texto, se envían comandos de junto con argumentos separados por
   espacios. Se responde similar a HTTP.

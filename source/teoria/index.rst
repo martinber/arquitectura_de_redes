@@ -45,6 +45,7 @@ Capa aplicación y otros
    voip
    gestion
    seguridad
+   tls
    acceso_remoto
    gns3
    wireshark

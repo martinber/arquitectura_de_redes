@@ -75,3 +75,7 @@ Secure Shell.
 - Permite el uso de claves públicas y privadas para la autenticación,
   permitiendo por ejemplo al cliente comprobar la autenticidad del servidor
   antes de conectarse.
+
+- Tiene un montón de cosas más además de permitir acceder a una terminal remota,
+  como por ejemplo transferir archivos y hacer túneles cifrados extremo a
+  extremo.

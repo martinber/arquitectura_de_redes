@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="DNS" href="dns.html"/>
-        <link rel="prev" title="MPLS" href="mpls.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="DNS" href="dns.html" />
+    <link rel="prev" title="MPLS" href="mpls.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -124,7 +118,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -132,9 +126,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -181,28 +176,29 @@
   <div class="section" id="to4">
 <h1>6to4<a class="headerlink" href="#to4" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li>Permite transmitir paquetes IPv6 por una red IPv4 gracias a un router de
-borde.</li>
-<li>Es un mecanismo de transición para la migración de IPv4 a IPv6.</li>
-<li>No facilita la comunicación de hosts IPv4 con hosts IPv6, es para conectar
-hosts IPv6 con IPv6 a través de IPv4.</li>
-<li>Las direcciones comienzan con <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</li>
-<li>Un router con 6to4 toma como decisión:<ul>
-<li>Si quiere llegar a una IPv6 dentro de la LAN sabe que está directamente
-conectada.</li>
-<li>Si quiere llegar a una <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code> sabe que tiene que mandar el paquete
-por la red IPv4, el destino IPv4 se determina de la dirección IPv6.</li>
-<li>Si quiere llegar a alguna <code class="docutils literal notranslate"><span class="pre">2001::/16</span></code> tiene que enviar a algún router IPv6
-que tenga acceso a la IPv6 nativa.</li>
+<li><p>Permite transmitir paquetes IPv6 por una red IPv4 gracias a un router de
+borde.</p></li>
+<li><p>Es un mecanismo de transición para la migración de IPv4 a IPv6.</p></li>
+<li><p>No facilita la comunicación de hosts IPv4 con hosts IPv6, es para conectar
+hosts IPv6 con IPv6 a través de IPv4.</p></li>
+<li><p>Las direcciones comienzan con <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</p></li>
+<li><p>Un router con 6to4 toma como decisión:</p>
+<ul>
+<li><p>Si quiere llegar a una IPv6 dentro de la LAN sabe que está directamente
+conectada.</p></li>
+<li><p>Si quiere llegar a una <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code> sabe que tiene que mandar el paquete
+por la red IPv4, el destino IPv4 se determina de la dirección IPv6.</p></li>
+<li><p>Si quiere llegar a alguna <code class="docutils literal notranslate"><span class="pre">2001::/16</span></code> tiene que enviar a algún router IPv6
+que tenga acceso a la IPv6 nativa.</p></li>
 </ul>
 </li>
-<li>Los paquetes IPv6 van dentro de los datos del paquete IPv4.</li>
-<li>Para permitir tráfico hacia redes IPv6 nativas (<code class="docutils literal notranslate"><span class="pre">2001::/16</span></code>) se
-establecieron los <em>Relay Routers</em>.</li>
-<li>Los <em>Relay routers</em> tienen, del lado IPv6, redes IPv6 nativas (<code class="docutils literal notranslate"><span class="pre">2001::/16</span></code>).
-Los routers de borde tienen redes con prefijo <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</li>
-<li>Para que las IPv6 nativas envíen cosas a un IPv6 6to4, usan como gateway el
-<em>Relay router</em> más cercano, ya que éstos anuncian la ruta <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</li>
+<li><p>Los paquetes IPv6 van dentro de los datos del paquete IPv4.</p></li>
+<li><p>Para permitir tráfico hacia redes IPv6 nativas (<code class="docutils literal notranslate"><span class="pre">2001::/16</span></code>) se
+establecieron los <em>Relay Routers</em>.</p></li>
+<li><p>Los <em>Relay routers</em> tienen, del lado IPv6, redes IPv6 nativas (<code class="docutils literal notranslate"><span class="pre">2001::/16</span></code>).
+Los routers de borde tienen redes con prefijo <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</p></li>
+<li><p>Para que las IPv6 nativas envíen cosas a un IPv6 6to4, usan como gateway el
+<em>Relay router</em> más cercano, ya que éstos anuncian la ruta <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</p></li>
 </ul>
 <div class="section" id="direcciones">
 <h2>Direcciones<a class="headerlink" href="#direcciones" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -213,8 +209,8 @@ Los routers de borde tienen redes con prefijo <code class="docutils literal notr
 <p>En donde <code class="docutils literal notranslate"><span class="pre">xxyy:wwzz</span></code> es la dirección IPv4 en formato hexadecimal. Quedan 16
 bits para hacer subredes</p>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
+<p class="admonition-title">Por hacer</p>
+<p>Hacer</p>
 </div>
 <p><a class="reference external" href="http://packetlife.net/blog/2010/mar/15/6to4-ipv6-tunneling/">http://packetlife.net/blog/2010/mar/15/6to4-ipv6-tunneling/</a></p>
 </div>
@@ -222,9 +218,7 @@ bits para hacer subredes</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -233,7 +227,7 @@ bits para hacer subredes</p>
         <a href="dns.html" class="btn btn-neutral float-right" title="DNS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="mpls.html" class="btn btn-neutral" title="MPLS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mpls.html" class="btn btn-neutral float-left" title="MPLS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -242,11 +236,11 @@ bits para hacer subredes</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -259,37 +253,15 @@ bits para hacer subredes</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
