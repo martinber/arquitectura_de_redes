@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="Seguridad" href="seguridad.html"/>
-        <link rel="prev" title="VOIP" href="voip.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Seguridad" href="seguridad.html" />
+    <link rel="prev" title="VOIP" href="voip.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -126,7 +120,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -134,9 +128,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -183,37 +178,37 @@
   <div class="section" id="gestion-de-redes">
 <h1>Gestión de redes<a class="headerlink" href="#gestion-de-redes" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
+<p class="admonition-title">Por hacer</p>
 <p>Hacer y revisar</p>
-<ul class="last simple">
-<li>Monitoreo</li>
-<li>SNMP</li>
-<li>Gestión remota</li>
+<ul class="simple">
+<li><p>Monitoreo</p></li>
+<li><p>SNMP</p></li>
+<li><p>Gestión remota</p></li>
 </ul>
 </div>
 <ul class="simple">
-<li>Hay dos estándares: SNMP y OSI.</li>
-<li>Aplicación de gestión de red</li>
-<li>Entidad de administración de red: Envía información</li>
-<li>MIB: Management Information Base</li>
+<li><p>Hay dos estándares: SNMP y OSI.</p></li>
+<li><p>Aplicación de gestión de red</p></li>
+<li><p>Entidad de administración de red: Envía información</p></li>
+<li><p>MIB: Management Information Base</p></li>
 </ul>
 <div class="section" id="osi">
 <h2>OSI<a class="headerlink" href="#osi" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="areas-funcionales">
 <h3>Áreas funcionales<a class="headerlink" href="#areas-funcionales" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li>Administración de la contabilidad: Proporciona información sobre costos y los
-usos contables.</li>
-<li>Administración de la configuración: Administra la configuración real de la
-red.</li>
-<li>Administración de fallos: Detecta, aísla y corrige los fallos, incluyendo el
-mantenimiento de un registro y un diagnóstico de los errores.</li>
-<li>Administración del desempeño (prestaciones): Mantiene una eficiencia y un
+<li><p>Administración de la contabilidad: Proporciona información sobre costos y los
+usos contables.</p></li>
+<li><p>Administración de la configuración: Administra la configuración real de la
+red.</p></li>
+<li><p>Administración de fallos: Detecta, aísla y corrige los fallos, incluyendo el
+mantenimiento de un registro y un diagnóstico de los errores.</p></li>
+<li><p>Administración del desempeño (prestaciones): Mantiene una eficiencia y un
 desempeño máximos, incluyendo la recopilación de estadísticas y el
 mantenimiento de registros para definir un “baseline”. Para ver si el tráfico
-es anormalmente alto o bajo.</li>
-<li>Administración de la seguridad: Mantiene un sistema seguro y administra el
-acceso.</li>
+es anormalmente alto o bajo.</p></li>
+<li><p>Administración de la seguridad: Mantiene un sistema seguro y administra el
+acceso.</p></li>
 </ul>
 </div>
 </div>
@@ -221,53 +216,55 @@ acceso.</li>
 <h2>SNMP<a class="headerlink" href="#snmp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Simple Network Management Protocol.</p>
 <ul class="simple">
-<li>Todos los equipos administrables tienen MIB y usan SNMP.</li>
-<li>La MIB tiene estructura SMI.</li>
-<li>Puede informarse por consulta o evento extraordinario.</li>
-<li>Usamos NetFlow, Nagios y Cacti, se complementan.</li>
-<li>Puerto IDP 161 o 162.</li>
-<li>Es importante en las nuevas versiones que se autentique para mejor seguridad.</li>
+<li><p>Todos los equipos administrables tienen MIB y usan SNMP.</p></li>
+<li><p>La MIB tiene estructura SMI.</p></li>
+<li><p>Puede informarse por consulta o evento extraordinario.</p></li>
+<li><p>Usamos NetFlow, Nagios y Cacti, se complementan.</p></li>
+<li><p>Puerto IDP 161 o 162.</p></li>
+<li><p>Es importante en las nuevas versiones que se autentique para mejor seguridad.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Ver versiones. Ver diferencias entre NetFlow, Nagios, Cacti.</p>
+<p class="admonition-title">Por hacer</p>
+<p>Ver versiones. Ver diferencias entre NetFlow, Nagios, Cacti.</p>
 </div>
 <div class="section" id="mib">
 <h3>MIB<a class="headerlink" href="#mib" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li>Se usa MIB-II, versión 2. Y SMI.</li>
-<li>Es jerárquica en vez de relacional, en forma de árbol.</li>
-<li>El formato de SMI es Abstract Syntax Notation One (ASN.1). Entonces es
+<li><p>Se usa MIB-II, versión 2. Y SMI.</p></li>
+<li><p>Es jerárquica en vez de relacional, en forma de árbol.</p></li>
+<li><p>El formato de SMI es Abstract Syntax Notation One (ASN.1). Entonces es
 independiente del dispositivo, lenguaje, etc. Define los tipos de variables
-entre otras cosas.</li>
-<li>Se puede acceder en formato ASCII o por números.</li>
+entre otras cosas.</p></li>
+<li><p>Se puede acceder en formato ASCII o por números.</p></li>
 </ul>
 </div>
 <div class="section" id="comandos">
 <h3>Comandos<a class="headerlink" href="#comandos" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li>get<ul>
-<li>request</li>
-<li>next request</li>
-<li>bulk request</li>
-<li>response</li>
+<li><p>get</p>
+<ul>
+<li><p>request</p></li>
+<li><p>next request</p></li>
+<li><p>bulk request</p></li>
+<li><p>response</p></li>
 </ul>
 </li>
-<li>set<ul>
-<li>request</li>
-<li>next request</li>
+<li><p>set</p>
+<ul>
+<li><p>request</p></li>
+<li><p>next request</p></li>
 </ul>
 </li>
-<li>trap</li>
-<li>inform request</li>
+<li><p>trap</p></li>
+<li><p>inform request</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-2">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Agregar primitivas TRAPS (coldstart, warmstart, etc.)</p>
+<p class="admonition-title">Por hacer</p>
+<p>Agregar primitivas TRAPS (coldstart, warmstart, etc.)</p>
 </div>
 <div class="admonition-todo admonition" id="index-3">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Ver System, AT, TCP, UDP, EGP, etc.</p>
+<p class="admonition-title">Por hacer</p>
+<p>Ver System, AT, TCP, UDP, EGP, etc.</p>
 </div>
 </div>
 </div>
@@ -275,9 +272,7 @@ entre otras cosas.</li>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -286,7 +281,7 @@ entre otras cosas.</li>
         <a href="seguridad.html" class="btn btn-neutral float-right" title="Seguridad" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="voip.html" class="btn btn-neutral" title="VOIP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="voip.html" class="btn btn-neutral float-left" title="VOIP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -295,11 +290,11 @@ entre otras cosas.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -312,37 +307,15 @@ entre otras cosas.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

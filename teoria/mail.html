@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="FTP" href="ftp.html"/>
-        <link rel="prev" title="DNS" href="dns.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="FTP" href="ftp.html" />
+    <link rel="prev" title="DNS" href="dns.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -130,7 +124,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -138,9 +132,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -187,50 +182,50 @@
   <div class="section" id="mail">
 <h1>Mail<a class="headerlink" href="#mail" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Separar SMTP y RFC 822?</p>
+<p class="admonition-title">Por hacer</p>
+<p>Separar SMTP y RFC 822?</p>
 </div>
 <p>Para entenderlo bien creo que habría que saberse un poco la historia de cómo fue
 evolucionando porque es como que siempre se fueron corrigiendo cosas, sobre todo
 para intentar mejorar la seguridad, disminuir el SPAM, impedir el <a class="reference external" href="https://en.wikipedia.org/wiki/Email_spoofing">spoofing</a>,
 etc.</p>
 <ul class="simple">
-<li>Las direcciones de mail llevan el nombre de usuario seguido de arroba y el
-nombre de dominio.</li>
-<li>Los servidores utilizan el record MX del protocolo DNS para encontrar a los
-servidores hacia dónde enviar los correos.</li>
-<li>Existe el estándar SMTP que establece cómo se intercambian los correos, el
+<li><p>Las direcciones de mail llevan el nombre de usuario seguido de arroba y el
+nombre de dominio.</p></li>
+<li><p>Los servidores utilizan el record MX del protocolo DNS para encontrar a los
+servidores hacia dónde enviar los correos.</p></li>
+<li><p>Existe el estándar SMTP que establece cómo se intercambian los correos, el
 formato del correo en sí está definido en las RFCs 822 y 1049. Finalmente
 existen los protocolos POP3 e IMAP que permite a los clientes obtener correos
-desde su servidor de correo.</li>
-<li>El formato de correo era originalmente ASCII de 7 bits con el bit superior en
+desde su servidor de correo.</p></li>
+<li><p>El formato de correo era originalmente ASCII de 7 bits con el bit superior en
 cero, más adelante se define el estándar MIME (Multipurpose Internet Mail
-Extensions) que permite codificar texto y datos binarios en ASCII de 7 bits.</li>
-<li>El envío de los correos se realiza directamente desde la PC del usuario usando
+Extensions) que permite codificar texto y datos binarios en ASCII de 7 bits.</p></li>
+<li><p>El envío de los correos se realiza directamente desde la PC del usuario usando
 SMTP. El mensaje llega hasta una casilla de correo en un servidor de correo y
-es descargado en la PC del destinatario usando el protocolo POP3 o IMAP.</li>
-<li>POP3 está pensado para descargar los correos desde un solo dispositivo, es muy
+es descargado en la PC del destinatario usando el protocolo POP3 o IMAP.</p></li>
+<li><p>POP3 está pensado para descargar los correos desde un solo dispositivo, es muy
 básico y normalmente los mensajes on borrados de la casilla de correo luego de
 la descarga. IMAP está pensado para ser utilizado en línea desde varios
 dispositivos, ya que permite solicitar mensajes específicos, ordenar y
-mantener los mails en la casilla de correo.</li>
+mantener los mails en la casilla de correo.</p></li>
 </ul>
 <p>Hay distintos agentes (programas/servidores), al final hay servidores que son
 más de una cosa a la vez pero la división sería la siguiente:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Mail User Agent (MUA): Es un cliente de correo, es el programa que usa el
-usuario.</li>
-<li>Mail Submission Agent (MSA): Recibe correos desde un MUA y lo envía a un
+<li><p>Mail User Agent (MUA): Es un cliente de correo, es el programa que usa el
+usuario.</p></li>
+<li><p>Mail Submission Agent (MSA): Recibe correos desde un MUA y lo envía a un
 MTA. Es el primer servidor de la cadena y es recibe sólo correos de MUAs
-autorizados.</li>
-<li>Mail Transfer Agent (MTA): Transfiere correos de un agente a otro usando
-SMTP, recibe correos desde MSAs o MTAs potencialmente desde otros dominios.</li>
-<li>Mail Delivery Agent (MDA): Recibe mensajes desde un MTA y lleva los mensajes
+autorizados.</p></li>
+<li><p>Mail Transfer Agent (MTA): Transfiere correos de un agente a otro usando
+SMTP, recibe correos desde MSAs o MTAs potencialmente desde otros dominios.</p></li>
+<li><p>Mail Delivery Agent (MDA): Recibe mensajes desde un MTA y lleva los mensajes
 a una casilla de correo local de un usuario. Hace también por ejemplo
-filtrado de SPAM y separación de correos en carpetas.</li>
-<li>Mail Retrieval Agent (MRA): Solicita mensajes a un MDA y los muestra al
-usuario. Generalmente es el mismo software que el MUA.</li>
+filtrado de SPAM y separación de correos en carpetas.</p></li>
+<li><p>Mail Retrieval Agent (MRA): Solicita mensajes a un MDA y los muestra al
+usuario. Generalmente es el mismo software que el MUA.</p></li>
 </ul>
 </div></blockquote>
 <p>Todos los pasos de la cadena menos el último usan SMTP. El último paso usa
@@ -288,90 +283,87 @@ message (header and body), formally referred to as the Internet Message Format.<
 <h2>SMTP<a class="headerlink" href="#smtp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Simple Mail Transfer Protocol.</p>
 <ul class="simple">
-<li>Especifica cómo se deben enviar los mails.</li>
-<li>Usa TCP, normalmente puerto 587 al conectarse a un MSA y puerto 25 en los
-demás casos.</li>
-<li>Es importante que el correo permita la entrega con retardo en el caso que se
+<li><p>Especifica cómo se deben enviar los mails.</p></li>
+<li><p>Usa TCP, normalmente puerto 587 al conectarse a un MSA y puerto 25 en los
+demás casos.</p></li>
+<li><p>Es importante que el correo permita la entrega con retardo en el caso que se
 pierda la conexión o la máquina remota falle, o sea si el otro servidor está
-caído intentar de nuevo en unos minutos.</li>
-<li>Está basado en texto, se envían comandos de junto con argumentos separados por
-espacios. Se responde similar a HTTP.</li>
-<li>Diseñado para enviar mensajes en texto plano, más adelante con STARTTLS los
+caído intentar de nuevo en unos minutos.</p></li>
+<li><p>Está basado en texto, se envían comandos de junto con argumentos separados por
+espacios. Se responde similar a HTTP.</p></li>
+<li><p>Diseñado para enviar mensajes en texto plano, más adelante con STARTTLS los
 correos viajan cifrados entre servidor y servidor pero no es un cifrado
-extremo a extremo, ya que cada agente intermediario puede leer el correo.</li>
+extremo a extremo, ya que cada agente intermediario puede leer el correo.</p></li>
 </ul>
 <div class="section" id="comandos">
 <h3>Comandos<a class="headerlink" href="#comandos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Estos son los más importantes.</p>
 <ul>
-<li><p class="first"><strong>HELO</strong>: Enviado por el cliente para iniciar la conversación, generalmente se
-envía como argumento el nombre de dominio del cliente.</p>
-</li>
-<li><p class="first"><strong>EHLO</strong>: Lo mismo que HELO pero indica que se va a usar Extended SMTP.</p>
-</li>
-<li><p class="first"><strong>STARTTLS</strong>: Solicita que se inicie una negociación TLS para que los siguientes
-datos transmitidos viajen cifrados.</p>
-</li>
-<li><p class="first"><strong>AUTH</strong>: Autentica el cliente ante el servidor, envía el nombre de usuario y
+<li><p><strong>HELO</strong>: Enviado por el cliente para iniciar la conversación, generalmente se
+envía como argumento el nombre de dominio del cliente.</p></li>
+<li><p><strong>EHLO</strong>: Lo mismo que HELO pero indica que se va a usar Extended SMTP.</p></li>
+<li><p><strong>STARTTLS</strong>: Solicita que se inicie una negociación TLS para que los siguientes
+datos transmitidos viajen cifrados.</p></li>
+<li><p><strong>AUTH</strong>: Autentica el cliente ante el servidor, envía el nombre de usuario y
 contraseña en algún formato que puede ser en BASE64 (basicamente lo mismo que
 texto plano) o CRAM-MD5 que es más seguro pero no tanto, por lo tanto conviene
-usarlo junto con STARTTLS.</p>
-</li>
-<li><p class="first"><strong>MAIL FROM</strong>: Indica la dirección de mail del remitente.</p>
-</li>
-<li><p class="first"><strong>RCPT TO</strong>: Indica la dirección de mail del destino, se puede utilizar varias
-veces para agregar más destinatarios.</p>
-</li>
-<li><p class="first"><strong>DATA</strong>: Comienza la transmisión de los contenidos del correo incluyendo los
+usarlo junto con STARTTLS.</p></li>
+<li><p><strong>MAIL FROM</strong>: Indica la dirección de mail del remitente.</p></li>
+<li><p><strong>RCPT TO</strong>: Indica la dirección de mail del destino, se puede utilizar varias
+veces para agregar más destinatarios.</p></li>
+<li><p><strong>DATA</strong>: Comienza la transmisión de los contenidos del correo incluyendo los
 archivos adjuntos. Para indicar el fin del mensaje se envía una línea con un
 punto, es decir <code class="docutils literal notranslate"><span class="pre">\r\n.\r\n</span></code>.</p>
 <p>El formato del mensaje no es parte de SMTP. Al comienzo del mensaje se
 utilizan encabezados definidos en la RFC 822, luego se envía el mensaje en
 formato MIME.</p>
 <ul class="simple">
-<li><strong>Date</strong>: Momento en el cuál el usuario envió el mensaje.</li>
-<li><strong>From</strong>: Especifica quién escribió el mensaje</li>
-<li><strong>Sender</strong>: Especifica quién fue en realidad el que envió el mensaje.</li>
-<li><strong>To</strong>: Destinatarios principales del mensaje.</li>
-<li><strong>Reply-To</strong>: Hacia dónde se deben enviar las respuestas.</li>
-<li><strong>Cc</strong>: Destinatarios secundarios del mensaje.</li>
-<li><strong>Bcc</strong>: Destinatarios ocultos del mensaje, es leído por el MUA y el campo es
-borrado antes de enviar el mensaje.</li>
-<li><strong>Subject</strong>: Resumen del mensaje.</li>
-<li><strong>Message-ID</strong>: Identifica al mensaje.</li>
+<li><p><strong>Date</strong>: Momento en el cuál el usuario envió el mensaje.</p></li>
+<li><p><strong>From</strong>: Especifica quién escribió el mensaje</p></li>
+<li><p><strong>Sender</strong>: Especifica quién fue en realidad el que envió el mensaje.</p></li>
+<li><p><strong>To</strong>: Destinatarios principales del mensaje.</p></li>
+<li><p><strong>Reply-To</strong>: Hacia dónde se deben enviar las respuestas.</p></li>
+<li><p><strong>Cc</strong>: Destinatarios secundarios del mensaje.</p></li>
+<li><p><strong>Bcc</strong>: Destinatarios ocultos del mensaje, es leído por el MUA y el campo es
+borrado antes de enviar el mensaje.</p></li>
+<li><p><strong>Subject</strong>: Resumen del mensaje.</p></li>
+<li><p><strong>Message-ID</strong>: Identifica al mensaje.</p></li>
 </ul>
 </li>
-<li><p class="first"><strong>QUIT</strong>: Cierra la conversación.</p>
-</li>
+<li><p><strong>QUIT</strong>: Cierra la conversación.</p></li>
 </ul>
 </div>
 <div class="section" id="respuestas">
 <h3>Respuestas<a class="headerlink" href="#respuestas" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Algunas de las respuestas son:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">2XX</span></code>: Success.<ul>
-<li><code class="docutils literal notranslate"><span class="pre">220</span></code>: Servicio listo.</li>
-<li><code class="docutils literal notranslate"><span class="pre">221</span></code>: Servicio cerrando conexión.</li>
-<li><code class="docutils literal notranslate"><span class="pre">250</span></code>: Solicitud completada (Ok).</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2XX</span></code>: Success.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">220</span></code>: Servicio listo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">221</span></code>: Servicio cerrando conexión.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">250</span></code>: Solicitud completada (Ok).</p></li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">3XX</span></code>: ???<ul>
-<li><code class="docutils literal notranslate"><span class="pre">354</span></code>: Listo para recibir mensaje, enviado por el servidor luego del
-comando DATA.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3XX</span></code>: ???</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">354</span></code>: Listo para recibir mensaje, enviado por el servidor luego del
+comando DATA.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">4XX</span></code>: Falla temporal.<ul>
-<li><code class="docutils literal notranslate"><span class="pre">421</span></code>: Servicio no disponible.</li>
-<li><code class="docutils literal notranslate"><span class="pre">450</span></code>: Casilla de correo no disponible u ocupada.</li>
-<li><code class="docutils literal notranslate"><span class="pre">451</span></code>: Error local en el procesamiento.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4XX</span></code>: Falla temporal.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">421</span></code>: Servicio no disponible.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">450</span></code>: Casilla de correo no disponible u ocupada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">451</span></code>: Error local en el procesamiento.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">5XX</span></code>: Falla permanente.<ul>
-<li><code class="docutils literal notranslate"><span class="pre">501</span></code>: Error de sintaxis.</li>
-<li><code class="docutils literal notranslate"><span class="pre">502</span></code>: Comando no implementado.</li>
-<li><code class="docutils literal notranslate"><span class="pre">550</span></code>: Casilla de correo no disponible.</li>
-<li><code class="docutils literal notranslate"><span class="pre">551</span></code>: Usuario no local, significa que ni la dirección de recipiente ni
-destinatario pertenecen al servidor.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5XX</span></code>: Falla permanente.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">501</span></code>: Error de sintaxis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">502</span></code>: Comando no implementado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">550</span></code>: Casilla de correo no disponible.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">551</span></code>: Usuario no local, significa que ni la dirección de recipiente ni
+destinatario pertenecen al servidor.</p></li>
 </ul>
 </li>
 </ul>
@@ -475,32 +467,32 @@ S: 221 Bye
 <h2>MIME<a class="headerlink" href="#mime" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Multipurpose Internet Mail Extensions.</p>
 <ul class="simple">
-<li>Permite codificar texto y datos binarios en ASCII de 7 bits para permitir su
-transmisión por SMTP.</li>
-<li>Define una gran variedad de <em>content types</em> que se utilizan en HTTP.</li>
-<li>Si se usa el <em>content type</em> <code class="docutils literal notranslate"><span class="pre">multipart</span></code>, se pueden enviar muchos archivos
+<li><p>Permite codificar texto y datos binarios en ASCII de 7 bits para permitir su
+transmisión por SMTP.</p></li>
+<li><p>Define una gran variedad de <em>content types</em> que se utilizan en HTTP.</p></li>
+<li><p>Si se usa el <em>content type</em> <code class="docutils literal notranslate"><span class="pre">multipart</span></code>, se pueden enviar muchos archivos
 codificados en MIME uno abajo del otro. Se define en estos casos una
-<em>boundary</em> para separar cada parte del mensaje.</li>
+<em>boundary</em> para separar cada parte del mensaje.</p></li>
 </ul>
 <div class="section" id="headers">
 <h3>Headers<a class="headerlink" href="#headers" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><strong>MIME-Version:</strong>: Indica que el mensaje está codificado en MIME, siempre
-lleva <code class="docutils literal notranslate"><span class="pre">1.0</span></code></li>
-<li><strong>Content-Type:</strong>: Indica el tipo de medio del contenido, incluyendo el tipo y
+<li><p><strong>MIME-Version:</strong>: Indica que el mensaje está codificado en MIME, siempre
+lleva <code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></li>
+<li><p><strong>Content-Type:</strong>: Indica el tipo de medio del contenido, incluyendo el tipo y
 el subtipo. Si no se especifica se supone que es <code class="docutils literal notranslate"><span class="pre">text/plain</span></code>. También puede
 llevar el argumento <code class="docutils literal notranslate"><span class="pre">charset</span></code> que especifica la codificación de caracteres
-en uso en el caso que no sea ASCII, por ejemplo <code class="docutils literal notranslate"><span class="pre">iso-8859-1</span></code>.</li>
-<li><strong>Content-Disposition:</strong>: Tiene campos que especifican el nombre del archivo,
+en uso en el caso que no sea ASCII, por ejemplo <code class="docutils literal notranslate"><span class="pre">iso-8859-1</span></code>.</p></li>
+<li><p><strong>Content-Disposition:</strong>: Tiene campos que especifican el nombre del archivo,
 fechas de creación y modificación. También lleva <code class="docutils literal notranslate"><span class="pre">inline</span></code> si el archivo debe
-mostrarse dentro del mensaje o <code class="docutils literal notranslate"><span class="pre">attachment</span></code> si es un archivo adjunto.</li>
-<li><strong>Content-ID</strong>: Se usa sobre todo en mensajes multiparte, identifica una parte
-de un mensaje.</li>
-<li><strong>Content-Transfer-Encoding</strong>: Especifica cómo se enviarán caracteres no
+mostrarse dentro del mensaje o <code class="docutils literal notranslate"><span class="pre">attachment</span></code> si es un archivo adjunto.</p></li>
+<li><p><strong>Content-ID</strong>: Se usa sobre todo en mensajes multiparte, identifica una parte
+de un mensaje.</p></li>
+<li><p><strong>Content-Transfer-Encoding</strong>: Especifica cómo se enviarán caracteres no
 ASCII, <code class="docutils literal notranslate"><span class="pre">base64</span></code> es apropiado para datos binarios mientras que
 <code class="docutils literal notranslate"><span class="pre">quoted-printable</span></code> es útil para texto que por ejemplo tiene unos pocos
-acentos.</li>
-<li><strong>Content-Description</strong>: Describe al contenido, no muy usado.</li>
+acentos.</p></li>
+<li><p><strong>Content-Description</strong>: Describe al contenido, no muy usado.</p></li>
 </ul>
 </div>
 <div class="section" id="tipos-de-contenido">
@@ -508,43 +500,49 @@ acentos.</li>
 <p>El <em>content type</em> se especifica como <code class="docutils literal notranslate"><span class="pre">tipo/subtipo</span></code>, algunos de los más
 conocidos son:</p>
 <ul class="simple">
-<li><strong>text</strong>:<ul>
-<li><strong>plain</strong>: Texto plano, generalmente ASCII. Es el <em>content type</em> por defecto.</li>
-<li><strong>html</strong>.</li>
-<li><strong>css</strong>.</li>
-<li><strong>javascript</strong>.</li>
+<li><p><strong>text</strong>:</p>
+<ul>
+<li><p><strong>plain</strong>: Texto plano, generalmente ASCII. Es el <em>content type</em> por defecto.</p></li>
+<li><p><strong>html</strong>.</p></li>
+<li><p><strong>css</strong>.</p></li>
+<li><p><strong>javascript</strong>.</p></li>
 </ul>
 </li>
-<li><strong>application</strong>:<ul>
-<li><strong>octet-stream</strong>: Es el formato por defecto para tipos de archivos desconocidos.</li>
-<li><strong>x-rar-compressed</strong>: Para archivos <code class="docutils literal notranslate"><span class="pre">.rar</span></code>.</li>
-<li><strong>vnd.oasis.opendocument.text</strong>: Para <code class="docutils literal notranslate"><span class="pre">.odt</span></code>.</li>
-<li><strong>msword</strong>: Para archivos <code class="docutils literal notranslate"><span class="pre">.doc</span></code>.</li>
-<li><strong>vnd.openxmlformats-officedocument.wordprocessingml.document</strong>:
-Para <code class="docutils literal notranslate"><span class="pre">.docx</span></code>.</li>
+<li><p><strong>application</strong>:</p>
+<ul>
+<li><p><strong>octet-stream</strong>: Es el formato por defecto para tipos de archivos desconocidos.</p></li>
+<li><p><strong>x-rar-compressed</strong>: Para archivos <code class="docutils literal notranslate"><span class="pre">.rar</span></code>.</p></li>
+<li><p><strong>vnd.oasis.opendocument.text</strong>: Para <code class="docutils literal notranslate"><span class="pre">.odt</span></code>.</p></li>
+<li><p><strong>msword</strong>: Para archivos <code class="docutils literal notranslate"><span class="pre">.doc</span></code>.</p></li>
+<li><p><strong>vnd.openxmlformats-officedocument.wordprocessingml.document</strong>:
+Para <code class="docutils literal notranslate"><span class="pre">.docx</span></code>.</p></li>
 </ul>
 </li>
-<li><strong>multipart</strong>:<ul>
-<li><strong>mixed</strong>: Especifica que cada sección es parte de un mismo mensaje. Es el más
-común.</li>
-<li><strong>alternative</strong>: Cada parte es una versión alternativa o similar del mismo
-contenido.</li>
+<li><p><strong>multipart</strong>:</p>
+<ul>
+<li><p><strong>mixed</strong>: Especifica que cada sección es parte de un mismo mensaje. Es el más
+común.</p></li>
+<li><p><strong>alternative</strong>: Cada parte es una versión alternativa o similar del mismo
+contenido.</p></li>
 </ul>
 </li>
-<li><strong>image</strong>:<ul>
-<li><strong>bmp</strong>.</li>
-<li><strong>png</strong>.</li>
-<li><strong>jpeg</strong>.</li>
+<li><p><strong>image</strong>:</p>
+<ul>
+<li><p><strong>bmp</strong>.</p></li>
+<li><p><strong>png</strong>.</p></li>
+<li><p><strong>jpeg</strong>.</p></li>
 </ul>
 </li>
-<li><strong>audio</strong>:<ul>
-<li><strong>aac</strong>.</li>
-<li><strong>mpeg</strong>: Para <code class="docutils literal notranslate"><span class="pre">.mp3</span></code>.</li>
+<li><p><strong>audio</strong>:</p>
+<ul>
+<li><p><strong>aac</strong>.</p></li>
+<li><p><strong>mpeg</strong>: Para <code class="docutils literal notranslate"><span class="pre">.mp3</span></code>.</p></li>
 </ul>
 </li>
-<li><strong>video</strong>:<ul>
-<li><strong>webm</strong>.</li>
-<li><strong>x-msvideo</strong>: Para <code class="docutils literal notranslate"><span class="pre">.avi</span></code>.</li>
+<li><p><strong>video</strong>:</p>
+<ul>
+<li><p><strong>webm</strong>.</p></li>
+<li><p><strong>x-msvideo</strong>: Para <code class="docutils literal notranslate"><span class="pre">.avi</span></code>.</p></li>
 </ul>
 </li>
 </ul>
@@ -659,32 +657,32 @@ Tiere, welche also wohl noch ungl=FCcklicher sein m=FCssen als wir.&quot;=20
 <h2>POP3<a class="headerlink" href="#pop3" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Post Office Protocol.</p>
 <ul class="simple">
-<li>Permite al usuario obtener mails desde un servidor de correos.</li>
-<li>Al descargar los correos generalmente éstos son borrados del servidor.</li>
-<li>Usa el puerto TCP 110 para la conexión sin cifrado, luego con el comando STLS
+<li><p>Permite al usuario obtener mails desde un servidor de correos.</p></li>
+<li><p>Al descargar los correos generalmente éstos son borrados del servidor.</p></li>
+<li><p>Usa el puerto TCP 110 para la conexión sin cifrado, luego con el comando STLS
 es posible cifrar la conexión. Para iniciar la conexión directamente con TLS
-se utiliza el puerto 995.</li>
+se utiliza el puerto 995.</p></li>
 </ul>
 <div class="section" id="id4">
 <h3>Comandos<a class="headerlink" href="#id4" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Los más comunes son:</p>
 <ul class="simple">
-<li><strong>USER</strong>: Indica el nombre de usuario.</li>
-<li><strong>PASS</strong>: Indica la contraseña.</li>
-<li><strong>APOP</strong>: Método alternativo de autenticación utilizando MD5.</li>
-<li><strong>STAT</strong>: Solicita cantidad de mensajes y el tamaño total de ellos.</li>
-<li><strong>LIST</strong>: Solicita información sobre los mensajes disponibles.</li>
-<li><strong>RETR</strong>: Se envía como argumento el número de mensaje a obtener.</li>
-<li><strong>DELE</strong>: Se envía como argumento el número de mensaje a borrar.</li>
-<li><strong>QUIT</strong>: Termina la sesión.</li>
+<li><p><strong>USER</strong>: Indica el nombre de usuario.</p></li>
+<li><p><strong>PASS</strong>: Indica la contraseña.</p></li>
+<li><p><strong>APOP</strong>: Método alternativo de autenticación utilizando MD5.</p></li>
+<li><p><strong>STAT</strong>: Solicita cantidad de mensajes y el tamaño total de ellos.</p></li>
+<li><p><strong>LIST</strong>: Solicita información sobre los mensajes disponibles.</p></li>
+<li><p><strong>RETR</strong>: Se envía como argumento el número de mensaje a obtener.</p></li>
+<li><p><strong>DELE</strong>: Se envía como argumento el número de mensaje a borrar.</p></li>
+<li><p><strong>QUIT</strong>: Termina la sesión.</p></li>
 </ul>
 </div>
 <div class="section" id="id5">
 <h3>Respuestas<a class="headerlink" href="#id5" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Llevan además una descripción.</p>
 <ul class="simple">
-<li><strong>OK</strong>.</li>
-<li><strong>ERR</strong>.</li>
+<li><p><strong>OK</strong>.</p></li>
+<li><p><strong>ERR</strong>.</p></li>
 </ul>
 </div>
 <div class="section" id="id6">
@@ -724,35 +722,35 @@ S: +OK dewey POP3 server signing off (maildrop empty)
 <h2>IMAP<a class="headerlink" href="#imap" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Internet Message Access Protocol.</p>
 <ul class="simple">
-<li>Permite al usuario obtener mails desde un servidor de correos.</li>
-<li>Al descargar los correos generalmente éstos se mantienen en el servidor.</li>
-<li>Usa el puerto TCP 143 para la conexión sin cifrado. IMAP sobre TLS (IMAPS)
-utiliza el puerto 993.</li>
+<li><p>Permite al usuario obtener mails desde un servidor de correos.</p></li>
+<li><p>Al descargar los correos generalmente éstos se mantienen en el servidor.</p></li>
+<li><p>Usa el puerto TCP 143 para la conexión sin cifrado. IMAP sobre TLS (IMAPS)
+utiliza el puerto 993.</p></li>
 </ul>
 <div class="section" id="id7">
 <h3>Comandos<a class="headerlink" href="#id7" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Hay muchos, algunos son:</p>
 <ul class="simple">
-<li><strong>LOGIN</strong>: Se envía el nombre de usuario y contraseña en texto plano.</li>
-<li><strong>AUTHENTICATE</strong>: Inicia un mecanismo de autenticación SASL más seguro.</li>
-<li><strong>CREATE</strong>: Crea una casilla de correo con el nombre dado.</li>
-<li><strong>CREATE</strong>: Borra una casilla de correo con el nombre dado.</li>
-<li><strong>SELECT</strong>: Selecciona una casilla de correo, el servidor responde con el
-número de mensajes e información extra.</li>
-<li><strong>SEARCH</strong>: Busca mensajes en la casilla seleccionada.</li>
-<li><strong>FETCH</strong>: Solicita partes de un correo o un correo completo.</li>
-<li><strong>CLOSE</strong>: Deselecciona una casilla de correo.</li>
+<li><p><strong>LOGIN</strong>: Se envía el nombre de usuario y contraseña en texto plano.</p></li>
+<li><p><strong>AUTHENTICATE</strong>: Inicia un mecanismo de autenticación SASL más seguro.</p></li>
+<li><p><strong>CREATE</strong>: Crea una casilla de correo con el nombre dado.</p></li>
+<li><p><strong>CREATE</strong>: Borra una casilla de correo con el nombre dado.</p></li>
+<li><p><strong>SELECT</strong>: Selecciona una casilla de correo, el servidor responde con el
+número de mensajes e información extra.</p></li>
+<li><p><strong>SEARCH</strong>: Busca mensajes en la casilla seleccionada.</p></li>
+<li><p><strong>FETCH</strong>: Solicita partes de un correo o un correo completo.</p></li>
+<li><p><strong>CLOSE</strong>: Deselecciona una casilla de correo.</p></li>
 </ul>
 </div>
 <div class="section" id="id8">
 <h3>Respuestas<a class="headerlink" href="#id8" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Llevan también información adicional.</p>
 <ul class="simple">
-<li><strong>OK</strong>.</li>
-<li><strong>NO</strong>: Describe un error operacional.</li>
-<li><strong>BAD</strong>: Describe un error de nivel de protocolo en el comando dado.</li>
-<li><strong>PREAUTH</strong>: Indica que ya se ha autenticado al usuario por otros medios.</li>
-<li><strong>BYE</strong>.</li>
+<li><p><strong>OK</strong>.</p></li>
+<li><p><strong>NO</strong>: Describe un error operacional.</p></li>
+<li><p><strong>BAD</strong>: Describe un error de nivel de protocolo en el comando dado.</p></li>
+<li><p><strong>PREAUTH</strong>: Indica que ya se ha autenticado al usuario por otros medios.</p></li>
+<li><p><strong>BYE</strong>.</p></li>
 </ul>
 </div>
 <div class="section" id="id9">
@@ -810,17 +808,15 @@ S:  a006 OK LOGOUT completed
 <div class="section" id="referencias">
 <h2>Referencias<a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol</a></li>
-<li><a class="reference external" href="https://cr.yp.to/immhf.html">https://cr.yp.to/immhf.html</a></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol</a></p></li>
+<li><p><a class="reference external" href="https://cr.yp.to/immhf.html">https://cr.yp.to/immhf.html</a></p></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -829,7 +825,7 @@ S:  a006 OK LOGOUT completed
         <a href="ftp.html" class="btn btn-neutral float-right" title="FTP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dns.html" class="btn btn-neutral" title="DNS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dns.html" class="btn btn-neutral float-left" title="DNS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -838,11 +834,11 @@ S:  a006 OK LOGOUT completed
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -855,37 +851,15 @@ S:  a006 OK LOGOUT completed
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

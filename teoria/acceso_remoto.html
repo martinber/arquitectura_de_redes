@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="GNS3" href="gns3.html"/>
-        <link rel="prev" title="TLS" href="tls.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="GNS3" href="gns3.html" />
+    <link rel="prev" title="TLS" href="tls.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -127,7 +121,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -135,9 +129,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -184,78 +179,77 @@
   <div class="section" id="acceso-remoto">
 <h1>Acceso remoto<a class="headerlink" href="#acceso-remoto" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<ul class="last simple">
-<li>Telnet</li>
-<li>Rlogin</li>
-<li>SSH</li>
+<p class="admonition-title">Por hacer</p>
+<ul class="simple">
+<li><p>Telnet</p></li>
+<li><p>Rlogin</p></li>
+<li><p>SSH</p></li>
 </ul>
 </div>
 <div class="section" id="telnet">
 <h2>Telnet<a class="headerlink" href="#telnet" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Teletype Network.</p>
 <ul class="simple">
-<li>Se ubica sobre TCP y usa el puerto 23.</li>
-<li>Permite a un cliente acceder a los recursos de un servidor abriendo una
-terminal virtual remota allí.</li>
-<li>Se envían caracteres ASCII de 7 bits, El octavo bit es de control y se usa
+<li><p>Se ubica sobre TCP y usa el puerto 23.</p></li>
+<li><p>Permite a un cliente acceder a los recursos de un servidor abriendo una
+terminal virtual remota allí.</p></li>
+<li><p>Se envían caracteres ASCII de 7 bits, El octavo bit es de control y se usa
 sólo en los comandos, pero tengo entendido que en la práctica se pueden enviar
-los 8 bits tranquilamente.</li>
-<li>Hay muchos comportamientos y detalles que según entiendo varían entre
-implementaciones, solamente explico las ideas básicas.</li>
-<li>Es inseguro ya que ni las contraseñas ni los datos son cifrados, por lo tanto
-actualmente se usa SSH en su lugar.</li>
-<li>Cuando se establece la conexión, ambos extremos asumen que debe generarse una
+los 8 bits tranquilamente.</p></li>
+<li><p>Hay muchos comportamientos y detalles que según entiendo varían entre
+implementaciones, solamente explico las ideas básicas.</p></li>
+<li><p>Es inseguro ya que ni las contraseñas ni los datos son cifrados, por lo tanto
+actualmente se usa SSH en su lugar.</p></li>
+<li><p>Cuando se establece la conexión, ambos extremos asumen que debe generarse una
 NVT (Network Virtual Terminal). También se asumen algunas cosas como que por
 ejemplo el servidor haga eco de lo recibido (teclas presionadas) para que sea
-mostrado en la terminal virtual del cliente.</li>
-<li>Define algunos comandos especiales que se envían luego del carácter <cite>0xFF</cite>
-llamado IAC (Interpret As Command), algunos de los comandos posibles son:<ul>
-<li>IP (Interrupt Process): Indica que el usuario quiere interrumpir unterrmpir
-el proceso en ejecución (por ejemplo al hacer Ctrl-C).</li>
-<li>AYT (Are You There): Solicita al otro extremo respuesta para asegurarse de
-que el sistema sigue en funcionamiento.</li>
-<li>EC (Erase Character): Elimina el último caracter en la línea actual.</li>
-<li>EL (Erase Line): Elimina la línea actual.</li>
+mostrado en la terminal virtual del cliente.</p></li>
+<li><p>Define algunos comandos especiales que se envían luego del carácter <cite>0xFF</cite>
+llamado IAC (Interpret As Command), algunos de los comandos posibles son:</p>
+<ul>
+<li><p>IP (Interrupt Process): Indica que el usuario quiere interrumpir unterrmpir
+el proceso en ejecución (por ejemplo al hacer Ctrl-C).</p></li>
+<li><p>AYT (Are You There): Solicita al otro extremo respuesta para asegurarse de
+que el sistema sigue en funcionamiento.</p></li>
+<li><p>EC (Erase Character): Elimina el último caracter en la línea actual.</p></li>
+<li><p>EL (Erase Line): Elimina la línea actual.</p></li>
 </ul>
 </li>
-<li>Se suele utilizar el comando <cite>telnet</cite> para hacer una conexión TCP como si se
+<li><p>Se suele utilizar el comando <cite>telnet</cite> para hacer una conexión TCP como si se
 tratase de <em>netcat</em> ya que la única diferencia con TCP puro es la posibilidad
-de enviar comandos luego del carácter IAC.</li>
+de enviar comandos luego del carácter IAC.</p></li>
 </ul>
 </div>
 <div class="section" id="rlogin-y-rsh">
 <h2>rlogin y rsh<a class="headerlink" href="#rlogin-y-rsh" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Remote Login y Remote Shell.</p>
 <ul class="simple">
-<li>rlogin provee mejoras respecto de telnet ya que se aprovecha del hecho que
-asume que ambos extremos son sistemas operativos UNIX.</li>
-<li>rsh se incluye en el paquete de rlogin y permite iniciar una shell en el
+<li><p>rlogin provee mejoras respecto de telnet ya que se aprovecha del hecho que
+asume que ambos extremos son sistemas operativos UNIX.</p></li>
+<li><p>rsh se incluye en el paquete de rlogin y permite iniciar una shell en el
 sistema remoto sin necesidad de iniciar una sesión allí y recibir los
-resultados.</li>
+resultados.</p></li>
 </ul>
 </div>
 <div class="section" id="ssh">
 <h2>SSH<a class="headerlink" href="#ssh" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Secure Shell.</p>
 <ul class="simple">
-<li>Va sobre TCP puerto 22.</li>
-<li>Las contraseñas y los datos son cifrados antes de su transmisión.</li>
-<li>Permite el uso de claves públicas y privadas para la autenticación,
+<li><p>Va sobre TCP puerto 22.</p></li>
+<li><p>Las contraseñas y los datos son cifrados antes de su transmisión.</p></li>
+<li><p>Permite el uso de claves públicas y privadas para la autenticación,
 permitiendo por ejemplo al cliente comprobar la autenticidad del servidor
-antes de conectarse.</li>
-<li>Tiene un montón de cosas más además de permitir acceder a una terminal remota,
+antes de conectarse.</p></li>
+<li><p>Tiene un montón de cosas más además de permitir acceder a una terminal remota,
 como por ejemplo transferir archivos y hacer túneles cifrados extremo a
-extremo.</li>
+extremo.</p></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -264,7 +258,7 @@ extremo.</li>
         <a href="gns3.html" class="btn btn-neutral float-right" title="GNS3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tls.html" class="btn btn-neutral" title="TLS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tls.html" class="btn btn-neutral float-left" title="TLS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -273,11 +267,11 @@ extremo.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -290,37 +284,15 @@ extremo.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
