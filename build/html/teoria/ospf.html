@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="IGRP" href="igrp.html" />
-    <link rel="prev" title="RIP" href="rip.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="IGRP" href="igrp.html"/>
+        <link rel="prev" title="RIP" href="rip.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -117,7 +123,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -125,10 +131,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -176,50 +181,49 @@
 <h1>OSPF<a class="headerlink" href="#ospf" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Open Shortest Path First.</p>
 <ul class="simple">
-<li><p>Se puede dividir en áreas, cada router sabe solamente los caminos dentro de su
-área, después sabe un resumen de las demás areas pero nada más.</p></li>
-<li><p>Cada router tiene un ID de 24 bits, por defecto es la IP de una interfaz de
+<li>Se puede dividir en áreas, cada router sabe solamente los caminos dentro de su
+área, después sabe un resumen de las demás areas pero nada más.</li>
+<li>Cada router tiene un ID de 24 bits, por defecto es la IP de una interfaz de
 loopback. De lo contrario se usa una IP de alguna interfaz pero puede traer
-problemas si esa interfaz se cae.</p></li>
-<li><p>Usa el algoritmo Dijkstra.</p></li>
-<li><p>La métrica depende de la implemetación de cada dispositivo. Por ejemplo
-<code class="docutils literal notranslate"><span class="pre">costo</span> <span class="pre">=</span> <span class="pre">10^8</span> <span class="pre">/</span> <span class="pre">Ancho</span> <span class="pre">de</span> <span class="pre">banda</span> <span class="pre">en</span> <span class="pre">bits/s</span></code>.</p></li>
-<li><p>El camino entre dos áreas siempre pasa por el area 0, salvo que se haga un
-camino virtual.</p></li>
-<li><p>OSPFv2 se usa para IPv4 mientras que OSPFv3 para IPv6.</p></li>
-<li><p>Utiliza multicast, va sobre IP.</p></li>
-<li><p>Intercambia información durante descubrimiento y cuando hay cambios. Cuando
+problemas si esa interfaz se cae.</li>
+<li>Usa el algoritmo Dijkstra.</li>
+<li>La métrica depende de la implemetación de cada dispositivo. Por ejemplo
+<code class="docutils literal notranslate"><span class="pre">costo</span> <span class="pre">=</span> <span class="pre">10^8</span> <span class="pre">/</span> <span class="pre">Ancho</span> <span class="pre">de</span> <span class="pre">banda</span> <span class="pre">en</span> <span class="pre">bits/s</span></code>.</li>
+<li>El camino entre dos áreas siempre pasa por el area 0, salvo que se haga un
+camino virtual.</li>
+<li>OSPFv2 se usa para IPv4 mientras que OSPFv3 para IPv6.</li>
+<li>Utiliza multicast, va sobre IP.</li>
+<li>Intercambia información durante descubrimiento y cuando hay cambios. Cuando
 la red está estable sólo envía mensajes «Hello» para avisar que el enlace está
-activo.</p></li>
-<li><p>Se pueden definir áreas, para viajar entre dos áreas generalmente los paquetes
-pasan por el área 0 o backbone. Las demás areas son <em>Stub</em> o de tránsito.</p></li>
-<li><p>Las áreas de tránsito funcionan haciendo un enlace virtual entre sus
-extremos, es como que de esa forma extienden el área 0.</p></li>
-<li><p>Los dispositivos no conocen la topología de las otras áreas.</p></li>
-<li><p>Si hay varios routers en una red de difusión, el que tenga un router-id mayor
+activo.</li>
+<li>Se pueden definir áreas, para viajar entre dos áreas generalmente los paquetes
+pasan por el área 0 o backbone. Las demás areas son <em>Stub</em> o de tránsito.</li>
+<li>Las áreas de tránsito funcionan haciendo un enlace virtual entre sus
+extremos, es como que de esa forma extienden el área 0.</li>
+<li>Los dispositivos no conocen la topología de las otras áreas.</li>
+<li>Si hay varios routers en una red de difusión, el que tenga un router-id mayor
 va a actuar como router designado. El router de backup es el que tenga el
-segundo mayor router-id.</p></li>
-<li><p>Cada router tiene una LSDB (Link State Database), una base de datos con
+segundo mayor router-id.</li>
+<li>Cada router tiene una LSDB (Link State Database), una base de datos con
 información de los estados de los enlaces. La base de datos está compuesta por
-LSAs (Link State Advertisements).</p></li>
+LSAs (Link State Advertisements).</li>
 </ul>
 <div class="section" id="dijkstra">
 <h2>Dijkstra<a class="headerlink" href="#dijkstra" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Es el algoritmo que usa OSPF para determinar el mejor camino.</p>
 <ul class="simple">
-<li><p>Primero cada router descubre su topología local.</p></li>
-<li><p>Después se hace una inundación de la red con información del estado de cada
-router y de sus enlaces. Se llama LSA (Link State Advertising).</p></li>
-<li><p>Luego cada router construye un grafo de toda la red para buscar los mejores
-caminos.</p></li>
-<li><p>Finalmente cada router construye su tabla de ruteo.</p></li>
-<li><p>A diferencia del algoritmo de vector-distancia:</p>
-<ul>
-<li><p>Se intercambian estados de enlace en lugar de tablas de ruteo.</p></li>
-<li><p>Se envía la información a todos los routers en lugar de enviar a sólo los
-vecinos.</p></li>
-<li><p>La convergencia es más rápida, hay menor carga en la red pero se necesita
-una capacidad de procesamiento mayor.</p></li>
+<li>Primero cada router descubre su topología local.</li>
+<li>Después se hace una inundación de la red con información del estado de cada
+router y de sus enlaces. Se llama LSA (Link State Advertising).</li>
+<li>Luego cada router construye un grafo de toda la red para buscar los mejores
+caminos.</li>
+<li>Finalmente cada router construye su tabla de ruteo.</li>
+<li>A diferencia del algoritmo de vector-distancia:<ul>
+<li>Se intercambian estados de enlace en lugar de tablas de ruteo.</li>
+<li>Se envía la información a todos los routers en lugar de enviar a sólo los
+vecinos.</li>
+<li>La convergencia es más rápida, hay menor carga en la red pero se necesita
+una capacidad de procesamiento mayor.</li>
 </ul>
 </li>
 </ul>
@@ -230,35 +234,35 @@ una capacidad de procesamiento mayor.</p></li>
 saber el estado de la red. Los routers se envían los LSAs entre sí y los guardan
 en una LSDB (Link State Database). Pongo solamente cuatro para dar una idea.</p>
 <ul class="simple">
-<li><p>Router LSA, tipo 1: Cada router crea un LSA tipo 1 que contiene el router ID
+<li>Router LSA, tipo 1: Cada router crea un LSA tipo 1 que contiene el router ID
 y estados de enlaces con sus métricas. Estos LSAs son enviados y se propagan
 por toda una área. Terminan caracterizando los enlaces punto a punto entre
-routers.</p></li>
-<li><p>Network LSA, tipo 2: El router designado lista a los routers unidos en un
+routers.</li>
+<li>Network LSA, tipo 2: El router designado lista a los routers unidos en un
 mismo segmento (pueden ser más de 2 si es un medio de difusión). Se propagan
 por toda un área. Terminan caracterizando los enlaces por un medio de
-difusión.</p></li>
-<li><p>Summary LSA, tipo 3: Un router de borde toma información aprendida desde la
-otra área y provee un sumario de esa área.</p></li>
-<li><p>External LSA, tipo 5: Contienen información proveniente de otros procesos de
+difusión.</li>
+<li>Summary LSA, tipo 3: Un router de borde toma información aprendida desde la
+otra área y provee un sumario de esa área.</li>
+<li>External LSA, tipo 5: Contienen información proveniente de otros procesos de
 ruteo. Se propagan en todas las áreas sin cambios (menos hacia las áreas
-stub).</p></li>
+stub).</li>
 </ul>
 </div>
 <div class="section" id="tipos-de-paquetes">
 <h2>Tipos de paquetes<a class="headerlink" href="#tipos-de-paquetes" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>HELLO: Se usa para mantener activa la conexión con los routers vecinos.
+<li>HELLO: Se usa para mantener activa la conexión con los routers vecinos.
 También se usa para encontrar el router designado si se está en una red de
-difusión.</p></li>
-<li><p>DBD (Database Description): Envía información sobre la base de datos LSDB,
+difusión.</li>
+<li>DBD (Database Description): Envía información sobre la base de datos LSDB,
 trata sobre el estado de los enlaces adyacentes. Si es mucha información se
-separa en varios paquetes.</p></li>
-<li><p>LSR (Link State Request): Solicita información sobre el estado de un enlace.</p></li>
-<li><p>LSU (Link State Update): Es una respuesta a las peticiones LSR aunque también
+separa en varios paquetes.</li>
+<li>LSR (Link State Request): Solicita información sobre el estado de un enlace.</li>
+<li>LSU (Link State Update): Es una respuesta a las peticiones LSR aunque también
 se envían por broadcast/multicast regularmente. Contiene información sobre el
-estado de enlaces (LSAs).</p></li>
-<li><p>LSAck (Link State Acknowlegment): Indica que se ha recibido un LSU.</p></li>
+estado de enlaces (LSAs).</li>
+<li>LSAck (Link State Acknowlegment): Indica que se ha recibido un LSU.</li>
 </ul>
 </div>
 <div class="section" id="ospfv3">
@@ -329,24 +333,26 @@ L   FF00::/8 [0/0]
 <p>Se puede ver que todas las rutas están bien, también comprobé que se puede legar
 con ping a todos lados.</p>
 <div class="admonition-todo admonition" id="index-0">
-<p class="admonition-title">Por hacer</p>
-<p>Intentar entender las capturas del Wireshark</p>
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Intentar entender las capturas del Wireshark</p>
 </div>
 </div>
 </div>
 <div class="section" id="referencias">
 <h2>Referencias<a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://tutorzine.com/ospf-lsa-types/">https://tutorzine.com/ospf-lsa-types/</a></p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Link-state_advertisement">https://en.wikipedia.org/wiki/Link-state_advertisement</a></p></li>
-<li><p><a class="reference external" href="https://networklessons.com/ospf/ospf-lsa-types-explained">https://networklessons.com/ospf/ospf-lsa-types-explained</a></p></li>
+<li><a class="reference external" href="https://tutorzine.com/ospf-lsa-types/">https://tutorzine.com/ospf-lsa-types/</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Link-state_advertisement">https://en.wikipedia.org/wiki/Link-state_advertisement</a></li>
+<li><a class="reference external" href="https://networklessons.com/ospf/ospf-lsa-types-explained">https://networklessons.com/ospf/ospf-lsa-types-explained</a></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -355,7 +361,7 @@ con ping a todos lados.</p>
         <a href="igrp.html" class="btn btn-neutral float-right" title="IGRP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rip.html" class="btn btn-neutral float-left" title="RIP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rip.html" class="btn btn-neutral" title="RIP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -364,11 +370,11 @@ con ping a todos lados.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -381,15 +387,37 @@ con ping a todos lados.</p>
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
