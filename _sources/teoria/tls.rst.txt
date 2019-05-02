@@ -19,8 +19,12 @@ Transport Layer Security.
   - Confiabilidad: Se verifica la integridad de cada mensaje para detectar
     errores o alteraciones de los datos transmitidos por un atacante.
 
-- Al conectarse se realiza un handshake en el cual se decide el cifrado a
-  utilizar
+- Al conectarse se realiza un handshake en el cual se decide el tipo de cifrado
+  y la clave simétrica a utilizar.
+
+- El handshake aprovecha las ventajas del cifrado con clave pública y privada,
+  luego la comunicación utiliza cifrado simétrico porque es más rapido
+  computacionalmente.
 
 Historia breve
 --------------
