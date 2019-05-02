@@ -20,7 +20,7 @@ Transport Layer Security.
     errores o alteraciones de los datos transmitidos por un atacante.
 
 - Al conectarse se realiza un handshake en el cual se decide el cifrado a
-  utilizar
+  utilizar.
 
 Historia breve
 --------------
