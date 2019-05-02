@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="HTTP" href="http.html"/>
-        <link rel="prev" title="Mail" href="mail.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="HTTP" href="http.html" />
+    <link rel="prev" title="Mail" href="mail.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -129,7 +123,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -137,9 +131,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -187,34 +182,34 @@
 <h1>FTP<a class="headerlink" href="#ftp" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>File Transfer Protocol.</p>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
+<p class="admonition-title">Por hacer</p>
+<p>Hacer</p>
 </div>
 <ul class="simple">
-<li>Va sobre TCP.</li>
-<li>Permite la transferencia de archivos bidireccional entre un cliente y un
-servidor.</li>
-<li>La sesión se establece de la misma forma que una sesión Telnet. Después se
-hace otra conexión para la transferencia de datos.</li>
+<li><p>Va sobre TCP.</p></li>
+<li><p>Permite la transferencia de archivos bidireccional entre un cliente y un
+servidor.</p></li>
+<li><p>La sesión se establece de la misma forma que una sesión Telnet. Después se
+hace otra conexión para la transferencia de datos.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Anonimo</p>
+<p class="admonition-title">Por hacer</p>
+<p>Anonimo</p>
 </div>
 <div class="section" id="modos">
 <h2>Modos<a class="headerlink" href="#modos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>FTP puede usar dos modos de conexión:</p>
 <ul class="simple">
-<li><strong>Activo</strong>: El cliente se conecta al puerto 21 del servidor para establecer la
+<li><p><strong>Activo</strong>: El cliente se conecta al puerto 21 del servidor para establecer la
 sesión de comandos, luego el cliente envía el comando <code class="docutils literal notranslate"><span class="pre">PORT</span></code> indicando un
 número de puerto aleatorio al cuál el servidor se conectará (por ej 2056) para
 establecer la conexión para la transferencia de datos. El problema de este
 modo es que generalmente el usuario tiene un firewall y NAT, por lo tanto el
-servidor no puede conectarse al cliente.</li>
-<li><strong>Pasivo</strong>: El cliente se conecta al puerto 21 del servidor para establecer la
+servidor no puede conectarse al cliente.</p></li>
+<li><p><strong>Pasivo</strong>: El cliente se conecta al puerto 21 del servidor para establecer la
 sesión de comandos, luego el cliente envía el comando <code class="docutils literal notranslate"><span class="pre">PASV</span></code> y el servidor
 responde con un número de puerto aleatorio al cual el cliente se conectará
-para establecer la conexión para la transferencia de datos.</li>
+para establecer la conexión para la transferencia de datos.</p></li>
 </ul>
 <img alt="../_images/ftp_activo.svg" src="../_images/ftp_activo.svg" /><img alt="../_images/ftp_pasivo.svg" src="../_images/ftp_pasivo.svg" /><p>Gabiwxp [<a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>]</p>
 </div>
@@ -223,60 +218,65 @@ para establecer la conexión para la transferencia de datos.</li>
 <p>No son todos obligatorios, hay algunos que no están disponibles en todas las
 implementaciones. Estos son los comandos más básicos:</p>
 <ul class="simple">
-<li><strong>USER</strong>: Se envía como argumento el nombre de usuario.</li>
-<li><strong>PASS</strong>: Se envía la contraseña en texto plano.</li>
-<li><strong>PORT</strong>: Se envía como argumento una IP y puerto del host para iniciar la
+<li><p><strong>USER</strong>: Se envía como argumento el nombre de usuario.</p></li>
+<li><p><strong>PASS</strong>: Se envía la contraseña en texto plano.</p></li>
+<li><p><strong>PORT</strong>: Se envía como argumento una IP y puerto del host para iniciar la
 conexión activa, el servidor luego se conectará a esa IP y puerto para iniciar
-la conexión para la transferencia de datos.</li>
-<li><strong>PASV</strong>: El cliente solicita al servidor un puerto para iniciar una conexión
+la conexión para la transferencia de datos.</p></li>
+<li><p><strong>PASV</strong>: El cliente solicita al servidor un puerto para iniciar una conexión
 pasiva, el cliente luego se conectará al puerto que indique el servidor para
-iniciar la conexión para la transferencia de datos.</li>
-<li><strong>CWD</strong> (Change Working Directory): Cambia el directorio actual en el
-servidor.</li>
-<li><strong>MKD</strong> (Make Directory): Crea un directorio en el servidor.</li>
-<li><strong>DELE</strong>: Elimina un archivo en el servidor.</li>
-<li><strong>LIST</strong>: Solicita una lista de archivos disponibles en el directorio
-especificado.</li>
-<li><strong>RETR</strong>: Solicita al servidor la transferencia de un archivo.</li>
-<li><strong>STORE</strong>: Solicita al servidor a aceptar los datos enviados por la conexión
-de datos y a almacenarlos en el nombre de archivo dado.</li>
-<li><strong>QUIT</strong>: Cierra la conexión.</li>
+iniciar la conexión para la transferencia de datos.</p></li>
+<li><p><strong>CWD</strong> (Change Working Directory): Cambia el directorio actual en el
+servidor.</p></li>
+<li><p><strong>MKD</strong> (Make Directory): Crea un directorio en el servidor.</p></li>
+<li><p><strong>DELE</strong>: Elimina un archivo en el servidor.</p></li>
+<li><p><strong>LIST</strong>: Solicita una lista de archivos disponibles en el directorio
+especificado.</p></li>
+<li><p><strong>RETR</strong>: Solicita al servidor la transferencia de un archivo.</p></li>
+<li><p><strong>STORE</strong>: Solicita al servidor a aceptar los datos enviados por la conexión
+de datos y a almacenarlos en el nombre de archivo dado.</p></li>
+<li><p><strong>QUIT</strong>: Cierra la conexión.</p></li>
 </ul>
 </div>
 <div class="section" id="respuestas">
 <h2>Respuestas<a class="headerlink" href="#respuestas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Algunas de las respuestas son:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">1XX</span></code>: La operación se ha iniciado correctamente.<ul>
-<li><code class="docutils literal notranslate"><span class="pre">150</span></code>: Iniciando transferencia de archivos.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1XX</span></code>: La operación se ha iniciado correctamente.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">150</span></code>: Iniciando transferencia de archivos.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">2XX</span></code>: La operación se ha completado correctamente.<ul>
-<li><code class="docutils literal notranslate"><span class="pre">200</span></code>: Comando OK.</li>
-<li><code class="docutils literal notranslate"><span class="pre">211</span></code>: Estado del sistema.</li>
-<li><code class="docutils literal notranslate"><span class="pre">212</span></code>: Estado de directorio.</li>
-<li><code class="docutils literal notranslate"><span class="pre">213</span></code>: Estado de archivo.</li>
-<li><code class="docutils literal notranslate"><span class="pre">220</span></code>: Servicio OK.</li>
-<li><code class="docutils literal notranslate"><span class="pre">221</span></code>: Cerrando conexión de control.</li>
-<li><code class="docutils literal notranslate"><span class="pre">226</span></code>: Transferencia de archivo correcta.</li>
-<li><code class="docutils literal notranslate"><span class="pre">227</span></code>: Entrando a modo pasivo, lleva como argumento IP y puerto.</li>
-<li><code class="docutils literal notranslate"><span class="pre">230</span></code>: Sesión iniciada.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2XX</span></code>: La operación se ha completado correctamente.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">200</span></code>: Comando OK.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">211</span></code>: Estado del sistema.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">212</span></code>: Estado de directorio.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">213</span></code>: Estado de archivo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">220</span></code>: Servicio OK.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">221</span></code>: Cerrando conexión de control.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">226</span></code>: Transferencia de archivo correcta.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">227</span></code>: Entrando a modo pasivo, lleva como argumento IP y puerto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">230</span></code>: Sesión iniciada.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">3XX</span></code>: El comando ha sido aceptado pero se necesita más información.<ul>
-<li><code class="docutils literal notranslate"><span class="pre">331</span></code>: Usuario correcto, contraseña necesaria.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3XX</span></code>: El comando ha sido aceptado pero se necesita más información.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">331</span></code>: Usuario correcto, contraseña necesaria.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">4XX</span></code>: Falla temporal.<ul>
-<li><code class="docutils literal notranslate"><span class="pre">450</span></code>: Archivo no disponible: archivo ocupado.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4XX</span></code>: Falla temporal.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">450</span></code>: Archivo no disponible: archivo ocupado.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">5XX</span></code>: Falla permanente.<ul>
-<li><code class="docutils literal notranslate"><span class="pre">500</span></code>: Error de sintaxis, comando no reconocido.</li>
-<li><code class="docutils literal notranslate"><span class="pre">501</span></code>: Error de sintaxis en los argumentos.</li>
-<li><code class="docutils literal notranslate"><span class="pre">502</span></code>: Comando no implementado.</li>
-<li><code class="docutils literal notranslate"><span class="pre">504</span></code>: Comando no implementado para ese argumento.</li>
-<li><code class="docutils literal notranslate"><span class="pre">550</span></code>: Archivo no disponible: archivo no encontrado.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5XX</span></code>: Falla permanente.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">500</span></code>: Error de sintaxis, comando no reconocido.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">501</span></code>: Error de sintaxis en los argumentos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">502</span></code>: Comando no implementado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">504</span></code>: Comando no implementado para ese argumento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">550</span></code>: Archivo no disponible: archivo no encontrado.</p></li>
 </ul>
 </li>
 </ul>
@@ -284,9 +284,9 @@ de datos y a almacenarlos en el nombre de archivo dado.</li>
 <div class="section" id="variaciones">
 <h2>Variaciones<a class="headerlink" href="#variaciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>TFTP: Sin usuario, contraseña, nada.</li>
-<li>SFTP:</li>
-<li>FTPS:</li>
+<li><p>TFTP: Sin usuario, contraseña, nada.</p></li>
+<li><p>SFTP:</p></li>
+<li><p>FTPS:</p></li>
 </ul>
 </div>
 <div class="section" id="tftp">
@@ -296,9 +296,7 @@ de datos y a almacenarlos en el nombre de archivo dado.</li>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -307,7 +305,7 @@ de datos y a almacenarlos en el nombre de archivo dado.</li>
         <a href="http.html" class="btn btn-neutral float-right" title="HTTP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="mail.html" class="btn btn-neutral" title="Mail" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mail.html" class="btn btn-neutral float-left" title="Mail" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -316,11 +314,11 @@ de datos y a almacenarlos en el nombre de archivo dado.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -333,37 +331,15 @@ de datos y a almacenarlos en el nombre de archivo dado.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

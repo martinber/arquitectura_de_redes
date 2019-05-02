@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="ICMPv6" href="icmpv6.html"/>
-        <link rel="prev" title="VLAN" href="vlan.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="ICMPv6" href="icmpv6.html" />
+    <link rel="prev" title="VLAN" href="vlan.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -127,7 +121,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -135,9 +129,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -185,56 +180,60 @@
 <h1>IPv6<a class="headerlink" href="#ipv6" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Internet Protocol version 6.</p>
 <ul class="simple">
-<li>Tiene direcciones de 128 bits.</li>
-<li>Hay un encabezado obligatorio de tamaño fijo y luego encabezados opcionales.</li>
+<li><p>Tiene direcciones de 128 bits.</p></li>
+<li><p>Hay un encabezado obligatorio de tamaño fijo y luego encabezados opcionales.</p></li>
 </ul>
 <div class="section" id="header">
 <h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Version (4 bits): Siempre es 6.</li>
-<li>Traffic Class (8 bits): Incluye los campos DS y ECN.<ul>
-<li>Differentiated Services (DS) (6 bits): Tipo de servicio, para QoS pero no
-se usa.</li>
-<li>Explicit Congestion Notification (ECN) (2 bits): Se usa poco, indica que hay
-congestión en la red.</li>
+<li><p>Version (4 bits): Siempre es 6.</p></li>
+<li><p>Traffic Class (8 bits): Incluye los campos DS y ECN.</p>
+<ul>
+<li><p>Differentiated Services (DS) (6 bits): Tipo de servicio, para QoS pero no
+se usa.</p></li>
+<li><p>Explicit Congestion Notification (ECN) (2 bits): Se usa poco, indica que hay
+congestión en la red.</p></li>
 </ul>
 </li>
-<li>Flow Label (20 bits): Para QoS.</li>
-<li>Payload Length (16 bits): Largo de los datos, incluyendo los encabezados de
-extensión.</li>
-<li>Next Header (8 bits): Tipo del próximo header, es el número de protocolo
+<li><p>Flow Label (20 bits): Para QoS.</p></li>
+<li><p>Payload Length (16 bits): Largo de los datos, incluyendo los encabezados de
+extensión.</p></li>
+<li><p>Next Header (8 bits): Tipo del próximo header, es el número de protocolo
 encapsulado, en el caso que se usen encabezados de extensión lleva el código
-que lo identifica.</li>
-<li>Hop Limit (8 bits): Este valor disminuye salto a salto y el paquete es
-descartado si llega a cero.</li>
-<li>Source address (128 bits): IP de origen.</li>
-<li>Destination address (128 bits): IP de destino.</li>
+que lo identifica.</p></li>
+<li><p>Hop Limit (8 bits): Este valor disminuye salto a salto y el paquete es
+descartado si llega a cero.</p></li>
+<li><p>Source address (128 bits): IP de origen.</p></li>
+<li><p>Destination address (128 bits): IP de destino.</p></li>
 </ul>
 </div>
 <div class="section" id="tipos-de-direcciones">
 <h2>Tipos de direcciones<a class="headerlink" href="#tipos-de-direcciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Según destino:<ul>
-<li>Unicast: Se entrega a una única interfaz.</li>
-<li>Multicast: Se entrega a múltiples interfaces.</li>
-<li>Anycast: Se entrega a cualquiera de las interfaces del conjunto.</li>
-<li>No existe broadcast.</li>
+<li><p>Según destino:</p>
+<ul>
+<li><p>Unicast: Se entrega a una única interfaz.</p></li>
+<li><p>Multicast: Se entrega a múltiples interfaces.</p></li>
+<li><p>Anycast: Se entrega a cualquiera de las interfaces del conjunto.</p></li>
+<li><p>No existe broadcast.</p></li>
 </ul>
 </li>
-<li>Según rango:<ul>
-<li>Link-local: <code class="docutils literal notranslate"><span class="pre">fe80::/16</span></code>.</li>
-<li>Globalmente ruteable: <code class="docutils literal notranslate"><span class="pre">2000::/3</span></code>.</li>
-<li>Global: <code class="docutils literal notranslate"><span class="pre">2001::/16</span></code>.</li>
-<li>Documentación: <code class="docutils literal notranslate"><span class="pre">2001:db8::/32</span></code>.</li>
-<li>Teredo: <code class="docutils literal notranslate"><span class="pre">2001:0::/32</span></code>.</li>
-<li>6to4: <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</li>
-<li>Mapeada IPv4: <code class="docutils literal notranslate"><span class="pre">::ffff:xxxx/112</span></code>.</li>
-<li>Compatible IPv4: <code class="docutils literal notranslate"><span class="pre">::xxxx/112</span></code> (Obsoleto).</li>
+<li><p>Según rango:</p>
+<ul>
+<li><p>Link-local: <code class="docutils literal notranslate"><span class="pre">fe80::/16</span></code>.</p></li>
+<li><p>Globalmente ruteable: <code class="docutils literal notranslate"><span class="pre">2000::/3</span></code>.</p></li>
+<li><p>Global: <code class="docutils literal notranslate"><span class="pre">2001::/16</span></code>.</p></li>
+<li><p>Documentación: <code class="docutils literal notranslate"><span class="pre">2001:db8::/32</span></code>.</p></li>
+<li><p>Teredo: <code class="docutils literal notranslate"><span class="pre">2001:0::/32</span></code>.</p></li>
+<li><p>6to4: <code class="docutils literal notranslate"><span class="pre">2002::/16</span></code>.</p></li>
+<li><p>Mapeada IPv4: <code class="docutils literal notranslate"><span class="pre">::ffff:xxxx/112</span></code>.</p></li>
+<li><p>Compatible IPv4: <code class="docutils literal notranslate"><span class="pre">::xxxx/112</span></code> (Obsoleto).</p></li>
 </ul>
 </li>
-<li>Direcciones especiales:<ul>
-<li>Loopback: <code class="docutils literal notranslate"><span class="pre">::1/128</span></code>.</li>
-<li>No especificada: <code class="docutils literal notranslate"><span class="pre">::/128</span></code>.</li>
+<li><p>Direcciones especiales:</p>
+<ul>
+<li><p>Loopback: <code class="docutils literal notranslate"><span class="pre">::1/128</span></code>.</p></li>
+<li><p>No especificada: <code class="docutils literal notranslate"><span class="pre">::/128</span></code>.</p></li>
 </ul>
 </li>
 </ul>
@@ -242,21 +241,21 @@ descartado si llega a cero.</li>
 <div class="section" id="slaac">
 <h2>SLAAC<a class="headerlink" href="#slaac" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Ver que multucast usa</p>
+<p class="admonition-title">Por hacer</p>
+<p>Ver que multucast usa</p>
 </div>
 <p>Stateless Address Autoconfiguration.</p>
 <ul class="simple">
-<li>Permite a los hosts obtener direcciones IPv6 ruteables por medio de Router
-Advertisement y Router Solicitation (pertenecientes a ICMPv6).</li>
-<li>Si es necesario, se puede usar DHCPv6 en lugar de SLAAC.</li>
-<li>Primero el host obtiene su dirección link-local y envía un Router
+<li><p>Permite a los hosts obtener direcciones IPv6 ruteables por medio de Router
+Advertisement y Router Solicitation (pertenecientes a ICMPv6).</p></li>
+<li><p>Si es necesario, se puede usar DHCPv6 en lugar de SLAAC.</p></li>
+<li><p>Primero el host obtiene su dirección link-local y envía un Router
 Solicitation. Luego el router responde con un Router Advertisement, indicando
-el prefijo de red que usará el host.</li>
+el prefijo de red que usará el host.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Agregar sobre como obtener parte de host: 64 bits EUI-64, a partir de
+<p class="admonition-title">Por hacer</p>
+<p>Agregar sobre como obtener parte de host: 64 bits EUI-64, a partir de
 MAC, aleatorio, dhcp o manual</p>
 </div>
 </div>
@@ -266,9 +265,9 @@ MAC, aleatorio, dhcp o manual</p>
 buscar la forma de enviar tráfico IPv6 a través de una red IPv4. Las soluciones
 que hay son:</p>
 <ul class="simple">
-<li>Túneles manuales: Se deben configurar manualmente en ambos extremos.</li>
-<li>Túneles automáticos: Por ejemplo <a class="reference internal" href="6to4.html"><span class="doc">6to4</span></a>.</li>
-<li>Traslación: Es una extensión de NAT para cambiar headers y direcciones.</li>
+<li><p>Túneles manuales: Se deben configurar manualmente en ambos extremos.</p></li>
+<li><p>Túneles automáticos: Por ejemplo <a class="reference internal" href="6to4.html"><span class="doc">6to4</span></a>.</p></li>
+<li><p>Traslación: Es una extensión de NAT para cambiar headers y direcciones.</p></li>
 </ul>
 </div>
 <div class="section" id="fragmentacion">
@@ -357,9 +356,7 @@ Internet Protocol Version 6, Src: fe80::39af:14fa:830b:c073, Dst: fe80::2273:55f
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -368,7 +365,7 @@ Internet Protocol Version 6, Src: fe80::39af:14fa:830b:c073, Dst: fe80::2273:55f
         <a href="icmpv6.html" class="btn btn-neutral float-right" title="ICMPv6" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="vlan.html" class="btn btn-neutral" title="VLAN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vlan.html" class="btn btn-neutral float-left" title="VLAN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -377,11 +374,11 @@ Internet Protocol Version 6, Src: fe80::39af:14fa:830b:c073, Dst: fe80::2273:55f
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -394,37 +391,15 @@ Internet Protocol Version 6, Src: fe80::39af:14fa:830b:c073, Dst: fe80::2273:55f
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
