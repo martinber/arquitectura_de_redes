@@ -94,6 +94,16 @@
 <li class="toctree-l3"><a class="reference internal" href="p2p.html">P2P</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multimedia.html">Multimedia</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">VOIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#partes-involucradas">Partes involucradas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sip">SIP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#peticiones">Peticiones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#respuestas">Respuestas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sdp">SDP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#campos">Campos</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tls.html">TLS</a></li>
@@ -178,26 +188,221 @@
 <ul class="simple">
 <li><p>Hacer sobre señalizacion pero no sobre RTP, RTCP, etc.</p></li>
 <li><p>Explicar un poquito de SIP y RTP</p></li>
-<li><p>Buscar que es PBX, RTB</p></li>
 </ul>
 </div>
 <p>Acá hay información sobre VoIP en sí, señalización, etc. Ver también sobre
 transmisión de audio en <a class="reference internal" href="multimedia.html"><span class="doc">Multimedia</span></a>.</p>
 <ul class="simple">
+<li><p>En comparación con la telefonía tradicional permite menores costos, calidad
+similar, utilizar redes IP que son muy extendidas, etc. Como desventaja puede
+haber pérdida de paquetes, jitter, degradación de calidad, altos retardos,
+etc.</p></li>
+<li><p>La señalización permite por ejemplo:</p>
+<ul>
+<li><p>Informar al dispositivo llamado para hacer sonar.</p></li>
+<li><p>Informar al dispositivo que llama sobre la conexión.</p></li>
+<li><p>Evitar llamadas a dispositivos ocupados.</p></li>
+<li><p>Registrar la llamada, incluyendo la duración.</p></li>
+</ul>
+</li>
+<li><p>Algunos protocolos de señalización: SIP, MGCP, SCCP, H.323, IAX, etc.</p></li>
 <li><p>Algunos sistemas propietarios:</p>
 <ul>
 <li><p>Skype.</p></li>
-<li><p>Cisco Skinny.</p></li>
+<li><p>Cisco Skinny (SCCP).</p></li>
 </ul>
 </li>
 <li><p>Algunos sistemas abiertos:</p>
 <ul>
 <li><p>SIP.</p></li>
-<li><p>H323.</p></li>
+<li><p>H.323.</p></li>
 <li><p>IAX.</p></li>
 </ul>
 </li>
 </ul>
+</div>
+<div class="section" id="partes-involucradas">
+<h1>Partes involucradas<a class="headerlink" href="#partes-involucradas" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><p>Los teléfonos IP son similares a los tradicionales pero tienen entrada
+Ethernet y dirección IP.</p></li>
+<li><p>Los softphones son software para llamadas que se puede instalar en ordenadores
+(estilo Skype).</p></li>
+<li><p>Private Branch Exchange (PBX): Es una central telefónica privada que conecta a
+todos los teléfonos internos y generalmente está conectada a unas pocas líneas
+telefónicas externas. Por lo tanto de un lado tiene FXO para conectarse a por
+ejemplo la PSTN y en el caso del teléfono tradicional tiene FXS para los
+teléfonos internos.</p></li>
+<li><p>Foreign Exchange Station (FXS): Es una interfaz (puerto) que provee energía,
+tono de marcado y genera tensión de llamada (para el ring). Son los puertos
+que proveen los PSTN a los clientes, es donde se
+conectan los teléfonos tradicionales.</p></li>
+<li><p>Foreign Exchange Office (FXO): Es una interfaz (puerto) que señalizan cuando
+la línea está colgada o cortada, son los puertos que tienen los teléfonos
+tradicionales.</p></li>
+<li><p>Public Switched Telephone Network (PSTN): Red Telefonía Básica (RTB), se
+refiere a teléfonos tradicionales en lugar de VoIP.</p></li>
+<li><p>Gateway (GWY): Permiten interconectar y transformar llamadas tradicionales en
+IP y viceversa. Se clasifican dependiendo de si tienen puertos FXS o FXO:</p>
+<ul>
+<li><p>Gateway FXS: Tienen puertos FXS que permite conectar teléfonos tradicionales
+a una central IP.</p></li>
+<li><p>Gateway FXO: Tienen puertos FXO que permite conectar la central IP a la
+PSTN.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sip">
+<h1>SIP<a class="headerlink" href="#sip" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Session Initiation Protocol.</p>
+<p>El protocolo muchas aplicaciones además de VoIP pero explico todo lo relacionado
+a llamadas de voz.</p>
+<ul class="simple">
+<li><p>Son mensajes de control que se envían fuera de banda.</p></li>
+<li><p>A diferencia del flujo de audio, SIP usa un puerto conocido.</p></li>
+<li><p>Es basado en texto, similar a HTTP o SMTP.</p></li>
+<li><p>Trabaja con URIs de la forma <code class="docutils literal notranslate"><span class="pre">usuario&#64;host</span></code> para describir a los diferentes
+dispositivos. Antes de la arroba se escribe el número de teléfono o nombre de
+usuario, luego se coloca el nombre de dominio o dirección IP.</p></li>
+<li><p>Usa el protocolo SDP (Session Description Protocol) encapsulado dentro del
+datagrama SIP para negociar el tipo de multimedia y los parámetros a utilizar.</p></li>
+<li><p>Se puede usar sobre UDP, TCP, SCTP o TLS. Generalmente usa puerto 5060, o 5061
+en el caso de usar TLS.</p></li>
+<li><p>Permite señalizar y configurar llamadas VoIP punto a punto, sesiones
+multimedia multicast, videollamadas permitiendo agregar y quitar usuarios en
+vivo, etc.</p></li>
+<li><p>Tipos de agentes:</p>
+<ul>
+<li><p>User Agent (UA): Es un punto que maneja las sesiones SIP. Se subdivide en
+User Agent Client (UAC) y User Agent Server (UAS), todos los dispositivos
+cumplen las funciones de cliente y de servidor en momentos distintos.</p></li>
+<li><p>Proxy Server: Es un servidor que además es UA, permite rutear peticiones
+primero determinando si el usuario puede realizar la llamada. Actúa de
+intermediario entre agentes SIP, una vez establecida la conexión los agentes
+se comunican directamente. Generalmente contienen un registrar.</p></li>
+<li><p>Registrar: Es un dispositivo que acepta requests REGISTER almacenando la
+dirección y otros parámetros del UA. Luego permite a UAs a localizar otros
+UAs para realizar llamadas, algo así como un DNS.</p></li>
+<li><p>Gateway: Permite conectar redes SIP a otras redes, por ejemplo PSTN como
+expliqué arriba.</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="peticiones">
+<h2>Peticiones<a class="headerlink" href="#peticiones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Estas son las más usadas en VoIP:</p>
+<ul class="simple">
+<li><p>REGISTER: Solicita registrar un UA para que los demás UAs lo puedan encontrar.</p></li>
+<li><p>INVITE: Inicia o modifica una llamada, por ejemplo al poner una llamada en
+espera.</p></li>
+<li><p>ACK: Confirma una solicitud INVITE.</p></li>
+<li><p>BYE: Corta una llamada.</p></li>
+<li><p>CANCEL: Cancela una solicitud, por ejemplo para cortar una llamada mientras
+todavía ésta está sonando.</p></li>
+</ul>
+</div>
+<div class="section" id="respuestas">
+<h2>Respuestas<a class="headerlink" href="#respuestas" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1XX</span></code>: La operación se ha iniciado correctamente.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">100</span></code>: Intentando.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">180</span></code>: Sonando.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2XX</span></code>: La operación se ha completado correctamente.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">200</span></code>: Comando OK.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3XX</span></code>: Para redirección, debe hacerse la petición a otro destino.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">301</span></code>: Movido permanentemente, indica hacia dónde.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">302</span></code>: Movido temporalmente, indica hacia dónde.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4XX</span></code>: Falla general.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">400</span></code>: Error de sintaxis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">401</span></code>: Sin autorización.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">404</span></code>: No encontrado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">486</span></code>: Ocupado.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5XX</span></code>: Comando válido pero el servidor no pudo completar la operación.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">500</span></code>: Error interno.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">501</span></code>: Comando no implementado.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">6XX</span></code>: No se puede completar la petición en ningún servidor.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">600</span></code>: Todos los desinos ocupados.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">603</span></code>: Llamada rechazada.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="sdp">
+<h1>SDP<a class="headerlink" href="#sdp" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Session Description Protocol.</p>
+<ul class="simple">
+<li><p>Va dentro de peticiones SIP, por ejemplo en peticiones INVITE o respuestas de
+OK.</p></li>
+<li><p>Negocia el tipo de multimedia, formato y demás propiedades</p></li>
+</ul>
+<div class="section" id="campos">
+<h2>Campos<a class="headerlink" href="#campos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Copiado desde RFC 4566:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Session description
+   v=  (protocol version)
+   o=  (originator and session identifier)
+   s=  (session name)
+   i=* (session information)
+   u=* (URI of description)
+   e=* (email address)
+   p=* (phone number)
+   c=* (connection information -- not required if included in
+        all media)
+   b=* (zero or more bandwidth information lines)
+   One or more time descriptions (&quot;t=&quot; and &quot;r=&quot; lines; see below)
+   z=* (time zone adjustments)
+   k=* (encryption key)
+   a=* (zero or more session attribute lines)
+   Zero or more media descriptions
+
+Time description
+   t=  (time the session is active)
+   r=* (zero or more repeat times)
+
+Media description, if present
+   m=  (media name and transport address)
+   i=* (media title)
+   c=* (connection information -- optional if included at
+        session level)
+   b=* (zero or more bandwidth information lines)
+   k=* (encryption key)
+   a=* (zero or more media attribute lines)
+</pre></div>
+</div>
+<p>Ejemplo copiado desde RFC 4566:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>v=0
+o=jdoe 2890844526 2890842807 IN IP4 10.47.16.5
+s=SDP Seminar
+i=A Seminar on the session description protocol
+u=http://www.example.com/seminars/sdp.pdf
+e=j.doe@example.com (Jane Doe)
+c=IN IP4 224.2.17.12/127
+t=2873397496 2873404696
+a=recvonly
+m=audio 49170 RTP/AVP 0
+m=video 51372 RTP/AVP 99
+a=rtpmap:99 h263-1998/90000
+</pre></div>
+</div>
+</div>
 </div>
 
 

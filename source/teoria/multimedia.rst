@@ -20,14 +20,28 @@ Se usa compresión espacial o intraframe para comprimir cada frame y a veces
 también compresión temporal o interframe para aprovechar la redundancia que hay
 entre fotogramas consegutivos.
 
-- MPEG: Tiene distintos tipos de fotogramas:
+Tipos de frames;
 
-  - I (Intra): Compresión espacial.
+- I (Intra): Compresión espacial.
 
-  - P (Predictive): Informa las diferencias respecto al frame I o P anterior.
+- P (Predictive): Informa las diferencias respecto al frame I o P anterior.
 
-  - B (Bidireccional): Informa las diferencias respecto a los frames I o P
-    anterior y posterior.
+- B (Bidireccional): Informa las diferencias respecto a los frames I o P
+  anterior y posterior.
+
+Algunos codecs:
+
+.. todo:: Entender relacion MPEG con MP3, MP4, H264, H263, AAC, etc.
+
+- MPEG (H.222/H.262)
+
+- VP9: Para video de alta calidad.
+
+- H.263: Para videoconferencias.
+
+- H.264: Para video de alta calidad.
+
+
 
 RTP
 ---

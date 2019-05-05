@@ -102,6 +102,9 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="voip.html">VOIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="voip.html#partes-involucradas">Partes involucradas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="voip.html#sip">SIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="voip.html#sdp">SDP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tls.html">TLS</a></li>
@@ -196,15 +199,23 @@
 <p>Se usa compresión espacial o intraframe para comprimir cada frame y a veces
 también compresión temporal o interframe para aprovechar la redundancia que hay
 entre fotogramas consegutivos.</p>
+<p>Tipos de frames;</p>
 <ul class="simple">
-<li><p>MPEG: Tiene distintos tipos de fotogramas:</p>
-<ul>
 <li><p>I (Intra): Compresión espacial.</p></li>
 <li><p>P (Predictive): Informa las diferencias respecto al frame I o P anterior.</p></li>
 <li><p>B (Bidireccional): Informa las diferencias respecto a los frames I o P
 anterior y posterior.</p></li>
 </ul>
-</li>
+<p>Algunos codecs:</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="admonition-title">Por hacer</p>
+<p>Entender relacion MPEG con MP3, MP4, H264, H263, AAC, etc.</p>
+</div>
+<ul class="simple">
+<li><p>MPEG (H.222/H.262)</p></li>
+<li><p>VP9: Para video de alta calidad.</p></li>
+<li><p>H.263: Para videoconferencias.</p></li>
+<li><p>H.264: Para video de alta calidad.</p></li>
 </ul>
 </div>
 </div>
