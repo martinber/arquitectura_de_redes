@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="VOIP" href="voip.html" />
-    <link rel="prev" title="P2P" href="p2p.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="VOIP" href="voip.html"/>
+        <link rel="prev" title="P2P" href="p2p.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -127,7 +133,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -135,10 +141,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -189,9 +194,9 @@
 <div class="section" id="audio">
 <h3>Audio<a class="headerlink" href="#audio" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><p>G.711: Para VoIP. No comprime, 64kbps. También se le suele llamar PCM?.</p></li>
-<li><p>G.728: Para VoIP. 18kbps.</p></li>
-<li><p>G.729: Para VoIP. 8kbps.</p></li>
+<li>G.711: Para VoIP. No comprime, 64kbps. También se le suele llamar PCM?.</li>
+<li>G.728: Para VoIP. 18kbps.</li>
+<li>G.729: Para VoIP. 8kbps.</li>
 </ul>
 </div>
 <div class="section" id="video">
@@ -201,21 +206,21 @@ también compresión temporal o interframe para aprovechar la redundancia que ha
 entre fotogramas consegutivos.</p>
 <p>Tipos de frames;</p>
 <ul class="simple">
-<li><p>I (Intra): Compresión espacial.</p></li>
-<li><p>P (Predictive): Informa las diferencias respecto al frame I o P anterior.</p></li>
-<li><p>B (Bidireccional): Informa las diferencias respecto a los frames I o P
-anterior y posterior.</p></li>
+<li>I (Intra): Compresión espacial.</li>
+<li>P (Predictive): Informa las diferencias respecto al frame I o P anterior.</li>
+<li>B (Bidireccional): Informa las diferencias respecto a los frames I o P
+anterior y posterior.</li>
 </ul>
 <p>Algunos codecs:</p>
 <div class="admonition-todo admonition" id="index-0">
-<p class="admonition-title">Por hacer</p>
-<p>Entender relacion MPEG con MP3, MP4, H264, H263, AAC, etc.</p>
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Entender relacion MPEG con MP3, MP4, H264, H263, AAC, etc.</p>
 </div>
 <ul class="simple">
-<li><p>MPEG (H.222/H.262)</p></li>
-<li><p>VP9: Para video de alta calidad.</p></li>
-<li><p>H.263: Para videoconferencias.</p></li>
-<li><p>H.264: Para video de alta calidad.</p></li>
+<li>MPEG (H.222/H.262)</li>
+<li>VP9: Para video de alta calidad.</li>
+<li>H.263: Para videoconferencias.</li>
+<li>H.264: Para video de alta calidad.</li>
 </ul>
 </div>
 </div>
@@ -223,21 +228,20 @@ anterior y posterior.</p></li>
 <h2>RTP<a class="headerlink" href="#rtp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Real-time Transport Protocol.</p>
 <ul class="simple">
-<li><p>Permite enviar audio y video.</p></li>
-<li><p>Normalmente va sobre UDP.</p></li>
-<li><p>Confía en RTCP para control, sincronización de múltiples streams, calidad de
-servicio, etc.</p></li>
-<li><p>En general el stream se inicia con un protocolo de señalización como RTSP, SIP
-o H.323.</p></li>
-<li><p>Se suele utilizar también para VoIP, en tal caso se usa junto al protocolo
-SIP.</p></li>
-<li><p>Cosas que incluye el header:</p>
-<ul>
-<li><p>Timestamps para indicar a qué tiempo se corresponde el audio/video que lleva
-en los datos.</p></li>
-<li><p>Números de secuencia, para reordenar los paquetes en el caso de jitter y
-para la pérdida de paquetes.</p></li>
-<li><p>Descripción del formato de los datos que envía.</p></li>
+<li>Permite enviar audio y video.</li>
+<li>Normalmente va sobre UDP.</li>
+<li>Confía en RTCP para control, sincronización de múltiples streams, calidad de
+servicio, etc.</li>
+<li>En general el stream se inicia con un protocolo de señalización como RTSP, SIP
+o H.323.</li>
+<li>Se suele utilizar también para VoIP, en tal caso se usa junto al protocolo
+SIP.</li>
+<li>Cosas que incluye el header:<ul>
+<li>Timestamps para indicar a qué tiempo se corresponde el audio/video que lleva
+en los datos.</li>
+<li>Números de secuencia, para reordenar los paquetes en el caso de jitter y
+para la pérdida de paquetes.</li>
+<li>Descripción del formato de los datos que envía.</li>
 </ul>
 </li>
 </ul>
@@ -246,44 +250,46 @@ para la pérdida de paquetes.</p></li>
 <h2>RTCP<a class="headerlink" href="#rtcp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>RTP Control Protocol.</p>
 <ul class="simple">
-<li><p>Provee información y estadísticas para RTP.</p></li>
-<li><p>Normalmente va sobre UDP.</p></li>
-<li><p>Envía periódicamente estadísticas de cantidad de paquetes, pérdida de
+<li>Provee información y estadísticas para RTP.</li>
+<li>Normalmente va sobre UDP.</li>
+<li>Envía periódicamente estadísticas de cantidad de paquetes, pérdida de
 paquetes, jitter, RTT, etc. Las aplicaciones usan esta información para
-cambiar parámetros del stream, limitar el flujo, cambiar el codec, etc.</p></li>
+cambiar parámetros del stream, limitar el flujo, cambiar el codec, etc.</li>
 </ul>
 </div>
 <div class="section" id="rtsp">
 <h2>RTSP<a class="headerlink" href="#rtsp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Real-time Streaming Protocol.</p>
 <ul class="simple">
-<li><p>Permite a las aplicaciones que utilizan RTP, controlar el stream.</p></li>
-<li><p>Va sobre TCP.</p></li>
-<li><p>Es similar a HTTP pero a diferencia de HTTP que es <em>stateless</em>, RTSP mantiene
-estado.</p></li>
-<li><p>Permite por ejemplo poner play, pausa, establecer la multimedia a reproducir,
-establecer puertos a utilizar para RTP y RTCP, etc.</p></li>
+<li>Permite a las aplicaciones que utilizan RTP, controlar el stream.</li>
+<li>Va sobre TCP.</li>
+<li>Es similar a HTTP pero a diferencia de HTTP que es <em>stateless</em>, RTSP mantiene
+estado.</li>
+<li>Permite por ejemplo poner play, pausa, establecer la multimedia a reproducir,
+establecer puertos a utilizar para RTP y RTCP, etc.</li>
 </ul>
 </div>
 <div class="section" id="srtp">
 <h2>SRTP<a class="headerlink" href="#srtp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Secure Real-time Transport Protocol.</p>
 <ul class="simple">
-<li><p>Es la versión segura de RCP, creo que no usa TLS.</p></li>
+<li>Es la versión segura de RCP, creo que no usa TLS.</li>
 </ul>
 </div>
 <div class="section" id="srtcp">
 <h2>SRTCP<a class="headerlink" href="#srtcp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Secure RTCP.</p>
 <ul class="simple">
-<li><p>Es la versión segura de RTCP, creo que no usa TLS.</p></li>
+<li>Es la versión segura de RTCP, creo que no usa TLS.</li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -292,7 +298,7 @@ establecer puertos a utilizar para RTP y RTCP, etc.</p></li>
         <a href="voip.html" class="btn btn-neutral float-right" title="VOIP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="p2p.html" class="btn btn-neutral float-left" title="P2P" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="p2p.html" class="btn btn-neutral" title="P2P" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -301,11 +307,11 @@ establecer puertos a utilizar para RTP y RTCP, etc.</p></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -318,15 +324,37 @@ establecer puertos a utilizar para RTP y RTCP, etc.</p></li>
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
