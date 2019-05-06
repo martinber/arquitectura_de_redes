@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,42 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="General" href="general.html" />
-    <link rel="prev" title="Arquitectura de Redes" href="../index.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="next" title="General" href="general.html"/>
+        <link rel="prev" title="Arquitectura de Redes" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -143,7 +148,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -151,10 +156,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -300,8 +304,19 @@
 <li class="toctree-l2"><a class="reference internal" href="icmpv6.html#capturas">Capturas</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tcp.html">TCP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="udp.html">UDP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tcp.html">TCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html#header">Header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html#capturas">Capturas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html#funciones">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html#control-de-flujo">Control de flujo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tcp.html#control-de-congestion">Control de congestión</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="udp.html">UDP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="udp.html#header">Header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="udp.html#funciones">Funciones</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -457,7 +472,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="p2p.html">P2P</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p.html">P2P</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="p2p.html#bitorrent">Bitorrent</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="multimedia.html">Multimedia</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multimedia.html#codecs">Codecs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="multimedia.html#audio">Audio</a></li>
@@ -483,15 +501,17 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gestion.html">Gestión de redes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gestion.html#osi">OSI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gestion.html#fcaps">FCAPS</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="gestion.html#areas-funcionales">Áreas funcionales</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="gestion.html#definiciones">Definiciones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gestion.html#snmp">SNMP</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gestion.html#mib">MIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gestion.html#grupos">Grupos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gestion.html#comandos">Comandos</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="gestion.html#referencias">Referencias</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="seguridad.html">Seguridad</a><ul>
@@ -542,7 +562,9 @@
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -551,7 +573,7 @@
         <a href="general.html" class="btn btn-neutral float-right" title="General" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral float-left" title="Arquitectura de Redes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Arquitectura de Redes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -560,11 +582,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -577,15 +599,37 @@
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

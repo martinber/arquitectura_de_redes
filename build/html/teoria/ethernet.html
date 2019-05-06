@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="ARP" href="arp.html" />
-    <link rel="prev" title="General" href="general.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="ARP" href="arp.html"/>
+        <link rel="prev" title="General" href="general.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -120,7 +126,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -128,10 +134,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -178,20 +183,20 @@
   <div class="section" id="ethernet">
 <h1>Ethernet<a class="headerlink" href="#ethernet" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p>Está el Ethernet II que es lo que se usa, sino también está el Ethernet 802.3
-que tiene un header ligeramente distinto.</p></li>
+<li>Está el Ethernet II que es lo que se usa, sino también está el Ethernet 802.3
+que tiene un header ligeramente distinto.</li>
 </ul>
 <div class="section" id="header">
 <h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Preamble (8 bytes): Generalmente no se ve en Wireshark.</p></li>
-<li><p>Destination MAC address (6 bytes).</p></li>
-<li><p>Source MAC address (6 bytes).</p></li>
-<li><p>Tags (Opcional) (4 bytes): En el caso en el que se utilizen VLANs.</p></li>
-<li><p>Type (2 bytes): ID del protocolo encapsulado.</p></li>
-<li><p>Data (46-1500 bytes).</p></li>
-<li><p>Frame Check Sequence (FCS) (4 bytes): Es CRC, generalmente no se ve en
-Wireshark.</p></li>
+<li>Preamble (8 bytes): Generalmente no se ve en Wireshark.</li>
+<li>Destination MAC address (6 bytes).</li>
+<li>Source MAC address (6 bytes).</li>
+<li>Tags (Opcional) (4 bytes): En el caso en el que se utilizen VLANs.</li>
+<li>Type (2 bytes): ID del protocolo encapsulado.</li>
+<li>Data (46-1500 bytes).</li>
+<li>Frame Check Sequence (FCS) (4 bytes): Es CRC, generalmente no se ve en
+Wireshark.</li>
 </ul>
 </div>
 <div class="section" id="mtu">
@@ -203,38 +208,36 @@ Wireshark.</p></li>
 <p>Hay dos normas para el orden de los cables, 568-A y 568-B. Se puede usar
 cualquiera de las dos normas.</p>
 <ul class="simple">
-<li><p>Si las normas de ambos extremos son iguales, es un cable directo. Sirve para
-conectar dispositivos de distintas capas (PC-Switch, Switch-Router, etc.).</p></li>
-<li><p>Si las normas de ambos extremos son distintas, es un cable cruzado. Sirve para
-conectar dispositivos de la misma capa (PC-PC, Router-Router, etc.).</p></li>
+<li>Si las normas de ambos extremos son iguales, es un cable directo. Sirve para
+conectar dispositivos de distintas capas (PC-Switch, Switch-Router, etc.).</li>
+<li>Si las normas de ambos extremos son distintas, es un cable cruzado. Sirve para
+conectar dispositivos de la misma capa (PC-PC, Router-Router, etc.).</li>
 </ul>
 <div class="section" id="normas">
 <h3>Normas<a class="headerlink" href="#normas" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Este es el orden de los colores visto desde la cara opuesta a la pestaña, con el
 cable apuntando hacia arriba y viendo los colores de izquierda a derecha.</p>
 <ul class="simple">
-<li><p>Norma 586-A:</p>
-<ul>
-<li><p>Verde y blanco. TX+.</p></li>
-<li><p>Verde. TX-.</p></li>
-<li><p>Naranja y blanco. RX+.</p></li>
-<li><p>Azul.</p></li>
-<li><p>Azul y blanco.</p></li>
-<li><p>Naranja. RX-.</p></li>
-<li><p>Marrón y blanco.</p></li>
-<li><p>Marrón.</p></li>
+<li>Norma 586-A:<ul>
+<li>Verde y blanco. TX+.</li>
+<li>Verde. TX-.</li>
+<li>Naranja y blanco. RX+.</li>
+<li>Azul.</li>
+<li>Azul y blanco.</li>
+<li>Naranja. RX-.</li>
+<li>Marrón y blanco.</li>
+<li>Marrón.</li>
 </ul>
 </li>
-<li><p>Norma 586-B:</p>
-<ul>
-<li><p>Naranja y blanco. TX+.</p></li>
-<li><p>Naranja. TX-.</p></li>
-<li><p>Verde y blanco. RX+.</p></li>
-<li><p>Azul.</p></li>
-<li><p>Azul y blanco.</p></li>
-<li><p>Verde. RX-.</p></li>
-<li><p>Marrón y blanco.</p></li>
-<li><p>Marrón.</p></li>
+<li>Norma 586-B:<ul>
+<li>Naranja y blanco. TX+.</li>
+<li>Naranja. TX-.</li>
+<li>Verde y blanco. RX+.</li>
+<li>Azul.</li>
+<li>Azul y blanco.</li>
+<li>Verde. RX-.</li>
+<li>Marrón y blanco.</li>
+<li>Marrón.</li>
 </ul>
 </li>
 </ul>
@@ -255,7 +258,9 @@ entonces hace un <em>flood</em>, aprenderá esa MAC cuando ese host responda.</p
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -264,7 +269,7 @@ entonces hace un <em>flood</em>, aprenderá esa MAC cuando ese host responda.</p
         <a href="arp.html" class="btn btn-neutral float-right" title="ARP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="general.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="general.html" class="btn btn-neutral" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -273,11 +278,11 @@ entonces hace un <em>flood</em>, aprenderá esa MAC cuando ese host responda.</p
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -290,15 +295,37 @@ entonces hace un <em>flood</em>, aprenderá esa MAC cuando ese host responda.</p
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

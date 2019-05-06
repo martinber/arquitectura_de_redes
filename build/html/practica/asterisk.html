@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Gestion" href="gestion.html" />
-    <link rel="prev" title="Squid" href="squid.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Práctica" href="index.html"/>
+        <link rel="next" title="Gestion" href="gestion.html"/>
+        <link rel="prev" title="Squid" href="squid.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -111,7 +117,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -119,10 +125,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -180,19 +185,19 @@ service asterisk reload
 <div class="section" id="tipos-de-usuario">
 <h2>Tipos de usuario<a class="headerlink" href="#tipos-de-usuario" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>user: Solo llamadas salientes</p></li>
-<li><p>peer: Solo llamadas entrantes</p></li>
-<li><p>friend: Entradas salientes y entrantes</p></li>
+<li>user: Solo llamadas salientes</li>
+<li>peer: Solo llamadas entrantes</li>
+<li>friend: Entradas salientes y entrantes</li>
 </ul>
 </div>
 <div class="section" id="otras-opciones-para-el-usuario">
 <h2>Otras opciones para el usuario<a class="headerlink" href="#otras-opciones-para-el-usuario" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">canreinvite</span></code>: Permite que las conexiones RTP de audio ocurran punto a punto
+<li><code class="docutils literal notranslate"><span class="pre">canreinvite</span></code>: Permite que las conexiones RTP de audio ocurran punto a punto
 entre los usuarios, si se desactiva pasan por el servidor, si se activa
-generalmente va por el servidor pero generalmente va punto a punto.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">qualify</span></code>: Algo del retardo, no se.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nat</span></code>: Indica si el usuario esta atrás de un NAT.</p></li>
+generalmente va por el servidor pero generalmente va punto a punto.</li>
+<li><code class="docutils literal notranslate"><span class="pre">qualify</span></code>: Algo del retardo, no se.</li>
+<li><code class="docutils literal notranslate"><span class="pre">nat</span></code>: Indica si el usuario esta atrás de un NAT.</li>
 </ul>
 </div>
 <div class="section" id="configuracion">
@@ -200,29 +205,29 @@ generalmente va por el servidor pero generalmente va punto a punto.</p></li>
 <p>Tiene un montón de archivos de configuración en <code class="docutils literal notranslate"><span class="pre">/etc/asterisk</span></code>. Los que más
 importan me parece que son:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/asterisk/asterisk.conf</span></code>: Es el archivo principal pero no tiene nada
-interesante.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/asterisk/extensions.conf</span></code>: Establece cómo serán manejadas y ruteadas
-las llamadas entrantes y salientes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/asterisk/sip.conf</span></code>: Configuración para los canales SIP.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/asterisk/asterisk.conf</span></code>: Es el archivo principal pero no tiene nada
+interesante.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/asterisk/extensions.conf</span></code>: Establece cómo serán manejadas y ruteadas
+las llamadas entrantes y salientes.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/asterisk/sip.conf</span></code>: Configuración para los canales SIP.</li>
 </ul>
 <div class="section" id="extensions-conf">
 <h3>extensions.conf<a class="headerlink" href="#extensions-conf" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Este archivo establece cómo serán manejadas y ruteadas las llamadas entrantes y
 salientes. Es muy largo, tiene varias secciones:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[general]</span></code>: Define algunas opciones generales.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[globals]</span></code>: Acá se pueden definiar variables globales que se podrán usar en
-otros contextos.</p></li>
-<li><p>Las demás secciones son contextos, llevan el nombre entre corchetes.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">[general]</span></code>: Define algunas opciones generales.</li>
+<li><code class="docutils literal notranslate"><span class="pre">[globals]</span></code>: Acá se pueden definiar variables globales que se podrán usar en
+otros contextos.</li>
+<li>Las demás secciones son contextos, llevan el nombre entre corchetes.</li>
 </ul>
 <p>Hay varias definiciones:</p>
 <ul class="simple">
-<li><p>Dialplan: Es el conjunto de contextos.</p></li>
-<li><p>Contexto: Permite separar funcionalidades, cada contexto tiene extensiones.</p></li>
-<li><p>Extensión: Es un conjunto de aplicaciones que se ejecutarán cuando el número
-de esa extensión es marcado.</p></li>
-<li><p>Aplicación: Es una acción.</p></li>
+<li>Dialplan: Es el conjunto de contextos.</li>
+<li>Contexto: Permite separar funcionalidades, cada contexto tiene extensiones.</li>
+<li>Extensión: Es un conjunto de aplicaciones que se ejecutarán cuando el número
+de esa extensión es marcado.</li>
+<li>Aplicación: Es una acción.</li>
 </ul>
 <p>Los usuarios se colocan en contextos (puede que en más de un contexto al mismo
 tiempo), y los contextos pueden incluir a otros contextos.</p>
@@ -300,7 +305,9 @@ secret=password103
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -309,7 +316,7 @@ secret=password103
         <a href="gestion.html" class="btn btn-neutral float-right" title="Gestion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="squid.html" class="btn btn-neutral float-left" title="Squid" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="squid.html" class="btn btn-neutral" title="Squid" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -318,11 +325,11 @@ secret=password103
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -335,15 +342,37 @@ secret=password103
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
