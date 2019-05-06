@@ -99,15 +99,10 @@
 <li class="toctree-l3"><a class="reference internal" href="http.html">HTTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="p2p.html">P2P</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multimedia.html">Multimedia</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">VOIP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#partes-involucradas">Partes involucradas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sip">SIP</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#peticiones">Peticiones</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#respuestas">Respuestas</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#sdp">SDP</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#campos">Campos</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">VOIP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#partes-involucradas">Partes involucradas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sip">SIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sdp">SDP</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
@@ -222,9 +217,8 @@ etc.</li>
 </ul>
 </li>
 </ul>
-</div>
 <div class="section" id="partes-involucradas">
-<h1>Partes involucradas<a class="headerlink" href="#partes-involucradas" title="Enlazar permanentemente con este título">¶</a></h1>
+<h2>Partes involucradas<a class="headerlink" href="#partes-involucradas" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li>Los teléfonos IP son similares a los tradicionales pero tienen entrada
 Ethernet y dirección IP.</li>
@@ -255,7 +249,7 @@ PSTN.</li>
 </ul>
 </div>
 <div class="section" id="sip">
-<h1>SIP<a class="headerlink" href="#sip" title="Enlazar permanentemente con este título">¶</a></h1>
+<h2>SIP<a class="headerlink" href="#sip" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Session Initiation Protocol.</p>
 <p>El protocolo muchas aplicaciones además de VoIP pero explico todo lo relacionado
 a llamadas de voz.</p>
@@ -290,7 +284,7 @@ expliqué arriba.</li>
 </li>
 </ul>
 <div class="section" id="peticiones">
-<h2>Peticiones<a class="headerlink" href="#peticiones" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Peticiones<a class="headerlink" href="#peticiones" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Estas son las más usadas en VoIP:</p>
 <ul class="simple">
 <li>REGISTER: Solicita registrar un UA para que los demás UAs lo puedan encontrar.</li>
@@ -303,7 +297,7 @@ todavía ésta está sonando.</li>
 </ul>
 </div>
 <div class="section" id="respuestas">
-<h2>Respuestas<a class="headerlink" href="#respuestas" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Respuestas<a class="headerlink" href="#respuestas" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">1XX</span></code>: La operación se ha iniciado correctamente.<ul>
 <li><code class="docutils literal notranslate"><span class="pre">100</span></code>: Intentando.</li>
@@ -340,7 +334,7 @@ todavía ésta está sonando.</li>
 </div>
 </div>
 <div class="section" id="sdp">
-<h1>SDP<a class="headerlink" href="#sdp" title="Enlazar permanentemente con este título">¶</a></h1>
+<h2>SDP<a class="headerlink" href="#sdp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Session Description Protocol.</p>
 <ul class="simple">
 <li>Va dentro de peticiones SIP, por ejemplo en peticiones INVITE o respuestas de
@@ -348,7 +342,7 @@ OK.</li>
 <li>Negocia el tipo de multimedia, formato y demás propiedades</li>
 </ul>
 <div class="section" id="campos">
-<h2>Campos<a class="headerlink" href="#campos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Campos<a class="headerlink" href="#campos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Copiado desde RFC 4566:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Session description
    v=  (protocol version)
@@ -395,6 +389,7 @@ m=audio 49170 RTP/AVP 0
 m=video 51372 RTP/AVP 99
 a=rtpmap:99 h263-1998/90000
 </pre></div>
+</div>
 </div>
 </div>
 </div>
