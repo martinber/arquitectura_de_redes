@@ -10,6 +10,26 @@ Arquitectura de Redes
 Temas Redes de Información
 --------------------------
 
+.. todo::
+
+   - Terminar, en orden de importancia:
+
+     - HTTP.
+
+     - IPv6.
+
+     - 6to4.
+
+     - DNS.
+
+     - FTP.
+
+     - Firewall.
+
+     - RFCs y estandarización.
+
+     - Bitorrent.
+
 Sacado de lista de powerpoints y de programa
 
 - Repaso Arquitectura de Redes

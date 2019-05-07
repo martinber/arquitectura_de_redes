@@ -3,8 +3,6 @@ FTP
 
 File Transfer Protocol.
 
-.. todo:: Hacer
-
 - Va sobre TCP.
 
 - Permite la transferencia de archivos bidireccional entre un cliente y un
@@ -13,7 +11,7 @@ File Transfer Protocol.
 - La sesión se establece de la misma forma que una sesión Telnet. Después se
   hace otra conexión para la transferencia de datos.
 
-.. todo:: Anonimo
+.. todo:: FTP Anonimo
 
 Modos
 -----
@@ -130,6 +128,8 @@ Variaciones
 - SFTP:
 
 - FTPS:
+
+.. todo:: Ver variaciones de FTP.
 
 TFTP
 ----

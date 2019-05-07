@@ -28,4 +28,4 @@ Peer To Peer.
 Bitorrent
 ---------
 
-.. todo:: Buscar, es opcional.
+.. todo:: Buscar sobre bitorrent, es opcional.
