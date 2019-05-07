@@ -1,14 +1,6 @@
 Acceso remoto
 =============
 
-.. todo::
-
-   - Telnet
-
-   - Rlogin
-
-   - SSH
-
 Telnet
 ------
 
