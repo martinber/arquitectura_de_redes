@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="HDLC" href="hdlc.html"/>
-        <link rel="prev" title="TCP" href="tcp.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="HDLC" href="hdlc.html" />
+    <link rel="prev" title="TCP" href="tcp.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -124,7 +118,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -132,9 +126,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -182,45 +177,44 @@
 <h1>UDP<a class="headerlink" href="#udp" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>User Datagram Protocol.</p>
 <ul class="simple">
-<li>No orientado a la conexión, funciones:<ul>
-<li>Multiplexación.</li>
-<li>Control de errores, pero no retransmisión.</li>
+<li><p>No orientado a la conexión, funciones:</p>
+<ul>
+<li><p>Multiplexación.</p></li>
+<li><p>Control de errores, pero no retransmisión.</p></li>
 </ul>
 </li>
-<li>Se define un socket que es un conjunto de protocolo, dirección IP y puerto.
-Los puertos del 0 al 1023 están reservados para servicios bien conocidos.</li>
-<li>Cada mensaje se denomina datagrama.</li>
+<li><p>Se define un socket que es un conjunto de protocolo, dirección IP y puerto.
+Los puertos del 0 al 1023 están reservados para servicios bien conocidos.</p></li>
+<li><p>Cada mensaje se denomina datagrama.</p></li>
 </ul>
 <div class="section" id="header">
 <h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Source port (16 bits).</li>
-<li>Destination port (16 bits).</li>
-<li>Length (16 bits): Longitud en bytes del header y de los datos.</li>
-<li>Checksum (16 bits): Checksum del header, de los datos y de un pseudo header
+<li><p>Source port (16 bits).</p></li>
+<li><p>Destination port (16 bits).</p></li>
+<li><p>Length (16 bits): Longitud en bytes del header y de los datos.</p></li>
+<li><p>Checksum (16 bits): Checksum del header, de los datos y de un pseudo header
 que contiene información de IP. Se puede no utilizar y dejar en todos ceros,
-pero en IPv6 es obligatorio.</li>
+pero en IPv6 es obligatorio.</p></li>
 </ul>
 </div>
 <div class="section" id="funciones">
 <h2>Funciones<a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El sistema operativo define ciertas funciones para trabajar con sockets:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">socket</span></code>: Crea un socket, recibe el tipo y protocolo.</li>
-<li><code class="docutils literal notranslate"><span class="pre">bind</span></code>: Asocia el socket a una dirección IP y puerto.</li>
-<li><code class="docutils literal notranslate"><span class="pre">listen</span></code>: Inicia la escucha en el socket.</li>
-<li><code class="docutils literal notranslate"><span class="pre">sendto</span></code>: Enviar datagrama a cierto socket.</li>
-<li><code class="docutils literal notranslate"><span class="pre">recvfrom</span></code>: Recibir datos.</li>
-<li><code class="docutils literal notranslate"><span class="pre">close</span></code>: Cerrar socket.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">socket</span></code>: Crea un socket, recibe el tipo y protocolo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bind</span></code>: Asocia el socket a una dirección IP y puerto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">listen</span></code>: Inicia la escucha en el socket.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sendto</span></code>: Enviar datagrama a cierto socket.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recvfrom</span></code>: Recibir datos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">close</span></code>: Cerrar socket.</p></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -229,7 +223,7 @@ pero en IPv6 es obligatorio.</li>
         <a href="hdlc.html" class="btn btn-neutral float-right" title="HDLC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tcp.html" class="btn btn-neutral" title="TCP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tcp.html" class="btn btn-neutral float-left" title="TCP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -238,11 +232,11 @@ pero en IPv6 es obligatorio.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -255,37 +249,15 @@ pero en IPv6 es obligatorio.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

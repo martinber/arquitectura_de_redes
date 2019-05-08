@@ -51,7 +51,7 @@ Tipos de direcciones
 
 - Según rango:
 
-  - Link-local: ``fe80::/16``.
+  - Link-Local: ``fe80::/16``.
 
   - Globalmente ruteable: ``2000::/3``.
 
@@ -73,10 +73,65 @@ Tipos de direcciones
 
   - No especificada: ``::/128``.
 
+En las multicast se definen dominios por donde los paquetes se propagan:
+
+- ``FF00::/16``: Reservado.
+
+- ``FF01::/16``: Interface-Local, abarca sólo una interfaz, sirve para loopback.
+- ``FF02::/16``: Link-Local, abarca sólo un enlace de red, o un dominio de
+  broadcast.
+- ``FF03::/16``: Realm-Local, definido automáticamente, más grande que
+  Link-Local pero mas chico que Admin-Local.
+- ``FF04::/16``: Admin-Local, se configura administrativamente.
+- ``FF05::/16``: Site-Local, se configura administrativamente, pensado para un
+  sitio perteneciente a una organización.
+- ``FF08::/16``: Organization-Local, se configura administrativamente, pensado
+  para todos los sitios de una organización.
+- ``FF0E::/16``: Global.
+- ``FF0F::/16``: Reservado.
+
+Direcciones de cada host
+------------------------
+
+Según RFC 4291. Un host debe identificarse con las siguientes direcciones IPv6:
+
+- Su dirección Link-Local para cada interfaz
+
+- Direcciones unicast o anycast configuradas manualmente o automáticamente.
+
+- Loopback (``::1``).
+
+- Multicast All-Nodes:
+
+  - ``FF01::1``: Todos los nodos IPv6 en Interface-Local.
+
+  - ``FF02::1``: Todos los nodos IPv6 en Link-Local.
+
+- Multicast Solicited-Node para cada IPv6 unicast o anycast:
+
+  - ``FF02::1:FFXX:XXXX``: Los últimos 24 bits provienen de los últimos 24 bits
+    de la dirección unicast o anycast. Se usa por ejemplo para los Neighbor
+    Solicitation ya que permite comunicarse mediante una sola ip Link-Layer a un
+    nodo que podría tener más de una IP debido a que podría tener múltiples
+    prefijos.
+
+- Multicast de todos los otros grupos al que el nodo pertenezca.
+
+Los routers además deben reconocer:
+
+- Multicast All-Nodes:
+
+  - ``FF01::2``: Todos los routers IPv6 en Interface-Local.
+
+  - ``FF02::2``: Todos los routers IPv6 en Link-Local.
+
+  - ``FF05::2``: Todos los routers IPv6 en Site-Local.
+
+- Anycast Subnet-Router, lleva a cualquier router de una determinada red.
+  Consiste del número IPv6 de red, con todos los otros bits en cero.
+
 SLAAC
 -----
-
-.. todo:: Ver que multucast usa
 
 Stateless Address Autoconfiguration.
 
@@ -89,8 +144,24 @@ Stateless Address Autoconfiguration.
   Solicitation. Luego el router responde con un Router Advertisement, indicando
   el prefijo de red que usará el host.
 
-.. todo:: Agregar sobre como obtener parte de host: 64 bits EUI-64, a partir de
-   MAC, aleatorio, dhcp o manual
+- El Router Solicitation es enviado a la multicast ``FF02::2``, que representa
+  a todos los routers en link-local.
+
+- El Router Advertisement es enviado a la multicast ``FF02::1``, que representa
+  a todos los nodos en link-local.
+
+Hay varios métodos para obtener la parte de host (64 bits), que va a ser usada
+para generar la link-local y las demás direcciones IPv6.
+
+- EUI-64 modificado: Se toma la dirección MAC, se agrega ``FFFE`` al medio y se
+  pone el séptimo bit en uno.
+
+- Direcciones aleatorias: Un problema de usar la MAC en la dirección es que
+  permite seguir a un host a través de redes, por lo tanto se puede usar una
+  dirección de host aleatoria que dure horas o días.
+
+- Stable privacy: Son aleatorias al cambiar de red pero fijas en una misma red,
+  se generan a partir de la parte de red, interfaz, etc. 
 
 Migración desde IPv4
 --------------------

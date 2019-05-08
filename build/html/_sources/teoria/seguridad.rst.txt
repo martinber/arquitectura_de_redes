@@ -194,7 +194,7 @@ Es un concepto usado en la criptografía. Que un protocolo como TLS asegure PFS
 VPN
 ---
 
-- Consiste en simular una red provada a través de una red pública.
+- Consiste en simular una red privada a través de una red pública.
 
 - Generalmente se extienden redes LAN a través de Internet.
 

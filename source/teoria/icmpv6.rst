@@ -50,15 +50,22 @@ Neighbor Discovery Protocol.
 - Define cinco mensajes ICMPv6:
 
   - Router Solicitation (133): Mensajes enviados por hosts para solicitar
-    mensajes de Router Advertisement y así encontrar a Routers/Gateways.
+    mensajes de Router Advertisement y así encontrar a Routers/Gateways. Se
+    envía a la multicast ``FF02::02`` que representa a todos los routers en
+    link-local.
 
   - Router Advertisement (134): Mensajes enviados periódicamente por routers
-    para anunciar sus servicios y varios parámetros, permite aplicar SLAAC.
+    para anunciar sus servicios y varios parámetros, permite aplicar SLAAC. Se
+    envía a la multicast ``FF02::01`` que representa a todos los nodos en
+    link-local.
 
   - Neighbor Solicitation (135): Permite a los dispositivos determinar la
-    dirección MAC de un vecino.
+    dirección MAC de un vecino. Se envía a la multicast Solicited-Node del
+    destino.
 
-  - Neighbor Advertisement (136): Son las respuestas a Neighbor Solicitation.
+  - Neighbor Advertisement (136): Son las respuestas a Neighbor Solicitation. Se
+    envía a la IP unicast del que solicitó, o hacia la multicast ``FF02::01``
+    que representa a todos los nodos en Link-Local.
 
 Otros usos
 ----------

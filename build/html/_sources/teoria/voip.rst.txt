@@ -44,12 +44,6 @@ Partes involucradas
 - Los softphones son software para llamadas que se puede instalar en ordenadores
   (estilo Skype).
 
-- Private Branch Exchange (PBX): Es una central telefónica privada que conecta a
-  todos los teléfonos internos y generalmente está conectada a unas pocas líneas
-  telefónicas externas. Por lo tanto de un lado tiene FXO para conectarse a por
-  ejemplo la PSTN y en el caso del teléfono tradicional tiene FXS para los
-  teléfonos internos.
-
 - Foreign Exchange Station (FXS): Es una interfaz (puerto) que provee energía,
   tono de marcado y genera tensión de llamada (para el ring). Son los puertos
   que proveen los PSTN a los clientes, es donde se
@@ -61,6 +55,12 @@ Partes involucradas
 
 - Public Switched Telephone Network (PSTN): Red Telefonía Básica (RTB), se
   refiere a teléfonos tradicionales en lugar de VoIP.
+
+- Private Branch Exchange (PBX): Es una central telefónica privada que conecta a
+  todos los teléfonos internos y generalmente está conectada a unas pocas líneas
+  telefónicas externas. Por lo tanto de un lado tiene FXO para conectarse a por
+  ejemplo la PSTN y en el caso del teléfono tradicional tiene FXS para los
+  teléfonos internos.
 
 - Gateway (GWY): Permiten interconectar y transformar llamadas tradicionales en
   IP y viceversa. Se clasifican dependiendo de si tienen puertos FXS o FXO:
@@ -76,8 +76,8 @@ SIP
 
 Session Initiation Protocol.
 
-El protocolo muchas aplicaciones además de VoIP pero explico todo lo relacionado
-a llamadas de voz.
+El protocolo tienen muchas aplicaciones además de VoIP pero explico todo lo
+relacionado a llamadas de voz.
 
 - Son mensajes de control que se envían fuera de banda.
 
@@ -171,7 +171,7 @@ Respuestas
 
 - ``6XX``: No se puede completar la petición en ningún servidor.
 
-  - ``600``: Todos los desinos ocupados.
+  - ``600``: Todos los destinos ocupados.
 
   - ``603``: Llamada rechazada.
 

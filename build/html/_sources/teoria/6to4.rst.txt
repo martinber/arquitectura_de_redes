@@ -1,6 +1,10 @@
 6to4
 ====
 
+.. image:: ./6to4.svg
+
+`By Mro - Own work <https://commons.wikimedia.org/w/index.php?curid=10461514>`_, CC BY-SA 3.0.
+
 - Permite transmitir paquetes IPv6 por una red IPv4 gracias a un router de
   borde.
 
@@ -11,7 +15,10 @@
 
 - Las direcciones comienzan con ``2002::/16``.
 
-- Un router con 6to4 toma como decisión:
+- Para permitir tráfico hacia redes IPv6 nativas (``2001::/16``) se
+  establecieron los *Relay Routers*.
+
+- Un router con 6to4 (de borde) toma como decisión:
 
   - Si quiere llegar a una IPv6 dentro de la LAN sabe que está directamente
     conectada.
@@ -20,15 +27,12 @@
     por la red IPv4, el destino IPv4 se determina de la dirección IPv6.
 
   - Si quiere llegar a alguna ``2001::/16`` tiene que enviar a algún router IPv6
-    que tenga acceso a la IPv6 nativa.
+    que tenga acceso a la IPv6 nativa (*Relay Router*).
 
 - Los paquetes IPv6 van dentro de los datos del paquete IPv4.
 
-- Para permitir tráfico hacia redes IPv6 nativas (``2001::/16``) se
-  establecieron los *Relay Routers*.
-
 - Los *Relay routers* tienen, del lado IPv6, redes IPv6 nativas (``2001::/16``).
-  Los routers de borde tienen redes con prefijo ``2002::/16``.
+  En cambio los routers de borde tienen redes con prefijo ``2002::/16``.
 
 - Para que las IPv6 nativas envíen cosas a un IPv6 6to4, usan como gateway el
   *Relay router* más cercano, ya que éstos anuncian la ruta ``2002::/16``.
@@ -41,9 +45,9 @@ Hay un bloque de direcciones IPv6 para cada dirección IPv4::
   2002:xxyy:wwzz::/48
 
 En donde ``xxyy:wwzz`` es la dirección IPv4 en formato hexadecimal. Quedan 16
-bits para hacer subredes
+bits para hacer subredes.
 
+Referencias
+-----------
 
-.. todo:: Hacer
-
-http://packetlife.net/blog/2010/mar/15/6to4-ipv6-tunneling/
+- http://packetlife.net/blog/2010/mar/15/6to4-ipv6-tunneling/

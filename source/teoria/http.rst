@@ -3,8 +3,6 @@ HTTP
 
 Hypertext Transfer Protocol.
 
-.. todo:: Hacer, ver que onda con los MIME
-
 - Utiliza MIME, ver :doc:`mail`.
 
 - Para mí usa URLs, pero por ahí leo que usa URIs, no se:
@@ -78,7 +76,7 @@ La lista de métodos más usados es:
   hacer un *GET condicional* si se usa un header *If-Modified-Since*,
   *If-Match*, etc. Es posible hacer un *GET parcial* si se especifica un rango.
 
-- HEAD (Safe, Idempotent, Puede ser cacheable): Igual que HEAD, pero solicita
+- HEAD (Safe, Idempotent, Puede ser cacheable): Igual que GET, pero solicita
   sólo el encabezado, dejando atrás el cuerpo de la respuesta.
 
 - PUT (Idempotent): Solicita al servidor ubicar los datos presentes en esta
@@ -185,7 +183,7 @@ Tipos
   servidor proxy.
 
 - Inline, Forced o Transparent Proxy: A veces se usa el término *Transparent
-  Proxy* para bomprar a los servidores proxy que interceptan las comunicaciones
+  Proxy* para nombrar a los servidores proxy que interceptan las comunicaciones
   entre el cliente y el servidor web, por lo tanto no es necesaria la
   configuración de los clientes. Se necesita habilitar el forwarding IP en el
   proxy.
@@ -197,7 +195,7 @@ Tipos
 
 - Túnel CONNECT: El cliente pide a un proxy redirigir una conexión TCP a un
   destino, sólo la petición inicial es HTTP, luego de eso es simplemente un
-  túnes TCP. Se utiliza sobre todo para hacer proxy de HTTPS, ver abajo para más
+  túnel TCP. Se utiliza sobre todo para hacer proxy de HTTPS, ver abajo para más
   info.
 
 .. todo:: Buscar sobre la aquitectura multinivel

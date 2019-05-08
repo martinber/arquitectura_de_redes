@@ -95,7 +95,7 @@ Header
   consisite de las direcciones IP, el número de protocolo de TCP (0x0006) y de
   la longitud del header más los datos.
 
-- Urgent pointer (16 bits): Si está la flag URG, este campo lleba un offset
+- Urgent pointer (16 bits): Si está la flag URG, este campo lleva un offset
   desde el número de secuencia indicando el último byte urgente.
 
 - Opciones (0 a 320 bits): Cada opción consiste de el tipo (8 bits), y en el
