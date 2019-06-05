@@ -234,6 +234,17 @@ Idle-PC value</em>.</p></li>
 <li><p>Para hacer una imagen de Docker para algún servidor, me hago una carpeta con
 algún <em>Dockerfile</em>, creo la imagen con <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">image</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">nombre_image</span>
 <span class="pre">.</span></code> y la agrego a GNS3.</p></li>
+<li><p>Para poder ingresar a las VMs desde el host se debe:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">uml-utilities</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">tunctl</span> <span class="pre">-u</span> <span class="pre">{usuario}</span></code>.</p></li>
+<li><p>Debería haber aparecido una interfaz <code class="docutils literal notranslate"><span class="pre">tap1</span></code> o similar al hacer <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">-c</span> <span class="pre">a</span></code>.</p></li>
+<li><p>Agregar una Cloud en GNS3, ir a la pestaña «TAP Interfaces» y agregar la
+interfaz <code class="docutils literal notranslate"><span class="pre">tap1</span></code>.</p></li>
+<li><p>Conectar la Cloud por medio de la <code class="docutils literal notranslate"><span class="pre">tap1</span></code> a donde sea.</p></li>
+<li><p>En el host agregar una ip a la interfaz <code class="docutils literal notranslate"><span class="pre">tap1</span></code> y listo.</p></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>

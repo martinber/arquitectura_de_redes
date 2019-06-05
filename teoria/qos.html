@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>QOS &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Teoría</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practica/index.html">Práctica</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>QOS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/teoria/qos.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qos">
+<h1>QOS<a class="headerlink" href="#qos" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="admonition-todo admonition" id="index-0">
+<p class="admonition-title">Por hacer</p>
+<p>Hacer.</p>
+</div>
+<ul class="simple">
+<li><p>QOS: Lo que la red da</p></li>
+<li><p>COS: Lo que se requere de la red, es indistinto a QOS</p></li>
+<li><p>TOS: Un campo de IPv4 obsoleto</p></li>
+</ul>
+<p>IP QOS peermite calidad de servicio extremo a extremo, de capa 2 como VLAN no</p>
+<p>La cola es punteros a memoria. Un buffer es la memoria.</p>
+<ul class="simple">
+<li><p>Shaper elimina paquetes que se pasan del limite, el policer creo que los
+encola.</p></li>
+<li><p>Es lo mismo QoS en IPv4 que en IPv6 basicamente, cambian un poco los headers
+nomas</p></li>
+<li><p>Solamente se puede controlar lo que sale para el tema de prioridades. El
+marcado es a la entrada.</p></li>
+</ul>
+<div class="section" id="arquitectura">
+<h2>Arquitectura<a class="headerlink" href="#arquitectura" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Grandes grupos: mecansimos de control de datos o control de caminos.</p></li>
+<li><p>Clasificación:</p>
+<ul>
+<li><p>Por flujo: Secuencia de datagramas (IP origen y destino, puerto origen y
+destino, protocolo). Cada conexion TCP tiene tiene 2 flujos.</p></li>
+<li><p>Stream.</p></li>
+<li><p>Clase trafico.</p></li>
+<li><p>Campo de IP.</p></li>
+<li><p>MPLS.</p></li>
+<li><p>Capa 2.</p></li>
+<li><p>Inspección profunda.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition-todo admonition" id="index-1">
+<p class="admonition-title">Por hacer</p>
+<p>Ver bien a ambos</p>
+</div>
+<ul class="simple">
+<li><p>Policing: Token bucket, segun el profe trunca arriba del limite y no permite
+rafagas. CIR, CBS, EBS, T. pero para mi si permite rafagas, lo que no permite
+es encolar paquetes. Seria un token bucket sin buffer para paquetes.</p></li>
+<li><p>Shaping: No permite rafagas, pero en vez de perderse se encolan. Token bucket
+con cola.</p></li>
+<li><p>Marking: Marcado de paquetes, en el origen o en el ingreso de la red. Hay
+varias formas de marcar.</p></li>
+</ul>
+<div class="admonition-todo admonition" id="index-2">
+<p class="admonition-title">Por hacer</p>
+<p>Random Early Detection, RED, WRED.</p>
+</div>
+<div class="section" id="tos">
+<h3>TOS<a class="headerlink" href="#tos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En IPv4: 3 bit para precedencia, o sea 8 prioridades distintas. Despues 4 bits
+DTRC. Nunca se usó.</p>
+</div>
+<div class="section" id="dscp">
+<h3>DSCP<a class="headerlink" href="#dscp" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Creo que es DiffServ tambien</p>
+<p>El DS RFC 2474 le dio otro significado a ese campo. EN IPv6 le pusieron
+significado al campo de clase y al primer pedazo del campo flow type o algo asi.
+Se definio DSCP.</p>
+<p>Primero 3 bits para 8 prioridades (coincide con el TOS de IPv4)
+despues hay 2 bits para tener 4 prioridades de descarte. El sexto bit se pone en
+cero.</p>
+<p>Si los primeros 3 bits dan:</p>
+<ul class="simple">
+<li><p>7: Control de la red</p></li>
+<li><p>6: Control de la red</p></li>
+<li><p>5: Expedited forwarding</p></li>
+<li><p>4: Assured forwarding: Linea dedicada, garantiza todo</p></li>
+<li><p>3: Assured forwarding</p></li>
+<li><p>2: Assured forwarding</p></li>
+<li><p>1: Assured forwarding</p></li>
+<li><p>0: Best Effort</p></li>
+<li><p>Expedited forwarding: Linea dedicada, garantiza todo, como CBR en ATM</p></li>
+<li><p>Assured forwarding: Preferencial</p></li>
+<li><p>Best Effort: Sin garantías.</p></li>
+</ul>
+<p>Despues para cada clase tenes tres probabilidades de descarte.</p>
+<ul class="simple">
+<li><p>PHB: Per Hop Behavior. Lo que hace cada router. Los routers en conjunto son un
+dominio DiffServ.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sla">
+<h2>SLA<a class="headerlink" href="#sla" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Service Level Agreement.</p>
+<ul class="simple">
+<li><p>Contrato entre usuario y operador de red.</p></li>
+<li><p>ITU-T E.860 define el marco? una estructura generica.</p></li>
+<li><p>Parametros posibles:</p>
+<ul>
+<li><p>Disponibilidad. por porcentaje, cuantas hhoras por dia, cuantas horas
+seguidas, etc.</p></li>
+<li><p>Ancho de banda.</p></li>
+<li><p>Perdida de paquetes, por porcentaje. 1 de cada 100 vs 10 de cada 1000.</p></li>
+<li><p>RTT.</p></li>
+<li><p>Jitter.</p></li>
+<li><p>Etc.</p></li>
+</ul>
+</li>
+<li><p>La IPTF estableció la IPPM que hace estandares de medicion.</p></li>
+</ul>
+</div>
+<div class="section" id="netflow">
+<h2>Netflow<a class="headerlink" href="#netflow" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Netflow</p></li>
+<li><p>ELK: Elastic search, ???, Kibana?</p></li>
+</ul>
+</div>
+<div class="section" id="colas">
+<h2>Colas<a class="headerlink" href="#colas" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>PCQ Mikrotik</p></li>
+<li><p>Pfifo</p></li>
+</ul>
+<p>Para marcar usamos la tabla mangle de iptables.</p>
+<div class="section" id="fifo">
+<h3>FIFO<a class="headerlink" href="#fifo" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>??</p>
+</div>
+<div class="section" id="tocken-bucket-filter">
+<h3>Tocken Bucket Filter<a class="headerlink" href="#tocken-bucket-filter" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev eth0 root tbf rate 220kbit latency 50ms burst 1540
+</pre></div>
+</div>
+</div>
+<div class="section" id="sfq">
+<h3>SFQ<a class="headerlink" href="#sfq" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Como la FIFO con bandas</p>
+<p>Dice que se reconfigure cada 10 segundos:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qudisc add dev ent0 root sfq perturb 10
+</pre></div>
+</div>
+</div>
+<div class="section" id="prio">
+<h3>PRIO<a class="headerlink" href="#prio" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Es como pfifo_fast que ordena paquetes en solamente 3 bandas.</p>
+<p>Hay que tener cuidado de que la suma de las hijas no sea mayor a la de arriba,
+porque en tal caso deja de andar y es como que no limita nada, pasa todo de
+largo.</p>
+</div>
+<div class="section" id="cbq">
+<h3>CBQ<a class="headerlink" href="#cbq" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Permite prestar trafico a otra rama cuando no lo usa, creo que es el único que
+deja hacer eso de las que vemos, pero hay otras variaciones. Muy dificil de
+configurar, hay que hacer cuentas.</p>
+<p>Es como la prio pero hace un round robin con pesos que se van calculando
+dinamicamene que se yo.</p>
+</div>
+<div class="section" id="htb">
+<h3>HTB<a class="headerlink" href="#htb" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Token Bucket Filter pero que permite hacer árboles.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Martín Bernardi
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
