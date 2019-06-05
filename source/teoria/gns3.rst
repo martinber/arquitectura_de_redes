@@ -63,3 +63,18 @@ Otros tips
 - Para hacer una imagen de Docker para algún servidor, me hago una carpeta con
   algún *Dockerfile*, creo la imagen con ``docker image build -t nombre_image
   .`` y la agrego a GNS3.
+
+- Para poder ingresar a las VMs desde el host se debe:
+
+  - ``sudo apt install uml-utilities``.
+
+  - ``sudo tunctl -u {usuario}``.
+
+  - Debería haber aparecido una interfaz ``tap1`` o similar al hacer ``ip -c a``.
+
+  - Agregar una Cloud en GNS3, ir a la pestaña "TAP Interfaces" y agregar la
+    interfaz ``tap1``.
+
+  - Conectar la Cloud por medio de la ``tap1`` a donde sea.
+
+  - En el host agregar una ip a la interfaz ``tap1`` y listo.
