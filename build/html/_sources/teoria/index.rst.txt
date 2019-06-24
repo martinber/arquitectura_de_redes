@@ -46,6 +46,7 @@ Capa aplicación y otros
    gestion
    seguridad
    tls
+   qos
    acceso_remoto
    gns3
    wireshark

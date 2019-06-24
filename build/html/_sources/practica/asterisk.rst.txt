@@ -83,7 +83,6 @@ Una configuración normal sería la que pongo ahora::
   ; por razones de seguridad
   static = yes
   writeprotect = yes
-  comandos.
 
   [default]
   ; poner un echotest al llamar al numero 999
@@ -95,6 +94,7 @@ Una configuración normal sería la que pongo ahora::
 
   [internos]
   ; incluir al contexto default y permitir llamar a numeros que sean 1XX.
+  ; 30s de timeout. "Tt" permite transferir llamadas y el "m" pone musica.
   include => default
   exten => _1XX,1,Dial(SIP/${EXTEN},30,Ttm)
   exten => _1XX,n,Hangup()
@@ -108,11 +108,14 @@ luego se pueden hacer templates para usuarios similares::
 
   [general]
   context=default
+  ; bindport=5060
+  ; bindaddr=0.0.0.0
   udpbindaddr=0.0.0.0:5060 ; Escuchar en todas las IP, puerto 5060
   tcpbindaddr=0.0.0.0:5060 ; Escuchar en todas las IP, puerto 5060
   tcpenable=no
   transport=udp ; Transporte por defecto
   srvlookup=yes
+  ; registertimeout=20 ; Si el registro demora más de 20ms se da de baja al usuario o algo así
 
   [estandar](!)
   type=friend
@@ -122,12 +125,13 @@ luego se pueden hacer templates para usuarios similares::
   allow=gsm
   host=dynamic ; IP dinamica
   canreinvite=no ; Impide a los usuarios hacer conexiones RTP punto a punto sin
-                 ; pasar por el servidor
+                 ; pasar por el servidor, si se pone en "no" va a pasar todo por
+                 ; el servidor
   qualify=300 ; Cortar si la latencia es mayor a 300ms
   nat=no ; No dar tratamiento especial para nat, puede que funcione igual
 
   [101](estandar)
-  callerid=Martin <101>
+  callerid=Martin <101> ; No tiene ningun formato en especial, se le pone el numero porque queda lindo
   secret=password101
 
   [102](estandar)
