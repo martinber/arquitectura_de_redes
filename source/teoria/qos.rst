@@ -129,67 +129,103 @@ Netflow
 Control de tráfico en Linux
 ---------------------------
 
+Desde ``man tc``::
+
+  Qdiscs
+
+    qdisc is short for 'queueing discipline' and it is elementary to
+    understanding traffic control. Whenever the kernel needs to send a packet to
+    an interface, it is enqueued to the qdisc configured for that interface.
+    Immediately afterwards, the kernel tries to get as many packets as possible
+    from the qdisc, for giving them to the network adaptor driver.
+
+    A simple QDISC is the 'pfifo' one, which does no processing at all and is a
+    pure First In, First Out queue. It does however store traffic when the
+    network interface can't handle it momentarily.
+
+  Classes
+
+    Some qdiscs can contain classes, which contain further qdiscs - traffic may
+    then be enqueued in any of the inner qdiscs, which are within the classes.
+    When the kernel tries to dequeue a packet from such a classful qdisc it can
+    come from any of the classes. A qdisc may for example prioritize certain
+    kinds of traffic by trying to dequeue from certain classes before others.
+
+  Filters
+
+    A filter is used by a classful qdisc to determine in which class a packet
+    will be enqueued. Whenever traffic arrives at a class with subclasses, it
+    needs to be classified. Various methods may be employed to do so, one of
+    these are the filters. All filters attached to the class are called, until
+    one of them returns with a verdict. If no verdict was made, other criteria
+    may be available. This differs per qdisc.
+
+    It is important to notice that filters reside within qdiscs - they are not
+    masters of what happens.
+
 qdisc
 ~~~~~
 
-Sacado de `acá <https://www.tldp.org/HOWTO/Traffic-Control-HOWTO>`_.
+Sacado de `acá <https://www.tldp.org/HOWTO/Traffic-Control-HOWTO>`_:
 
-Simply put, a qdisc is a scheduler (Section 3.2). Other qdiscs available under
-Linux will rearrange the packets entering the scheduler's queue in accordance
-with that scheduler's rules.
+  Simply put, a qdisc is a scheduler (Section 3.2). Other qdiscs available under
+  Linux will rearrange the packets entering the scheduler's queue in accordance
+  with that scheduler's rules.
 
-The qdisc is the major building block on which all of Linux traffic control is
-built, and is also called a queuing discipline.
+  The qdisc is the major building block on which all of Linux traffic control is
+  built, and is also called a queuing discipline.
 
-The classful qdiscs can contain classes, and provide a handle to which to attach
-filters. There is no prohibition on using a classful qdisc without child
-classes, although this will usually consume cycles and other system resources
-for no benefit.
+  The classful qdiscs can contain classes, and provide a handle to which to attach
+  filters. There is no prohibition on using a classful qdisc without child
+  classes, although this will usually consume cycles and other system resources
+  for no benefit.
 
-The classless qdiscs can contain no classes, nor is it possible to attach filter
-to a classless qdisc. Because a classless qdisc contains no children of any
-kind, there is no utility to classifying. This means that no filter can be
-attached to a classless qdisc.
+  The classless qdiscs can contain no classes, nor is it possible to attach filter
+  to a classless qdisc. Because a classless qdisc contains no children of any
+  kind, there is no utility to classifying. This means that no filter can be
+  attached to a classless qdisc.
 
-A source of terminology confusion is the usage of the terms root qdisc and
-ingress qdisc. These are not really queuing disciplines, but rather locations
-onto which traffic control structures can be attached for egress (outbound
-traffic) and ingress (inbound traffic).
+  A source of terminology confusion is the usage of the terms root qdisc and
+  ingress qdisc. These are not really queuing disciplines, but rather locations
+  onto which traffic control structures can be attached for egress (outbound
+  traffic) and ingress (inbound traffic).
 
-Each interface contains both. The primary and more common is the egress qdisc,
-known as the root qdisc. It can contain any of the queuing disciplines (qdiscs)
-with potential classes and class structures. The overwhelming majority of
-documentation applies to the root qdisc and its children. Traffic transmitted on
-an interface traverses the egress or root qdisc.
+  Each interface contains both. The primary and more common is the egress qdisc,
+  known as the root qdisc. It can contain any of the queuing disciplines (qdiscs)
+  with potential classes and class structures. The overwhelming majority of
+  documentation applies to the root qdisc and its children. Traffic transmitted on
+  an interface traverses the egress or root qdisc.
 
-For traffic accepted on an interface, the ingress qdisc is traversed. With its
-limited utility, it allows no child class to be created, and only exists as an
-object onto which a filter can be attached. For practical purposes, the ingress
-qdisc is merely a convenient object onto which to attach a policer to limit the
-amount of traffic accepted on a network interface.
+  For traffic accepted on an interface, the ingress qdisc is traversed. With its
+  limited utility, it allows no child class to be created, and only exists as an
+  object onto which a filter can be attached. For practical purposes, the ingress
+  qdisc is merely a convenient object onto which to attach a policer to limit the
+  amount of traffic accepted on a network interface.
 
-In short, you can do much more with an egress qdisc because it contains a real
-qdisc and the full power of the traffic control system. An ingress qdisc can
-only support a policer. The remainder of the documentation will concern itself
-with traffic control structures attached to the root qdisc unless otherwise
-specified
+  In short, you can do much more with an egress qdisc because it contains a real
+  qdisc and the full power of the traffic control system. An ingress qdisc can
+  only support a policer. The remainder of the documentation will concern itself
+  with traffic control structures attached to the root qdisc unless otherwise
+  specified
 
 class
 ~~~~~
 
-Classes only exist inside a classful qdisc (e.g., HTB and CBQ). Classes are
-immensely flexible and can always contain either multiple children classes or a
-single child qdisc. There is no prohibition against a class containing a
-classful qdisc itself, which facilitates tremendously complex traffic control
-scenarios.
+Sacado de `acá <https://www.tldp.org/HOWTO/Traffic-Control-HOWTO>`_:
 
-Any class can also have an arbitrary number of filters attached to it, which
-allows the selection of a child class or the use of a filter to reclassify or
-drop traffic entering a particular class.
+  Classes only exist inside a classful qdisc (e.g., HTB and CBQ). Classes are
+  immensely flexible and can always contain either multiple children classes or a
+  single child qdisc. There is no prohibition against a class containing a
+  classful qdisc itself, which facilitates tremendously complex traffic control
+  scenarios.
 
-A leaf class is a terminal class in a qdisc. It contains a qdisc (default FIFO)
-and will never contain a child class. Any class which contains a child class is
-an inner class (or root class) and not a leaf class.
+  Any class can also have an arbitrary number of filters attached to it, which
+  allows the selection of a child class or the use of a filter to reclassify or
+  drop traffic entering a particular class.
+
+  A leaf class is a terminal class in a qdisc. It contains a qdisc (default FIFO)
+  and will never contain a child class. Any class which contains a child class is
+  an inner class (or root class) and not a leaf class.
 
 
 Colas
