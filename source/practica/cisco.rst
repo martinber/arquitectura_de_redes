@@ -317,7 +317,7 @@ generalmente la ``::1`` e indicar que sale por la ``{if_wan}``::
   router(config-if)# no ip address
   router(config-if)# no ip redirects
   router(config-if)# no shutdown
-  router(config-if)# ipv6 address {ipv6_if_wan}/128
+  router(config-if)# ipv6 address {ipv6_if_wan}/64
   router(config-if)# tunnel source FastEthernet {if_wan}
   router(config-if)# tunnel mode ipv6ip 6to4
   router(config-if)# exit
@@ -327,18 +327,22 @@ generalmente también es la ``::1``, en tal caso es
 ``2002:{ipv4}:{subred}::1/64``. También habilitar RA::
 
   router(config)# interface FastEthernet {if_lan}
-  router(config-if)# ipv6 address {ipv6_if_lan} {ipv6_mask_if_lan}
+  router(config-if)# ipv6 address {ipv6_if_lan}/{ipv6_mask_if_lan}
   router(config-if)# no shutdown
   router(config-if)# no ipv6 nd suppress-ra
 
 Configurar las rutas, la primera es una ruta IPv4 común para que se llegue a
-destino por IPv4. La segunda no se bien por qué está. La tercera es el gateway
-IPv6, en el caso en el que hayan varios túneles hacia varias redes IPv6 habría
-que separar las rutas en vez de tener una que vaya a ``::/0``. Pero en el caso
-más simple es::
+destino por IPv4. La segunda supongo que indica que todo lo que vaya a una IPv6
+``2002`` debe entrar por el tunel::
 
   router(config)# ip route 0.0.0.0 0.0.0.0 {ipv4_if_gw}
   router(config)# ipv6 route 2002::/16 Tunnel2002
+
+También se puede dar un gateway IPv6, **no hace falta**, sería mejor no ponerlo
+porque en el caso en el que hayan varios túneles hacia varias redes IPv6 habría
+que separar las rutas en vez de tener una que vaya a ``::/0``. El caso más
+simple es::
+
   router(config)# ipv6 route ::/0 {ipv6_if_wan_destino}
 
 RIP

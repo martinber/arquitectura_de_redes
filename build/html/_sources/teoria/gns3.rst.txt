@@ -28,8 +28,7 @@ Elementos usados
 
 - Router Cisco: Uso el modelo 3745, lo importé usando la imagen
   ``c3745-advipservicesk9-mz.124-25d.bin`` que no se puede obtener gratis de
-  forma legal. No me acuerdo como hice para agregarlo al GNS3, ahora que veo, en
-  las preferencias de GNS3 aparece en la parte de "IOS Routers".
+  forma legal. Lo agregué en Preferencias > "IOS Routers".
 
 - Switch Cisco: Este fué dificilisimo de conseguir, no se al final que modelo
   tengo. Hay que conseguir:
