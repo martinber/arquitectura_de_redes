@@ -486,7 +486,7 @@ generalmente la <code class="docutils literal notranslate"><span class="pre">::1
 router(config-if)# no ip address
 router(config-if)# no ip redirects
 router(config-if)# no shutdown
-router(config-if)# ipv6 address {ipv6_if_wan}/128
+router(config-if)# ipv6 address {ipv6_if_wan}/64
 router(config-if)# tunnel source FastEthernet {if_wan}
 router(config-if)# tunnel mode ipv6ip 6to4
 router(config-if)# exit
@@ -496,19 +496,23 @@ router(config-if)# exit
 generalmente también es la <code class="docutils literal notranslate"><span class="pre">::1</span></code>, en tal caso es
 <code class="docutils literal notranslate"><span class="pre">2002:{ipv4}:{subred}::1/64</span></code>. También habilitar RA:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# interface FastEthernet {if_lan}
-router(config-if)# ipv6 address {ipv6_if_lan} {ipv6_mask_if_lan}
+router(config-if)# ipv6 address {ipv6_if_lan}/{ipv6_mask_if_lan}
 router(config-if)# no shutdown
 router(config-if)# no ipv6 nd suppress-ra
 </pre></div>
 </div>
 <p>Configurar las rutas, la primera es una ruta IPv4 común para que se llegue a
-destino por IPv4. La segunda no se bien por qué está. La tercera es el gateway
-IPv6, en el caso en el que hayan varios túneles hacia varias redes IPv6 habría
-que separar las rutas en vez de tener una que vaya a <code class="docutils literal notranslate"><span class="pre">::/0</span></code>. Pero en el caso
-más simple es:</p>
+destino por IPv4. La segunda supongo que indica que todo lo que vaya a una IPv6
+<code class="docutils literal notranslate"><span class="pre">2002</span></code> debe entrar por el tunel:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# ip route 0.0.0.0 0.0.0.0 {ipv4_if_gw}
 router(config)# ipv6 route 2002::/16 Tunnel2002
-router(config)# ipv6 route ::/0 {ipv6_if_wan_destino}
+</pre></div>
+</div>
+<p>También se puede dar un gateway IPv6, <strong>no hace falta</strong>, sería mejor no ponerlo
+porque en el caso en el que hayan varios túneles hacia varias redes IPv6 habría
+que separar las rutas en vez de tener una que vaya a <code class="docutils literal notranslate"><span class="pre">::/0</span></code>. El caso más
+simple es:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# ipv6 route ::/0 {ipv6_if_wan_destino}
 </pre></div>
 </div>
 </div>
