@@ -5,6 +5,23 @@ No me acuerdo bien como instalé GNS3, la cosa es que anduvo y que no lo quise
 tocar. Pongo algunas notas de lo que hago a partir de ahora y de lo que me
 acuerdo que hice.
 
+Instalacion
+-----------
+
+- Instalar Docker: ``sudo apt install docker.io``.
+
+- Instalar Dynamips: ``sudo apt install dynamips``.
+
+- Instalar Wireshark.
+
+- Hacer que Docker KVM y Wireshark anden sin sudo::
+
+    sudo usermod -aG wireshark $USER
+    sudo usermod -aG docker $USER
+    sudo usermod -aG kvm $USER
+
+- Reiniciar.
+
 Elementos usados
 ----------------
 
@@ -47,7 +64,11 @@ Elementos usados
 Otros tips
 ----------
 
-- Cuando intenté usar ipv6 en el router Mikrotik no encotraba los comandos. En
+- Si no se pueden abrir las consolas, ir a Preferencias > General > Console
+  applications y apretar el botón de "Edit" en "Console Settings" para
+  seleccionar una consola que esté instalada.
+
+- Cuando intenté usar ipv6 en el router Mikrotik no encontraba los comandos. En
   mi caso pasaba que el paquete ``ipv6`` del router no estaba habilitado, esto
   se puede ver al hacer ``system package print`` y viendo qué paquetes tienen
   una ``X`` al lado. Para habilitar un paquete hay que hacer ``system package
