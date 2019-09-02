@@ -303,15 +303,16 @@ ip route add dst-address=0.0.0.0/0 gateway={ipv4_if_gw}
 </pre></div>
 </div>
 <p>Configurar la interface 6to4:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface 6to4 add mtu=1280 name={nombre_tunel} local-address={ipv4_if_wan} remote-address={ipv4_if_wan_destino} disabled=no
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface 6to4 add mtu=1280 name={nombre_tunel} local-address={ipv4_if_wan} remote-address=unspecified disabled=no
 </pre></div>
 </div>
 <p>Asociar la ipv6 calculada previamente a la interfaz creada:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ipv6 address add address={ipv6_if_wan}/3 interface={nombre_tunel}
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ipv6 address add address={ipv6_if_wan}/64 interface={nombre_tunel}
 </pre></div>
 </div>
-<p>Agregar una ruta ipv6 por defecto a través del túnel:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ipv6 route add dst-address=2000::/3 gateway=::{ipv4_if_wan_destino}%{nombre_tunel}
+<p>Agregar una ruta que indica que el tráfico a IPv6 <code class="docutils literal notranslate"><span class="pre">2002</span></code> se debe enviar por el
+túnel:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ipv6 route add dst-address=2000::/3 gateway={nombre_tunel}
 </pre></div>
 </div>
 <p>Configurar la interfaz con IPv6 que da a la LAN, a diferencia de Cisco no tiene
