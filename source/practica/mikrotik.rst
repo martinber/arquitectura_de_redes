@@ -138,15 +138,16 @@ Primero agregar la IPv4 de WAN y agregar ruta por defecto para el gateway ipv4::
 
 Configurar la interface 6to4::
 
-  interface 6to4 add mtu=1280 name={nombre_tunel} local-address={ipv4_if_wan} remote-address={ipv4_if_wan_destino} disabled=no
+  interface 6to4 add mtu=1280 name={nombre_tunel} local-address={ipv4_if_wan} remote-address=unspecified disabled=no
 
 Asociar la ipv6 calculada previamente a la interfaz creada::
 
-  ipv6 address add address={ipv6_if_wan}/3 interface={nombre_tunel}
+  ipv6 address add address={ipv6_if_wan}/64 interface={nombre_tunel}
 
-Agregar una ruta ipv6 por defecto a través del túnel::
+Agregar una ruta que indica que el tráfico a IPv6 ``2002`` se debe enviar por el
+túnel::
 
-  ipv6 route add dst-address=2000::/3 gateway=::{ipv4_if_wan_destino}%{nombre_tunel}
+  ipv6 route add dst-address=2000::/3 gateway={nombre_tunel}
 
 Configurar la interfaz con IPv6 que da a la LAN, a diferencia de Cisco no tiene
 que estar en una subred, la ``{ipv6_if_lan}`` puede ser igual a
