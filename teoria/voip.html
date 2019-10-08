@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="Gestión de redes" href="gestion.html"/>
-        <link rel="prev" title="Multimedia" href="multimedia.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Gestión de redes" href="gestion.html" />
+    <link rel="prev" title="Multimedia" href="multimedia.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -103,6 +97,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#partes-involucradas">Partes involucradas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sip">SIP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sdp">SDP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iax">IAX</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
@@ -128,7 +123,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -136,9 +131,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -187,57 +183,61 @@
 <p>Acá hay información sobre VoIP en sí, señalización, etc. Ver también sobre
 transmisión de audio en <a class="reference internal" href="multimedia.html"><span class="doc">Multimedia</span></a>.</p>
 <ul class="simple">
-<li>En comparación con la telefonía tradicional permite menores costos, calidad
+<li><p>En comparación con la telefonía tradicional permite menores costos, calidad
 similar, utilizar redes IP que son muy extendidas, etc. Como desventaja puede
 haber pérdida de paquetes, jitter, degradación de calidad, altos retardos,
-etc.</li>
-<li>La señalización permite por ejemplo:<ul>
-<li>Informar al dispositivo llamado para hacer sonar.</li>
-<li>Informar al dispositivo que llama sobre la conexión.</li>
-<li>Evitar llamadas a dispositivos ocupados.</li>
-<li>Registrar la llamada, incluyendo la duración.</li>
+etc.</p></li>
+<li><p>La señalización permite por ejemplo:</p>
+<ul>
+<li><p>Informar al dispositivo llamado para hacer sonar.</p></li>
+<li><p>Informar al dispositivo que llama sobre la conexión.</p></li>
+<li><p>Evitar llamadas a dispositivos ocupados.</p></li>
+<li><p>Registrar la llamada, incluyendo la duración.</p></li>
 </ul>
 </li>
-<li>Algunos protocolos de señalización: SIP, MGCP, SCCP, H.323, IAX, etc.</li>
-<li>Algunos sistemas propietarios:<ul>
-<li>Skype.</li>
-<li>Cisco Skinny (SCCP).</li>
+<li><p>Algunos protocolos de señalización: SIP, MGCP, SCCP, H.323, IAX, etc.</p></li>
+<li><p>Algunos sistemas propietarios:</p>
+<ul>
+<li><p>Skype.</p></li>
+<li><p>Cisco Skinny (SCCP).</p></li>
 </ul>
 </li>
-<li>Algunos sistemas abiertos:<ul>
-<li>SIP.</li>
-<li>H.323.</li>
-<li>IAX.</li>
+<li><p>Algunos sistemas abiertos:</p>
+<ul>
+<li><p>SIP.</p></li>
+<li><p>H.323.</p></li>
+<li><p>IAX.</p></li>
 </ul>
 </li>
 </ul>
 <div class="section" id="partes-involucradas">
 <h2>Partes involucradas<a class="headerlink" href="#partes-involucradas" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Los teléfonos IP son similares a los tradicionales pero tienen entrada
-Ethernet y dirección IP.</li>
-<li>Los softphones son software para llamadas que se puede instalar en ordenadores
-(estilo Skype).</li>
-<li>Foreign Exchange Station (FXS): Es una interfaz (puerto) que provee energía,
+<li><p>Los teléfonos IP son similares a los tradicionales pero tienen entrada
+Ethernet y dirección IP.</p></li>
+<li><p>Los softphones son software para llamadas que se puede instalar en ordenadores
+(estilo Skype).</p></li>
+<li><p>Foreign Exchange Station (FXS): Es una interfaz (puerto) que provee energía,
 tono de marcado y genera tensión de llamada (para el ring). Son los puertos
 que proveen los PSTN a los clientes, es donde se
-conectan los teléfonos tradicionales.</li>
-<li>Foreign Exchange Office (FXO): Es una interfaz (puerto) que señalizan cuando
+conectan los teléfonos tradicionales.</p></li>
+<li><p>Foreign Exchange Office (FXO): Es una interfaz (puerto) que señalizan cuando
 la línea está colgada o cortada, son los puertos que tienen los teléfonos
-tradicionales.</li>
-<li>Public Switched Telephone Network (PSTN): Red Telefonía Básica (RTB), se
-refiere a teléfonos tradicionales en lugar de VoIP.</li>
-<li>Private Branch Exchange (PBX): Es una central telefónica privada que conecta a
+tradicionales.</p></li>
+<li><p>Public Switched Telephone Network (PSTN): Red Telefonía Básica (RTB), se
+refiere a teléfonos tradicionales en lugar de VoIP.</p></li>
+<li><p>Private Branch Exchange (PBX): Es una central telefónica privada que conecta a
 todos los teléfonos internos y generalmente está conectada a unas pocas líneas
 telefónicas externas. Por lo tanto de un lado tiene FXO para conectarse a por
 ejemplo la PSTN y en el caso del teléfono tradicional tiene FXS para los
-teléfonos internos.</li>
-<li>Gateway (GWY): Permiten interconectar y transformar llamadas tradicionales en
-IP y viceversa. Se clasifican dependiendo de si tienen puertos FXS o FXO:<ul>
-<li>Gateway FXS: Tienen puertos FXS que permite conectar teléfonos tradicionales
-a una central IP.</li>
-<li>Gateway FXO: Tienen puertos FXO que permite conectar la central IP a la
-PSTN.</li>
+teléfonos internos.</p></li>
+<li><p>Gateway (GWY): Permiten interconectar y transformar llamadas tradicionales en
+IP y viceversa. Se clasifican dependiendo de si tienen puertos FXS o FXO:</p>
+<ul>
+<li><p>Gateway FXS: Tienen puertos FXS que permite conectar teléfonos tradicionales
+a una central IP.</p></li>
+<li><p>Gateway FXO: Tienen puertos FXO que permite conectar la central IP a la
+PSTN.</p></li>
 </ul>
 </li>
 </ul>
@@ -248,32 +248,35 @@ PSTN.</li>
 <p>El protocolo tienen muchas aplicaciones además de VoIP pero explico todo lo
 relacionado a llamadas de voz.</p>
 <ul class="simple">
-<li>Son mensajes de control que se envían fuera de banda.</li>
-<li>A diferencia del flujo de audio, SIP usa un puerto conocido.</li>
-<li>Es basado en texto, similar a HTTP o SMTP.</li>
-<li>Trabaja con URIs de la forma <code class="docutils literal"><span class="pre">usuario&#64;host</span></code> para describir a los diferentes
+<li><p>Son mensajes de control que se envían fuera de banda.</p></li>
+<li><p>A diferencia del flujo de audio, SIP usa un puerto conocido.</p></li>
+<li><p>Es basado en texto, similar a HTTP o SMTP.</p></li>
+<li><p>Trabaja con URIs de la forma <code class="docutils literal notranslate"><span class="pre">usuario&#64;host</span></code> para describir a los diferentes
 dispositivos. Antes de la arroba se escribe el número de teléfono o nombre de
-usuario, luego se coloca el nombre de dominio o dirección IP.</li>
-<li>Usa el protocolo SDP (Session Description Protocol) encapsulado dentro del
-datagrama SIP para negociar el tipo de multimedia y los parámetros a utilizar.</li>
-<li>Se puede usar sobre UDP, TCP, SCTP o TLS. Generalmente usa puerto 5060, o 5061
-en el caso de usar TLS.</li>
-<li>Permite señalizar y configurar llamadas VoIP punto a punto, sesiones
+usuario, luego se coloca el nombre de dominio o dirección IP.</p></li>
+<li><p>Usa el protocolo SDP (Session Description Protocol) encapsulado dentro del
+datagrama SIP para negociar el tipo de multimedia y los parámetros a utilizar.</p></li>
+<li><p>Se puede usar sobre UDP, TCP, SCTP o TLS. Generalmente usa puerto 5060, o 5061
+en el caso de usar TLS.</p></li>
+<li><p>Permite señalizar y configurar llamadas VoIP punto a punto, sesiones
 multimedia multicast, videollamadas permitiendo agregar y quitar usuarios en
-vivo, etc.</li>
-<li>Tipos de agentes:<ul>
-<li>User Agent (UA): Es un punto que maneja las sesiones SIP. Se subdivide en
+vivo, etc.</p></li>
+<li><p>Tipos de agentes:</p>
+<ul>
+<li><p>User Agent (UA): Es un punto que maneja las sesiones SIP. Se subdivide en
 User Agent Client (UAC) y User Agent Server (UAS), todos los dispositivos
-cumplen las funciones de cliente y de servidor en momentos distintos.</li>
-<li>Proxy Server: Es un servidor que además es UA, permite rutear peticiones
+cumplen las funciones de cliente y de servidor en momentos distintos.</p></li>
+<li><p>Proxy Server: Es un servidor que además es UA, permite rutear peticiones
 primero determinando si el usuario puede realizar la llamada. Actúa de
 intermediario entre agentes SIP, una vez establecida la conexión los agentes
-se comunican directamente. Generalmente contienen un registrar.</li>
-<li>Registrar: Es un dispositivo que acepta requests REGISTER almacenando la
+se comunican directamente. Generalmente contienen un registrar.</p></li>
+<li><p>Redirection Server: Genera respuestas de redirección del tipo <code class="docutils literal notranslate"><span class="pre">3XX</span></code> para
+encaminar las peticiones al siguiente servidor.</p></li>
+<li><p>Registrar: Es un dispositivo que acepta requests REGISTER almacenando la
 dirección y otros parámetros del UA. Luego permite a UAs a localizar otros
-UAs para realizar llamadas, algo así como un DNS.</li>
-<li>Gateway: Permite conectar redes SIP a otras redes, por ejemplo PSTN como
-expliqué arriba.</li>
+UAs para realizar llamadas, algo así como un DNS.</p></li>
+<li><p>Gateway: Permite conectar redes SIP a otras redes, por ejemplo PSTN como
+expliqué arriba.</p></li>
 </ul>
 </li>
 </ul>
@@ -281,47 +284,54 @@ expliqué arriba.</li>
 <h3>Peticiones<a class="headerlink" href="#peticiones" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Estas son las más usadas en VoIP:</p>
 <ul class="simple">
-<li>REGISTER: Solicita registrar un UA para que los demás UAs lo puedan encontrar.</li>
-<li>INVITE: Inicia o modifica una llamada, por ejemplo al poner una llamada en
-espera.</li>
-<li>ACK: Confirma una solicitud INVITE.</li>
-<li>BYE: Corta una llamada.</li>
-<li>CANCEL: Cancela una solicitud, por ejemplo para cortar una llamada mientras
-todavía ésta está sonando.</li>
+<li><p>REGISTER: Solicita registrar un UA para que los demás UAs lo puedan encontrar.</p></li>
+<li><p>INVITE: Inicia o modifica una llamada, por ejemplo al poner una llamada en
+espera.</p></li>
+<li><p>ACK: Confirma una solicitud INVITE.</p></li>
+<li><p>BYE: Corta una llamada.</p></li>
+<li><p>OPTION: Solicita informacion sobre las capacidades del servidor.</p></li>
+<li><p>CANCEL: Cancela una solicitud, por ejemplo para cortar una llamada mientras
+todavía ésta está sonando.</p></li>
 </ul>
 </div>
 <div class="section" id="respuestas">
 <h3>Respuestas<a class="headerlink" href="#respuestas" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">1XX</span></code>: La operación se ha iniciado correctamente.<ul>
-<li><code class="docutils literal"><span class="pre">100</span></code>: Intentando.</li>
-<li><code class="docutils literal"><span class="pre">180</span></code>: Sonando.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1XX</span></code>: La operación se ha iniciado correctamente.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">100</span></code>: Intentando.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">180</span></code>: Sonando.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">2XX</span></code>: La operación se ha completado correctamente.<ul>
-<li><code class="docutils literal"><span class="pre">200</span></code>: Comando OK.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2XX</span></code>: La operación se ha completado correctamente.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">200</span></code>: Comando OK.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">3XX</span></code>: Para redirección, debe hacerse la petición a otro destino.<ul>
-<li><code class="docutils literal"><span class="pre">301</span></code>: Movido permanentemente, indica hacia dónde.</li>
-<li><code class="docutils literal"><span class="pre">302</span></code>: Movido temporalmente, indica hacia dónde.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3XX</span></code>: Para redirección, debe hacerse la petición a otro destino.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">301</span></code>: Movido permanentemente, indica hacia dónde.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">302</span></code>: Movido temporalmente, indica hacia dónde.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">4XX</span></code>: Falla general.<ul>
-<li><code class="docutils literal"><span class="pre">400</span></code>: Error de sintaxis.</li>
-<li><code class="docutils literal"><span class="pre">401</span></code>: Sin autorización.</li>
-<li><code class="docutils literal"><span class="pre">404</span></code>: No encontrado.</li>
-<li><code class="docutils literal"><span class="pre">486</span></code>: Ocupado.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4XX</span></code>: Falla general.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">400</span></code>: Error de sintaxis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">401</span></code>: Sin autorización.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">404</span></code>: No encontrado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">486</span></code>: Ocupado.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">5XX</span></code>: Comando válido pero el servidor no pudo completar la operación.<ul>
-<li><code class="docutils literal"><span class="pre">500</span></code>: Error interno.</li>
-<li><code class="docutils literal"><span class="pre">501</span></code>: Comando no implementado.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5XX</span></code>: Comando válido pero el servidor no pudo completar la operación.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">500</span></code>: Error interno.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">501</span></code>: Comando no implementado.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">6XX</span></code>: No se puede completar la petición en ningún servidor.<ul>
-<li><code class="docutils literal"><span class="pre">600</span></code>: Todos los destinos ocupados.</li>
-<li><code class="docutils literal"><span class="pre">603</span></code>: Llamada rechazada.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">6XX</span></code>: No se puede completar la petición en ningún servidor.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">600</span></code>: Todos los destinos ocupados.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">603</span></code>: Llamada rechazada.</p></li>
 </ul>
 </li>
 </ul>
@@ -331,14 +341,14 @@ todavía ésta está sonando.</li>
 <h2>SDP<a class="headerlink" href="#sdp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Session Description Protocol.</p>
 <ul class="simple">
-<li>Va dentro de peticiones SIP, por ejemplo en peticiones INVITE o respuestas de
-OK.</li>
-<li>Negocia el tipo de multimedia, formato y demás propiedades</li>
+<li><p>Va dentro de peticiones SIP, por ejemplo en peticiones INVITE o respuestas de
+OK.</p></li>
+<li><p>Negocia el tipo de multimedia, formato y demás propiedades</p></li>
 </ul>
 <div class="section" id="campos">
 <h3>Campos<a class="headerlink" href="#campos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Copiado desde RFC 4566:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Session description
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Session description
    v=  (protocol version)
    o=  (originator and session identifier)
    s=  (session name)
@@ -370,7 +380,7 @@ Media description, if present
 </pre></div>
 </div>
 <p>Ejemplo copiado desde RFC 4566:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>v=0
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>v=0
 o=jdoe 2890844526 2890842807 IN IP4 10.47.16.5
 s=SDP Seminar
 i=A Seminar on the session description protocol
@@ -386,13 +396,26 @@ a=rtpmap:99 h263-1998/90000
 </div>
 </div>
 </div>
+<div class="section" id="iax">
+<h2>IAX<a class="headerlink" href="#iax" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Es un protocolo abierto para señalización que es una alternativa propia de
+Asterisk a SIP. A diferencia de SIP:</p>
+<ul class="simple">
+<li><p>Está basado en mensajes binarios en lugar de mensajes de texto.</p></li>
+<li><p>La senalización y los datos viajan juntos lo que evita problemas de NAT.
+Utiliza un solo puerto para todas las comunicaciones. SIP necesita un puerto
+para señalización y dos por cada llamada.</p></li>
+<li><p>No es un protocolo tan estandarizado como SIP.</p></li>
+<li><p>En SIP es posible transmitir la señalización por el servidor mientras que el
+audio puede viajar punto a punto. En IAX todo de pasar por el servidor lo que
+requiere de más recursos en el servidor.</p></li>
+</ul>
+</div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -401,7 +424,7 @@ a=rtpmap:99 h263-1998/90000
         <a href="gestion.html" class="btn btn-neutral float-right" title="Gestión de redes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="multimedia.html" class="btn btn-neutral" title="Multimedia" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="multimedia.html" class="btn btn-neutral float-left" title="Multimedia" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -410,11 +433,11 @@ a=rtpmap:99 h263-1998/90000
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -427,37 +450,15 @@ a=rtpmap:99 h263-1998/90000
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

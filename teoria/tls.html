@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="QOS" href="qos.html"/>
-        <link rel="prev" title="Seguridad" href="seguridad.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="QOS" href="qos.html" />
+    <link rel="prev" title="Seguridad" href="seguridad.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -127,7 +121,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -135,9 +129,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -185,24 +180,25 @@
 <h1>TLS<a class="headerlink" href="#tls" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Transport Layer Security.</p>
 <ul class="simple">
-<li>Su predecesor es SSL, no se utiliza más por cuestiones de seguridad, por eso
-muchos nombran a TLS y SSL como sinónimos.</li>
-<li>Normalmente asegura tres cosas (salvo que explícitamente alguna aplicación
-ignore una de ellas):<ul>
-<li>Cifrado: La comunicación viaja cifrada extremo a extremo utilizando claves
+<li><p>Su predecesor es SSL, no se utiliza más por cuestiones de seguridad, por eso
+muchos nombran a TLS y SSL como sinónimos.</p></li>
+<li><p>Normalmente asegura tres cosas (salvo que explícitamente alguna aplicación
+ignore una de ellas):</p>
+<ul>
+<li><p>Cifrado: La comunicación viaja cifrada extremo a extremo utilizando claves
 simétricas generadas de forma única para cada conexión, estas claves son
-negociadas al comienzo de a sesión.</li>
-<li>Autenticación: Generalmente al menos el servidor demuestra su identidad
-utilizando un par de claves pública/privada.</li>
-<li>Confiabilidad: Se verifica la integridad de cada mensaje para detectar
-errores o alteraciones de los datos transmitidos por un atacante.</li>
+negociadas al comienzo de a sesión.</p></li>
+<li><p>Autenticación: Generalmente al menos el servidor demuestra su identidad
+utilizando un par de claves pública/privada.</p></li>
+<li><p>Confiabilidad: Se verifica la integridad de cada mensaje para detectar
+errores o alteraciones de los datos transmitidos por un atacante.</p></li>
 </ul>
 </li>
-<li>Al conectarse se realiza un handshake en el cual se decide el tipo de cifrado
-y la clave simétrica a utilizar.</li>
-<li>El handshake aprovecha las ventajas del cifrado con clave pública y privada,
+<li><p>Al conectarse se realiza un handshake en el cual se decide el tipo de cifrado
+y la clave simétrica a utilizar.</p></li>
+<li><p>El handshake aprovecha las ventajas del cifrado con clave pública y privada,
 luego la comunicación utiliza cifrado simétrico porque es más rapido
-computacionalmente.</li>
+computacionalmente.</p></li>
 </ul>
 <div class="section" id="historia-breve">
 <h2>Historia breve<a class="headerlink" href="#historia-breve" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -230,17 +226,15 @@ extend its capabilities: TLS 1.1 (RFC 4346) was published in April 2006, TLS
 <div class="section" id="referencias">
 <h2>Referencias<a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://hpbn.co/transport-layer-security-tls/">https://hpbn.co/transport-layer-security-tls/</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Transport_Layer_Security">https://en.wikipedia.org/wiki/Transport_Layer_Security</a></li>
+<li><p><a class="reference external" href="https://hpbn.co/transport-layer-security-tls/">https://hpbn.co/transport-layer-security-tls/</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Transport_Layer_Security">https://en.wikipedia.org/wiki/Transport_Layer_Security</a></p></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -249,7 +243,7 @@ extend its capabilities: TLS 1.1 (RFC 4346) was published in April 2006, TLS
         <a href="qos.html" class="btn btn-neutral float-right" title="QOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="seguridad.html" class="btn btn-neutral" title="Seguridad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="seguridad.html" class="btn btn-neutral float-left" title="Seguridad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -258,11 +252,11 @@ extend its capabilities: TLS 1.1 (RFC 4346) was published in April 2006, TLS
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -275,37 +269,15 @@ extend its capabilities: TLS 1.1 (RFC 4346) was published in April 2006, TLS
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

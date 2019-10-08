@@ -110,6 +110,9 @@ relacionado a llamadas de voz.
     intermediario entre agentes SIP, una vez establecida la conexión los agentes
     se comunican directamente. Generalmente contienen un registrar.
 
+  - Redirection Server: Genera respuestas de redirección del tipo ``3XX`` para
+    encaminar las peticiones al siguiente servidor.
+
   - Registrar: Es un dispositivo que acepta requests REGISTER almacenando la
     dirección y otros parámetros del UA. Luego permite a UAs a localizar otros
     UAs para realizar llamadas, algo así como un DNS.
@@ -130,6 +133,8 @@ Estas son las más usadas en VoIP:
 - ACK: Confirma una solicitud INVITE.
 
 - BYE: Corta una llamada.
+
+- OPTION: Solicita informacion sobre las capacidades del servidor.
 
 - CANCEL: Cancela una solicitud, por ejemplo para cortar una llamada mientras
   todavía ésta está sonando.
@@ -234,3 +239,21 @@ Ejemplo copiado desde RFC 4566::
   m=audio 49170 RTP/AVP 0
   m=video 51372 RTP/AVP 99
   a=rtpmap:99 h263-1998/90000
+
+IAX
+---
+
+Es un protocolo abierto para señalización que es una alternativa propia de
+Asterisk a SIP. A diferencia de SIP:
+
+- Está basado en mensajes binarios en lugar de mensajes de texto.
+
+- La senalización y los datos viajan juntos lo que evita problemas de NAT.
+  Utiliza un solo puerto para todas las comunicaciones. SIP necesita un puerto
+  para señalización y dos por cada llamada.
+
+- No es un protocolo tan estandarizado como SIP.
+
+- En SIP es posible transmitir la señalización por el servidor mientras que el
+  audio puede viajar punto a punto. En IAX todo de pasar por el servidor lo que
+  requiere de más recursos en el servidor.
