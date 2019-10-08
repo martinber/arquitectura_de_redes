@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="6to4" href="6to4.html"/>
-        <link rel="prev" title="BGP" href="bgp.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="6to4" href="6to4.html" />
+    <link rel="prev" title="BGP" href="bgp.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -124,7 +118,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -132,9 +126,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -182,73 +177,73 @@
 <h1>MPLS<a class="headerlink" href="#mpls" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Multiprotocol Label Switching.</p>
 <ul class="simple">
-<li>Más rápido porque hace switching de capa 2 mirando etiquetas en lugar de ruteo
-de capa 3 mirando direcciones.</li>
-<li>Intenta conseguir las ventajas de ATM pero sin sus inconvenientes.</li>
-<li>No reemplaza el enrutamiento IP, aunque sea una red MPLS también es una red
-IP.</li>
-<li>Permite agrupar paquetes en flujos que recibirán todos el mismo tratamiento.</li>
-<li>Permite realizar ingeniería de tráfico, ya que no siempre se usa el camino más
-corto. También realizar QoS o Policy Routing.</li>
-<li>Permite realizar VPN porque realiza túneles entre dominios IP.</li>
-<li>La etiqueta va después de la cabecera de la capa de enlace (Ethernet, ATM,
+<li><p>Más rápido porque hace switching de capa 2 mirando etiquetas en lugar de ruteo
+de capa 3 mirando direcciones.</p></li>
+<li><p>Intenta conseguir las ventajas de ATM pero sin sus inconvenientes.</p></li>
+<li><p>No reemplaza el enrutamiento IP, aunque sea una red MPLS también es una red
+IP.</p></li>
+<li><p>Permite agrupar paquetes en flujos que recibirán todos el mismo tratamiento.</p></li>
+<li><p>Permite realizar ingeniería de tráfico, ya que no siempre se usa el camino más
+corto. También realizar QoS o Policy Routing.</p></li>
+<li><p>Permite realizar VPN porque realiza túneles entre dominios IP.</p></li>
+<li><p>La etiqueta va después de la cabecera de la capa de enlace (Ethernet, ATM,
 Frame-Relay, PPP) y antes de la cabecera IP. Pueden anidarse formando una
-pila, como si fuera una red MPLS dentro de otra.</li>
-<li>Al viajar por la red MPLS el campo TTL de IP no cambia, al salir se le coloca
-el valor adecuado.</li>
-<li>El enrutamiento se hace en base a la información que suministra un protocolo
-de ruteo, como OSPF.</li>
-<li>Se pueden usar switches ATM sin cambiar su hardware. Pero de todas formas es
-una desventaja que los routers deban ser MPLS.</li>
+pila, como si fuera una red MPLS dentro de otra.</p></li>
+<li><p>Al viajar por la red MPLS el campo TTL de IP no cambia, al salir se le coloca
+el valor adecuado.</p></li>
+<li><p>El enrutamiento se hace en base a la información que suministra un protocolo
+de ruteo, como OSPF.</p></li>
+<li><p>Se pueden usar switches ATM sin cambiar su hardware. Pero de todas formas es
+una desventaja que los routers deban ser MPLS.</p></li>
 </ul>
 <div class="section" id="definiciones">
 <h2>Definiciones<a class="headerlink" href="#definiciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>LSR (Label Switcher Router): Router MPLS que conmuta etiquetas, están dentro
-de la red MPLS, porque los de borde se llaman LER.</li>
-<li>LER (Label Edge Router): Router MPLS de borde.</li>
-<li>FEC (Forwarding Equivalence Class): Es un flujo de tráfico, está asociado a un
-LSP.</li>
-<li>LSP (Label Switched Path): Es un túnel virtual dentro de la red MPLS. Los
-túneles son unidireccionales (un solo sentido).</li>
-<li>LDP (Label Distribution Protocol): Protocolo que distribuye etiquetas. Permite
+<li><p>LSR (Label Switcher Router): Router MPLS que conmuta etiquetas, están dentro
+de la red MPLS, porque los de borde se llaman LER.</p></li>
+<li><p>LER (Label Edge Router): Router MPLS de borde.</p></li>
+<li><p>FEC (Forwarding Equivalence Class): Es un flujo de tráfico, está asociado a un
+LSP.</p></li>
+<li><p>LSP (Label Switched Path): Es un túnel virtual dentro de la red MPLS. Los
+túneles son unidireccionales (un solo sentido).</p></li>
+<li><p>LDP (Label Distribution Protocol): Protocolo que distribuye etiquetas. Permite
 a los LSR informar la relación FEC/etiqueta. Hay más protocolos de
-distribución de etiquetas, como BGP y RSVP.</li>
-<li>AToM (Any Transport Over MPLS): Permite usar MPLS para enviar tráfico de capa
-2 como Ethernet, PPP o ATM. Por lo tanto se pueden hacer VLAN sobre MPLS.</li>
-<li>RIB (Routing Information Base): Es la tabla de ruteo, la que se ve cuando uno
-hace <code class="docutils literal"><span class="pre">show</span> <span class="pre">ip</span> <span class="pre">route</span></code>. Tiene cosas como métricas.</li>
-<li>FIB (Forwarding Information Base): Es una versión optimizada de la RIB, con
-sólo las mejores rutas. En Cisco se llama CEF.</li>
-<li>LIB (Label Information Base): Tabla que contiene todas las etiquetas MPLS. Es
+distribución de etiquetas, como BGP y RSVP.</p></li>
+<li><p>AToM (Any Transport Over MPLS): Permite usar MPLS para enviar tráfico de capa
+2 como Ethernet, PPP o ATM. Por lo tanto se pueden hacer VLAN sobre MPLS.</p></li>
+<li><p>RIB (Routing Information Base): Es la tabla de ruteo, la que se ve cuando uno
+hace <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">ip</span> <span class="pre">route</span></code>. Tiene cosas como métricas.</p></li>
+<li><p>FIB (Forwarding Information Base): Es una versión optimizada de la RIB, con
+sólo las mejores rutas. En Cisco se llama CEF.</p></li>
+<li><p>LIB (Label Information Base): Tabla que contiene todas las etiquetas MPLS. Es
 formada a partir de la tabla RIB y del intercambio de información con otros
-LSR.</li>
-<li>LFIB (Label Forwarding Information Base): Es la versión optimizada de la tabla
-LIB.</li>
-<li>PHP (Penultimate Hop Popping): Es una de las configuraciones que se pueden
+LSR.</p></li>
+<li><p>LFIB (Label Forwarding Information Base): Es la versión optimizada de la tabla
+LIB.</p></li>
+<li><p>PHP (Penultimate Hop Popping): Es una de las configuraciones que se pueden
 usar, en la que el penúltimo router del trayecto quita (pop) la etiqueta
 porque sabe que el siguiente es el último. Permite reducir el consumo de CPU y
-se usa generalmente por defecto.</li>
-<li>Upstream: Construcción de camino, se eligen las etiquetas.</li>
-<li>Downstream: Ya está el camino, pasan datos.</li>
+se usa generalmente por defecto.</p></li>
+<li><p>Upstream: Construcción de camino, se eligen las etiquetas.</p></li>
+<li><p>Downstream: Ya está el camino, pasan datos.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
+<p class="admonition-title">Por hacer</p>
 <p>Terminar.</p>
-<ul class="last simple">
-<li>HELLO: Protocolo de hello, empieza con UDP y pasa a TCP?</li>
+<ul class="simple">
+<li><p>HELLO: Protocolo de hello, empieza con UDP y pasa a TCP?</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="mensajes-ldp">
 <h2>Mensajes LDP<a class="headerlink" href="#mensajes-ldp" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Discovery: Anuncia y mantiene la presencia de un LSR en al red. Son multicast
-UDP.</li>
-<li>Session: Establece, mantiene y finaliza la sesión LDP, una vez establecida la
-sesión se pueden transferir <em>Advertisements</em>. Usa TCP.</li>
-<li>Advertisement: Crea, cambia y borra mapeos para FECs.</li>
-<li>Notification: Avisa o señaliza errores.</li>
+<li><p>Discovery: Anuncia y mantiene la presencia de un LSR en al red. Son multicast
+UDP.</p></li>
+<li><p>Session: Establece, mantiene y finaliza la sesión LDP, una vez establecida la
+sesión se pueden transferir <em>Advertisements</em>. Usa TCP.</p></li>
+<li><p>Advertisement: Crea, cambia y borra mapeos para FECs.</p></li>
+<li><p>Notification: Avisa o señaliza errores.</p></li>
 </ul>
 </div>
 <div class="section" id="funcionamiento">
@@ -264,18 +259,20 @@ router le quita la etiqueta y el último lo rutea correctamente hacia el destino
 <img alt="../_images/planos_mpls.png" src="../_images/planos_mpls.png" />
 <p>Cada plano tiene varios componentes.</p>
 <ul class="simple">
-<li>Plano de control o ruteo: Lleva una tarea lenta y compleja.<ul>
-<li>Protocolo de ruteo: Por ejemplo OSPF, RIP, BGP.</li>
-<li>RIB (Routing Information Base).</li>
-<li>LDP (Label Distribution Protocol).</li>
-<li>LIB (Label Information Base).</li>
+<li><p>Plano de control o ruteo: Lleva una tarea lenta y compleja.</p>
+<ul>
+<li><p>Protocolo de ruteo: Por ejemplo OSPF, RIP, BGP.</p></li>
+<li><p>RIB (Routing Information Base).</p></li>
+<li><p>LDP (Label Distribution Protocol).</p></li>
+<li><p>LIB (Label Information Base).</p></li>
 </ul>
 </li>
-<li>Plano de datos o forwarding: Tiene dos tables construidas gracias a la
+<li><p>Plano de datos o forwarding: Tiene dos tables construidas gracias a la
 información creada en el plano de control. La tarea que tiene es simple y
-rápida.<ul>
-<li>FIB: Tabla de forwarding IP.</li>
-<li>LFIB: Tabla de forwarding de etiquetas.</li>
+rápida.</p>
+<ul>
+<li><p>FIB: Tabla de forwarding IP.</p></li>
+<li><p>LFIB: Tabla de forwarding de etiquetas.</p></li>
 </ul>
 </li>
 </ul>
@@ -285,26 +282,24 @@ rápida.<ul>
 <p>Estos son problemas que se intentan solucionar con MPLS pero todavía no están
 totalmente resueltos.</p>
 <ul class="simple">
-<li>CBR (Constraint Based Routing): Buscar caminos que safisfagan unas
+<li><p>CBR (Constraint Based Routing): Buscar caminos que safisfagan unas
 restricciones explícitas, como que la pérdida de paquetes sea menor a cierto
-valor o que el retardo sea menor a un cierto tiempo.</li>
-<li>Balanceo de Carga: Se intenta dividir el tráfico (de varios flujos) a través
-de distintos caminos.</li>
+valor o que el retardo sea menor a un cierto tiempo.</p></li>
+<li><p>Balanceo de Carga: Se intenta dividir el tráfico (de varios flujos) a través
+de distintos caminos.</p></li>
 </ul>
 </div>
 <div class="section" id="links">
 <h2>Links<a class="headerlink" href="#links" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="http://networkstatic.net/juniper-and-cisco-comparisons-of-rib-lib-fib-and-lfib-tables/">http://networkstatic.net/juniper-and-cisco-comparisons-of-rib-lib-fib-and-lfib-tables/</a></li>
+<li><p><a class="reference external" href="http://networkstatic.net/juniper-and-cisco-comparisons-of-rib-lib-fib-and-lfib-tables/">http://networkstatic.net/juniper-and-cisco-comparisons-of-rib-lib-fib-and-lfib-tables/</a></p></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -313,7 +308,7 @@ de distintos caminos.</li>
         <a href="6to4.html" class="btn btn-neutral float-right" title="6to4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="bgp.html" class="btn btn-neutral" title="BGP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bgp.html" class="btn btn-neutral float-left" title="BGP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -322,11 +317,11 @@ de distintos caminos.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -339,37 +334,15 @@ de distintos caminos.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

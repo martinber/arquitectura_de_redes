@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Práctica" href="index.html"/>
-        <link rel="next" title="BIND" href="bind.html"/>
-        <link rel="prev" title="Mikrotik" href="mikrotik.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="BIND" href="bind.html" />
+    <link rel="prev" title="Mikrotik" href="mikrotik.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -113,7 +107,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -121,9 +115,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -170,18 +165,18 @@
   <div class="section" id="juniper">
 <h1>Juniper<a class="headerlink" href="#juniper" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
+<p class="admonition-title">Por hacer</p>
 <ul class="simple">
-<li>Se usa puerto de consola serial a ??? baudios</li>
-<li>Para ayuda ir poniendo <code class="docutils literal"><span class="pre">?</span></code>.</li>
+<li><p>Se usa puerto de consola serial a ??? baudios</p></li>
+<li><p>Para ayuda ir poniendo <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p></li>
 </ul>
-<p class="last">login: root
+<p>login: root
 % cli
 &gt; configure
 &gt; set system root-authentication plain-text-password</p>
 </div>
 <p>Mostrar cosas:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>show configuration
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>show configuration
 
 show interfaces
 show interfaces terse
@@ -193,17 +188,17 @@ show route detail
 </pre></div>
 </div>
 <p>Habilitar o deshabilitar interfaz:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>configure
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>configure
 set interface ge-0/0/1 enable
 set interface ge-0/0/1 disable
 </pre></div>
 </div>
 <div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Agregar como borrar IP y como borrar rutas</p>
+<p class="admonition-title">Por hacer</p>
+<p>Agregar como borrar IP y como borrar rutas</p>
 </div>
 <p>Agregar IP:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>set interfaces ge-0/0/0 unit 0 family inet address 192.168.1.1/24
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>set interfaces ge-0/0/0 unit 0 family inet address 192.168.1.1/24
 delete interfaces ge-0/0/0 unit 0 family inet address 192.168.1.1/24
 
 set interfaces ge-0/0/0 unit 0 family inet6 address 2001:AA::2/64
@@ -211,7 +206,7 @@ delete interfaces ge-0/0/0 unit 0 family inet6 address 2001:AA::2/64
 </pre></div>
 </div>
 <p>Agregar rutas:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>set routing-options static route 0.0.0.0/0 next-hop 192.168.1.1
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>set routing-options static route 0.0.0.0/0 next-hop 192.168.1.1
 delete routing-options static route 0.0.0.0/0 next-hop 192.168.1.1
 
 set routing-options rib inet6.0 static route ::/0 next-hop 2001:A::1/64
@@ -219,27 +214,27 @@ delete routing-options rib inet6.0 static route ::/0 next-hop 2001:A::1/64
 </pre></div>
 </div>
 <p>Configurar DNS:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>ip dns set servers=8.8.8.8
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip dns set servers=8.8.8.8
 </pre></div>
 </div>
 <p>Dar IP a loopback:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>set interfaces lo0 unit 1 family inet address 192.168.1.1/24
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>set interfaces lo0 unit 1 family inet address 192.168.1.1/24
 set interfaces lo0 unit 1 family inet6 address 2001:AA::2/64
 </pre></div>
 </div>
 <div class="admonition-todo admonition" id="index-2">
-<p class="first admonition-title">Por hacer</p>
+<p class="admonition-title">Por hacer</p>
 <ul class="simple">
-<li><a class="reference external" href="https://rtodto.net/juniper-srx-for-beginners/">https://rtodto.net/juniper-srx-for-beginners/</a></li>
-<li><a class="reference external" href="https://rtodto.net/srx-for-beginners-2/">https://rtodto.net/srx-for-beginners-2/</a></li>
+<li><p><a class="reference external" href="https://rtodto.net/juniper-srx-for-beginners/">https://rtodto.net/juniper-srx-for-beginners/</a></p></li>
+<li><p><a class="reference external" href="https://rtodto.net/srx-for-beginners-2/">https://rtodto.net/srx-for-beginners-2/</a></p></li>
 </ul>
-<div class="highlight-none"><div class="highlight"><pre><span></span>delete security
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>delete security
 set security forwarding-options family mpls mode packet-based
 set security forwarding-options family iso mode packet-based
 set security forwarding-options family inet6 mode packet-based
 </pre></div>
 </div>
-<div class="last highlight-none"><div class="highlight"><pre><span></span>root@JUNIPER_RACK_1# show
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root@JUNIPER_RACK_1# show
 ## Last changed: 2019-04-25 23:43:19 UTC
 version 11.2R4.3;
 system {
@@ -475,9 +470,7 @@ root@JUNIPER_RACK_1#
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -486,7 +479,7 @@ root@JUNIPER_RACK_1#
         <a href="bind.html" class="btn btn-neutral float-right" title="BIND" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="mikrotik.html" class="btn btn-neutral" title="Mikrotik" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mikrotik.html" class="btn btn-neutral float-left" title="Mikrotik" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -495,11 +488,11 @@ root@JUNIPER_RACK_1#
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -512,37 +505,15 @@ root@JUNIPER_RACK_1#
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

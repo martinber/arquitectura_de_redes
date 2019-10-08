@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="Mail" href="mail.html"/>
-        <link rel="prev" title="6to4" href="6to4.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Mail" href="mail.html" />
+    <link rel="prev" title="6to4" href="6to4.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -135,7 +129,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -143,9 +137,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -193,79 +188,81 @@
 <h1>DNS<a class="headerlink" href="#dns" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Domain Name System.</p>
 <ul class="simple">
-<li>En <a class="reference internal" href="../practica/bind.html"><span class="doc">BIND</span></a> hay más información.</li>
-<li>Definiciones mas o menos porque no la tengo bien clara todavía:<ul>
-<li><em>Hostname</em> o nombre de host: Es un nombre que identifica a un host, por
-ejemplo <code class="docutils literal"><span class="pre">pc1</span></code> o <code class="docutils literal"><span class="pre">pc1.dominio.com</span></code>.</li>
-<li><em>Dominio</em>: Es un nombre que identifica un espacio de autonomía
+<li><p>En <a class="reference internal" href="../practica/bind.html"><span class="doc">BIND</span></a> hay más información.</p></li>
+<li><p>Definiciones mas o menos porque no la tengo bien clara todavía:</p>
+<ul>
+<li><p><em>Hostname</em> o nombre de host: Es un nombre que identifica a un host, por
+ejemplo <code class="docutils literal notranslate"><span class="pre">pc1</span></code> o <code class="docutils literal notranslate"><span class="pre">pc1.dominio.com</span></code>.</p></li>
+<li><p><em>Dominio</em>: Es un nombre que identifica un espacio de autonomía
 administrativa, control, etc. Dentro puede tener varios hostnames y varios
-dominios que se pueden llamar subdominios. Por ejemplo <code class="docutils literal"><span class="pre">dominio</span></code> o
-<code class="docutils literal"><span class="pre">dominio.com</span></code> o <code class="docutils literal"><span class="pre">subdominio.dominio.com</span></code>, se puede decir que
-<code class="docutils literal"><span class="pre">subdominio.dominio.com</span></code> además de estar en el dominio <code class="docutils literal"><span class="pre">dominio.com</span></code>
-está en el dominio <code class="docutils literal"><span class="pre">com</span></code>.</li>
-<li><em>FQDN</em> (Fully Qualified Domain Name): Es un hostname o dominio nombrado de
+dominios que se pueden llamar subdominios. Por ejemplo <code class="docutils literal notranslate"><span class="pre">dominio</span></code> o
+<code class="docutils literal notranslate"><span class="pre">dominio.com</span></code> o <code class="docutils literal notranslate"><span class="pre">subdominio.dominio.com</span></code>, se puede decir que
+<code class="docutils literal notranslate"><span class="pre">subdominio.dominio.com</span></code> además de estar en el dominio <code class="docutils literal notranslate"><span class="pre">dominio.com</span></code>
+está en el dominio <code class="docutils literal notranslate"><span class="pre">com</span></code>.</p></li>
+<li><p><em>FQDN</em> (Fully Qualified Domain Name): Es un hostname o dominio nombrado de
 forma completa, especificando todos los niveles en la jerarquía. Por ejemplo
-<code class="docutils literal"><span class="pre">dominio.com</span></code> o <code class="docutils literal"><span class="pre">pc1.dominio.com</span></code>.</li>
-<li><em>Zona</em>: Es una zona de autoridad, es un dominio menos todos los subdominios
-delegados a otros servidores DNS.</li>
+<code class="docutils literal notranslate"><span class="pre">dominio.com</span></code> o <code class="docutils literal notranslate"><span class="pre">pc1.dominio.com</span></code>.</p></li>
+<li><p><em>Zona</em>: Es una zona de autoridad, es un dominio menos todos los subdominios
+delegados a otros servidores DNS.</p></li>
 </ul>
 </li>
-<li>Traduce entre nombres e IPs gracias a los servidores de nombres de dominio
-(<em>domain name server</em>).</li>
-<li>Puerto 53.</li>
-<li>UDP para resoluciones.</li>
-<li>TCP para transferencias de zona.</li>
-<li>El dominio superior es el <em>root</em> o <code class="docutils literal"><span class="pre">.</span></code>. Los dominios que le siguen, como
-<code class="docutils literal"><span class="pre">com</span></code>, <code class="docutils literal"><span class="pre">ar</span></code>, <code class="docutils literal"><span class="pre">net</span></code>, etc. son <em>Top Level Domains</em> (TLDs).</li>
-<li>Los programas utilizados del lado del cliente se denominan <em>resolvers</em>.</li>
-<li>Los servidores DNS generalmente se identifican por nombres de dominio en lugar
-de IPs.</li>
-<li>Un <em>Fully Qualified Domain Name</em> (FQDN) es simplemente un nombre de dominio
+<li><p>Traduce entre nombres e IPs gracias a los servidores de nombres de dominio
+(<em>domain name server</em>).</p></li>
+<li><p>Puerto 53.</p></li>
+<li><p>UDP para resoluciones.</p></li>
+<li><p>TCP para transferencias de zona.</p></li>
+<li><p>El dominio superior es el <em>root</em> o <code class="docutils literal notranslate"><span class="pre">.</span></code>. Los dominios que le siguen, como
+<code class="docutils literal notranslate"><span class="pre">com</span></code>, <code class="docutils literal notranslate"><span class="pre">ar</span></code>, <code class="docutils literal notranslate"><span class="pre">net</span></code>, etc. son <em>Top Level Domains</em> (TLDs).</p></li>
+<li><p>Los programas utilizados del lado del cliente se denominan <em>resolvers</em>.</p></li>
+<li><p>Los servidores DNS generalmente se identifican por nombres de dominio en lugar
+de IPs.</p></li>
+<li><p>Un <em>Fully Qualified Domain Name</em> (FQDN) es simplemente un nombre de dominio
 completo, especifica todos los niveles, incluyendo al menos un <em>Top Level
-Domain</em> y un <em>Second Level Domain</em>.</li>
+Domain</em> y un <em>Second Level Domain</em>.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<ul class="last simple">
-<li>Aprender bien la diferencia entre zona, dominio y nombre y arreglar esto.</li>
+<p class="admonition-title">Por hacer</p>
+<ul class="simple">
+<li><p>Aprender bien la diferencia entre zona, dominio y nombre y arreglar esto.</p></li>
 </ul>
 </div>
 <div class="section" id="header">
 <h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
+<p class="admonition-title">Por hacer</p>
+<p>Hacer</p>
 </div>
 </div>
 <div class="section" id="jerarquia">
 <h2>Jerarquía<a class="headerlink" href="#jerarquia" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Se delega la autoridad sobre un dominio a un servidor autoritativo, éste
-servidor puede delegar la autoridad sobre un subdominio a otro servidor.</li>
-<li>Cada dominio tiene al menos un servidor autoritativo que informa sobre ese
-dominio y sobre los servidores de los subdominios.</li>
+<li><p>Se delega la autoridad sobre un dominio a un servidor autoritativo, éste
+servidor puede delegar la autoridad sobre un subdominio a otro servidor.</p></li>
+<li><p>Cada dominio tiene al menos un servidor autoritativo que informa sobre ese
+dominio y sobre los servidores de los subdominios.</p></li>
 </ul>
 <img alt="../_images/jerarquia_dns.png" src="../_images/jerarquia_dns.png" />
 <div class="admonition-todo admonition" id="index-2">
-<p class="first admonition-title">Por hacer</p>
+<p class="admonition-title">Por hacer</p>
 <p>Hacer</p>
-<p class="last">Quien tiene autoridad sobre la zona</p>
+<p>Quien tiene autoridad sobre la zona</p>
 </div>
 </div>
 <div class="section" id="tipos-de-servidores">
 <h2>Tipos de servidores<a class="headerlink" href="#tipos-de-servidores" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Solo Cache: No es autoridad para ninguna zona. No posee base de datos (DB).
-Almacena las consultas.</li>
-<li>Autoritativos: Responden con datos que están almacenados localmente, a
+<li><p>Solo Cache: No es autoridad para ninguna zona. No posee base de datos (DB).
+Almacena las consultas.</p></li>
+<li><p>Autoritativos: Responden con datos que están almacenados localmente, a
 diferencia de los servidores no autoritativos que realizan consultas y
-mantienen un caché.<ul>
-<li>Primario (Maestro): Posee una base de datos con todos los registros, los
+mantienen un caché.</p>
+<ul>
+<li><p>Primario (Maestro): Posee una base de datos con todos los registros, los
 cuales son administrados localmente. Solamente hay un solo servidor
-primario.</li>
-<li>Secundario (Esclavo): Trabaja con transferencia de zona, que significa tomar
+primario.</p></li>
+<li><p>Secundario (Esclavo): Trabaja con transferencia de zona, que significa tomar
 las zonas de un primario y almacenarlas localmente. Pueden haber múltiples
-servidores secundarios.</li>
+servidores secundarios.</p></li>
 </ul>
 </li>
 </ul>
@@ -275,25 +272,25 @@ responden con los servidores de los TLDs.</p>
 <div class="section" id="tipos-de-registros">
 <h2>Tipos de registros<a class="headerlink" href="#tipos-de-registros" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><strong>A</strong>:</li>
-<li><strong>AAAA</strong>:</li>
-<li><strong>NS</strong>:</li>
-<li><strong>CNAME</strong>:</li>
-<li><strong>PTR</strong>:</li>
-<li><strong>MX</strong>:</li>
-<li><strong>TXT</strong>:</li>
-<li><strong>SOA</strong>:</li>
+<li><p><strong>A</strong>:</p></li>
+<li><p><strong>AAAA</strong>:</p></li>
+<li><p><strong>NS</strong>:</p></li>
+<li><p><strong>CNAME</strong>:</p></li>
+<li><p><strong>PTR</strong>:</p></li>
+<li><p><strong>MX</strong>:</p></li>
+<li><p><strong>TXT</strong>:</p></li>
+<li><p><strong>SOA</strong>:</p></li>
 </ul>
 </div>
 <div class="section" id="tipos-de-consultas">
 <h2>Tipos de consultas<a class="headerlink" href="#tipos-de-consultas" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Iterativas: El servidor responde con información parcial ya que generalmente
+<li><p>Iterativas: El servidor responde con información parcial ya que generalmente
 no conoce la respuesta completa, deriva al cliente a otro servidor con más
-información.</li>
-<li>Recursivas: El servidor asume la responsabilidad de proporcionar la respuesta,
+información.</p></li>
+<li><p>Recursivas: El servidor asume la responsabilidad de proporcionar la respuesta,
 si la desconoce, se encarga de consultar otros servidores hasta obtenerla para
-finalmente proporcionar dicha respuesta al cliente.</li>
+finalmente proporcionar dicha respuesta al cliente.</p></li>
 </ul>
 </div>
 <div class="section" id="glue-records">
@@ -301,12 +298,12 @@ finalmente proporcionar dicha respuesta al cliente.</li>
 <p>En respuestas iterativas, el siguiente servidor de nombres a consultar se
 identifica por nombre de dominio y no por IP, por lo tanto puede que haga falta
 hacer otra consulta para resolverlo.</p>
-<p>Por ejemplo supongamos que el servidor autoritativo de <code class="docutils literal"><span class="pre">example.com</span></code> es
-<code class="docutils literal"><span class="pre">ns1.example.com</span></code>, que delega el subdominio <code class="docutils literal"><span class="pre">a.example.com</span></code> a
-<code class="docutils literal"><span class="pre">ns1.a.example.com</span></code>.</p>
-<p>Si se desea resolver <code class="docutils literal"><span class="pre">host.a.example.com</span></code> primero se consulta al
-servidor autoritativo <code class="docutils literal"><span class="pre">ns1.example.com</span></code>, que te lleva a consultar a
-<code class="docutils literal"><span class="pre">ns1.a.example.com</span></code>. El problema es que si no te indica la IP de éste servidor
+<p>Por ejemplo supongamos que el servidor autoritativo de <code class="docutils literal notranslate"><span class="pre">example.com</span></code> es
+<code class="docutils literal notranslate"><span class="pre">ns1.example.com</span></code>, que delega el subdominio <code class="docutils literal notranslate"><span class="pre">a.example.com</span></code> a
+<code class="docutils literal notranslate"><span class="pre">ns1.a.example.com</span></code>.</p>
+<p>Si se desea resolver <code class="docutils literal notranslate"><span class="pre">host.a.example.com</span></code> primero se consulta al
+servidor autoritativo <code class="docutils literal notranslate"><span class="pre">ns1.example.com</span></code>, que te lleva a consultar a
+<code class="docutils literal notranslate"><span class="pre">ns1.a.example.com</span></code>. El problema es que si no te indica la IP de éste servidor
 se crea una dependencia circular ya que se debe preguntar por la dirección de
 ese servidor.</p>
 <p>Por lo tanto el servidor que provee la delegación debe también indicar una o más
@@ -316,50 +313,50 @@ direcciones IP para el servidor mencionado en la delegación, esto se llama
 <div class="section" id="cacheo">
 <h2>Cacheo<a class="headerlink" href="#cacheo" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Si no se usaran cachés, todas las consultas empezarían en un servidor raíz lo
-que sería muy ineficiente.</li>
-<li>Almacenan registros por un tiempo determinado en el <em>Time to live</em> de cada
-registro. Valores típicos son del orden de los 5 días.</li>
-<li>Normalmente también tienen el algoritmo recursivo.</li>
-<li>El cacheo negativo es cuando se cachea la inexistencia de un cierto nombre de
-dominio.</li>
+<li><p>Si no se usaran cachés, todas las consultas empezarían en un servidor raíz lo
+que sería muy ineficiente.</p></li>
+<li><p>Almacenan registros por un tiempo determinado en el <em>Time to live</em> de cada
+registro. Valores típicos son del orden de los 5 días.</p></li>
+<li><p>Normalmente también tienen el algoritmo recursivo.</p></li>
+<li><p>El cacheo negativo es cuando se cachea la inexistencia de un cierto nombre de
+dominio.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-3">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Ver bien cuando se usan servidores de cacheo y autoritativos.</p>
+<p class="admonition-title">Por hacer</p>
+<p>Ver bien cuando se usan servidores de cacheo y autoritativos.</p>
 </div>
 </div>
 <div class="section" id="dns-reverso">
 <h2>DNS reverso<a class="headerlink" href="#dns-reverso" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Es la consulta de nombres de dominio para cuando la dirección IP es conocida.</li>
-<li>Se usa el TLD <code class="docutils literal"><span class="pre">arpa</span></code>. Para IPv4 se usa <code class="docutils literal"><span class="pre">in-addr.arpa</span></code>, para IPv6 se usa
-<code class="docutils literal"><span class="pre">ip6.arpa</span></code>. Las direcciones se ponen al revés.</li>
-<li>Se hace una consulta DNS usando un nombre de dominio que contiene en realidad
-la dirección IP, de atrás para adelante.</li>
-<li>Al hacer la consulta se van explorando los servidores de nombres autoritativos
-partiendo desde <code class="docutils literal"><span class="pre">in-addr.arpa</span></code> hacia abajo. Como los bloques de direcciones
+<li><p>Es la consulta de nombres de dominio para cuando la dirección IP es conocida.</p></li>
+<li><p>Se usa el TLD <code class="docutils literal notranslate"><span class="pre">arpa</span></code>. Para IPv4 se usa <code class="docutils literal notranslate"><span class="pre">in-addr.arpa</span></code>, para IPv6 se usa
+<code class="docutils literal notranslate"><span class="pre">ip6.arpa</span></code>. Las direcciones se ponen al revés.</p></li>
+<li><p>Se hace una consulta DNS usando un nombre de dominio que contiene en realidad
+la dirección IP, de atrás para adelante.</p></li>
+<li><p>Al hacer la consulta se van explorando los servidores de nombres autoritativos
+partiendo desde <code class="docutils literal notranslate"><span class="pre">in-addr.arpa</span></code> hacia abajo. Como los bloques de direcciones
 IP son asignados a organizaciones, cada organización tiene un servidor de
 nombre de dominio configurado para hacer DNS reverso a su bloque. En el caso
 en el cual la organización transfiere una subred a otra organización, de forma
 paralela se hace la delegación del bloque correspondiente para que funcione el
-DNS reverso.</li>
-<li>En el caso de IPv4, cada dominio abarca un octeto, por ejemplo para
-<code class="docutils literal"><span class="pre">10.20.30.40</span></code> se hace una consulta por <code class="docutils literal"><span class="pre">40.30.20.10.in-addr.arpa</span></code>.</li>
-<li>Como originalmente las direcciones eran clase A, B o C (<code class="docutils literal"><span class="pre">/8</span></code>, <code class="docutils literal"><span class="pre">/16</span></code> y
-<code class="docutils literal"><span class="pre">/24</span></code>). Asignar un octeto a cada dominio tenía sentido, pero al incorporar
+DNS reverso.</p></li>
+<li><p>En el caso de IPv4, cada dominio abarca un octeto, por ejemplo para
+<code class="docutils literal notranslate"><span class="pre">10.20.30.40</span></code> se hace una consulta por <code class="docutils literal notranslate"><span class="pre">40.30.20.10.in-addr.arpa</span></code>.</p></li>
+<li><p>Como originalmente las direcciones eran clase A, B o C (<code class="docutils literal notranslate"><span class="pre">/8</span></code>, <code class="docutils literal notranslate"><span class="pre">/16</span></code> y
+<code class="docutils literal notranslate"><span class="pre">/24</span></code>). Asignar un octeto a cada dominio tenía sentido, pero al incorporar
 CIDR comenzaron a asignarse bloques de direcciones que no están alineados en
-los octetos. Por ejemplo hay dos <code class="docutils literal"><span class="pre">/25</span></code> en un mismo nombre de dominio
-reverso que abarca a una <code class="docutils literal"><span class="pre">/24</span></code>. Por lo tanto la RFC 2317 estableció el
+los octetos. Por ejemplo hay dos <code class="docutils literal notranslate"><span class="pre">/25</span></code> en un mismo nombre de dominio
+reverso que abarca a una <code class="docutils literal notranslate"><span class="pre">/24</span></code>. Por lo tanto la RFC 2317 estableció el
 truquito a usar para delegar lo que sería algo así como medio nombre de
-dominio.</li>
-<li>En el caso de IPv6 los dominios se corresponden a 4 bits, por ejemplo para
-<code class="docutils literal"><span class="pre">2001:db8::567:89ab</span></code> se hace una consulta por
-<code class="docutils literal"><span class="pre">b.a.9.8.7.6.5.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa</span></code>.</li>
+dominio.</p></li>
+<li><p>En el caso de IPv6 los dominios se corresponden a 4 bits, por ejemplo para
+<code class="docutils literal notranslate"><span class="pre">2001:db8::567:89ab</span></code> se hace una consulta por
+<code class="docutils literal notranslate"><span class="pre">b.a.9.8.7.6.5.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa</span></code>.</p></li>
 </ul>
 <div class="admonition-todo admonition" id="index-4">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer</p>
+<p class="admonition-title">Por hacer</p>
+<p>Hacer</p>
 </div>
 </div>
 <div class="section" id="configuracion-de-un-servidor">
@@ -368,7 +365,7 @@ dominio.</li>
 <h3>Zonas obligatorias<a class="headerlink" href="#zonas-obligatorias" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La RFC 1912 especifica que ciertas zonas son obligatorias, y por lo tanto ya
 vienen configuradas por defecto en BIND9:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>4.1 Boot file setup
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>4.1 Boot file setup
 
    Certain zones should always be present in nameserver configurations:
 
@@ -416,7 +413,7 @@ vienen configuradas por defecto en BIND9:</p>
 <div class="section" id="capturas">
 <h2>Capturas<a class="headerlink" href="#capturas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Consulta común, de tipo <em>A</em>:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 19: 79 bytes on wire (632 bits), 79 bytes captured (632 bits) on interface 0
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 19: 79 bytes on wire (632 bits), 79 bytes captured (632 bits) on interface 0
 Ethernet II, Src: f2:91:c2:b9:f1:de (f2:91:c2:b9:f1:de),
     Dst: a6:98:12:70:82:73 (a6:98:12:70:82:73)
 Internet Protocol Version 4, Src: 10.0.0.101, Dst: 10.0.0.11
@@ -435,7 +432,7 @@ Domain Name System (query)
 </div>
 <p>Respuesta fallida de servidor secundario a esa consulta, debido a que no estaba
 disponible el servidor primario para hacer transferencia de zona:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 18: 79 bytes on wire (632 bits), 79 bytes captured (632 bits) on interface 0
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 18: 79 bytes on wire (632 bits), 79 bytes captured (632 bits) on interface 0
 Ethernet II, Src: a6:98:12:70:82:73 (a6:98:12:70:82:73),
     Dst: f2:91:c2:b9:f1:de (f2:91:c2:b9:f1:de)
 Internet Protocol Version 4, Src: 10.0.0.11, Dst: 10.0.0.101
@@ -454,7 +451,7 @@ Domain Name System (response)
 </pre></div>
 </div>
 <p>Respuesta correcta de consulta similar (sólo difiere en el ID de transacción):</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 44: 163 bytes on wire (1304 bits), 163 bytes captured (1304 bits) on interface 0
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 44: 163 bytes on wire (1304 bits), 163 bytes captured (1304 bits) on interface 0
 Ethernet II, Src: a6:98:12:70:82:73 (a6:98:12:70:82:73),
     Dst: f2:91:c2:b9:f1:de (f2:91:c2:b9:f1:de)
 Internet Protocol Version 4, Src: 10.0.0.11, Dst: 10.0.0.101
@@ -482,9 +479,9 @@ Domain Name System (response)
 </div>
 <div class="section" id="transferencia-de-zona">
 <h3>Transferencia de zona<a class="headerlink" href="#transferencia-de-zona" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Resumen de transferencia de zona de <code class="docutils literal"><span class="pre">ns1.bernardi.test</span></code> (primario) a
-<code class="docutils literal"><span class="pre">ns2.bernardi.test</span></code> (secundario):</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>10.0.0.11  -&gt;  10.0.0.10  TCP
+<p>Resumen de transferencia de zona de <code class="docutils literal notranslate"><span class="pre">ns1.bernardi.test</span></code> (primario) a
+<code class="docutils literal notranslate"><span class="pre">ns2.bernardi.test</span></code> (secundario):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10.0.0.11  -&gt;  10.0.0.10  TCP
   33169 → 53 [SYN] Seq=0 Len=0 MSS=1460 SACK_PERM=1
 
 10.0.0.10  -&gt;  10.0.0.11  TCP
@@ -518,7 +515,7 @@ Domain Name System (response)
 </pre></div>
 </div>
 <p>Petición de transferencia:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 32: 99 bytes on wire (792 bits), 99 bytes captured (792 bits) on interface 0
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 32: 99 bytes on wire (792 bits), 99 bytes captured (792 bits) on interface 0
 Ethernet II, Src: a6:98:12:70:82:73 (a6:98:12:70:82:73),
     Dst: e2:87:2e:a9:0a:f7 (e2:87:2e:a9:0a:f7)
 Internet Protocol Version 4, Src: 10.0.0.11, Dst: 10.0.0.10
@@ -537,7 +534,7 @@ Domain Name System (query)
 </pre></div>
 </div>
 <p>Transferencia:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 34: 289 bytes on wire (2312 bits), 289 bytes captured (2312 bits) on interface 0
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 34: 289 bytes on wire (2312 bits), 289 bytes captured (2312 bits) on interface 0
 Ethernet II, Src: e2:87:2e:a9:0a:f7 (e2:87:2e:a9:0a:f7),
     Dst: a6:98:12:70:82:73 (a6:98:12:70:82:73)
 Internet Protocol Version 4, Src: 10.0.0.10, Dst: 10.0.0.11
@@ -571,9 +568,7 @@ Domain Name System (response)
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -582,7 +577,7 @@ Domain Name System (response)
         <a href="mail.html" class="btn btn-neutral float-right" title="Mail" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="6to4.html" class="btn btn-neutral" title="6to4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="6to4.html" class="btn btn-neutral float-left" title="6to4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -591,11 +586,11 @@ Domain Name System (response)
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -608,37 +603,15 @@ Domain Name System (response)
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

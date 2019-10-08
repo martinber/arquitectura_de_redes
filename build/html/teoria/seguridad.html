@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="TLS" href="tls.html"/>
-        <link rel="prev" title="Gestión de redes" href="gestion.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="TLS" href="tls.html" />
+    <link rel="prev" title="Gestión de redes" href="gestion.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -135,7 +129,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -143,9 +137,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -194,12 +189,12 @@
 <div class="section" id="deteccion-de-intrusos">
 <h2>Detección de Intrusos<a class="headerlink" href="#deteccion-de-intrusos" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>IDS (Intrusion Detection System): Analiza tráfico o sistemas para detectar
+<li><p>IDS (Intrusion Detection System): Analiza tráfico o sistemas para detectar
 intrusiones y generar alertas pero no actúa. Puede ser NIDS (Network Intrusion
 Detection System) si es un sniffer que monitorea la red, o puede ser un HIDS
-(Host Intrusion Detection System) que analiza los archivos y logs del sistema.</li>
-<li>IPS (Intruder Protection System): Es como IDS pero actúa.</li>
-<li>Ver también <a class="reference internal" href="tls.html"><span class="doc">TLS</span></a>.</li>
+(Host Intrusion Detection System) que analiza los archivos y logs del sistema.</p></li>
+<li><p>IPS (Intruder Protection System): Es como IDS pero actúa.</p></li>
+<li><p>Ver también <a class="reference internal" href="tls.html"><span class="doc">TLS</span></a>.</p></li>
 </ul>
 </div>
 <div class="section" id="cifrado">
@@ -211,12 +206,12 @@ descifrado secretas e iguales (o diferentes con una transformación simple entre
 ellas).</p>
 <p>Algoritmos más conocidos:</p>
 <ul class="simple">
-<li>DES (Data Encryption Stamdard), 1975: Inseguro a fuerza bruta por usar claves
-chicas.</li>
-<li>IDEA (International Data Encryption Algorithm), 1991: Conviene pasarse a AES?.</li>
-<li>3DES (Triple Data Encryption Standard), 1998: También llamado TDEA (Triple
-Data Encryption Algorithm). Bastante seguro, pero conviene pasarse a AES.</li>
-<li>AES (Advanced Encryption Standard), 1998: El más usado actualmente.</li>
+<li><p>DES (Data Encryption Stamdard), 1975: Inseguro a fuerza bruta por usar claves
+chicas.</p></li>
+<li><p>IDEA (International Data Encryption Algorithm), 1991: Conviene pasarse a AES?.</p></li>
+<li><p>3DES (Triple Data Encryption Standard), 1998: También llamado TDEA (Triple
+Data Encryption Algorithm). Bastante seguro, pero conviene pasarse a AES.</p></li>
+<li><p>AES (Advanced Encryption Standard), 1998: El más usado actualmente.</p></li>
 </ul>
 </div>
 <div class="section" id="asimetrico">
@@ -237,11 +232,11 @@ que se basa en las matemáticas de las curvas elípticas. Es más rápida y requ
 de claves más cortas.</p>
 <p>Algoritmos más conocidos (creo que son todos seguros):</p>
 <ul class="simple">
-<li>DH (Diffie-Hellman), 1977.</li>
-<li>RSA (Rivest–Shamir–Adleman), 1977.</li>
-<li>DSA (Digital Signature Algorithm), 1994.</li>
-<li>ECDSA (Elliptic Curve Digital Signature Algorithm): Variante de DSA que usa
-criptografía de curva elíptica).</li>
+<li><p>DH (Diffie-Hellman), 1977.</p></li>
+<li><p>RSA (Rivest–Shamir–Adleman), 1977.</p></li>
+<li><p>DSA (Digital Signature Algorithm), 1994.</p></li>
+<li><p>ECDSA (Elliptic Curve Digital Signature Algorithm): Variante de DSA que usa
+criptografía de curva elíptica).</p></li>
 </ul>
 </div>
 </div>
@@ -251,12 +246,12 @@ criptografía de curva elíptica).</li>
 longitud fija de bits. Es muy difícil encontrar dos entradas que presenten una
 misma salida, o a partir de una salida encontrar una posible entrada.</p>
 <ul class="simple">
-<li>MD5: Inseguro.</li>
-<li>SHA-1: Seguro, recientemente se logró encontrar una colisión utilizando
-bastante fuerza bruta.</li>
-<li>SHA-2: Seguro y muy usado, tiene variantes SHA-256, SHA-512, etc.</li>
-<li>SHA-3: Seguro pero no muy usado todavía.</li>
-<li>RIPEMD: Segura en sus variantes mayores a RIPEMD-160.</li>
+<li><p>MD5: Inseguro.</p></li>
+<li><p>SHA-1: Seguro, recientemente se logró encontrar una colisión utilizando
+bastante fuerza bruta.</p></li>
+<li><p>SHA-2: Seguro y muy usado, tiene variantes SHA-256, SHA-512, etc.</p></li>
+<li><p>SHA-3: Seguro pero no muy usado todavía.</p></li>
+<li><p>RIPEMD: Segura en sus variantes mayores a RIPEMD-160.</p></li>
 </ul>
 </div>
 <div class="section" id="certificados">
@@ -278,71 +273,72 @@ se puede determinar la autenticidad.</p>
 <h2>RADIUS<a class="headerlink" href="#radius" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Remote Authentication Dial-In User Server.</p>
 <ul class="simple">
-<li>Usa UDP puerto 1813 o TCP con TLS.</li>
-<li>Autentica usuarios que se conectan a una red WiFi, a PPP, a VoIP, etc.</li>
-<li>El dispositivo que controla el acceso a algún recurso protegido se llama NAS
+<li><p>Usa UDP puerto 1813 o TCP con TLS.</p></li>
+<li><p>Autentica usuarios que se conectan a una red WiFi, a PPP, a VoIP, etc.</p></li>
+<li><p>El dispositivo que controla el acceso a algún recurso protegido se llama NAS
 (Network Access Server). El usuario solicita al NAS acceso al recutso usando
 credenciales, luego el NAS envía las credenciales al servidor RADIUS usando el
 protocolo RADIUS y éste decidirá si el acceso será permitido o si se requerirá
-información adicional al usuario.</li>
+información adicional al usuario.</p></li>
 </ul>
 </div>
 <div class="section" id="ipsec">
 <h2>IPSec<a class="headerlink" href="#ipsec" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Es un conjunto de protocolos de seguridad que agrega cifrado y autenticación a
-IP (capa 3).</li>
-<li>Se puede usar a través de LAN, WAN o Internet.</li>
+<li><p>Es un conjunto de protocolos de seguridad que agrega cifrado y autenticación a
+IP (capa 3).</p></li>
+<li><p>Se puede usar a través de LAN, WAN o Internet.</p></li>
 </ul>
 <div class="section" id="modo-tranporte">
 <h3>Modo tranporte<a class="headerlink" href="#modo-tranporte" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li>Cifra los datos de IP.</li>
-<li>Se agrega una cabecera IPSec entre la cabecera IP y los datos (que irán
-cifrados).</li>
-<li>Si se usa el encabezado de autenticación, las IPs no pueden ser modificadas
+<li><p>Cifra los datos de IP.</p></li>
+<li><p>Se agrega una cabecera IPSec entre la cabecera IP y los datos (que irán
+cifrados).</p></li>
+<li><p>Si se usa el encabezado de autenticación, las IPs no pueden ser modificadas
 por NAT porque esto invalida el hash. Pero existe el mecanismo NAT-T que
-permite atravesar NAT.</li>
+permite atravesar NAT.</p></li>
 </ul>
 </div>
 <div class="section" id="modo-tunel">
 <h3>Modo túnel<a class="headerlink" href="#modo-tunel" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li>Cifra la cabecera IP y sus datos.</li>
-<li>Se agrega una cabecera IP de Túnel y una cabecera IPSec antes de la cabecera
-IP cifrada y de los datos cifrados.</li>
-<li>Permite hacer VPNs.</li>
+<li><p>Cifra la cabecera IP y sus datos.</p></li>
+<li><p>Se agrega una cabecera IP de Túnel y una cabecera IPSec antes de la cabecera
+IP cifrada y de los datos cifrados.</p></li>
+<li><p>Permite hacer VPNs.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="tipos-de-firmas">
 <h2>Tipos de firmas<a class="headerlink" href="#tipos-de-firmas" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Digital: Es una firma que se basa en PKI (Public Key Infraestructure). Es
+<li><p>Digital: Es una firma que se basa en PKI (Public Key Infraestructure). Es
 fácil determinar que es auténtica y no es repudiable ya que sólo puede ser
 generada por el propietario. Utiliza criptografía asimétrica, se obtiene a
 partir de aplicar la una clave privada en el hash de un mensaje y se comprueba
-con la clave pública.</li>
-<li>Electronica: Es un concepto más general que la firma digital y abarca a otros
+con la clave pública.</p></li>
+<li><p>Electronica: Es un concepto más general que la firma digital y abarca a otros
 métodos además de PKI. Generalmente la firma digital tiene validez legal
-mientras que la firma electrónica puede que no.</li>
-<li>Digitalizada: Es como cuando firmas en una tablet para el carnet.</li>
+mientras que la firma electrónica puede que no.</p></li>
+<li><p>Digitalizada: Es como cuando firmas en una tablet para el carnet.</p></li>
 </ul>
 </div>
 <div class="section" id="firewall">
 <h2>Firewall<a class="headerlink" href="#firewall" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Ver <a class="reference internal" href="../practica/iptables.html"><span class="doc">iptables</span></a> que tiene mucho de teoría también.</p>
 <ul class="simple">
-<li>Puede ser basado en software o hardware.</li>
-<li>Tipos:<ul>
-<li>Filtros de paquetes: Mira IPs, puertos, estado de la conexión TCP, protocolo
-.de aplicación.</li>
+<li><p>Puede ser basado en software o hardware.</p></li>
+<li><p>Tipos:</p>
+<ul>
+<li><p>Filtros de paquetes: Mira IPs, puertos, estado de la conexión TCP, protocolo
+.de aplicación.</p></li>
 </ul>
 </li>
 </ul>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Firewall</p>
+<p class="admonition-title">Por hacer</p>
+<p>Firewall</p>
 </div>
 </div>
 <div class="section" id="perfect-forward-secrecy">
@@ -350,28 +346,26 @@ mientras que la firma electrónica puede que no.</li>
 <p>Es un concepto usado en la criptografía. Que un protocolo como TLS asegure PFS
 (Perfect Forward Secrecy) significa que:</p>
 <ul class="simple">
-<li>Las claves de sesión no serán comprometidas incluso si la clave privada del
-servidor es comprometida.</li>
-<li>Sesiones pasadas no pueden ser descifradas en el caso que en el futuro se
-comprometan claves.</li>
+<li><p>Las claves de sesión no serán comprometidas incluso si la clave privada del
+servidor es comprometida.</p></li>
+<li><p>Sesiones pasadas no pueden ser descifradas en el caso que en el futuro se
+comprometan claves.</p></li>
 </ul>
 </div>
 <div class="section" id="vpn">
 <h2>VPN<a class="headerlink" href="#vpn" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Consiste en simular una red privada a través de una red pública.</li>
-<li>Generalmente se extienden redes LAN a través de Internet.</li>
-<li>Generalmente se supone que además se provee seguridad y cifrado.</li>
-<li>Se basa en crear túneles entre puertas de acceso.</li>
+<li><p>Consiste en simular una red privada a través de una red pública.</p></li>
+<li><p>Generalmente se extienden redes LAN a través de Internet.</p></li>
+<li><p>Generalmente se supone que además se provee seguridad y cifrado.</p></li>
+<li><p>Se basa en crear túneles entre puertas de acceso.</p></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -380,7 +374,7 @@ comprometan claves.</li>
         <a href="tls.html" class="btn btn-neutral float-right" title="TLS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gestion.html" class="btn btn-neutral" title="Gestión de redes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gestion.html" class="btn btn-neutral float-left" title="Gestión de redes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -389,11 +383,11 @@ comprometan claves.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -406,37 +400,15 @@ comprometan claves.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

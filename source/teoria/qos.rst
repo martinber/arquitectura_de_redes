@@ -1,7 +1,7 @@
 QOS
 ===
 
-.. todo:: Hacer.
+.. todo:: Hacer. Ver http://web.opalsoft.net/qos/default.php?p=ds-21
 
 - QOS: Lo que la red da
 - COS: Lo que se requere de la red, es indistinto a QOS
