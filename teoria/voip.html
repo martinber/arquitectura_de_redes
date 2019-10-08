@@ -97,6 +97,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#partes-involucradas">Partes involucradas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sip">SIP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sdp">SDP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iax">IAX</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
@@ -269,6 +270,8 @@ cumplen las funciones de cliente y de servidor en momentos distintos.</p></li>
 primero determinando si el usuario puede realizar la llamada. Actúa de
 intermediario entre agentes SIP, una vez establecida la conexión los agentes
 se comunican directamente. Generalmente contienen un registrar.</p></li>
+<li><p>Redirection Server: Genera respuestas de redirección del tipo <code class="docutils literal notranslate"><span class="pre">3XX</span></code> para
+encaminar las peticiones al siguiente servidor.</p></li>
 <li><p>Registrar: Es un dispositivo que acepta requests REGISTER almacenando la
 dirección y otros parámetros del UA. Luego permite a UAs a localizar otros
 UAs para realizar llamadas, algo así como un DNS.</p></li>
@@ -286,6 +289,7 @@ expliqué arriba.</p></li>
 espera.</p></li>
 <li><p>ACK: Confirma una solicitud INVITE.</p></li>
 <li><p>BYE: Corta una llamada.</p></li>
+<li><p>OPTION: Solicita informacion sobre las capacidades del servidor.</p></li>
 <li><p>CANCEL: Cancela una solicitud, por ejemplo para cortar una llamada mientras
 todavía ésta está sonando.</p></li>
 </ul>
@@ -392,6 +396,21 @@ a=rtpmap:99 h263-1998/90000
 </div>
 </div>
 </div>
+<div class="section" id="iax">
+<h2>IAX<a class="headerlink" href="#iax" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Es un protocolo abierto para señalización que es una alternativa propia de
+Asterisk a SIP. A diferencia de SIP:</p>
+<ul class="simple">
+<li><p>Está basado en mensajes binarios en lugar de mensajes de texto.</p></li>
+<li><p>La senalización y los datos viajan juntos lo que evita problemas de NAT.
+Utiliza un solo puerto para todas las comunicaciones. SIP necesita un puerto
+para señalización y dos por cada llamada.</p></li>
+<li><p>No es un protocolo tan estandarizado como SIP.</p></li>
+<li><p>En SIP es posible transmitir la señalización por el servidor mientras que el
+audio puede viajar punto a punto. En IAX todo de pasar por el servidor lo que
+requiere de más recursos en el servidor.</p></li>
+</ul>
+</div>
 </div>
 
 
@@ -414,7 +433,7 @@ a=rtpmap:99 h263-1998/90000
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
