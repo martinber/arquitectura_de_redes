@@ -108,6 +108,41 @@ Sacado de lista de powerpoints y de programa
 
   - Gestión remota
 
+Temas Aplicaciones TCP/IP
+-------------------------
+
+- No se resume
+
+  - Repaso Python
+
+  - Servidor Web
+
+  - Arduino
+
+- Resumido
+
+  - CGI + Python
+
+  - Programación orientada a objetos
+
+  - Programación en Qt
+
+  - Programación con sockets
+
+  - Calidad de servicio
+
+    - QoS
+
+    - SLA
+
+    - Control ancho de banda
+
+  - Streaming de voz
+
+    - :doc:`teoria/voip`.
+
+    - :doc:`practica/asterisk`.
+
 Para hacer
 ----------
 

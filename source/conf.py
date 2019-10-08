@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Arquitectura de Redes'
-copyright = u'2018-2019, Martín Bernardi'
+copyright = u'2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio'
 author = u'Martín Bernardi'
 
 # The short X.Y version

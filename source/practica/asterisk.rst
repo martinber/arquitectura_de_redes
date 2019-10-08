@@ -56,7 +56,7 @@ salientes. Es muy largo, tiene varias secciones:
 
 - Las demás secciones son contextos, llevan el nombre entre corchetes.
 
-Hay varias definiciones:
+Acá pongo varias definiciones teóricas:
 
 - Dialplan: Es el conjunto de contextos.
 
@@ -71,11 +71,16 @@ Los usuarios se colocan en contextos (puede que en más de un contexto al mismo
 tiempo), y los contextos pueden incluir a otros contextos.
 
 La sintaxis de la extensión es simple pero se complejiza cuando se empiezan a
-usar variables y ese tipo de cosas, pongo solamente la sintaxis general junto
-con un ejemplo que llama al número 1234 cuando se marca 5000::
+usar variables y ese tipo de cosas. Sintaxis general:: 
 
   exten => number,priority,application([parameter[,parameter2...]])
+
+El ``number`` indica el número a marcar para que se ejecute esta extensión,
+``priority`` indica el orden a usar al ejecutar varias extensiones con el mismo
+número. Ejemplo que llama al número 1234 cuando se marca 5000::
+
   exten => 5000,1,Dial(SIP/1234,20)
+  exten => 5000,2,Hangup()
 
 Una configuración normal sería la que pongo ahora::
 
@@ -87,10 +92,10 @@ Una configuración normal sería la que pongo ahora::
   [default]
   ; poner un echotest al llamar al numero 999
   exten => 999,1,Answer()
-  exten => 999,2,Playback(demo-echotest)
-  exten => 999,3,Echo()
-  exten => 999,4,Playback(demo-echodone)
-  exten => 999,5,Hangup()
+  exten => 999,n,Playback(demo-echotest)
+  exten => 999,n,Echo()
+  exten => 999,n,Playback(demo-echodone)
+  exten => 999,n,Hangup()
 
   [internos]
   ; incluir al contexto default y permitir llamar a numeros que sean 1XX.
@@ -98,6 +103,14 @@ Una configuración normal sería la que pongo ahora::
   include => default
   exten => _1XX,1,Dial(SIP/${EXTEN},30,Ttm)
   exten => _1XX,n,Hangup()
+
+Si la extensión empieza con ``_`` el número será interpretado como un patrón
+donde por ejemplo ``X`` vale por cualquier dígito entre 0 y 9. En vez de numerar
+las prioridades se puede poner prioridad ``1`` al primero y después poner los
+siguientes en ``n``.
+
+``${EXTEN}`` es una variable que se reemplaza por el ``number`` de la extensión,
+es útil para cuando este número consiste de un patrón.
 
 sip.conf
 ~~~~~~~~
@@ -141,3 +154,7 @@ luego se pueden hacer templates para usuarios similares::
   [103](estandar)
   callerid=Francisco <103>
   secret=password103
+
+Si ``type`` es ``friend`` el usuario puede enviar y recibir llamadas, también es
+posible utilizar ``user`` para permitir sólo llamadas entrantes o ``peer`` para
+sólo llamadas salientes.
