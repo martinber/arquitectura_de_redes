@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="IPv4" href="ipv4.html" />
-    <link rel="prev" title="Ethernet" href="ethernet.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="IPv4" href="ipv4.html"/>
+        <link rel="prev" title="Ethernet" href="ethernet.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -120,7 +126,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -128,10 +134,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -179,75 +184,68 @@
 <h1>ARP<a class="headerlink" href="#arp" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Address Resolution Protocol.</p>
 <ul class="simple">
-<li><p>Va sobre Ethernet.</p></li>
-<li><p>No debería ser de capa 3 porque no tiene ruteo, y no debería ser de capa 2
-porque no es Ethernet. Así que no está bien definido.</p></li>
-<li><p>Se usa para descubrir la MAC de algún host a partir de su IP.</p></li>
-<li><p>Los demás hosts aprovechan a escuchar ARP de otros para aprender sus MAC,
-aunque supongo que lo hacen solamente si el destino es Broadcast en Ethernet.</p></li>
+<li>Va sobre Ethernet.</li>
+<li>No debería ser de capa 3 porque no tiene ruteo, y no debería ser de capa 2
+porque no es Ethernet. Así que no está bien definido.</li>
+<li>Se usa para descubrir la MAC de algún host a partir de su IP.</li>
+<li>Los demás hosts aprovechan a escuchar ARP de otros para aprender sus MAC,
+aunque supongo que lo hacen solamente si el destino es Broadcast en Ethernet.</li>
 </ul>
 <div class="section" id="header">
 <h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Hardware type (HTYPE) (2 bytes): Protocolo de enlace, siempre es Ethernet
-(<code class="docutils literal notranslate"><span class="pre">0x0001</span></code>).</p></li>
-<li><p>Protocol type (PTYPE) (2 bytes): Protocolo de red, siempre es IP (<code class="docutils literal notranslate"><span class="pre">0x0800</span></code>).</p></li>
-<li><p>Hardware address length (HLEN) (1 byte): Largo de dirección MAC, siempre es 6.</p></li>
-<li><p>Protocol address length (PLEN) (1 byte): Largo de dirección IP, siempre es 4.</p></li>
-<li><p>Operation (OPER) (2 bytes):</p>
-<ul>
-<li><p>1: Request</p></li>
-<li><p>2: Reply</p></li>
-<li><p>3: Request RARP</p></li>
-<li><p>4: Reply RARP</p></li>
+<li>Hardware type (HTYPE) (2 bytes): Protocolo de enlace, siempre es Ethernet
+(<code class="docutils literal"><span class="pre">0x0001</span></code>).</li>
+<li>Protocol type (PTYPE) (2 bytes): Protocolo de red, siempre es IP (<code class="docutils literal"><span class="pre">0x0800</span></code>).</li>
+<li>Hardware address length (HLEN) (1 byte): Largo de dirección MAC, siempre es 6.</li>
+<li>Protocol address length (PLEN) (1 byte): Largo de dirección IP, siempre es 4.</li>
+<li>Operation (OPER) (2 bytes):<ul>
+<li>1: Request</li>
+<li>2: Reply</li>
+<li>3: Request RARP</li>
+<li>4: Reply RARP</li>
 </ul>
 </li>
-<li><p>Sender hardware address (SHA) (6 bytes): MAC del emisor.</p></li>
-<li><p>Protocol hardware address (SPA) (4 bytes): IP del emisor.</p></li>
-<li><p>Target hardware address (THA) (6 bytes): MAC del destino.</p></li>
-<li><p>Target hardware address (TPA) (4 bytes): IP del destino.</p></li>
+<li>Sender hardware address (SHA) (6 bytes): MAC del emisor.</li>
+<li>Protocol hardware address (SPA) (4 bytes): IP del emisor.</li>
+<li>Target hardware address (THA) (6 bytes): MAC del destino.</li>
+<li>Target hardware address (TPA) (4 bytes): IP del destino.</li>
 </ul>
 </div>
 <div class="section" id="funcionamiento">
 <h2>Funcionamiento<a class="headerlink" href="#funcionamiento" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Por ejemplo si A quiere saber la MAC de B:</p>
 <ul class="simple">
-<li><p>Request:</p>
-<ul>
-<li><p>Ethernet:</p>
-<ul>
-<li><p>Source MAC: A.</p></li>
-<li><p>Destination MAC: <code class="docutils literal notranslate"><span class="pre">FF:FF:FF:FF:FF:FF</span></code>.</p></li>
-<li><p>Type: <code class="docutils literal notranslate"><span class="pre">0x0806</span></code> (ARP).</p></li>
+<li>Request:<ul>
+<li>Ethernet:<ul>
+<li>Source MAC: A.</li>
+<li>Destination MAC: <code class="docutils literal"><span class="pre">FF:FF:FF:FF:FF:FF</span></code>.</li>
+<li>Type: <code class="docutils literal"><span class="pre">0x0806</span></code> (ARP).</li>
 </ul>
 </li>
-<li><p>ARP:</p>
-<ul>
-<li><p>Opcode: 1 (Request).</p></li>
-<li><p>Sender MAC: A.</p></li>
-<li><p>Target MAC: <code class="docutils literal notranslate"><span class="pre">00:00:00:00:00:00</span></code>.</p></li>
-<li><p>Sender IP: A.</p></li>
-<li><p>Target IP: B.</p></li>
+<li>ARP:<ul>
+<li>Opcode: 1 (Request).</li>
+<li>Sender MAC: A.</li>
+<li>Target MAC: <code class="docutils literal"><span class="pre">00:00:00:00:00:00</span></code>.</li>
+<li>Sender IP: A.</li>
+<li>Target IP: B.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Reply:</p>
-<ul>
-<li><p>Ethernet:</p>
-<ul>
-<li><p>Source MAC: B.</p></li>
-<li><p>Destination MAC: A.</p></li>
-<li><p>Type: <code class="docutils literal notranslate"><span class="pre">0x0806</span></code> (ARP).</p></li>
+<li>Reply:<ul>
+<li>Ethernet:<ul>
+<li>Source MAC: B.</li>
+<li>Destination MAC: A.</li>
+<li>Type: <code class="docutils literal"><span class="pre">0x0806</span></code> (ARP).</li>
 </ul>
 </li>
-<li><p>ARP:</p>
-<ul>
-<li><p>Opcode: 2 (Reply).</p></li>
-<li><p>Sender MAC: B.</p></li>
-<li><p>Target MAC: A.</p></li>
-<li><p>Sender IP: B.</p></li>
-<li><p>Target IP: A.</p></li>
+<li>ARP:<ul>
+<li>Opcode: 2 (Reply).</li>
+<li>Sender MAC: B.</li>
+<li>Target MAC: A.</li>
+<li>Sender IP: B.</li>
+<li>Target IP: A.</li>
 </ul>
 </li>
 </ul>
@@ -257,7 +255,7 @@ aunque supongo que lo hacen solamente si el destino es Broadcast en Ethernet.</p
 <div class="section" id="capturas">
 <h2>Capturas<a class="headerlink" href="#capturas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Request:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 75: 42 bytes on wire (336 bits), 42 bytes captured (336 bits) on interface 0
+<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 75: 42 bytes on wire (336 bits), 42 bytes captured (336 bits) on interface 0
 Ethernet II, Src: LiteonTe_13:12:f4 (24:fd:52:13:12:f4),
     Dst: Broadcast (ff:ff:ff:ff:ff:ff)
   Destination: Broadcast (ff:ff:ff:ff:ff:ff)
@@ -276,7 +274,7 @@ Address Resolution Protocol (request)
 </pre></div>
 </div>
 <p>Reply:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 1480: 42 bytes on wire (336 bits), 42 bytes captured (336 bits) on interface 0
+<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 1480: 42 bytes on wire (336 bits), 42 bytes captured (336 bits) on interface 0
 Ethernet II, Src: HonHaiPr_13:7f:55 (08:3e:8e:13:7f:55),
     Dst: Micro-St_9e:e5:e1 (d8:cb:8a:9e:e5:e1)
   Destination: Micro-St_9e:e5:e1 (d8:cb:8a:9e:e5:e1)
@@ -303,11 +301,11 @@ packet and the destination MAC is the broadcast address ff:ff:ff:ff:ff:ff.
 Ordinarily, no reply packet will occur. A gratuitous ARP reply is a reply to
 which no request has been made.</p>
 <p>Para hacer ARP gratuitos:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>arping -A -c 100000 -I enp4s0 {mi IP}
+<div class="highlight-none"><div class="highlight"><pre><span></span>arping -A -c 100000 -I enp4s0 {mi IP}
 </pre></div>
 </div>
 <p>Captura al usar ese comando:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 32: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on
+<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 32: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on
     interface 0
 Ethernet II, Src: Dell_17:2b:b2 (10:7d:1a:17:2b:b2), Dst: Broadcast
     (ff:ff:ff:ff:ff:ff)
@@ -330,7 +328,7 @@ Address Resolution Protocol (reply/gratuitous ARP)
 </div>
 <p>En la casa del nano capturé ARP gratuitous distintos, algunos reply y otros
 request:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 4: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on
+<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 4: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on
     interface 0
 Ethernet II, Src: Zhejiang_ad:9f:5f (4c:11:bf:ad:9f:5f), Dst: Broadcast
     (ff:ff:ff:ff:ff:ff)
@@ -370,7 +368,9 @@ ceros, pidiendole al que tenga la misma IP que yo que me responda con su MAC.</p
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -379,7 +379,7 @@ ceros, pidiendole al que tenga la misma IP que yo que me responda con su MAC.</p
         <a href="ipv4.html" class="btn btn-neutral float-right" title="IPv4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ethernet.html" class="btn btn-neutral float-left" title="Ethernet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ethernet.html" class="btn btn-neutral" title="Ethernet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -388,11 +388,11 @@ ceros, pidiendole al que tenga la misma IP que yo que me responda con su MAC.</p
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -405,15 +405,37 @@ ceros, pidiendole al que tenga la misma IP que yo que me responda con su MAC.</p
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

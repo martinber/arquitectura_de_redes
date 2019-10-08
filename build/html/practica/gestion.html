@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="iptables" href="iptables.html" />
-    <link rel="prev" title="Asterisk" href="asterisk.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Práctica" href="index.html"/>
+        <link rel="next" title="iptables" href="iptables.html"/>
+        <link rel="prev" title="Asterisk" href="asterisk.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -111,7 +117,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -119,10 +125,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -170,42 +175,42 @@
 <h1>Gestion<a class="headerlink" href="#gestion" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="snmpd-en-linux">
 <h2>SNMPD en linux<a class="headerlink" href="#snmpd-en-linux" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install snmp snmpd
+<div class="highlight-none"><div class="highlight"><pre><span></span>sudo apt install snmp snmpd
 </pre></div>
 </div>
-<p>Editar <code class="docutils literal notranslate"><span class="pre">/etc/snmp/snmpd.conf</span></code></p>
+<p>Editar <code class="docutils literal"><span class="pre">/etc/snmp/snmpd.conf</span></code></p>
 <p>Cambiar puerto e IP para escuchar desde localhost:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>agentAddress udp:127.0.0.1:106
+<div class="highlight-none"><div class="highlight"><pre><span></span>agentAddress udp:127.0.0.1:106
 </pre></div>
 </div>
 <p>Cambiar puerto e IP para escuchar desde todos lados:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>agentAddress udp:0.0.0.0:106
+<div class="highlight-none"><div class="highlight"><pre><span></span>agentAddress udp:0.0.0.0:106
 </pre></div>
 </div>
 <p>Ver todo desde localhost:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rocommunity public localhost
+<div class="highlight-none"><div class="highlight"><pre><span></span>rocommunity public localhost
 </pre></div>
 </div>
-<p>Ver <code class="docutils literal notranslate"><span class="pre">systemonly</span></code> desde localhost:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rocommunity public localhost -V systemonly
+<p>Ver <code class="docutils literal"><span class="pre">systemonly</span></code> desde localhost:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>rocommunity public localhost -V systemonly
 </pre></div>
 </div>
 <p>Ver todo desde fuera:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rocommunity public default
+<div class="highlight-none"><div class="highlight"><pre><span></span>rocommunity public default
 </pre></div>
 </div>
-<p>Ver <code class="docutils literal notranslate"><span class="pre">systemonly</span></code> desde fuera:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rocommunity public localhost -V systemonly
+<p>Ver <code class="docutils literal"><span class="pre">systemonly</span></code> desde fuera:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>rocommunity public localhost -V systemonly
 </pre></div>
 </div>
 <p>Reiniciar:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo service restart snmpd
+<div class="highlight-none"><div class="highlight"><pre><span></span>sudo service restart snmpd
 </pre></div>
 </div>
 </div>
 <div class="section" id="snmp-en-linux">
 <h2>SNMP en linux<a class="headerlink" href="#snmp-en-linux" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>snmpget -c public -v 2c 127.0.0.1 1.3.6.1.2.1.1.2.0
+<div class="highlight-none"><div class="highlight"><pre><span></span>snmpget -c public -v 2c 127.0.0.1 1.3.6.1.2.1.1.2.0
 snmpwalk -c public -v 2c 127.0.0.1 1.3.6.1.2.1.1
 snmpgetnext
 snmpgetbulk
@@ -213,8 +218,8 @@ snmpset
 </pre></div>
 </div>
 <div class="admonition-todo admonition" id="index-0">
-<p class="admonition-title">Por hacer</p>
-<p>Terminar</p>
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Terminar</p>
 </div>
 </div>
 <div class="section" id="cacti">
@@ -224,7 +229,9 @@ snmpset
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -233,7 +240,7 @@ snmpset
         <a href="iptables.html" class="btn btn-neutral float-right" title="iptables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="asterisk.html" class="btn btn-neutral float-left" title="Asterisk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="asterisk.html" class="btn btn-neutral" title="Asterisk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -242,11 +249,11 @@ snmpset
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -259,15 +266,37 @@ snmpset
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
