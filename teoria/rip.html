@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="OSPF" href="ospf.html" />
-    <link rel="prev" title="PPPoE" href="pppoe.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="OSPF" href="ospf.html"/>
+        <link rel="prev" title="PPPoE" href="pppoe.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -114,7 +120,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -122,10 +128,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -173,43 +178,42 @@
 <h1>RIP<a class="headerlink" href="#rip" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Routing Information Protocol.</p>
 <div class="admonition-todo admonition" id="index-0">
-<p class="admonition-title">Por hacer</p>
-<p>Completar teoría.</p>
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Completar teoría.</p>
 </div>
 <p>Hay tres versiones de RIP: RIPv1, RIPv2 y RIPng. Las primeras dos son para IPv4,
 la tercera para IPV6.</p>
 <ul class="simple">
-<li><p>Sólo mira la cantidad de saltos.</p></li>
-<li><p>Cantidad máxima de saltos es 16.</p></li>
-<li><p>Cantidad máxima de redes es 25.</p></li>
-<li><p>Va sobre UDP 520.</p></li>
-<li><p>Se envían las rutas cada 30 segundos.</p></li>
-<li><p>Las rutas vencen 180 segundos después de caerse, para prevenir oscilaciones.</p></li>
-<li><p>RIPv1 no admite VLSM y es inseguro, porque no se identifica al que envía el
-paquete y un atacante podría redirigir todo por donde quiera.</p></li>
-<li><p>RIPv2 envía las máscaras de red y por lo tanto soporta VLSM, también
-autentica los routers.</p></li>
-<li><p>RIPng es como RIPv2 pero para IPv6.</p></li>
-<li><p>Conviene para redes chicas que no cambian mucho.</p></li>
-<li><p>Usa el algoritmo de vector distancia Bellman-Ford.</p></li>
-<li><p>RIPv1 anuncia por broadcast, RIPv2 anuncia por multicast.</p></li>
+<li>Sólo mira la cantidad de saltos.</li>
+<li>Cantidad máxima de saltos es 16.</li>
+<li>Cantidad máxima de redes es 25.</li>
+<li>Va sobre UDP 520.</li>
+<li>Se envían las rutas cada 30 segundos.</li>
+<li>Las rutas vencen 180 segundos después de caerse, para prevenir oscilaciones.</li>
+<li>RIPv1 no admite VLSM y es inseguro, porque no se identifica al que envía el
+paquete y un atacante podría redirigir todo por donde quiera.</li>
+<li>RIPv2 envía las máscaras de red y por lo tanto soporta VLSM, también
+autentica los routers.</li>
+<li>RIPng es como RIPv2 pero para IPv6.</li>
+<li>Conviene para redes chicas que no cambian mucho.</li>
+<li>Usa el algoritmo de vector distancia Bellman-Ford.</li>
+<li>RIPv1 anuncia por broadcast, RIPv2 anuncia por multicast.</li>
 </ul>
 <div class="section" id="bellman-ford">
 <h2>Bellman-Ford<a class="headerlink" href="#bellman-ford" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Es el algoritmo que usa RIP para determinar el mejor camino.</p>
 <ul class="simple">
-<li><p>Cada router tiene una tabla con las mejores distancias conocidas y los
-enlaces a utilizar para cada destino.</p></li>
-<li><p>Se intercambian las tablas de ruteo con los vecinos cada cierto tiempo.</p></li>
-<li><p>Una vez que el router tiene toda la información actualiza su tabla e informa
-a los vecinos de los cambios.</p></li>
-<li><p>A diferencia del algoritmo de Dijkstra:</p>
-<ul>
-<li><p>Se intercambian tablas de ruteo en lugar de estados de enlace.</p></li>
-<li><p>Se envía la información a sólo los vecinos en lugar de enviar a todos los
-routers.</p></li>
-<li><p>La convergencia es más lenta, hay mayor carga en la red pero se necesita
-una capacidad de procesamiento menor.</p></li>
+<li>Cada router tiene una tabla con las mejores distancias conocidas y los
+enlaces a utilizar para cada destino.</li>
+<li>Se intercambian las tablas de ruteo con los vecinos cada cierto tiempo.</li>
+<li>Una vez que el router tiene toda la información actualiza su tabla e informa
+a los vecinos de los cambios.</li>
+<li>A diferencia del algoritmo de Dijkstra:<ul>
+<li>Se intercambian tablas de ruteo en lugar de estados de enlace.</li>
+<li>Se envía la información a sólo los vecinos en lugar de enviar a todos los
+routers.</li>
+<li>La convergencia es más lenta, hay mayor carga en la red pero se necesita
+una capacidad de procesamiento menor.</li>
 </ul>
 </li>
 </ul>
@@ -229,7 +233,7 @@ paquete y una red determinada.</p>
 <p>Los números en rojo son las distancias que informa el Mikrotik y los números en
 azul las distancias que informa el Cisco.</p>
 <p>Paquete de Mikrotik a Cisco:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 320: 266 bytes on wire (2128 bits), 266 bytes captured (2128 bits) on interface 0
+<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 320: 266 bytes on wire (2128 bits), 266 bytes captured (2128 bits) on interface 0
 Ethernet II, Src: 0c:45:23:ee:a3:00 (0c:45:23:ee:a3:00), Dst: IPv6mcast_09 (33:33:00:00:00:09)
 Internet Protocol Version 6, Src: fe80::e45:23ff:feee:a300, Dst: ff02::9
 User Datagram Protocol, Src Port: 521, Dst Port: 521
@@ -250,7 +254,7 @@ RIPng
 </pre></div>
 </div>
 <p>Paquete de Cisco a Mikrotik:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Frame 317: 186 bytes on wire (1488 bits), 186 bytes captured (1488 bits) on interface 0
+<div class="highlight-none"><div class="highlight"><pre><span></span>Frame 317: 186 bytes on wire (1488 bits), 186 bytes captured (1488 bits) on interface 0
 Ethernet II, Src: c4:01:09:68:00:10 (c4:01:09:68:00:10), Dst: IPv6mcast_09 (33:33:00:00:00:09)
 Internet Protocol Version 6, Src: fe80::c601:9ff:fe68:10, Dst: ff02::9
 User Datagram Protocol, Src Port: 521, Dst Port: 521
@@ -271,7 +275,7 @@ Pero cuando sabe de el Cisco tiene una ruta más corta que a través de él,
 informa 16 que significa inalcanzable. El Cisco hace lo mismo pero en vez de
 poner métrica 16 directamente no informa de la ruta.</p>
 <p>Al final la ruta del Cisco quedó:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IPv6 Routing Table - 15 entries
+<div class="highlight-none"><div class="highlight"><pre><span></span>IPv6 Routing Table - 15 entries
 Codes: C - Connected, L - Local, S - Static, R - RIP, B - BGP
        U - Per-user Static route
        I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary
@@ -312,7 +316,7 @@ L   FF00::/8 [0/0]
 </pre></div>
 </div>
 <p>Y la del Mikrotik:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Flags: X - disabled, A - active, D - dynamic, C - connect, S - static,
+<div class="highlight-none"><div class="highlight"><pre><span></span>Flags: X - disabled, A - active, D - dynamic, C - connect, S - static,
 r - rip, o - ospf, b - bgp, U - unreachable
 
  #      DST-ADDRESS    GATEWAY                            DISTANCE
@@ -329,9 +333,9 @@ r - rip, o - ospf, b - bgp, U - unreachable
 </pre></div>
 </div>
 <p>Revisé mirando el dibujo y todas las rutas están bien.</p>
-<p>Algo raro es que en el caso del Cisco, para llegar a la red <code class="docutils literal notranslate"><span class="pre">2001:c::/64</span></code>, es
+<p>Algo raro es que en el caso del Cisco, para llegar a la red <code class="docutils literal"><span class="pre">2001:c::/64</span></code>, es
 lo mismo usar como gateway al R2 que al R3, por lo tanto en la ruta están ambos
-gateway. El Mikrotik para llegar a la <code class="docutils literal notranslate"><span class="pre">2001:a::/64</span></code> también tiene dos
+gateway. El Mikrotik para llegar a la <code class="docutils literal"><span class="pre">2001:a::/64</span></code> también tiene dos
 opciones, R1 y R2, pero solamente tiene como gateway a R2.</p>
 </div>
 </div>
@@ -339,7 +343,9 @@ opciones, R1 y R2, pero solamente tiene como gateway a R2.</p>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -348,7 +354,7 @@ opciones, R1 y R2, pero solamente tiene como gateway a R2.</p>
         <a href="ospf.html" class="btn btn-neutral float-right" title="OSPF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pppoe.html" class="btn btn-neutral float-left" title="PPPoE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pppoe.html" class="btn btn-neutral" title="PPPoE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -357,11 +363,11 @@ opciones, R1 y R2, pero solamente tiene como gateway a R2.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -374,15 +380,37 @@ opciones, R1 y R2, pero solamente tiene como gateway a R2.</p>
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

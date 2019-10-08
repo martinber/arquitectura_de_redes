@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6to4 &mdash; documentación de Arquitectura de Redes - </title>
+  <title>Programación &mdash; documentación de Arquitectura de Redes - </title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Búsqueda" href="../search.html"/>
     <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
         <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="DNS" href="dns.html"/>
-        <link rel="prev" title="MPLS" href="mpls.html"/> 
+        <link rel="next" title="GNS3" href="gns3.html"/>
+        <link rel="prev" title="Acceso remoto" href="acceso_remoto.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -92,11 +92,7 @@
 <li class="toctree-l2"><a class="reference internal" href="index.html#principal">Principal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#wan-y-ruteo">WAN y ruteo</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#capa-aplicacion-y-otros">Capa aplicación y otros</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">6to4</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#direcciones">Direcciones</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#referencias">Referencias</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="6to4.html">6to4</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dns.html">DNS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mail.html">Mail</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ftp.html">FTP</a></li>
@@ -109,6 +105,13 @@
 <li class="toctree-l3"><a class="reference internal" href="tls.html">TLS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="qos.html">QOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="acceso_remoto.html">Acceso remoto</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Programación</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cgi-python">CGI + Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programacion-orientada-a-objetos">Programación orientada a objetos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programacion-en-qt">Programación en Qt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programacion-con-sockets">Programación con sockets</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="gns3.html">GNS3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
@@ -162,13 +165,13 @@
         
           <li><a href="index.html">Teoría</a> &raquo;</li>
         
-      <li>6to4</li>
+      <li>Programación</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/teoria/6to4.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/teoria/programacion.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -181,47 +184,74 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="to4">
-<h1>6to4<a class="headerlink" href="#to4" title="Enlazar permanentemente con este título">¶</a></h1>
-<img alt="../_images/6to4.svg" src="../_images/6to4.svg" /><p><a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=10461514">By Mro - Own work</a>, CC BY-SA 3.0.</p>
+  <div class="section" id="programacion">
+<h1>Programación<a class="headerlink" href="#programacion" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="cgi-python">
+<h2>CGI + Python<a class="headerlink" href="#cgi-python" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>CGI (Common Gateway Interface) es una tecnología que permite al cliente solicitar
+datos de un programa ejecutado del lado de un servidor web. Lo utilizamos junto a
+HTML (Hyper Text Markup Language), el lenguaje deprogramación estándar de páginas
+web. Está conformado por el uso de etiquetas o tags que marcan la estructura del
+documento. Las aplicaciones CGI fueron las primeras en ser utilizadas para brindar
+contenido dinámico para las páginas web.</p>
+<p>En una aplicación CGI el servidor pasa las solicitudes del cliente a un programa
+externo. Este puede estar escrito en cualquier lenguaje que soporte el servidor.
+La salida del programa es devuelta al cliente, en lugar del archivo estático
+tradicional.</p>
+<ol class="arabic simple">
+<li>El servidor recibe una petición (el cliente ha ingresado a una URL que
+contiene el CGI), y este redirige la petición con los datos al script.</li>
+<li>El servidor prepara el entorno para ejecutar la aplicación. Esta información
+procede mayoritariamente del cliente.</li>
+<li>El servidor ejecuta la aplicación y captura su salida estándar.</li>
+<li>La aplicación realiza su función, como consecuencia de su actividad se va
+generando un objeto MIME que la aplicación escribe en su salida estándar.</li>
+<li>Cuando la aplicación finaliza, el servidor envía la información producida,
+junto con información propia, al cliente, que se encontraba en espera. Es
+responsabilidad de la aplicación anunciar el tipo de objeto MIME que se
+genera (campo CONTENT_TYPE).</li>
+</ol>
+<p>Nosotros utilizamos CGI junto con Python. Ya hay un módulo existente de CGI. Una
+forma convencional de devolver información al cliente es utilizando la función
+print para generar un HTML.</p>
+</div>
+<div class="section" id="programacion-orientada-a-objetos">
+<h2>Programación orientada a objetos<a class="headerlink" href="#programacion-orientada-a-objetos" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Permite transmitir paquetes IPv6 por una red IPv4 gracias a un router de
-borde.</li>
-<li>Es un mecanismo de transición para la migración de IPv4 a IPv6.</li>
-<li>No facilita la comunicación de hosts IPv4 con hosts IPv6, es para conectar
-hosts IPv6 con IPv6 a través de IPv4.</li>
-<li>Las direcciones comienzan con <code class="docutils literal"><span class="pre">2002::/16</span></code>.</li>
-<li>Para permitir tráfico hacia redes IPv6 nativas (<code class="docutils literal"><span class="pre">2001::/16</span></code>) se
-establecieron los <em>Relay Routers</em>.</li>
-<li>Un router con 6to4 (de borde) toma como decisión:<ul>
-<li>Si quiere llegar a una IPv6 dentro de la LAN sabe que está directamente
-conectada.</li>
-<li>Si quiere llegar a una <code class="docutils literal"><span class="pre">2002::/16</span></code> sabe que tiene que mandar el paquete
-por la red IPv4, el destino IPv4 se determina de la dirección IPv6.</li>
-<li>Si quiere llegar a alguna <code class="docutils literal"><span class="pre">2001::/16</span></code> tiene que enviar a algún router IPv6
-que tenga acceso a la IPv6 nativa (<em>Relay Router</em>).</li>
+<li>Clase: Una construcción semántica con nombre que describe un comportamiento y
+atributos comunes.</li>
+<li>Objeto: Instancia de una clase. Se caracterizan por:<ul>
+<li>Identidad: Los objetos se distinguen unos de otros.</li>
+<li>Comportamiento: Pueden realizar tareas.</li>
+<li>Estado: Contienen información</li>
 </ul>
 </li>
-<li>Los paquetes IPv6 van dentro de los datos del paquete IPv4.</li>
-<li>Los <em>Relay routers</em> tienen, del lado IPv6, redes IPv6 nativas (<code class="docutils literal"><span class="pre">2001::/16</span></code>).
-En cambio los routers de borde tienen redes con prefijo <code class="docutils literal"><span class="pre">2002::/16</span></code>.</li>
-<li>Para que las IPv6 nativas envíen cosas a un IPv6 6to4, usan como gateway el
-<em>Relay router</em> más cercano, ya que éstos anuncian la ruta <code class="docutils literal"><span class="pre">2002::/16</span></code>.</li>
+<li>Encapsulación: Es un concepto ligado a la programación orientada a objetos que
+consiste en combinar datos y funciones de una clase en una cápsula de forma tal
+de evitar el uso incorrecto o manipulación de las mismas. Dentro de esta
+cápsula:<ul>
+<li>Los métodos son públicos, accesibles desde el exterior.</li>
+<li>Los datos son privados, accesibles desde el interior.</li>
 </ul>
-<div class="section" id="direcciones">
-<h2>Direcciones<a class="headerlink" href="#direcciones" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Hay un bloque de direcciones IPv6 para cada dirección IPv4:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>2002:xxyy:wwzz::/48
-</pre></div>
-</div>
-<p>En donde <code class="docutils literal"><span class="pre">xxyy:wwzz</span></code> es la dirección IPv4 en formato hexadecimal. Quedan 16
-bits para hacer subredes.</p>
-</div>
-<div class="section" id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://packetlife.net/blog/2010/mar/15/6to4-ipv6-tunneling/">http://packetlife.net/blog/2010/mar/15/6to4-ipv6-tunneling/</a></li>
+</li>
+<li>Herencia: Indica una relación entre clases. Permite la reutilización de los
+procedimientos y variables de una clase, ya que todos los datos y métodos
+disponibles a la clase padre se encuentran disponibles a la clase hijo con los
+mismos nombres.<ul>
+<li>Herencia simple: La clase deriva de una sola padre.</li>
+<li>Herencia múltiple: Clase derivada de dos o más clases.</li>
 </ul>
+</li>
+<li><a class="reference external" href="https://en.m.wikipedia.org/wiki/Object-oriented_programming#Polymorphism">Polimorfismo</a> :
+Permite a una función recibir un objeto de una cierta clase padre
+y al mismo tiempo poder recibir clases hijas de forma indistinta.</li>
+</ul>
+</div>
+<div class="section" id="programacion-en-qt">
+<h2>Programación en Qt<a class="headerlink" href="#programacion-en-qt" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<div class="section" id="programacion-con-sockets">
+<h2>Programación con sockets<a class="headerlink" href="#programacion-con-sockets" title="Enlazar permanentemente con este título">¶</a></h2>
 </div>
 </div>
 
@@ -235,10 +265,10 @@ bits para hacer subredes.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dns.html" class="btn btn-neutral float-right" title="DNS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gns3.html" class="btn btn-neutral float-right" title="GNS3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="mpls.html" class="btn btn-neutral" title="MPLS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="acceso_remoto.html" class="btn btn-neutral" title="Acceso remoto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

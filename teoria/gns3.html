@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Wireshark" href="wireshark.html" />
-    <link rel="prev" title="Acceso remoto" href="acceso_remoto.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="Wireshark" href="wireshark.html"/>
+        <link rel="prev" title="Acceso remoto" href="acceso_remoto.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -122,7 +128,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -130,10 +136,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -185,84 +190,88 @@ acuerdo que hice.</p>
 <div class="section" id="instalacion">
 <h2>Instalacion<a class="headerlink" href="#instalacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul>
-<li><p>Instalar Docker: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">docker.io</span></code>.</p></li>
-<li><p>Instalar Dynamips: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">dynamips</span></code>.</p></li>
-<li><p>Instalar Wireshark.</p></li>
-<li><p>Hacer que Docker KVM y Wireshark anden sin sudo:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo usermod -aG wireshark $USER
+<li><p class="first">Instalar Docker: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">docker.io</span></code>.</p>
+</li>
+<li><p class="first">Instalar Dynamips: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">dynamips</span></code>.</p>
+</li>
+<li><p class="first">Instalar Wireshark.</p>
+</li>
+<li><p class="first">Hacer que Docker KVM y Wireshark anden sin sudo:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>sudo usermod -aG wireshark $USER
 sudo usermod -aG docker $USER
 sudo usermod -aG kvm $USER
 </pre></div>
 </div>
 </li>
-<li><p>Reiniciar.</p></li>
+<li><p class="first">Reiniciar.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="elementos-usados">
 <h2>Elementos usados<a class="headerlink" href="#elementos-usados" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul>
-<li><p>Hosts: Como host uso un Docker con la imagen de <code class="docutils literal notranslate"><span class="pre">gns3-ipterm</span></code>, que es un
+<li><p class="first">Hosts: Como host uso un Docker con la imagen de <code class="docutils literal"><span class="pre">gns3-ipterm</span></code>, que es un
 Linux bien básico con las herramientas de red básicas ya instaladas, por eso
 es mejor que un Alpine Linux o un Debian pelado.</p>
 <p>Hay que instalar Docker en la computadora, después en las preferencias de GNS3
 hay una sección que se llama «Docker containers», agregué el contenedor de
-<code class="docutils literal notranslate"><span class="pre">gns3/ipterm</span></code>, GNS3 se encarga de descargarlo y todo.</p>
+<code class="docutils literal"><span class="pre">gns3/ipterm</span></code>, GNS3 se encarga de descargarlo y todo.</p>
 </li>
-<li><p>Router Mikrotik: En este caso descargué un «Appliance» oficial desde la wiki
-de GNS3 y al mismo tiempo una imagen que se llama <code class="docutils literal notranslate"><span class="pre">chr-6.41.4.img</span></code>. Una vez
+<li><p class="first">Router Mikrotik: En este caso descargué un «Appliance» oficial desde la wiki
+de GNS3 y al mismo tiempo una imagen que se llama <code class="docutils literal"><span class="pre">chr-6.41.4.img</span></code>. Una vez
 que se hayan descargado esas dos cosas, en el GNS3 se importa el «Appliance»
-que te permite buscar el <code class="docutils literal notranslate"><span class="pre">.img</span></code> descargado y te deja todo listo para usar.</p>
+que te permite buscar el <code class="docutils literal"><span class="pre">.img</span></code> descargado y te deja todo listo para usar.</p>
 <p>Una vez agregado, en las preferencias de GNS3 este router aparece en la parte
-de «QEMU VMs». Al abrir una consola el usuario es <code class="docutils literal notranslate"><span class="pre">admin</span></code> y no tiene
+de «QEMU VMs». Al abrir una consola el usuario es <code class="docutils literal"><span class="pre">admin</span></code> y no tiene
 contraseña, no hay que escribir nada. Para usar ipv6 en este router Mikrotik
 ver abajo.</p>
 </li>
-<li><p>Router Cisco: Uso el modelo 3745, lo importé usando la imagen
-<code class="docutils literal notranslate"><span class="pre">c3745-advipservicesk9-mz.124-25d.bin</span></code> que no se puede obtener gratis de
-forma legal. Lo agregué en Preferencias &gt; «IOS Routers».</p></li>
-<li><p>Switch Cisco: Este fué dificilisimo de conseguir, no se al final que modelo
+<li><p class="first">Router Cisco: Uso el modelo 3745, lo importé usando la imagen
+<code class="docutils literal"><span class="pre">c3745-advipservicesk9-mz.124-25d.bin</span></code> que no se puede obtener gratis de
+forma legal. Lo agregué en Preferencias &gt; «IOS Routers».</p>
+</li>
+<li><p class="first">Switch Cisco: Este fué dificilisimo de conseguir, no se al final que modelo
 tengo. Hay que conseguir:</p>
 <ul class="simple">
-<li><p>El Appliance <code class="docutils literal notranslate"><span class="pre">cisco-iosvl2.gns3a</span></code>. Este es fácil de conseguir.</p></li>
-<li><p>Las imágenes <code class="docutils literal notranslate"><span class="pre">vios_l2-adventerprisek9-m.03.2017.qcow2</span></code> y
-<code class="docutils literal notranslate"><span class="pre">vios_l2-adventerprisek9-m.vmdk.SSA.152-4.0.55.E</span></code>. Estas son muy difíciles
+<li>El Appliance <code class="docutils literal"><span class="pre">cisco-iosvl2.gns3a</span></code>. Este es fácil de conseguir.</li>
+<li>Las imágenes <code class="docutils literal"><span class="pre">vios_l2-adventerprisek9-m.03.2017.qcow2</span></code> y
+<code class="docutils literal"><span class="pre">vios_l2-adventerprisek9-m.vmdk.SSA.152-4.0.55.E</span></code>. Estas son muy difíciles
 de conseguir, el único lugar en donde las encontré es en una pagina en chino
-y árabe.</p></li>
+y árabe.</li>
 </ul>
 <p>Hay que agregar al Appliance, al agregarlo te va a pedir que busques las dos
 imágenes y listo. Una vez terminado aparece en la parte de «QEMU VMs» con el
-nombre de <code class="docutils literal notranslate"><span class="pre">Cisco</span> <span class="pre">IOSvL2</span> <span class="pre">15.2.4055</span></code>.</p>
+nombre de <code class="docutils literal"><span class="pre">Cisco</span> <span class="pre">IOSvL2</span> <span class="pre">15.2.4055</span></code>.</p>
 </li>
 </ul>
 </div>
 <div class="section" id="otros-tips">
 <h2>Otros tips<a class="headerlink" href="#otros-tips" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Si no se pueden abrir las consolas, ir a Preferencias &gt; General &gt; Console
+<li>Si no se pueden abrir las consolas, ir a Preferencias &gt; General &gt; Console
 applications y apretar el botón de «Edit» en «Console Settings» para
-seleccionar una consola que esté instalada.</p></li>
-<li><p>Cuando intenté usar ipv6 en el router Mikrotik no encontraba los comandos. En
-mi caso pasaba que el paquete <code class="docutils literal notranslate"><span class="pre">ipv6</span></code> del router no estaba habilitado, esto
-se puede ver al hacer <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">package</span> <span class="pre">print</span></code> y viendo qué paquetes tienen
-una <code class="docutils literal notranslate"><span class="pre">X</span></code> al lado. Para habilitar un paquete hay que hacer <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">package</span>
+seleccionar una consola que esté instalada.</li>
+<li>Cuando intenté usar ipv6 en el router Mikrotik no encontraba los comandos. En
+mi caso pasaba que el paquete <code class="docutils literal"><span class="pre">ipv6</span></code> del router no estaba habilitado, esto
+se puede ver al hacer <code class="docutils literal"><span class="pre">system</span> <span class="pre">package</span> <span class="pre">print</span></code> y viendo qué paquetes tienen
+una <code class="docutils literal"><span class="pre">X</span></code> al lado. Para habilitar un paquete hay que hacer <code class="docutils literal"><span class="pre">system</span> <span class="pre">package</span>
 <span class="pre">enable</span> <span class="pre">numbers=</span></code> y poniendo el número correspondiente a ese paquete (el
-número se ve al hacer <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">package</span> <span class="pre">print</span></code>). Finalmente hay que hacer un
-<code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">reboot</span></code> paar que se termine de activar.</p></li>
-<li><p>Cuando te pasan un proyecto con Ciscos adentro puede que ande lento, para
+número se ve al hacer <code class="docutils literal"><span class="pre">system</span> <span class="pre">package</span> <span class="pre">print</span></code>). Finalmente hay que hacer un
+<code class="docutils literal"><span class="pre">system</span> <span class="pre">reboot</span></code> paar que se termine de activar.</li>
+<li>Cuando te pasan un proyecto con Ciscos adentro puede que ande lento, para
 acelerarlo hay que hacer click derecho en un Cisco cualquiera y poner <em>Auto
-Idle-PC value</em>.</p></li>
-<li><p>Para hacer una imagen de Docker para algún servidor, me hago una carpeta con
-algún <em>Dockerfile</em>, creo la imagen con <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">image</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">nombre_image</span>
-<span class="pre">.</span></code> y la agrego a GNS3.</p></li>
-<li><p>Para poder ingresar a las VMs desde el host se debe:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">uml-utilities</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">tunctl</span> <span class="pre">-u</span> <span class="pre">{usuario}</span></code>.</p></li>
-<li><p>Debería haber aparecido una interfaz <code class="docutils literal notranslate"><span class="pre">tap1</span></code> o similar al hacer <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">-c</span> <span class="pre">a</span></code>.</p></li>
-<li><p>Agregar una Cloud en GNS3, ir a la pestaña «TAP Interfaces» y agregar la
-interfaz <code class="docutils literal notranslate"><span class="pre">tap1</span></code>.</p></li>
-<li><p>Conectar la Cloud por medio de la <code class="docutils literal notranslate"><span class="pre">tap1</span></code> a donde sea.</p></li>
-<li><p>En el host agregar una ip a la interfaz <code class="docutils literal notranslate"><span class="pre">tap1</span></code> y listo.</p></li>
+Idle-PC value</em>.</li>
+<li>Para hacer una imagen de Docker para algún servidor, me hago una carpeta con
+algún <em>Dockerfile</em>, creo la imagen con <code class="docutils literal"><span class="pre">docker</span> <span class="pre">image</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">nombre_image</span>
+<span class="pre">.</span></code> y la agrego a GNS3.</li>
+<li>Para poder ingresar a las VMs desde el host se debe:<ul>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">uml-utilities</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">tunctl</span> <span class="pre">-u</span> <span class="pre">{usuario}</span></code>.</li>
+<li>Debería haber aparecido una interfaz <code class="docutils literal"><span class="pre">tap1</span></code> o similar al hacer <code class="docutils literal"><span class="pre">ip</span> <span class="pre">-c</span> <span class="pre">a</span></code>.</li>
+<li>Agregar una Cloud en GNS3, ir a la pestaña «TAP Interfaces» y agregar la
+interfaz <code class="docutils literal"><span class="pre">tap1</span></code>.</li>
+<li>Conectar la Cloud por medio de la <code class="docutils literal"><span class="pre">tap1</span></code> a donde sea.</li>
+<li>En el host agregar una ip a la interfaz <code class="docutils literal"><span class="pre">tap1</span></code> y listo.</li>
 </ul>
 </li>
 </ul>
@@ -271,7 +280,9 @@ interfaz <code class="docutils literal notranslate"><span class="pre">tap1</span
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -280,7 +291,7 @@ interfaz <code class="docutils literal notranslate"><span class="pre">tap1</span
         <a href="wireshark.html" class="btn btn-neutral float-right" title="Wireshark" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="acceso_remoto.html" class="btn btn-neutral float-left" title="Acceso remoto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="acceso_remoto.html" class="btn btn-neutral" title="Acceso remoto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -289,11 +300,11 @@ interfaz <code class="docutils literal notranslate"><span class="pre">tap1</span
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -306,15 +317,37 @@ interfaz <code class="docutils literal notranslate"><span class="pre">tap1</span
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

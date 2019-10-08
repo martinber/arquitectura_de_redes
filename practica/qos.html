@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,36 +17,42 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="prev" title="iptables" href="iptables.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Práctica" href="index.html"/>
+        <link rel="prev" title="iptables" href="iptables.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -108,7 +114,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -116,10 +122,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -174,74 +179,74 @@ ELK: Elastic search, ???, Kibana?</p>
 paquetes sin importar el origen o el destino. Luego de marcar la conexión se
 marcan los paquetes que puede ser diferenciado o no, por ejemplo se puede marcar
 los paquetes tcp con una etiqueta y los de udp con otra. En Winbox ir a
-<code class="docutils literal notranslate"><span class="pre">ip---&gt;Firewall---&gt;Mangle</span></code> en el + se agrega la regla que quieras. Para
+<code class="docutils literal"><span class="pre">ip---&gt;Firewall---&gt;Mangle</span></code> en el + se agrega la regla que quieras. Para
 conexión se pone en Src. Address la ip o rango de ip desde donde viene y en
-<code class="docutils literal notranslate"><span class="pre">Action</span></code> se pone <code class="docutils literal notranslate"><span class="pre">mark</span> <span class="pre">connection</span></code> y abajo el nombre correspondiente.</p>
+<code class="docutils literal"><span class="pre">Action</span></code> se pone <code class="docutils literal"><span class="pre">mark</span> <span class="pre">connection</span></code> y abajo el nombre correspondiente.</p>
 <p>Luego se agrega para marcar los paquetes en la misma tabla mangle, pero no
 necesita de poner ninguna ip de origen o destino, sino que hay que ponerle en
-<code class="docutils literal notranslate"><span class="pre">Connection</span> <span class="pre">Mark</span></code> la marca de conexión que creaste antes. Luego en <code class="docutils literal notranslate"><span class="pre">Action</span></code>
+<code class="docutils literal"><span class="pre">Connection</span> <span class="pre">Mark</span></code> la marca de conexión que creaste antes. Luego en <code class="docutils literal"><span class="pre">Action</span></code>
 pones mark packet y su nombre, recordando de tener destildada la opción de
-<code class="docutils literal notranslate"><span class="pre">Passthrough</span></code> para que cuando ejecute la acción de marcado de paquete salga de
+<code class="docutils literal"><span class="pre">Passthrough</span></code> para que cuando ejecute la acción de marcado de paquete salga de
 una y no siga reccorriendo todas las reglas de la tabla. Lo óptimo es poner a
 continuación de la regla de marcado de conexión la de marcado de paquete.</p>
-<p>Para hacer las colas ir a <code class="docutils literal notranslate"><span class="pre">Queues---&gt;Queue</span> <span class="pre">Tree</span></code> agregar en el +. En Parent
+<p>Para hacer las colas ir a <code class="docutils literal"><span class="pre">Queues---&gt;Queue</span> <span class="pre">Tree</span></code> agregar en el +. En Parent
 podes elegir si lo hacés en una interfaz determinada o se le pone global si
 querés que se aplique en todas. En el caso que hagas un arbol para la interfaz
 eth0, cuando se hace la de global aparte, no incluye a esta interfaz. Se debe
 poner:</p>
 <ul class="simple">
-<li><p>Name: Nombre de la cola, por ejemplo Download.</p></li>
-<li><p>Parent: donde se va a realizar la cola, puede ser la interfaz o si es una rama
-se pone por ej Download.</p></li>
-<li><p>Packet Mark: la marca que tiene el paquete, se creó en la parte de mangle.</p></li>
-<li><p>Queue Type: el tipo de cola, default es una pfifo.</p></li>
-<li><p>Priority: valor de prioridad, 1 es el más alto y 8 el más bajo.</p></li>
-<li><p>Limit at: indica el ancho de banda asegurado.</p></li>
-<li><p>Max limit: el ancho de banda máximo que puede utilizar, que proviene de cuando
+<li>Name: Nombre de la cola, por ejemplo Download.</li>
+<li>Parent: donde se va a realizar la cola, puede ser la interfaz o si es una rama
+se pone por ej Download.</li>
+<li>Packet Mark: la marca que tiene el paquete, se creó en la parte de mangle.</li>
+<li>Queue Type: el tipo de cola, default es una pfifo.</li>
+<li>Priority: valor de prioridad, 1 es el más alto y 8 el más bajo.</li>
+<li>Limit at: indica el ancho de banda asegurado.</li>
+<li>Max limit: el ancho de banda máximo que puede utilizar, que proviene de cuando
 el resto de las colas no están usando la totalidad del ancho de banda
-otorgado.</p></li>
+otorgado.</li>
 </ul>
 <div class="section" id="linux">
 <h2>Linux<a class="headerlink" href="#linux" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">-s</span> <span class="pre">qdisc</span> <span class="pre">ls</span> <span class="pre">dev</span> <span class="pre">xxx</span></code>: Monitorea las colas asociadas a una interfaz.</p>
+<p><code class="docutils literal"><span class="pre">tc</span> <span class="pre">-s</span> <span class="pre">qdisc</span> <span class="pre">ls</span> <span class="pre">dev</span> <span class="pre">xxx</span></code>: Monitorea las colas asociadas a una interfaz.</p>
 <p>Existen dos tipos de  disciplinas de colas:</p>
 <div class="section" id="sin-clase">
 <h3>Sin clase<a class="headerlink" href="#sin-clase" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="section" id="pfifo">
 <h4>PFIFO<a class="headerlink" href="#pfifo" title="Enlazar permanentemente con este título">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">qdisc</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">xxx</span> <span class="pre">root</span> <span class="pre">pfifo</span></code></p>
+<p><code class="docutils literal"><span class="pre">tc</span> <span class="pre">qdisc</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">xxx</span> <span class="pre">root</span> <span class="pre">pfifo</span></code></p>
 </div>
 <div class="section" id="token-bucket-filter-tbf">
 <h4>Token Bucket Filter (TBF)<a class="headerlink" href="#token-bucket-filter-tbf" title="Enlazar permanentemente con este título">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">qdisc</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">eth0</span> <span class="pre">root</span> <span class="pre">tbf</span> <span class="pre">rate</span> <span class="pre">xkbit</span> <span class="pre">latency</span> <span class="pre">xms</span> <span class="pre">burst</span> <span class="pre">1540</span></code></p>
+<p><code class="docutils literal"><span class="pre">tc</span> <span class="pre">qdisc</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">eth0</span> <span class="pre">root</span> <span class="pre">tbf</span> <span class="pre">rate</span> <span class="pre">xkbit</span> <span class="pre">latency</span> <span class="pre">xms</span> <span class="pre">burst</span> <span class="pre">1540</span></code></p>
 <p>Donde:</p>
 <ul class="simple">
-<li><p>rate: Velocidad de la interfaz</p></li>
-<li><p>latency: Período máximo de tiempo que puede pasar un paquete en el tbf</p></li>
-<li><p>burst: Tamaño del bucket en bytes</p></li>
+<li>rate: Velocidad de la interfaz</li>
+<li>latency: Período máximo de tiempo que puede pasar un paquete en el tbf</li>
+<li>burst: Tamaño del bucket en bytes</li>
 </ul>
 </div>
 <div class="section" id="stochastic-fairness-queueing-sfq">
 <h4>Stochastic Fairness Queueing (SFQ)<a class="headerlink" href="#stochastic-fairness-queueing-sfq" title="Enlazar permanentemente con este título">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">qdisc</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">xxx</span> <span class="pre">root</span> <span class="pre">sfq</span> <span class="pre">perturb</span> <span class="pre">10</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">Perturb</span> <span class="pre">X</span></code> reconfigura la cola cada X segundos y es opcional.</p>
+<p><code class="docutils literal"><span class="pre">tc</span> <span class="pre">qdisc</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">xxx</span> <span class="pre">root</span> <span class="pre">sfq</span> <span class="pre">perturb</span> <span class="pre">10</span></code></p>
+<p><code class="docutils literal"><span class="pre">Perturb</span> <span class="pre">X</span></code> reconfigura la cola cada X segundos y es opcional.</p>
 </div>
 </div>
 <div class="section" id="con-clase">
 <h3>Con clase<a class="headerlink" href="#con-clase" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><p>A diferencia de las sin clases, tienen nivel de profundidad, se agrupan
-distintos tipos de paquetes (clases) para luego darles prioridades.</p></li>
-<li><p>Para identificar clases se usa la notación <strong>major:minor</strong>, donde major hace
+<li>A diferencia de las sin clases, tienen nivel de profundidad, se agrupan
+distintos tipos de paquetes (clases) para luego darles prioridades.</li>
+<li>Para identificar clases se usa la notación <strong>major:minor</strong>, donde major hace
 referencia a la raíz de una clase y minor se refiere a una que desciende de
-root.</p></li>
-<li><p>Se necesitan usar filtro para tratar los paquetes de distintas clases.</p></li>
+root.</li>
+<li>Se necesitan usar filtro para tratar los paquetes de distintas clases.</li>
 </ul>
 <div class="section" id="prio">
 <h4>PRIO<a class="headerlink" href="#prio" title="Enlazar permanentemente con este título">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">qdisc</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">xxx</span> <span class="pre">root</span> <span class="pre">handle</span> <span class="pre">1:</span> <span class="pre">prio</span></code></p>
+<p><code class="docutils literal"><span class="pre">tc</span> <span class="pre">qdisc</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">xxx</span> <span class="pre">root</span> <span class="pre">handle</span> <span class="pre">1:</span> <span class="pre">prio</span></code></p>
 <p>Crea por defecto clases 1:1 1:2 y 1:3</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev xxx parent 1:1 handle 10: sfq
+<div class="highlight-none"><div class="highlight"><pre><span></span>tc qdisc add dev xxx parent 1:1 handle 10: sfq
 tc qdisc add dev xxx parent 1:2 handle 20: tbf rate xkbit buffer y limit z
 tc qdisc add dev xxx parent 1:3 handle 30: pfifo
 </pre></div>
@@ -250,7 +255,7 @@ tc qdisc add dev xxx parent 1:3 handle 30: pfifo
 <div class="section" id="cbq">
 <h4>CBQ<a class="headerlink" href="#cbq" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Es la más complicada, justamente por eso no se usa.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev xxx root handle 1:0 cbq bandwidth xMbit avpkt 1000 cell 8
+<div class="highlight-none"><div class="highlight"><pre><span></span>tc qdisc add dev xxx root handle 1:0 cbq bandwidth xMbit avpkt 1000 cell 8
 tc class add dev xxx parent 1:0 classid 1:1 cbq bandwidth xMbit rate yMbit
 weight zMbit prio 8 allot 1514 cell 8 maxburst 20 avpkt 1000 bounded
 </pre></div>
@@ -265,55 +270,55 @@ parámetros que TBF.</p>
 <div class="section" id="marcado-de-paquetes">
 <h3>Marcado de paquetes<a class="headerlink" href="#marcado-de-paquetes" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><p>fw: Clasifica el tráfico basándose en marcas realizadas a los paquetes.
-<code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">filter</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">xxx</span> <span class="pre">protocol</span> <span class="pre">ip</span> <span class="pre">parent</span> <span class="pre">1:0</span> <span class="pre">prio</span> <span class="pre">1</span> <span class="pre">handle</span> <span class="pre">X</span> <span class="pre">fw</span> <span class="pre">flowid</span> <span class="pre">1:Y</span></code>:
+<li>fw: Clasifica el tráfico basándose en marcas realizadas a los paquetes.
+<code class="docutils literal"><span class="pre">tc</span> <span class="pre">filter</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">xxx</span> <span class="pre">protocol</span> <span class="pre">ip</span> <span class="pre">parent</span> <span class="pre">1:0</span> <span class="pre">prio</span> <span class="pre">1</span> <span class="pre">handle</span> <span class="pre">X</span> <span class="pre">fw</span> <span class="pre">flowid</span> <span class="pre">1:Y</span></code>:
 Adhiere un filtro a la interfaz xxx para el protocolo ip, donde la disciplina
 de cola (qdisc) padre es la 1:0. Se especifica que se usa el filtro fw y que
-los paquetes marcados con X los envíe a la cola Y.</p></li>
-<li><p>u32: Análisis de los campos de la cabecera de los protocolos.
-<code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">filter</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">xxx</span> <span class="pre">protocol</span> <span class="pre">ip</span> <span class="pre">parent</span> <span class="pre">1:0</span> <span class="pre">prio</span> <span class="pre">1</span> <span class="pre">u32</span> <span class="pre">match</span> <span class="pre">ip</span> <span class="pre">dport</span> <span class="pre">80</span>
+los paquetes marcados con X los envíe a la cola Y.</li>
+<li>u32: Análisis de los campos de la cabecera de los protocolos.
+<code class="docutils literal"><span class="pre">tc</span> <span class="pre">filter</span> <span class="pre">add</span> <span class="pre">dev</span> <span class="pre">xxx</span> <span class="pre">protocol</span> <span class="pre">ip</span> <span class="pre">parent</span> <span class="pre">1:0</span> <span class="pre">prio</span> <span class="pre">1</span> <span class="pre">u32</span> <span class="pre">match</span> <span class="pre">ip</span> <span class="pre">dport</span> <span class="pre">80</span>
 <span class="pre">0xffff</span> <span class="pre">flowid</span> <span class="pre">1:X</span></code>: Adhiere un filtro a la interfaz xxx para el protocolo ip,
 donde la qdisc padre es la 1:0. Se usa u32 y se marca que los paquetes que
-tengan el puerto 80 como destino deben ser enviados a la cola X.</p></li>
+tengan el puerto 80 como destino deben ser enviados a la cola X.</li>
 </ul>
 </div>
 <div class="section" id="ejemplo-hecho-en-clase">
 <h3>Ejemplo hecho en clase<a class="headerlink" href="#ejemplo-hecho-en-clase" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><p>Primero creamos los filtros asociados a una interfaz, protocolo, clase, y le
+<li>Primero creamos los filtros asociados a una interfaz, protocolo, clase, y le
 decimos la marca que van a contener los paquetes (handle #). Los paquetes con
-este numero van a ser redirigidos al flowid asignado.</p></li>
+este numero van a ser redirigidos al flowid asignado.</li>
 </ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc filter add dev enp2s0 protocol ip parent 1:0 prio 1 handle 1010 (0x3f2) fw flowid 1:10
+<div class="highlight-none"><div class="highlight"><pre><span></span>tc filter add dev enp2s0 protocol ip parent 1:0 prio 1 handle 1010 (0x3f2) fw flowid 1:10
 tc filter add... handle 1020 fw flowid 1:20
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Luego con iptables mangle marcamos los paquetes por IP de destino con el
-numero que le asignamos a «handle» en el comando anterior.</p></li>
+<li>Luego con iptables mangle marcamos los paquetes por IP de destino con el
+numero que le asignamos a «handle» en el comando anterior.</li>
 </ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t mangle -A  FORWARD -d [IPDest] -j MARK --set-mark 1010 (0x3f2)
+<div class="highlight-none"><div class="highlight"><pre><span></span>iptables -t mangle -A  FORWARD -d [IPDest] -j MARK --set-mark 1010 (0x3f2)
 iptables -t mangle... --set-mark 1020
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Luego creamos el arbol de colas con clases, sirve ayudarse en este paso con
+<li>Luego creamos el arbol de colas con clases, sirve ayudarse en este paso con
 el programa tcviz para graficar la arquitectura de la cola asociada a la
-interfaz.</p></li>
+interfaz.</li>
 </ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev enp2s0 parent root handle 1: htb default 1:10
+<div class="highlight-none"><div class="highlight"><pre><span></span>tc qdisc add dev enp2s0 parent root handle 1: htb default 1:10
 tc class add dev enp2s0 parent 1: classid 1:10 htb rate 7Mbit
 tc class add dev enp2s0 parent 1: classid 1:20 htb rate 3Mbit
 tc qdisc add dev enp2s0 parent 1:10 sfq perturb 10
 </pre></div>
 </div>
 <p>Finalmente podemos generar una imagen con tcviz para ver la estructura final:</p>
-<p><code class="docutils literal notranslate"><span class="pre">./tcviz.py</span> <span class="pre">enp2s0</span> <span class="pre">|</span> <span class="pre">dot</span> <span class="pre">-Tpng</span> <span class="pre">&gt;</span> <span class="pre">tc.png</span></code></p>
+<p><code class="docutils literal"><span class="pre">./tcviz.py</span> <span class="pre">enp2s0</span> <span class="pre">|</span> <span class="pre">dot</span> <span class="pre">-Tpng</span> <span class="pre">&gt;</span> <span class="pre">tc.png</span></code></p>
 </div>
 <div class="section" id="netem">
 <h3>NETEM<a class="headerlink" href="#netem" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Para el uso de netem en linux hay varios casos:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev eth0 root netem delay 100ms
+<div class="highlight-none"><div class="highlight"><pre><span></span>tc qdisc add dev eth0 root netem delay 100ms
 tc qdisc add dev eth0 root netem delay 100ms 50ms
 tc qdisc add dev eth0 root netem loss 0.1%
 tc qdisc add dev eth0 root netem duplicate 1%
@@ -322,28 +327,30 @@ tc qdisc add dev eth0 root netem corrupt 0.1%
 </div>
 <p>Donde:</p>
 <ul class="simple">
-<li><p>delay X: Agrega solamente retardo</p></li>
-<li><p>delay X Y: Agrega X de retardo e Y de jitter</p></li>
-<li><p>loss X%: Porcentaje de périda de paquetes</p></li>
-<li><p>duplicate X%: Porcentaje de paquetes duplicados</p></li>
-<li><p>corrupt X%: Corrompe los paquetes agregándoles bits erróneos</p></li>
+<li>delay X: Agrega solamente retardo</li>
+<li>delay X Y: Agrega X de retardo e Y de jitter</li>
+<li>loss X%: Porcentaje de périda de paquetes</li>
+<li>duplicate X%: Porcentaje de paquetes duplicados</li>
+<li>corrupt X%: Corrompe los paquetes agregándoles bits erróneos</li>
 </ul>
-<p>Recordar que en vez de <code class="docutils literal notranslate"><span class="pre">add</span></code> se debe usar <code class="docutils literal notranslate"><span class="pre">change</span></code> para modificar, o
-<code class="docutils literal notranslate"><span class="pre">delete</span></code> para borrar reglas.</p>
+<p>Recordar que en vez de <code class="docutils literal"><span class="pre">add</span></code> se debe usar <code class="docutils literal"><span class="pre">change</span></code> para modificar, o
+<code class="docutils literal"><span class="pre">delete</span></code> para borrar reglas.</p>
 </div>
 </div>
 </div>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="iptables.html" class="btn btn-neutral float-left" title="iptables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="iptables.html" class="btn btn-neutral" title="iptables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -352,11 +359,11 @@ tc qdisc add dev eth0 root netem corrupt 0.1%
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi
+        &copy; Copyright 2018-2019, Martín Bernardi.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -369,15 +376,37 @@ tc qdisc add dev eth0 root netem corrupt 0.1%
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
