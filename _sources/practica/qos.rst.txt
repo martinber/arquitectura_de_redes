@@ -5,7 +5,7 @@ Netflow
 ELK: Elastic search, ???, Kibana?
 
 Mikrotik
-========
+--------
 
 Se hace el marcado de las conexiones, que funciona como un tunel, en donde los
 paquetes sin importar el origen o el destino. Luego de marcar la conexión se
@@ -133,40 +133,128 @@ Marcado de paquetes
   donde la qdisc padre es la 1:0. Se usa u32 y se marca que los paquetes que
   tengan el puerto 80 como destino deben ser enviados a la cola X.
 
-Ejemplo hecho en clase
-~~~~~~~~~~~~~~~~~~~~~~
+Ejemplo HTB
+~~~~~~~~~~~
 
-- Primero creamos los filtros asociados a una interfaz, protocolo, clase, y le
-  decimos la marca que van a contener los paquetes (handle #). Los paquetes con
-  este numero van a ser redirigidos al flowid asignado.
-
-::
-
-  tc filter add dev enp2s0 protocol ip parent 1:0 prio 1 handle 1010 (0x3f2) fw flowid 1:10
-  tc filter add... handle 1020 fw flowid 1:20
-
-- Luego con iptables mangle marcamos los paquetes por IP de destino con el
-  numero que le asignamos a "handle" en el comando anterior.
+Vamos a poner una cola HTB en el root, y vamos a ver como va quedando paso a
+paso con `tcviz <https://github.com/ze-phyr-us/tcviz>`_. **Las qdiscs son
+rectángulos y las clases son elipses**.
 
 ::
 
-  iptables -t mangle -A  FORWARD -d [IPDest] -j MARK --set-mark 1010 (0x3f2)
-  iptables -t mangle... --set-mark 1020
+  tc qdisc add dev enp4s0 parent root handle 1:0 htb default 10
 
-- Luego creamos el arbol de colas con clases, sirve ayudarse en este paso con
-  el programa tcviz para graficar la arquitectura de la cola asociada a la
-  interfaz.
+``default 10`` indica que por defecto los paquetes sin clasificar se envían a la
+clase ``1:10``.
+
+.. image:: ./linux_tc_htb/paso_1.png
+
+Creamos las dos clases
 
 ::
 
-  tc qdisc add dev enp2s0 parent root handle 1: htb default 1:10
-  tc class add dev enp2s0 parent 1: classid 1:10 htb rate 7Mbit
-  tc class add dev enp2s0 parent 1: classid 1:20 htb rate 3Mbit
-  tc qdisc add dev enp2s0 parent 1:10 sfq perturb 10
+  tc class add dev enp4s0 parent 1: classid 1:10 htb rate 7Mbit
 
-Finalmente podemos generar una imagen con tcviz para ver la estructura final:
+.. image:: ./linux_tc_htb/paso_2.png
 
-``./tcviz.py enp2s0 | dot -Tpng > tc.png``
+::
+
+  tc class add dev enp4s0 parent 1: classid 1:20 htb rate 3Mbit
+
+.. image:: ./linux_tc_htb/paso_3.png
+
+Vamos a usar dos clases, entonces sería util poner dos filtros para que cada uno
+lleve a una clase. Vamos a usar filtros ``handle`` que se basan en marcas
+realizadas por ``iptables``. Tener en cuenta que el gráfico muestra al handle
+``1010`` en hexadecimal como ``0x3f2``.
+
+::
+
+  tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1010 fw flowid 1:10
+
+Los paquetes que lleguen con la marca ``1010`` se enviarán a la clase ``1:10``.
+Tener en cuenta que el gráfico muestra al handle ``1020`` en hexadecimal como
+``0x3fc``.
+
+.. image:: ./linux_tc_htb/paso_4.png
+
+::
+
+  tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1020 fw flowid 1:20
+
+.. image:: ./linux_tc_htb/paso_5.png
+
+Después se pone una qdisc debajo de cada clase. No se les pone una handle
+específicamente entonces toman cualquier número.
+
+::
+
+  tc qdisc add dev enp4s0 parent 1:10 sfq perturb 10
+
+.. image:: ./linux_tc_htb/paso_6.png
+
+::
+
+  tc qdisc add dev enp4s0 parent 1:20 pfifo
+
+.. image:: ./linux_tc_htb/paso_7.png
+
+En resumen estos son los comandos que se pusieron::
+
+  tc qdisc add dev enp4s0 parent root handle 1:0 htb default 10
+  tc class add dev enp4s0 parent 1: classid 1:10 htb rate 7Mbit
+  tc class add dev enp4s0 parent 1: classid 1:20 htb rate 3Mbit
+  tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1010 fw flowid 1:10
+  tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1020 fw flowid 1:20
+  tc qdisc add dev enp4s0 parent 1:10 sfq perturb 10
+  tc qdisc add dev enp4s0 parent 1:20 pfifo
+
+Con eso ya se configuró todo el árbol de ``tc``, ahora falta marcar los paquetes
+con ``iptables`` para que tomen las handles ``1010`` o ``1020``. Este es un
+ejemplo de marcado que depende de la IP de destino::
+
+  iptables -t mangle -A FORWARD -d 10.0.0.10 -j MARK --set-mark 1010
+  iptables -t mangle -A FORWARD -d 10.0.0.11 -j MARK --set-mark 1020
+
+Ejemplo PRIO
+~~~~~~~~~~~~
+
+Vamos a poner una cola PRIO en el root, y vamos a ver como va quedando paso a
+paso con `tcviz <https://github.com/ze-phyr-us/tcviz>`_. **Las qdiscs son
+rectángulos y las clases son elipses**.
+
+::
+
+  tc qdisc add dev enp4s0 root handle 1: prio
+
+A diferencia de HTB en donde hay que definir las clases, PRIO ya viene con tres
+clases.
+
+.. image:: ./linux_tc_prio/paso_1.png
+
+Al igual que antes vamos definiendo los filtros, acá pongo los tres filtros en
+una en vez de mostrarlo en tres pasos::
+
+  tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 121 fw flowid 1:1
+  tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 122 fw flowid 1:2
+  tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 123 fw flowid 1:3
+
+.. image:: ./linux_tc_prio/paso_2.png
+
+Ahora pongo colas cualquiera en cada clase::
+
+  tc qdisc add dev enp4s0 parent 1:1 pfifo
+  tc qdisc add dev enp4s0 parent 1:2 sfq perturb 10
+  tc qdisc add dev enp4s0 parent 1:3 pfifo
+
+.. image:: ./linux_tc_prio/paso_3.png
+
+Finalmente hay que marcar los paquetes con iptables, como no tengo ganas adapto
+el ejemplo anterior a este caso::
+
+  iptables -t mangle -A FORWARD -d 10.0.0.10 -j MARK --set-mark 121
+  iptables -t mangle -A FORWARD -d 10.0.0.11 -j MARK --set-mark 122
+  iptables -t mangle -A FORWARD -d 10.0.0.12 -j MARK --set-mark 123
 
 NETEM
 ~~~~~
