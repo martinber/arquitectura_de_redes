@@ -88,8 +88,8 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#varios">Varios</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="iptables.html">iptables</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">QOS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mikrotik">Mikrotik</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">QOS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mikrotik">Mikrotik</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#linux">Linux</a></li>
 </ul>
 </li>
@@ -167,9 +167,8 @@
 <h1>QOS<a class="headerlink" href="#qos" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Netflow
 ELK: Elastic search, ???, Kibana?</p>
-</div>
 <div class="section" id="mikrotik">
-<h1>Mikrotik<a class="headerlink" href="#mikrotik" title="Enlazar permanentemente con este título">¶</a></h1>
+<h2>Mikrotik<a class="headerlink" href="#mikrotik" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se hace el marcado de las conexiones, que funciona como un tunel, en donde los
 paquetes sin importar el origen o el destino. Luego de marcar la conexión se
 marcan los paquetes que puede ser diferenciado o no, por ejemplo se puede marcar
@@ -201,6 +200,7 @@ se pone por ej Download.</p></li>
 el resto de las colas no están usando la totalidad del ancho de banda
 otorgado.</p></li>
 </ul>
+</div>
 <div class="section" id="linux">
 <h2>Linux<a class="headerlink" href="#linux" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">tc</span> <span class="pre">-s</span> <span class="pre">qdisc</span> <span class="pre">ls</span> <span class="pre">dev</span> <span class="pre">xxx</span></code>: Monitorea las colas asociadas a una interfaz.</p>
@@ -277,38 +277,102 @@ donde la qdisc padre es la 1:0. Se usa u32 y se marca que los paquetes que
 tengan el puerto 80 como destino deben ser enviados a la cola X.</p></li>
 </ul>
 </div>
-<div class="section" id="ejemplo-hecho-en-clase">
-<h3>Ejemplo hecho en clase<a class="headerlink" href="#ejemplo-hecho-en-clase" title="Enlazar permanentemente con este título">¶</a></h3>
-<ul class="simple">
-<li><p>Primero creamos los filtros asociados a una interfaz, protocolo, clase, y le
-decimos la marca que van a contener los paquetes (handle #). Los paquetes con
-este numero van a ser redirigidos al flowid asignado.</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc filter add dev enp2s0 protocol ip parent 1:0 prio 1 handle 1010 (0x3f2) fw flowid 1:10
-tc filter add... handle 1020 fw flowid 1:20
+<div class="section" id="ejemplo-htb">
+<h3>Ejemplo HTB<a class="headerlink" href="#ejemplo-htb" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Vamos a poner una cola HTB en el root, y vamos a ver como va quedando paso a
+paso con <a class="reference external" href="https://github.com/ze-phyr-us/tcviz">tcviz</a>. <strong>Las qdiscs son
+rectángulos y las clases son elipses</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev enp4s0 parent root handle 1:0 htb default 10
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Luego con iptables mangle marcamos los paquetes por IP de destino con el
-numero que le asignamos a «handle» en el comando anterior.</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t mangle -A  FORWARD -d [IPDest] -j MARK --set-mark 1010 (0x3f2)
-iptables -t mangle... --set-mark 1020
+<p><code class="docutils literal notranslate"><span class="pre">default</span> <span class="pre">10</span></code> indica que por defecto los paquetes sin clasificar se envían a la
+clase <code class="docutils literal notranslate"><span class="pre">1:10</span></code>.</p>
+<img alt="../_images/paso_1.png" src="../_images/paso_1.png" />
+<p>Creamos las dos clases</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc class add dev enp4s0 parent 1: classid 1:10 htb rate 7Mbit
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Luego creamos el arbol de colas con clases, sirve ayudarse en este paso con
-el programa tcviz para graficar la arquitectura de la cola asociada a la
-interfaz.</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev enp2s0 parent root handle 1: htb default 1:10
-tc class add dev enp2s0 parent 1: classid 1:10 htb rate 7Mbit
-tc class add dev enp2s0 parent 1: classid 1:20 htb rate 3Mbit
-tc qdisc add dev enp2s0 parent 1:10 sfq perturb 10
+<img alt="../_images/paso_2.png" src="../_images/paso_2.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc class add dev enp4s0 parent 1: classid 1:20 htb rate 3Mbit
 </pre></div>
 </div>
-<p>Finalmente podemos generar una imagen con tcviz para ver la estructura final:</p>
-<p><code class="docutils literal notranslate"><span class="pre">./tcviz.py</span> <span class="pre">enp2s0</span> <span class="pre">|</span> <span class="pre">dot</span> <span class="pre">-Tpng</span> <span class="pre">&gt;</span> <span class="pre">tc.png</span></code></p>
+<img alt="../_images/paso_3.png" src="../_images/paso_3.png" />
+<p>Vamos a usar dos clases, entonces sería util poner dos filtros para que cada uno
+lleve a una clase. Vamos a usar filtros <code class="docutils literal notranslate"><span class="pre">handle</span></code> que se basan en marcas
+realizadas por <code class="docutils literal notranslate"><span class="pre">iptables</span></code>. Tener en cuenta que el gráfico muestra al handle
+<code class="docutils literal notranslate"><span class="pre">1010</span></code> en hexadecimal como <code class="docutils literal notranslate"><span class="pre">0x3f2</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1010 fw flowid 1:10
+</pre></div>
+</div>
+<p>Los paquetes que lleguen con la marca <code class="docutils literal notranslate"><span class="pre">1010</span></code> se enviarán a la clase <code class="docutils literal notranslate"><span class="pre">1:10</span></code>.
+Tener en cuenta que el gráfico muestra al handle <code class="docutils literal notranslate"><span class="pre">1020</span></code> en hexadecimal como
+<code class="docutils literal notranslate"><span class="pre">0x3fc</span></code>.</p>
+<img alt="../_images/paso_4.png" src="../_images/paso_4.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1020 fw flowid 1:20
+</pre></div>
+</div>
+<img alt="../_images/paso_5.png" src="../_images/paso_5.png" />
+<p>Después se pone una qdisc debajo de cada clase. No se les pone una handle
+específicamente entonces toman cualquier número.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev enp4s0 parent 1:10 sfq perturb 10
+</pre></div>
+</div>
+<img alt="../_images/paso_6.png" src="../_images/paso_6.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev enp4s0 parent 1:20 pfifo
+</pre></div>
+</div>
+<img alt="../_images/paso_7.png" src="../_images/paso_7.png" />
+<p>En resumen estos son los comandos que se pusieron:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev enp4s0 parent root handle 1:0 htb default 10
+tc class add dev enp4s0 parent 1: classid 1:10 htb rate 7Mbit
+tc class add dev enp4s0 parent 1: classid 1:20 htb rate 3Mbit
+tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1010 fw flowid 1:10
+tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1020 fw flowid 1:20
+tc qdisc add dev enp4s0 parent 1:10 sfq perturb 10
+tc qdisc add dev enp4s0 parent 1:20 pfifo
+</pre></div>
+</div>
+<p>Con eso ya se configuró todo el árbol de <code class="docutils literal notranslate"><span class="pre">tc</span></code>, ahora falta marcar los paquetes
+con <code class="docutils literal notranslate"><span class="pre">iptables</span></code> para que tomen las handles <code class="docutils literal notranslate"><span class="pre">1010</span></code> o <code class="docutils literal notranslate"><span class="pre">1020</span></code>. Este es un
+ejemplo de marcado que depende de la IP de destino:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t mangle -A FORWARD -d 10.0.0.10 -j MARK --set-mark 1010
+iptables -t mangle -A FORWARD -d 10.0.0.11 -j MARK --set-mark 1020
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplo-prio">
+<h3>Ejemplo PRIO<a class="headerlink" href="#ejemplo-prio" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Vamos a poner una cola PRIO en el root, y vamos a ver como va quedando paso a
+paso con <a class="reference external" href="https://github.com/ze-phyr-us/tcviz">tcviz</a>. <strong>Las qdiscs son
+rectángulos y las clases son elipses</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev enp4s0 root handle 1: prio
+</pre></div>
+</div>
+<p>A diferencia de HTB en donde hay que definir las clases, PRIO ya viene con tres
+clases.</p>
+<img alt="../_images/paso_11.png" src="../_images/paso_11.png" />
+<p>Al igual que antes vamos definiendo los filtros, acá pongo los tres filtros en
+una en vez de mostrarlo en tres pasos:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 121 fw flowid 1:1
+tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 122 fw flowid 1:2
+tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 123 fw flowid 1:3
+</pre></div>
+</div>
+<img alt="../_images/paso_21.png" src="../_images/paso_21.png" />
+<p>Ahora pongo colas cualquiera en cada clase:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc qdisc add dev enp4s0 parent 1:1 pfifo
+tc qdisc add dev enp4s0 parent 1:2 sfq perturb 10
+tc qdisc add dev enp4s0 parent 1:3 pfifo
+</pre></div>
+</div>
+<img alt="../_images/paso_31.png" src="../_images/paso_31.png" />
+<p>Finalmente hay que marcar los paquetes con iptables, como no tengo ganas adapto
+el ejemplo anterior a este caso:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t mangle -A FORWARD -d 10.0.0.10 -j MARK --set-mark 121
+iptables -t mangle -A FORWARD -d 10.0.0.11 -j MARK --set-mark 122
+iptables -t mangle -A FORWARD -d 10.0.0.12 -j MARK --set-mark 123
+</pre></div>
+</div>
 </div>
 <div class="section" id="netem">
 <h3>NETEM<a class="headerlink" href="#netem" title="Enlazar permanentemente con este título">¶</a></h3>

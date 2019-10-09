@@ -1,7 +1,7 @@
 QOS
 ===
 
-.. todo:: Hacer.
+.. todo:: Hacer. Ver http://web.opalsoft.net/qos/default.php?p=ds-21
 
 - QOS: Lo que la red da
 - COS: Lo que se requere de la red, es indistinto a QOS
@@ -129,6 +129,29 @@ Netflow
 Control de tráfico en Linux
 ---------------------------
 
+Explicación
+~~~~~~~~~~~
+
+Se utiliza la herramienta ``tc`` (Traffic Control), que permite trabajar con los
+paquetes entrantes o salientes. El manejo de paquetes entrantes es limitado y
+por ejemplo permite hacer *Policing*, pero en la salida permite más acciones
+como encolar paquetes, por eso solamente vemos control de tráfico a la salida.
+
+Los qdiscs son algoritmos que controlan el tratamiento de los paquetes. Algunas
+qdiscs son sin clase, que simplemente realizan un tratamiento sobre los
+paquetes, por ejemplo una cola FIFO llamada PFIFO.
+
+Otras qdisc tienen clases. Esto significa que pueden contener otras qdisc
+adentro. Por ejemplo si se quiere dar 5 niveles de prioridad se puede utilizar
+una qdisc padre llamada PRIO que clasifica los paquetes en 5 clases, en cada
+clase se debe ubicar una qdisc hija, entonces en este ejemplo se podrían tener 5
+colas PFIFO en cada una de estas clases.
+
+La mejor explicación la encontré en `este sitio`__. Lo entendí viendo los
+dibujos de esa página. Más abajo copio y pego más explicaciones.
+
+__ http://web.opalsoft.net/qos/default.php?p=ds-21
+
 Desde ``man tc``::
 
   Qdiscs
@@ -163,10 +186,7 @@ Desde ``man tc``::
     It is important to notice that filters reside within qdiscs - they are not
     masters of what happens.
 
-qdisc
-~~~~~
-
-Sacado de `acá <https://www.tldp.org/HOWTO/Traffic-Control-HOWTO>`_:
+Sobre qdiscs, sacado de `acá <https://www.tldp.org/HOWTO/Traffic-Control-HOWTO>`_:
 
   Simply put, a qdisc is a scheduler (Section 3.2). Other qdiscs available under
   Linux will rearrange the packets entering the scheduler's queue in accordance
@@ -208,10 +228,7 @@ Sacado de `acá <https://www.tldp.org/HOWTO/Traffic-Control-HOWTO>`_:
   with traffic control structures attached to the root qdisc unless otherwise
   specified
 
-class
-~~~~~
-
-Sacado de `acá <https://www.tldp.org/HOWTO/Traffic-Control-HOWTO>`_:
+Sobre clases, sacado de `acá <https://www.tldp.org/HOWTO/Traffic-Control-HOWTO>`_:
 
   Classes only exist inside a classful qdisc (e.g., HTB and CBQ). Classes are
   immensely flexible and can always contain either multiple children classes or a
@@ -226,7 +243,6 @@ Sacado de `acá <https://www.tldp.org/HOWTO/Traffic-Control-HOWTO>`_:
   A leaf class is a terminal class in a qdisc. It contains a qdisc (default FIFO)
   and will never contain a child class. Any class which contains a child class is
   an inner class (or root class) and not a leaf class.
-
 
 Colas
 -----
