@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Programación &mdash; documentación de Arquitectura de Redes - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="GNS3" href="gns3.html"/>
+        <link rel="prev" title="Acceso remoto" href="acceso_remoto.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Arquitectura de Redes
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Teoría</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#principal">Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#wan-y-ruteo">WAN y ruteo</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#capa-aplicacion-y-otros">Capa aplicación y otros</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="6to4.html">6to4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mail.html">Mail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ftp.html">FTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html">HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p2p.html">P2P</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia.html">Multimedia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="voip.html">VOIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gestion.html">Gestión de redes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html">TLS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qos.html">QOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="acceso_remoto.html">Acceso remoto</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Programación</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cgi-python">CGI + Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programacion-orientada-a-objetos">Programación orientada a objetos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programacion-en-qt">Programación en Qt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programacion-con-sockets">Programación con sockets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gns3.html">GNS3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../practica/index.html">Práctica</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Arquitectura de Redes</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Teoría</a> &raquo;</li>
+        
+      <li>Programación</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/teoria/programacion.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="programacion">
+<h1>Programación<a class="headerlink" href="#programacion" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="cgi-python">
+<h2>CGI + Python<a class="headerlink" href="#cgi-python" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>CGI (Common Gateway Interface) es una tecnología que permite al cliente solicitar
+datos de un programa ejecutado del lado de un servidor web. Lo utilizamos junto a
+HTML (Hyper Text Markup Language), el lenguaje deprogramación estándar de páginas
+web. Está conformado por el uso de etiquetas o tags que marcan la estructura del
+documento. Las aplicaciones CGI fueron las primeras en ser utilizadas para brindar
+contenido dinámico para las páginas web.</p>
+<p>En una aplicación CGI el servidor pasa las solicitudes del cliente a un programa
+externo. Este puede estar escrito en cualquier lenguaje que soporte el servidor.
+La salida del programa es devuelta al cliente, en lugar del archivo estático
+tradicional.</p>
+<ol class="arabic simple">
+<li>El servidor recibe una petición (el cliente ha ingresado a una URL que
+contiene el CGI), y este redirige la petición con los datos al script.</li>
+<li>El servidor prepara el entorno para ejecutar la aplicación. Esta información
+procede mayoritariamente del cliente.</li>
+<li>El servidor ejecuta la aplicación y captura su salida estándar.</li>
+<li>La aplicación realiza su función, como consecuencia de su actividad se va
+generando un objeto MIME que la aplicación escribe en su salida estándar.</li>
+<li>Cuando la aplicación finaliza, el servidor envía la información producida,
+junto con información propia, al cliente, que se encontraba en espera. Es
+responsabilidad de la aplicación anunciar el tipo de objeto MIME que se
+genera (campo CONTENT_TYPE).</li>
+</ol>
+<p>Nosotros utilizamos CGI junto con Python. Ya hay un módulo existente de CGI. Una
+forma convencional de devolver información al cliente es utilizando la función
+print para generar un HTML.</p>
+</div>
+<div class="section" id="programacion-orientada-a-objetos">
+<h2>Programación orientada a objetos<a class="headerlink" href="#programacion-orientada-a-objetos" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Clase: Una construcción semántica con nombre que describe un comportamiento y
+atributos comunes.</li>
+<li>Objeto: Instancia de una clase. Se caracterizan por:<ul>
+<li>Identidad: Los objetos se distinguen unos de otros.</li>
+<li>Comportamiento: Pueden realizar tareas.</li>
+<li>Estado: Contienen información</li>
+</ul>
+</li>
+<li>Encapsulación: Es un concepto ligado a la programación orientada a objetos que
+consiste en combinar datos y funciones de una clase en una cápsula de forma tal
+de evitar el uso incorrecto o manipulación de las mismas. Dentro de esta
+cápsula:<ul>
+<li>Los métodos son públicos, accesibles desde el exterior.</li>
+<li>Los datos son privados, accesibles desde el interior.</li>
+</ul>
+</li>
+<li>Herencia: Indica una relación entre clases. Permite la reutilización de los
+procedimientos y variables de una clase, ya que todos los datos y métodos
+disponibles a la clase padre se encuentran disponibles a la clase hijo con los
+mismos nombres.<ul>
+<li>Herencia simple: La clase deriva de una sola padre.</li>
+<li>Herencia múltiple: Clase derivada de dos o más clases.</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://en.m.wikipedia.org/wiki/Object-oriented_programming#Polymorphism">Polimorfismo</a> :
+Permite a una función recibir un objeto de una cierta clase padre
+y al mismo tiempo poder recibir clases hijas de forma indistinta.</li>
+</ul>
+</div>
+<div class="section" id="programacion-en-qt">
+<h2>Programación en Qt<a class="headerlink" href="#programacion-en-qt" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<div class="section" id="programacion-con-sockets">
+<h2>Programación con sockets<a class="headerlink" href="#programacion-con-sockets" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gns3.html" class="btn btn-neutral float-right" title="GNS3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="acceso_remoto.html" class="btn btn-neutral" title="Acceso remoto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Martín Bernardi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
