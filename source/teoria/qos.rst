@@ -3,9 +3,38 @@ QOS
 
 .. todo:: Hacer. Ver http://web.opalsoft.net/qos/default.php?p=ds-21
 
-- QOS: Lo que la red da
-- COS: Lo que se requere de la red, es indistinto a QOS
-- TOS: Un campo de IPv4 obsoleto
+QoS hace referencia al uso de tecnologías que permiten administrar datos y
+paquetes para reducir la pérdida de paquetes, latencia y jitter en la red, como
+así también para manejar ancho de banda.
+Debido a esto es necesario que los routers deben priorizar tráficos sobre otros,
+aplicando mecanismos de control del ancho de banda que limiten la tasa de datos
+ya sea mediante direcciones IP, protocolos, puertos, entre otros.
+
+Existen dos tipos de aplicaciones, que se diferencian según sus requisitos:
+
+- Elásticas: son flexibles en requerimientos de ancho de banda y se adaptan a
+a las condiciones de la red, por ejemplo TCP, mails, aplicaciones WEB,
+transferencia de archivos.
+
+- Inelásticas: no son tan flexibles, ya que necesitan de que se cumplan ciertos
+parámetros mínimos de ancho de banda para que puedan funcionar correctamente,
+por ejemplo VOIP, videoconferencia.
+
+Se define a un fujo como una secuencia de datagramas o segmentos que son el
+resultado de una acción del usuario y requiere la misma QoS. Es unidireccional
+y la entidad mínima a la cual un router puede aplicarle QoS. Se identifica por
+cinco parámetros puerto e IP de origen y destino y el protocolo (TCP o UDP).
+
+- QoS (Quality of Service): se refiere a la priorización y clasificación del
+  tráfico en general, puede ser mediante técnicas de policing, shaping, entre otras.
+
+- CoS (Class of Service): es un campo en el header de Ethernet, mas precisamente
+  en la parte de VLAN, en donde se puede diferencia los servicios para luego
+  darles prioridad
+
+- ToS (Type of Service): segundo byte en el header de IP donde se puede
+  especificar algun tipo de prioridad. En la actualidad se utiliza DSCP
+  (Differenciated Services Code Point) que son 5 bits de ese byte reservado.
 
 IP QOS peermite calidad de servicio extremo a extremo, de capa 2 como VLAN no
 
@@ -40,58 +69,99 @@ Arquitectura
 
   - Inspección profunda.
 
-- Policing: En ``tc`` ocurre en el arribo de paquetes en la interfaz en lugar de
-  la salida. Cuando el tráfico supera el máximo los paquetes son descartados.
-  Tengo entendido que no soporta ráfagas superiores al límite.
+- Policing: Su función es asegurar que un tráfico no supere una tasa máxima determinada,
+  controlando el ancho de banda y descartando aquellos paquetes que hagan que se
+  supere esta tasa.
 
-- Shaping: En ``tc`` ocurre en la salida de paquetes por la interfaz en lugar de
-  la entrada. Cuando el tráfico supera el máximo los paquetes son encolados para
-  ser transmitidos más tarde. Tengo entendido que no soporta ráfagas superiores
-  al límite.
+- Shaping: También asegura que un tráfico no supere una tasa determinada pero a diferencia
+  del policer, en vez de descartar paquetes que hagan exceder la tasa, los retrasa
+  suavizando la transferencia.
 
-- Marking: Marcado de paquetes, en el origen o en el ingreso de la red. Hay
-  varias formas de marcar. Para marcar usamos la tabla mangle de iptables.
+- Marking: Es el marcado de paquetes mediante una etiqueta que le permite a los
+  routers, mediante un acuerdo previo, para darle un tratamiento determinado. No
+  hay reserva de recursos por flujo, ni protocolo de señalización, ni información
+  de estado en los routers.. Para marcar usamos la tabla mangle de iptables.
+
+- Token Bucket
+  Mecanismo para limitar la tasa media de transferencia, permitiendo ráfagas hasta
+  un tamaño máximo. Se puede dividir en:
+  - CIR: Commited Information Rate - Tasa de Caudal Comprometido
+  - CBS: Commited Burst Size – Tamaño de Ráfaga Comprometido
+  - T: Time Interval
 
 .. todo:: Random Early Detection, RED, WRED.
+
+
 
 TOS
 ~~~
 
-En IPv4: 3 bit para precedencia, o sea 8 prioridades distintas. Despues 4 bits
-DTRC. Nunca se usó.
+En IPv4:
+- Type of Service (8 bits): Para hacer calidad de servicios.
+    - Precedencia (3 bits): prioridad, con ocho niveles en total. Mayor tiene más
+    prioridad
+    - D (1 bit): delay (retardo mínimo)
+    - T (1 bit): throughput (máximo rendimiento)
+    - R (1 bit): reliability (máxima fiabilidad)
+    - C (1 bit): cost (mínimo costo)
+    - X (1 bit): bit reservado
 
 DSCP
 ~~~~
 
-Creo que es DiffServ tambien
+Luego de ToS se redefinió el byte utilizado en ToS, dando origen a DSCP, tanto en IPV4
+como en IPV6. Este nuevo campo consiste:
 
-El DS RFC 2474 le dio otro significado a ese campo. EN IPv6 le pusieron
-significado al campo de clase y al primer pedazo del campo flow type o algo asi.
-Se definio DSCP.
+- Differenciated Service Code Point o DSCP (6 bits): indica el tratamiento
+que debe recibir el paquete
 
-Primero 3 bits para 8 prioridades (coincide con el TOS de IPv4)
-despues hay 2 bits para tener 4 prioridades de descarte. El sexto bit se pone en
-cero.
+- Currently unused (2 bits): actualmente se lo utiliza para control de congestion
 
-Si los primeros 3 bits dan:
+Marca los paquetes con una etiqueta y acuerda con los routers un tratamiento
+específico, sin reserva de recursos por flujo, ni protocolo de señalización, ni
+información de estado de routers. Las garantías de calidad de servicio no son
+tan estrictas como en IntServ, pero suelen ser suficientes.
 
-- 7: Control de la red
-- 6: Control de la red
-- 5: Expedited forwarding
-- 4: Assured forwarding: Linea dedicada, garantiza todo
-- 3: Assured forwarding
-- 2: Assured forwarding
-- 1: Assured forwarding
-- 0: Best Effort
+Se denomina al comportamiento de reenvío asignado PHB (per hop behaviour). PHB
+determina la procedencia del paquete marcado en relación con otro tráfico del
+sistema con DiffServ, y luego decide si el sistema reenvía o descarta dicho
+paquete. Cada router con DiffServ aplica el mismo PHB al paquete.
+Cada PHB consta de dos componentes:
+- Una definición formal de comportamiento requerido
+- Un sistema de marca recomendado para clasificar los paquetes
 
-- Expedited forwarding: Linea dedicada, garantiza todo, como CBR en ATM
-- Assured forwarding: Preferencial
-- Best Effort: Sin garantías.
+De los 6 bits utilizados en este campo para clasificar tráfico, se encuentran
+distintas clases:
 
-Despues para cada clase tenes tres probabilidades de descarte.
+- 111xxx: control de la red, precedencia 7
+- 110xxx: control de la red, precedencia 6
+- 101xxx: Expedited Forwarding, precedencia 5
+- 100xxx: Assured Forwarding clase 4, precedencia 4
+- 011xxx: Assured Forwarding clase 3, precedencia 3
+- 010xxx: Assured Forwarding clase 2, precedencia 2
+- 001xxx: Assured Forwarding clase 1, precedencia 1
+- 000xxx: Best Effort, precedencia 0
+
+Expedited Forwarding garantiza caudal, tasa de pérdida, jitter y retardo,
+equivale a una línea dedicada. Es como un acuerdo de SLA
+Assured Forwarding asegura un trato preferente pero sin dar garantías. Tiene 4
+clases y en cada una hay tres probabilidades de descarte (alta, media y baja).
+Best Effort no tiene garantías.
 
 - PHB: Per Hop Behavior. Lo que hace cada router. Los routers en conjunto son un
   dominio DiffServ.
+
+IntServ
+-------
+
+Se basa en la reserva previa de recursos en todo el trayecto. Para esto utiliza
+el protocolo RSVP (Resource reSerVation Protocol), que garantiza la QoS
+solicitada. De no haber recursos disponibles, se rechaza la petición, ejerciendo
+control de admisión o CAC (Connection Admission Control)
+
+IntServ se desarrolló antes que DiffServ, pero lo mas utilizado es este último.
+Esto se debe a la capacidad de escalabilidad que tiene a diferencia de IntServ
+que tiene un gran consumo de recursos.
 
 SLA
 ---
