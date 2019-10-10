@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="Acceso remoto" href="acceso_remoto.html"/>
-        <link rel="prev" title="TLS" href="tls.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Acceso remoto" href="acceso_remoto.html" />
+    <link rel="prev" title="TLS" href="tls.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -107,7 +101,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#arquitectura">Arquitectura</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#intserv">IntServ</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sla">SLA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#netflow">Netflow</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#control-de-trafico-en-linux">Control de tráfico en Linux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#colas">Colas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#referencias">Referencias</a></li>
@@ -133,7 +126,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -141,9 +134,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -190,12 +184,8 @@
   <div class="section" id="qos">
 <h1>QOS<a class="headerlink" href="#qos" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Hacer. Ver <a class="reference external" href="http://web.opalsoft.net/qos/default.php?p=ds-21">http://web.opalsoft.net/qos/default.php?p=ds-21</a></p>
-</div>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Random Early Detection, RED, WRED.</p>
+<p class="admonition-title">Por hacer</p>
+<p>Random Early Detection, RED, WRED.</p>
 </div>
 <p>QoS hace referencia al uso de tecnologías que permiten administrar datos y
 paquetes para reducir la pérdida de paquetes, latencia y jitter en la red, como
@@ -205,67 +195,69 @@ aplicando mecanismos de control del ancho de banda que limiten la tasa de datos
 ya sea mediante direcciones IP, protocolos, puertos, entre otros.</p>
 <p>Existen dos tipos de aplicaciones, que se diferencian según sus requisitos:</p>
 <ul class="simple">
-<li>Elásticas: son flexibles en requerimientos de ancho de banda y se adaptan a
+<li><p>Elásticas: son flexibles en requerimientos de ancho de banda y se adaptan a
 las condiciones de la red, por ejemplo TCP, mails, aplicaciones WEB,
-transferencia de archivos.</li>
-<li>Inelásticas: no son tan flexibles, ya que necesitan de que se cumplan ciertos
+transferencia de archivos.</p></li>
+<li><p>Inelásticas: no son tan flexibles, ya que necesitan de que se cumplan ciertos
 parámetros mínimos de ancho de banda para que puedan funcionar correctamente,
-por ejemplo VOIP, videoconferencia.</li>
+por ejemplo VOIP, videoconferencia.</p></li>
 </ul>
 <p>Se define a un fujo como una secuencia de datagramas o segmentos que son el
 resultado de una acción del usuario y requiere la misma QoS. Es unidireccional
 y la entidad mínima a la cual un router puede aplicarle QoS. Se identifica por
 cinco parámetros puerto e IP de origen y destino y el protocolo (TCP o UDP).</p>
 <ul class="simple">
-<li>QoS (Quality of Service): se refiere a la priorización y clasificación del
+<li><p>QoS (Quality of Service): se refiere a la priorización y clasificación del
 tráfico en general, puede ser mediante técnicas de policing, shaping, entre
-otras.</li>
-<li>CoS (Class of Service): es un campo en el header de Ethernet, mas precisamente
+otras.</p></li>
+<li><p>CoS (Class of Service): es un campo en el header de Ethernet, mas precisamente
 en la parte de VLAN, en donde se puede diferencia los servicios para luego
-darles prioridad</li>
-<li>ToS (Type of Service): segundo byte en el header de IP donde se puede
+darles prioridad</p></li>
+<li><p>ToS (Type of Service): segundo byte en el header de IP donde se puede
 especificar algun tipo de prioridad. En la actualidad se utiliza DSCP
-(Differenciated Services Code Point) que son 5 bits de ese byte reservado.</li>
+(Differenciated Services Code Point) que son 5 bits de ese byte reservado.</p></li>
 </ul>
 <p>IP QOS peermite calidad de servicio extremo a extremo, de capa 2 como VLAN no</p>
 <p>La cola es punteros a memoria. Un buffer es la memoria.</p>
 <ul class="simple">
-<li>Es lo mismo QoS en IPv4 que en IPv6 basicamente, cambian un poco los headers
-nomas</li>
-<li>Solamente se puede controlar lo que sale para el tema de prioridades. El
-marcado es a la entrada.</li>
+<li><p>Es lo mismo QoS en IPv4 que en IPv6 basicamente, cambian un poco los headers
+nomas</p></li>
+<li><p>Solamente se puede controlar lo que sale para el tema de prioridades. El
+marcado es a la entrada.</p></li>
 </ul>
 <div class="section" id="arquitectura">
 <h2>Arquitectura<a class="headerlink" href="#arquitectura" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Grandes grupos: mecansimos de control de datos o control de caminos.</li>
-<li>Clasificación:<ul>
-<li>Por flujo: Secuencia de datagramas (IP origen y destino, puerto origen y
-destino, protocolo). Cada conexion TCP tiene tiene 2 flujos.</li>
-<li>Stream.</li>
-<li>Clase trafico.</li>
-<li>Campo de IP.</li>
-<li>MPLS.</li>
-<li>Capa 2.</li>
-<li>Inspección profunda.</li>
+<li><p>Grandes grupos: mecansimos de control de datos o control de caminos.</p></li>
+<li><p>Clasificación:</p>
+<ul>
+<li><p>Por flujo: Secuencia de datagramas (IP origen y destino, puerto origen y
+destino, protocolo). Cada conexion TCP tiene tiene 2 flujos.</p></li>
+<li><p>Stream.</p></li>
+<li><p>Clase trafico.</p></li>
+<li><p>Campo de IP.</p></li>
+<li><p>MPLS.</p></li>
+<li><p>Capa 2.</p></li>
+<li><p>Inspección profunda.</p></li>
 </ul>
 </li>
-<li>Policing: Su función es asegurar que un tráfico no supere una tasa máxima
+<li><p>Policing: Su función es asegurar que un tráfico no supere una tasa máxima
 determinada, controlando el ancho de banda y descartando aquellos paquetes que
-hagan que se supere esta tasa.</li>
-<li>Shaping: También asegura que un tráfico no supere una tasa determinada pero a
+hagan que se supere esta tasa.</p></li>
+<li><p>Shaping: También asegura que un tráfico no supere una tasa determinada pero a
 diferencia del policer, en vez de descartar paquetes que hagan exceder la
-tasa, los retrasa suavizando la transferencia.</li>
-<li>Marking: Es el marcado de paquetes mediante una etiqueta que le permite a los
+tasa, los retrasa suavizando la transferencia.</p></li>
+<li><p>Marking: Es el marcado de paquetes mediante una etiqueta que le permite a los
 routers, mediante un acuerdo previo, para darle un tratamiento determinado. No
 hay reserva de recursos por flujo, ni protocolo de señalización, ni
 información de estado en los routers.. Para marcar usamos la tabla mangle de
-iptables.</li>
-<li>Token Bucket: Mecanismo para limitar la tasa media de transferencia,
-permitiendo ráfagas hasta un tamaño máximo. Se puede dividir en:<ul>
-<li>CIR (Commited Information Rate): Tasa de Caudal Comprometido.</li>
-<li>CBS (Commited Burst Size): Tamaño de Ráfaga Comprometido.</li>
-<li>T (Time Interval)</li>
+iptables.</p></li>
+<li><p>Token Bucket: Mecanismo para limitar la tasa media de transferencia,
+permitiendo ráfagas hasta un tamaño máximo. Se puede dividir en:</p>
+<ul>
+<li><p>CIR (Commited Information Rate): Tasa de Caudal Comprometido.</p></li>
+<li><p>CBS (Commited Burst Size): Tamaño de Ráfaga Comprometido.</p></li>
+<li><p>T (Time Interval)</p></li>
 </ul>
 </li>
 </ul>
@@ -273,14 +265,15 @@ permitiendo ráfagas hasta un tamaño máximo. Se puede dividir en:<ul>
 <h3>TOS<a class="headerlink" href="#tos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En IPv4:</p>
 <ul class="simple">
-<li>Type of Service (8 bits): Para hacer calidad de servicios.<ul>
-<li>Precedencia (3 bits): prioridad, con ocho niveles en total. Mayor tiene más
-prioridad</li>
-<li>Delay (D) (1 bit): Retardo mínimo.</li>
-<li>Throughput (T) (1 bit): Máximo rendimiento.</li>
-<li>Reliability (R) (1 bit): Máxima fiabilidad.</li>
-<li>Cost (C) (1 bit): Mínimo costo.</li>
-<li>Reserved (X) (1 bit): Bit reservado.</li>
+<li><p>Type of Service (8 bits): Para hacer calidad de servicios.</p>
+<ul>
+<li><p>Precedencia (3 bits): prioridad, con ocho niveles en total. Mayor tiene más
+prioridad</p></li>
+<li><p>Delay (D) (1 bit): Retardo mínimo.</p></li>
+<li><p>Throughput (T) (1 bit): Máximo rendimiento.</p></li>
+<li><p>Reliability (R) (1 bit): Máxima fiabilidad.</p></li>
+<li><p>Cost (C) (1 bit): Mínimo costo.</p></li>
+<li><p>Reserved (X) (1 bit): Bit reservado.</p></li>
 </ul>
 </li>
 </ul>
@@ -290,10 +283,10 @@ prioridad</li>
 <p>Luego de ToS se redefinió el byte utilizado en ToS, dando origen a DSCP, tanto
 en IPV4 como en IPV6. Este nuevo campo consiste:</p>
 <ul class="simple">
-<li>Differenciated Service Code Point (DSCP) (6 bits): Indica el tratamiento que
-debe recibir el paquete.</li>
-<li>Explicit Congestion Notification (ECN) (2 bits): Permite a notificar a los
-extremos cuando hay congestión.</li>
+<li><p>Differenciated Service Code Point (DSCP) (6 bits): Indica el tratamiento que
+debe recibir el paquete.</p></li>
+<li><p>Explicit Congestion Notification (ECN) (2 bits): Permite a notificar a los
+extremos cuando hay congestión.</p></li>
 </ul>
 <p>Marca los paquetes con una etiqueta y acuerda con los routers un tratamiento
 específico, sin reserva de recursos por flujo, ni protocolo de señalización, ni
@@ -305,20 +298,20 @@ sistema con DiffServ, y luego decide si el sistema reenvía o descarta dicho
 paquete. Cada router con DiffServ aplica el mismo PHB al paquete.</p>
 <p>Cada PHB consta de dos componentes:</p>
 <ul class="simple">
-<li>Una definición formal de comportamiento requerido</li>
-<li>Un sistema de marca recomendado para clasificar los paquetes</li>
+<li><p>Una definición formal de comportamiento requerido</p></li>
+<li><p>Un sistema de marca recomendado para clasificar los paquetes</p></li>
 </ul>
 <p>De los 6 bits utilizados en este campo para clasificar tráfico, se encuentran
 distintas clases:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">111xxx</span></code>: control de la red, precedencia 7</li>
-<li><code class="docutils literal notranslate"><span class="pre">110xxx</span></code>: control de la red, precedencia 6</li>
-<li><code class="docutils literal notranslate"><span class="pre">101xxx</span></code>: Expedited Forwarding, precedencia 5</li>
-<li><code class="docutils literal notranslate"><span class="pre">100xxx</span></code>: Assured Forwarding clase 4, precedencia 4</li>
-<li><code class="docutils literal notranslate"><span class="pre">011xxx</span></code>: Assured Forwarding clase 3, precedencia 3</li>
-<li><code class="docutils literal notranslate"><span class="pre">010xxx</span></code>: Assured Forwarding clase 2, precedencia 2</li>
-<li><code class="docutils literal notranslate"><span class="pre">001xxx</span></code>: Assured Forwarding clase 1, precedencia 1</li>
-<li><code class="docutils literal notranslate"><span class="pre">000xxx</span></code>: Best Effort, precedencia 0</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">111xxx</span></code>: control de la red, precedencia 7</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">110xxx</span></code>: control de la red, precedencia 6</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">101xxx</span></code>: Expedited Forwarding, precedencia 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">100xxx</span></code>: Assured Forwarding clase 4, precedencia 4</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">011xxx</span></code>: Assured Forwarding clase 3, precedencia 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">010xxx</span></code>: Assured Forwarding clase 2, precedencia 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">001xxx</span></code>: Assured Forwarding clase 1, precedencia 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">000xxx</span></code>: Best Effort, precedencia 0</p></li>
 </ul>
 <p>Expedited Forwarding garantiza caudal, tasa de pérdida, jitter y retardo,
 equivale a una línea dedicada. Es como un acuerdo de SLA Assured Forwarding
@@ -326,8 +319,8 @@ asegura un trato preferente pero sin dar garantías. Tiene 4 clases y en cada un
 hay tres probabilidades de descarte (alta, media y baja).  Best Effort no tiene
 garantías.</p>
 <ul class="simple">
-<li>PHB: Per Hop Behavior. Lo que hace cada router. Los routers en conjunto son un
-dominio DiffServ.</li>
+<li><p>PHB: Per Hop Behavior. Lo que hace cada router. Los routers en conjunto son un
+dominio DiffServ.</p></li>
 </ul>
 </div>
 </div>
@@ -345,26 +338,20 @@ que tiene un gran consumo de recursos.</p>
 <h2>SLA<a class="headerlink" href="#sla" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Service Level Agreement.</p>
 <ul class="simple">
-<li>Contrato entre usuario y operador de red.</li>
-<li>ITU-T E.860 define el marco? una estructura generica.</li>
-<li>Parametros posibles:<ul>
-<li>Disponibilidad. por porcentaje, cuantas hhoras por dia, cuantas horas
-seguidas, etc.</li>
-<li>Ancho de banda.</li>
-<li>Perdida de paquetes, por porcentaje. 1 de cada 100 vs 10 de cada 1000.</li>
-<li>RTT.</li>
-<li>Jitter.</li>
-<li>Etc.</li>
+<li><p>Contrato entre usuario y operador de red.</p></li>
+<li><p>ITU-T E.860 define el marco? una estructura generica.</p></li>
+<li><p>Parametros posibles:</p>
+<ul>
+<li><p>Disponibilidad: Se suele medir por porcentaje, cuantas horas por dia,
+cuantas horas seguidas, etc.</p></li>
+<li><p>Ancho de banda.</p></li>
+<li><p>Perdida de paquetes: Se suele medir por porcentaje. 1 de cada 100 o 10 de
+cada 1000.</p></li>
+<li><p>RTT.</p></li>
+<li><p>Jitter.</p></li>
 </ul>
 </li>
-<li>La IPTF estableció la IPPM que hace estandares de medicion.</li>
-</ul>
-</div>
-<div class="section" id="netflow">
-<h2>Netflow<a class="headerlink" href="#netflow" title="Enlazar permanentemente con este título">¶</a></h2>
-<ul class="simple">
-<li>Netflow</li>
-<li>ELK: Elastic search, ???, Kibana?</li>
+<li><p>La IPTF estableció la IPPM que hace estandares de medicion.</p></li>
 </ul>
 </div>
 <div class="section" id="control-de-trafico-en-linux">
@@ -474,23 +461,23 @@ an inner class (or root class) and not a leaf class.</p>
 <h2>Colas<a class="headerlink" href="#colas" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="cir">
 <h3>CIR<a class="headerlink" href="#cir" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="admonition-todo admonition" id="index-2">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Es un buffer cicular? Supuestamente es policer?</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="admonition-title">Por hacer</p>
+<p>Es un buffer cicular? Supuestamente es policer?</p>
 </div>
 </div>
 <div class="section" id="ebs">
 <h3>EBS<a class="headerlink" href="#ebs" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="admonition-todo admonition" id="index-3">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">No la encuentro?? Supuestamente es policer?</p>
+<div class="admonition-todo admonition" id="index-2">
+<p class="admonition-title">Por hacer</p>
+<p>No la encuentro?? Supuestamente es policer?</p>
 </div>
 </div>
 <div class="section" id="t">
 <h3>T<a class="headerlink" href="#t" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="admonition-todo admonition" id="index-4">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">No la encuentro?? Supuestamente es policer?</p>
+<div class="admonition-todo admonition" id="index-3">
+<p class="admonition-title">Por hacer</p>
+<p>No la encuentro?? Supuestamente es policer?</p>
 </div>
 </div>
 <div class="section" id="pfifo">
@@ -692,16 +679,14 @@ the outgoing interface.
 <div class="section" id="referencias">
 <h2>Referencias<a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://www.tldp.org/HOWTO/Traffic-Control-HOWTO/components.html#c-qdisc">https://www.tldp.org/HOWTO/Traffic-Control-HOWTO/components.html#c-qdisc</a></li>
+<li><p><a class="reference external" href="https://www.tldp.org/HOWTO/Traffic-Control-HOWTO/components.html#c-qdisc">https://www.tldp.org/HOWTO/Traffic-Control-HOWTO/components.html#c-qdisc</a></p></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -710,7 +695,7 @@ the outgoing interface.
         <a href="acceso_remoto.html" class="btn btn-neutral float-right" title="Acceso remoto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tls.html" class="btn btn-neutral" title="TLS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tls.html" class="btn btn-neutral float-left" title="TLS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -719,11 +704,11 @@ the outgoing interface.
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -736,37 +721,15 @@ the outgoing interface.
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

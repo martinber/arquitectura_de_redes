@@ -1,11 +1,10 @@
 QOS
 ===
 
-Netflow
-ELK: Elastic search, ???, Kibana?
-
 Mikrotik
 --------
+
+.. todo:: Revisar
 
 Se hace el marcado de las conexiones, que funciona como un tunel, en donde los
 paquetes sin importar el origen o el destino. Luego de marcar la conexión se
@@ -48,90 +47,6 @@ poner:
 
 Linux
 -----
-
-``tc -s qdisc ls dev xxx``: Monitorea las colas asociadas a una interfaz.
-
-Existen dos tipos de  disciplinas de colas:
-
-Sin clase
-~~~~~~~~~
-
-PFIFO
-`````
-
-``tc qdisc add dev xxx root pfifo``
-
-Token Bucket Filter (TBF)
-`````````````````````````
-
-``tc qdisc add dev eth0 root tbf rate xkbit latency xms burst 1540``
-
-Donde:
-
-- rate: Velocidad de la interfaz
-- latency: Período máximo de tiempo que puede pasar un paquete en el tbf
-- burst: Tamaño del bucket en bytes
-
-Stochastic Fairness Queueing (SFQ)
-``````````````````````````````````
-
-``tc qdisc add dev xxx root sfq perturb 10``
-
-``Perturb X`` reconfigura la cola cada X segundos y es opcional.
-
-Con clase
-~~~~~~~~~
-
-- A diferencia de las sin clases, tienen nivel de profundidad, se agrupan
-  distintos tipos de paquetes (clases) para luego darles prioridades.
-- Para identificar clases se usa la notación **major:minor**, donde major hace
-  referencia a la raíz de una clase y minor se refiere a una que desciende de
-  root.
-- Se necesitan usar filtro para tratar los paquetes de distintas clases.
-
-PRIO
-````
-
-``tc qdisc add dev xxx root handle 1: prio``
-
-Crea por defecto clases 1:1 1:2 y 1:3
-
-::
-
-  tc qdisc add dev xxx parent 1:1 handle 10: sfq
-  tc qdisc add dev xxx parent 1:2 handle 20: tbf rate xkbit buffer y limit z
-  tc qdisc add dev xxx parent 1:3 handle 30: pfifo
-
-CBQ
-```
-
-Es la más complicada, justamente por eso no se usa.
-
-::
-
-  tc qdisc add dev xxx root handle 1:0 cbq bandwidth xMbit avpkt 1000 cell 8
-  tc class add dev xxx parent 1:0 classid 1:1 cbq bandwidth xMbit rate yMbit
-  weight zMbit prio 8 allot 1514 cell 8 maxburst 20 avpkt 1000 bounded
-
-HTB
-```
-
-Funciona igual que CBQ pero es mucho menos complicado. Tiene los mismos
-parámetros que TBF.
-
-Marcado de paquetes
-~~~~~~~~~~~~~~~~~~~
-
-- fw: Clasifica el tráfico basándose en marcas realizadas a los paquetes.
-  ``tc filter add dev xxx protocol ip parent 1:0 prio 1 handle X fw flowid 1:Y``:
-  Adhiere un filtro a la interfaz xxx para el protocolo ip, donde la disciplina
-  de cola (qdisc) padre es la 1:0. Se especifica que se usa el filtro fw y que
-  los paquetes marcados con X los envíe a la cola Y.
-- u32: Análisis de los campos de la cabecera de los protocolos.
-  ``tc filter add dev xxx protocol ip parent 1:0 prio 1 u32 match ip dport 80
-  0xffff flowid 1:X``: Adhiere un filtro a la interfaz xxx para el protocolo ip,
-  donde la qdisc padre es la 1:0. Se usa u32 y se marca que los paquetes que
-  tengan el puerto 80 como destino deben ser enviados a la cola X.
 
 Ejemplo HTB
 ~~~~~~~~~~~
@@ -259,9 +174,7 @@ el ejemplo anterior a este caso::
 NETEM
 ~~~~~
 
-Para el uso de netem en linux hay varios casos:
-
-::
+Para el uso de netem en linux hay varios casos. Por ejemplo::
 
   tc qdisc add dev eth0 root netem delay 100ms
   tc qdisc add dev eth0 root netem delay 100ms 50ms
@@ -271,11 +184,101 @@ Para el uso de netem en linux hay varios casos:
 
 Donde:
 
-- delay X: Agrega solamente retardo
-- delay X Y: Agrega X de retardo e Y de jitter
-- loss X%: Porcentaje de périda de paquetes
-- duplicate X%: Porcentaje de paquetes duplicados
-- corrupt X%: Corrompe los paquetes agregándoles bits erróneos
+- ``delay {retardo}``: Agrega solamente retardo.
+- ``delay {retardo} {jitter}``: Agrega retardo y jitter.
+- ``loss {perdida}%``: Porcentaje de périda de paquetes.
+- ``duplicate {duplicados}%``: Porcentaje de paquetes duplicados.
+- ``corrupt {cantidad}%``: Corrompe los paquetes agregándoles bits erróneos.
 
 Recordar que en vez de ``add`` se debe usar ``change`` para modificar, o
 ``delete`` para borrar reglas.
+
+Comandos varios
+~~~~~~~~~~~~~~~
+
+Monitorear las colas asociadas a una interfaz::
+
+  tc -s qdisc ls dev enp4s0
+
+PFIFO
+`````
+
+::
+
+  tc qdisc add dev enp4s0 root pfifo
+
+Token Bucket Filter (TBF)
+`````````````````````````
+
+::
+
+  tc qdisc add dev enp4s0 root tbf rate xkbit latency xms burst 1540
+
+Donde:
+
+- ``rate``: Velocidad de la interfaz.
+
+- ``latency``: Período máximo de tiempo que puede pasar un paquete en el TBF.
+
+- ``burst``: Tamaño del bucket en bytes.
+
+Stochastic Fairness Queueing (SFQ)
+``````````````````````````````````
+
+::
+
+  tc qdisc add dev xxx root sfq perturb 10
+
+Donde:
+
+- ``perturb``: Reconfigura la cola cada X segundos y es opcional. Nosotros
+  usamos 10 segundos
+
+
+PRIO
+````
+
+::
+
+  tc qdisc add dev enp4s0 root handle 1: prio
+
+Crea por defecto clases ``:1`` ``:2`` y ``:3``.
+
+CBQ
+```
+
+Es la más complicada, justamente por eso no se usa. Ejemplo::
+
+  tc qdisc add dev xxx root handle 1:0 cbq bandwidth xMbit avpkt 1000 cell 8
+  tc class add dev xxx parent 1:0 classid 1:1 cbq bandwidth xMbit rate yMbit
+  weight zMbit prio 8 allot 1514 cell 8 maxburst 20 avpkt 1000 bounded
+
+HTB
+```
+
+Funciona igual que CBQ pero es mucho menos complicado. Tiene los mismos
+parámetros que TBF.
+
+Marcado de paquetes
+~~~~~~~~~~~~~~~~~~~
+
+Hay dos formas de marcar paquetes:
+
+- **fw**: Clasifica el tráfico basándose en marcas realizadas a los paquetes.
+  Por ejemplo::
+
+    tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 123 fw flowid 1:4
+
+  Adhiere un filtro a la interfaz xxx para el protocolo ip, donde la disciplina
+  de cola (qdisc) padre es la 1:0. Se especifica que se usa el filtro ``fw`` y
+  que los paquetes marcados con ``123`` los envíe a la cola ``:4``. Para marcar
+  los paquetes se debe utilizar ``iptables``.
+
+- **u32**: Análiza de los campos de la cabecera de los protocolos. Por ejemplo::
+
+    tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 u32 match ip dport 80 0xffff flowid 1:4
+
+  Adhiere un filtro a la interfaz ``enp4s0`` para el protocolo ip, donde la
+  qdisc padre es la ``1:0``. Se usa ``u32`` y se marca que los paquetes que
+  tengan el puerto 80 como destino deben ser enviados a la cola ``:4``.
+

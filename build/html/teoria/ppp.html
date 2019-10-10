@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="PPPoE" href="pppoe.html"/>
-        <link rel="prev" title="HDLC" href="hdlc.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="PPPoE" href="pppoe.html" />
+    <link rel="prev" title="HDLC" href="hdlc.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -122,7 +116,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -130,9 +124,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -180,38 +175,39 @@
 <h1>PPP<a class="headerlink" href="#ppp" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Point to Point Protocol.</p>
 <ul class="simple">
-<li>De WAN. Sucesor y variante de HDLC. Normalmente se usa en en cables seriales,
-líneas de telefono, etc. Para ADSL se usa PPPoE o PPPoA.</li>
-<li>Hace lo mismo que HDLC agregando autenticación, y en un ambiente orientado a
-la difusión.</li>
+<li><p>De WAN. Sucesor y variante de HDLC. Normalmente se usa en en cables seriales,
+líneas de telefono, etc. Para ADSL se usa PPPoE o PPPoA.</p></li>
+<li><p>Hace lo mismo que HDLC agregando autenticación, y en un ambiente orientado a
+la difusión.</p></li>
 </ul>
 <p>Ventajas con HDLC:</p>
 <ul class="simple">
-<li>Asignación dimámica de IP.</li>
-<li>Soporta varios protocolos de capa 3.</li>
-<li>Tiene mecanismo de control de red (NCP).</li>
-<li>Autenticación.</li>
-<li>Cifrado.</li>
-<li>Compresión de datos.</li>
+<li><p>Asignación dimámica de IP.</p></li>
+<li><p>Soporta varios protocolos de capa 3.</p></li>
+<li><p>Tiene mecanismo de control de red (NCP).</p></li>
+<li><p>Autenticación.</p></li>
+<li><p>Cifrado.</p></li>
+<li><p>Compresión de datos.</p></li>
 </ul>
 <div class="section" id="header">
 <h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Es un caso particular del Cisco HDLC.</p>
 <ul class="simple">
-<li>Flag (8 bits): Delimitador de trama <code class="docutils literal notranslate"><span class="pre">01111110</span></code>, <em>bit stuffing</em> si en los
-datos está este patrón.</li>
-<li>Address (8 bits): Son siempre <code class="docutils literal notranslate"><span class="pre">11111111</span></code>.</li>
-<li>Control (8 bits): Siempre <code class="docutils literal notranslate"><span class="pre">0x03</span></code> que significa <em>unnumbered data</em>.</li>
-<li>Protocol (16 bits): Protocolo encapsulado. Viene a ser el campo Type en Cisco
-HDLC pero ahora es estándar.<ul>
-<li><code class="docutils literal notranslate"><span class="pre">0x0021</span></code> para IP.</li>
-<li><code class="docutils literal notranslate"><span class="pre">0xC021</span></code> para LCP.</li>
-<li><code class="docutils literal notranslate"><span class="pre">0x80XX</span></code> para varios tipos de NCP.</li>
+<li><p>Flag (8 bits): Delimitador de trama <code class="docutils literal notranslate"><span class="pre">01111110</span></code>, <em>bit stuffing</em> si en los
+datos está este patrón.</p></li>
+<li><p>Address (8 bits): Son siempre <code class="docutils literal notranslate"><span class="pre">11111111</span></code>.</p></li>
+<li><p>Control (8 bits): Siempre <code class="docutils literal notranslate"><span class="pre">0x03</span></code> que significa <em>unnumbered data</em>.</p></li>
+<li><p>Protocol (16 bits): Protocolo encapsulado. Viene a ser el campo Type en Cisco
+HDLC pero ahora es estándar.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0x0021</span></code> para IP.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0xC021</span></code> para LCP.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0x80XX</span></code> para varios tipos de NCP.</p></li>
 </ul>
 </li>
-<li>Information (variable): Datos (IP).</li>
-<li>FCS (16 bits): CRC.</li>
-<li>Flag (8 bits): El mismo delimitador de trama.</li>
+<li><p>Information (variable): Datos (IP).</p></li>
+<li><p>FCS (16 bits): CRC.</p></li>
+<li><p>Flag (8 bits): El mismo delimitador de trama.</p></li>
 </ul>
 </div>
 <div class="section" id="estados">
@@ -219,21 +215,21 @@ HDLC pero ahora es estándar.<ul>
 <a class="reference internal image-reference" href="../_images/estados_ppp.png"><img alt="../_images/estados_ppp.png" src="../_images/estados_ppp.png" style="width: 70%;" /></a>
 <p>Parecido a HDLC, los estados son:</p>
 <ul class="simple">
-<li>Inicialización.</li>
-<li>Determinación de calidad de enlace (opcional).</li>
-<li>Transferencia de datos.</li>
-<li>Desconexión.</li>
+<li><p>Inicialización.</p></li>
+<li><p>Determinación de calidad de enlace (opcional).</p></li>
+<li><p>Transferencia de datos.</p></li>
+<li><p>Desconexión.</p></li>
 </ul>
 </div>
 <div class="section" id="control-de-enlace">
 <h2>Control de enlace<a class="headerlink" href="#control-de-enlace" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Tiene un protocolo de control de enlace: LCP (Link Control Protocol).</p>
 <ul class="simple">
-<li>Controla la identidad del dispositivo cliente, aceptándolo o rechazándolo.
+<li><p>Controla la identidad del dispositivo cliente, aceptándolo o rechazándolo.
 Creo que a esta parte la hace PAP (más inseguro, contraseñas en texto plano) o
-CHAP (más seguro).</li>
-<li>Determina el tamaño aceptable de paquete.</li>
-<li>Busca errores de configuración.</li>
+CHAP (más seguro).</p></li>
+<li><p>Determina el tamaño aceptable de paquete.</p></li>
+<li><p>Busca errores de configuración.</p></li>
 </ul>
 </div>
 <div class="section" id="control-de-red">
@@ -247,9 +243,7 @@ la IP al router, no se usa DHCP porque es para LAN.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -258,7 +252,7 @@ la IP al router, no se usa DHCP porque es para LAN.</p>
         <a href="pppoe.html" class="btn btn-neutral float-right" title="PPPoE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hdlc.html" class="btn btn-neutral" title="HDLC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="hdlc.html" class="btn btn-neutral float-left" title="HDLC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -267,11 +261,11 @@ la IP al router, no se usa DHCP porque es para LAN.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -284,37 +278,15 @@ la IP al router, no se usa DHCP porque es para LAN.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

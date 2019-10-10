@@ -1,8 +1,6 @@
 QOS
 ===
 
-.. todo:: Hacer. Ver http://web.opalsoft.net/qos/default.php?p=ds-21
-
 .. todo:: Random Early Detection, RED, WRED.
 
 QoS hace referencia al uso de tecnologías que permiten administrar datos y
@@ -193,28 +191,19 @@ Service Level Agreement.
 
 - Parametros posibles:
 
-  - Disponibilidad. por porcentaje, cuantas hhoras por dia, cuantas horas
-    seguidas, etc.
+  - Disponibilidad: Se suele medir por porcentaje, cuantas horas por dia,
+    cuantas horas seguidas, etc.
 
   - Ancho de banda.
 
-  - Perdida de paquetes, por porcentaje. 1 de cada 100 vs 10 de cada 1000.
+  - Perdida de paquetes: Se suele medir por porcentaje. 1 de cada 100 o 10 de
+    cada 1000.
 
   - RTT.
 
   - Jitter.
 
-  - Etc.
-
 - La IPTF estableció la IPPM que hace estandares de medicion.
-
-
-Netflow
--------
-
-- Netflow
-
-- ELK: Elastic search, ???, Kibana?
 
 Control de tráfico en Linux
 ---------------------------

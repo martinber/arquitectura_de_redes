@@ -4,12 +4,12 @@ Programación
 CGI + Python
 ------------
 
-CGI (Common Gateway Interface) es una tecnología que permite al cliente solicitar
-datos de un programa ejecutado del lado de un servidor web. Lo utilizamos junto a
-HTML (Hyper Text Markup Language), el lenguaje deprogramación estándar de páginas
-web. Está conformado por el uso de etiquetas o tags que marcan la estructura del
-documento. Las aplicaciones CGI fueron las primeras en ser utilizadas para brindar
-contenido dinámico para las páginas web.
+CGI (Common Gateway Interface) es una tecnología que permite al cliente
+solicitar datos de un programa ejecutado del lado de un servidor web. Lo
+utilizamos junto a HTML (Hyper Text Markup Language), el lenguaje deprogramación
+estándar de páginas web. Está conformado por el uso de etiquetas o tags que
+marcan la estructura del documento. Las aplicaciones CGI fueron las primeras en
+ser utilizadas para brindar contenido dinámico para las páginas web.
 
 En una aplicación CGI el servidor pasa las solicitudes del cliente a un programa
 externo. Este puede estar escrito en cualquier lenguaje que soporte el servidor.
@@ -45,7 +45,9 @@ Programación orientada a objetos
 - Objeto: Instancia de una clase. Se caracterizan por:
 
   - Identidad: Los objetos se distinguen unos de otros.
+
   - Comportamiento: Pueden realizar tareas.
+
   - Estado: Contienen información
 
 - Encapsulación: Es un concepto ligado a la programación orientada a objetos que
@@ -54,6 +56,7 @@ Programación orientada a objetos
   cápsula:
 
   - Los métodos son públicos, accesibles desde el exterior.
+
   - Los datos son privados, accesibles desde el interior.
 
 - Herencia: Indica una relación entre clases. Permite la reutilización de los
@@ -62,14 +65,9 @@ Programación orientada a objetos
   mismos nombres.
 
   - Herencia simple: La clase deriva de una sola padre.
+
   - Herencia múltiple: Clase derivada de dos o más clases.
 
 - `Polimorfismo <https://en.m.wikipedia.org/wiki/Object-oriented_programming#Polymorphism>`_ :
   Permite a una función recibir un objeto de una cierta clase padre
   y al mismo tiempo poder recibir clases hijas de forma indistinta.
-
-Programación en Qt
-------------------
-
-Programación con sockets
-------------------------
