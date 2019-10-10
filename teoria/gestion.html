@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,37 +17,43 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
+  
+  
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Índice" href="../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Seguridad" href="seguridad.html" />
-    <link rel="prev" title="VOIP" href="voip.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
+        <link rel="up" title="Teoría" href="index.html"/>
+        <link rel="next" title="Seguridad" href="seguridad.html"/>
+        <link rel="prev" title="VOIP" href="voip.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -105,6 +111,7 @@
 <li class="toctree-l3"><a class="reference internal" href="tls.html">TLS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="qos.html">QOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="acceso_remoto.html">Acceso remoto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="programacion.html">Programación</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gns3.html">GNS3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="wireshark.html">Wireshark</a></li>
 </ul>
@@ -123,7 +130,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -131,10 +138,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -189,140 +195,140 @@ sí.</p>
 <div class="section" id="areas-funcionales">
 <h3>Áreas funcionales<a class="headerlink" href="#areas-funcionales" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><p>Fallos: Detecta, aísla y corrige los fallos, incluyendo el mantenimiento de un
+<li>Fallos: Detecta, aísla y corrige los fallos, incluyendo el mantenimiento de un
 registro y un diagnóstico de los errores. SNMP es un protocolo que permite
-notificar de fallos.</p></li>
-<li><p>Configuración: Administra la configuración de la red, coordinando cambios de
-hardware y software.</p></li>
-<li><p>Contabilidad: Reunir estadísticas para tarifar a los usuarios. Para redes no
+notificar de fallos.</li>
+<li>Configuración: Administra la configuración de la red, coordinando cambios de
+hardware y software.</li>
+<li>Contabilidad: Reunir estadísticas para tarifar a los usuarios. Para redes no
 tarifadas se reemplaza este punto por administración, que sólo lleva la cuenta
-de usuarios y permisos. Ejemplos de protocolos son RADIUS, TACACS y DIAMETER.</p></li>
-<li><p>Rendimiento: Mantiene una eficiencia y un desempeño máximos, incluyendo la
+de usuarios y permisos. Ejemplos de protocolos son RADIUS, TACACS y DIAMETER.</li>
+<li>Rendimiento: Mantiene una eficiencia y un desempeño máximos, incluyendo la
 recopilación de estadísticas y el mantenimiento de registros para definir un
-umbral y alertas en el caso que el rendimiento sea anormal.</p></li>
-<li><p>Seguridad: Controla el accerso a los recursos de la red.</p></li>
+umbral y alertas en el caso que el rendimiento sea anormal.</li>
+<li>Seguridad: Controla el accerso a los recursos de la red.</li>
 </ul>
 </div>
 </div>
 <div class="section" id="definiciones">
 <h2>Definiciones<a class="headerlink" href="#definiciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Management Information Base (MIB): Es una base de datos de objetos,
+<li>Management Information Base (MIB): Es una base de datos de objetos,
 configuraciones, parámetros, etc. Tiene formato SMI y cada objeto se
 identifica con un OID. Se suele separar en varios archivos y define la lista
-de objetos a utilizar para cada entidad, protocolo, etc. Se usa MIB-II.</p></li>
-<li><p>Object Identifier (OID), es un mecanismo de identificación de objetos. Cada
+de objetos a utilizar para cada entidad, protocolo, etc. Se usa MIB-II.</li>
+<li>Object Identifier (OID), es un mecanismo de identificación de objetos. Cada
 objeto es un nodo en un árbol o jerarquía. Se puede representar a cada nodo
 por el camino desde la raíz hasta el nodo separado por puntos, por ejemplo
 <code class="docutils literal notranslate"><span class="pre">1.3.6.1.4.1.343</span></code> que es lo mismo que
-<code class="docutils literal notranslate"><span class="pre">iso.identified-organization.dod.internet.private.enterprise.intel</span></code>.</p></li>
-<li><p>Structure of Management Information (SMI) es el formato que define los tipos
+<code class="docutils literal notranslate"><span class="pre">iso.identified-organization.dod.internet.private.enterprise.intel</span></code>.</li>
+<li>Structure of Management Information (SMI) es el formato que define los tipos
 de datos a utilizar para cada OID. Se deriva de Abstract Syntax Notation One
 (ASN.1). Por ejemplo define los tipos de objetos y cómo se codificarán para
 enviarlos por la red. Entonces es independiente del dispositivo, lenguaje,
-etc.</p></li>
+etc.</li>
 </ul>
 </div>
 <div class="section" id="snmp">
 <h2>SNMP<a class="headerlink" href="#snmp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Simple Network Management Protocol.</p>
 <ul class="simple">
-<li><p>Usa UDP puerto 161 y puerto 162 para traps.</p></li>
-<li><p>Se usa MIB-II.</p></li>
-<li><p>Recolecta y organiza información sobre los dispositivos de la red, también
-permite modificar la configuración.</p></li>
-<li><p>Los dispositivos a administrar son agentes y los que administran son
-<em>managers</em>.</p></li>
-<li><p>Permite a los managers solicitar y leer información desde los agentes o
-modificar alguna configuración en un agente.</p></li>
-<li><p>También permite el uso de <em>traps</em> que es una notificación enviada por un
+<li>Usa UDP puerto 161 y puerto 162 para traps.</li>
+<li>Se usa MIB-II.</li>
+<li>Recolecta y organiza información sobre los dispositivos de la red, también
+permite modificar la configuración.</li>
+<li>Los dispositivos a administrar son agentes y los que administran son
+<em>managers</em>.</li>
+<li>Permite a los managers solicitar y leer información desde los agentes o
+modificar alguna configuración en un agente.</li>
+<li>También permite el uso de <em>traps</em> que es una notificación enviada por un
 agente sin previa consulta desde un manager. Las <em>inform</em> requests son
 similares a los traps pero solicita al receptor que informe que ha llegado el
-mensaje, de lo contrario intenta de nuevo.</p></li>
-<li><p>SNMPv1 y SNMPv2 usan <em>communities</em> que es un estilo de contraseña en texto
+mensaje, de lo contrario intenta de nuevo.</li>
+<li>SNMPv1 y SNMPv2 usan <em>communities</em> que es un estilo de contraseña en texto
 plano para determinar si el manager tiene permisos de lectura, lectura y
 escritura o de recepción de traps. SNMPv3 también usa string se comunidad pero
-permite autenticación y comunicación segura.</p></li>
-<li><p>Versiones, tengo entendido que lo más usado es SNMPv2c:</p>
-<ul>
-<li><p>SNMPv1: Tiene muy poca seguridad.</p></li>
-<li><p>SNMPv2: No utilizado porque el modelo de seguridad utilizado era
-controversial.</p></li>
-<li><p>SNMPv2c: Similar a versión 1 pero permite contadores de 64 bit en lugar de
-32 bits y agrega el comando inform.</p></li>
-<li><p>SNMPv2u: Intenta ofrecer un poco más de seguridad que SNMPv1 y SNMPv2c pero
-tampoco se usó.</p></li>
-<li><p>SNMPv3: Solamente agrega seguridad.</p></li>
+permite autenticación y comunicación segura.</li>
+<li>Versiones, tengo entendido que lo más usado es SNMPv2c:<ul>
+<li>SNMPv1: Tiene muy poca seguridad.</li>
+<li>SNMPv2: No utilizado porque el modelo de seguridad utilizado era
+controversial.</li>
+<li>SNMPv2c: Similar a versión 1 pero permite contadores de 64 bit en lugar de
+32 bits y agrega el comando inform.</li>
+<li>SNMPv2u: Intenta ofrecer un poco más de seguridad que SNMPv1 y SNMPv2c pero
+tampoco se usó.</li>
+<li>SNMPv3: Solamente agrega seguridad.</li>
 </ul>
 </li>
-<li><p>Ejemplos de software de administración son NetFlow, Nagios y Cacti, se
-complementan.</p></li>
-<li><p>Hay que tener cuidado de no congestionar la red.</p></li>
-<li><p>Remote Monitor (RMON) es una mejora de SNMP que permite utilizar sondas que
+<li>Ejemplos de software de administración son NetFlow, Nagios y Cacti, se
+complementan.</li>
+<li>Hay que tener cuidado de no congestionar la red.</li>
+<li>Remote Monitor (RMON) es una mejora de SNMP que permite utilizar sondas que
 funcionan como agentes que recopilan información y la transmiten
-periódicamente.</p></li>
+periódicamente.</li>
 </ul>
 <div class="section" id="grupos">
 <h3>Grupos<a class="headerlink" href="#grupos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La MIB-II está definida en <code class="docutils literal notranslate"><span class="pre">iso.org.dod.internet.mgmt.1</span></code> o <code class="docutils literal notranslate"><span class="pre">1.3.6.1.2.1</span></code>, a
 partir de ahí existen varios grupos que contienen variables:</p>
 <ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">system</span></code>: Nombre del sistema, uptime, etc.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">interfaces</span></code>: Tiene todas las interfaces, bytes enviados y recibidos,
-errores en paquetes, etc.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">at</span></code>: Address Translation, no se utiliza.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ip</span></code>: Todos los aspectos de IP, incluyendo el ruteo.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">icmp</span></code>: Errores de ICMP, paquetes descartados, etc.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tcp</span></code>: Estado de conexiones TCP entre otras cosas.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">udp</span></code>: Estadísticas de UDP.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">egp</span></code>: Estadísticas sobre EGP y tabla de lista de vecinos.</p></li>
-<li><p>No usado.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">transmission</span></code>: No tiene variables pero teien otros grupos dentro.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">snmp</span></code>: Performance de la implementación de SNMP, cantidad de paquetes
-enviados y recibidos.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">system</span></code>: Nombre del sistema, uptime, etc.</li>
+<li><code class="docutils literal notranslate"><span class="pre">interfaces</span></code>: Tiene todas las interfaces, bytes enviados y recibidos,
+errores en paquetes, etc.</li>
+<li><code class="docutils literal notranslate"><span class="pre">at</span></code>: Address Translation, no se utiliza.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ip</span></code>: Todos los aspectos de IP, incluyendo el ruteo.</li>
+<li><code class="docutils literal notranslate"><span class="pre">icmp</span></code>: Errores de ICMP, paquetes descartados, etc.</li>
+<li><code class="docutils literal notranslate"><span class="pre">tcp</span></code>: Estado de conexiones TCP entre otras cosas.</li>
+<li><code class="docutils literal notranslate"><span class="pre">udp</span></code>: Estadísticas de UDP.</li>
+<li><code class="docutils literal notranslate"><span class="pre">egp</span></code>: Estadísticas sobre EGP y tabla de lista de vecinos.</li>
+<li>No usado.</li>
+<li><code class="docutils literal notranslate"><span class="pre">transmission</span></code>: No tiene variables pero teien otros grupos dentro.</li>
+<li><code class="docutils literal notranslate"><span class="pre">snmp</span></code>: Performance de la implementación de SNMP, cantidad de paquetes
+enviados y recibidos.</li>
 </ol>
 </div>
 <div class="section" id="comandos">
 <h3>Comandos<a class="headerlink" href="#comandos" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li><p>GetRequest: Solicita al agente una variable o lista de variables.</p></li>
-<li><p>GetNextRequest: Solicita al agente la siguiente variable para permitir al
-manager atravesar el árbol de la MIB valor por valor.</p></li>
-<li><p>GetBulkRequest: Solicita múltiples iteraciones de GetNextRequest.</p></li>
-<li><p>SetRequest: Solicita al agente cambiar una variable o lista de variables.</p></li>
-<li><p>Response: Devuelve al manager variables y ACKs por los demás comandos.</p></li>
-<li><p>Trap: Permite al agente enviar un evento al manager sin una solicitud previa.
-Tienen varios tipos:</p>
-<ul>
-<li><p>Coldstart (0): El agente se reinicia y su configuración puede cambiar.</p></li>
-<li><p>Warmstart (1): El agente se reinicia y su configuración no puede cambiar.</p></li>
-<li><p>LinkDown (2): Enlace caído.</p></li>
-<li><p>LinkDown (3): Enlace levantado.</p></li>
-<li><p>AuthenticationFailure (4): Recibido mensaje SNMP incorrectamente
-autenticado.</p></li>
-<li><p>EgpNeighborLoss (5): Enlace BGP caído.</p></li>
-<li><p>EnterpriseSpecific (6): Permite definir traps particulares.</p></li>
+<li>GetRequest: Solicita al agente una variable o lista de variables.</li>
+<li>GetNextRequest: Solicita al agente la siguiente variable para permitir al
+manager atravesar el árbol de la MIB valor por valor.</li>
+<li>GetBulkRequest: Solicita múltiples iteraciones de GetNextRequest.</li>
+<li>SetRequest: Solicita al agente cambiar una variable o lista de variables.</li>
+<li>Response: Devuelve al manager variables y ACKs por los demás comandos.</li>
+<li>Trap: Permite al agente enviar un evento al manager sin una solicitud previa.
+Tienen varios tipos:<ul>
+<li>Coldstart (0): El agente se reinicia y su configuración puede cambiar.</li>
+<li>Warmstart (1): El agente se reinicia y su configuración no puede cambiar.</li>
+<li>LinkDown (2): Enlace caído.</li>
+<li>LinkDown (3): Enlace levantado.</li>
+<li>AuthenticationFailure (4): Recibido mensaje SNMP incorrectamente
+autenticado.</li>
+<li>EgpNeighborLoss (5): Enlace BGP caído.</li>
+<li>EnterpriseSpecific (6): Permite definir traps particulares.</li>
 </ul>
 </li>
-<li><p>InformRequest: Es similar a un Trap pero solicita al manager un ACK, de lo
-contrario intenta de nuevo. También permite comunicación manager a manager.</p></li>
+<li>InformRequest: Es similar a un Trap pero solicita al manager un ACK, de lo
+contrario intenta de nuevo. También permite comunicación manager a manager.</li>
 </ul>
 </div>
 </div>
 <div class="section" id="referencias">
 <h2>Referencias<a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol">https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol</a></p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Management_information_base">https://en.wikipedia.org/wiki/Management_information_base</a></p></li>
-<li><p><a class="reference external" href="https://blog.paessler.com/snmp-monitoring-via-oids-mibs">https://blog.paessler.com/snmp-monitoring-via-oids-mibs</a></p></li>
-<li><p><a class="reference external" href="https://docstore.mik.ua/orelly/networking_2ndEd/snmp/ch02_05.htm">https://docstore.mik.ua/orelly/networking_2ndEd/snmp/ch02_05.htm</a></p></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol">https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Management_information_base">https://en.wikipedia.org/wiki/Management_information_base</a></li>
+<li><a class="reference external" href="https://blog.paessler.com/snmp-monitoring-via-oids-mibs">https://blog.paessler.com/snmp-monitoring-via-oids-mibs</a></li>
+<li><a class="reference external" href="https://docstore.mik.ua/orelly/networking_2ndEd/snmp/ch02_05.htm">https://docstore.mik.ua/orelly/networking_2ndEd/snmp/ch02_05.htm</a></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -331,7 +337,7 @@ contrario intenta de nuevo. También permite comunicación manager a manager.</p
         <a href="seguridad.html" class="btn btn-neutral float-right" title="Seguridad" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="voip.html" class="btn btn-neutral float-left" title="VOIP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="voip.html" class="btn btn-neutral" title="VOIP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -340,11 +346,11 @@ contrario intenta de nuevo. También permite comunicación manager a manager.</p
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -357,15 +363,37 @@ contrario intenta de nuevo. También permite comunicación manager a manager.</p
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
