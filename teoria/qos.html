@@ -193,6 +193,10 @@
 <p class="first admonition-title">Por hacer</p>
 <p class="last">Hacer. Ver <a class="reference external" href="http://web.opalsoft.net/qos/default.php?p=ds-21">http://web.opalsoft.net/qos/default.php?p=ds-21</a></p>
 </div>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Por hacer</p>
+<p class="last">Random Early Detection, RED, WRED.</p>
+</div>
 <p>QoS hace referencia al uso de tecnologías que permiten administrar datos y
 paquetes para reducir la pérdida de paquetes, latencia y jitter en la red, como
 así también para manejar ancho de banda.
@@ -201,22 +205,21 @@ aplicando mecanismos de control del ancho de banda que limiten la tasa de datos
 ya sea mediante direcciones IP, protocolos, puertos, entre otros.</p>
 <p>Existen dos tipos de aplicaciones, que se diferencian según sus requisitos:</p>
 <ul class="simple">
-<li>Elásticas: son flexibles en requerimientos de ancho de banda y se adaptan a</li>
+<li>Elásticas: son flexibles en requerimientos de ancho de banda y se adaptan a
+las condiciones de la red, por ejemplo TCP, mails, aplicaciones WEB,
+transferencia de archivos.</li>
+<li>Inelásticas: no son tan flexibles, ya que necesitan de que se cumplan ciertos
+parámetros mínimos de ancho de banda para que puedan funcionar correctamente,
+por ejemplo VOIP, videoconferencia.</li>
 </ul>
-<p>a las condiciones de la red, por ejemplo TCP, mails, aplicaciones WEB,
-transferencia de archivos.</p>
-<ul class="simple">
-<li>Inelásticas: no son tan flexibles, ya que necesitan de que se cumplan ciertos</li>
-</ul>
-<p>parámetros mínimos de ancho de banda para que puedan funcionar correctamente,
-por ejemplo VOIP, videoconferencia.</p>
 <p>Se define a un fujo como una secuencia de datagramas o segmentos que son el
 resultado de una acción del usuario y requiere la misma QoS. Es unidireccional
 y la entidad mínima a la cual un router puede aplicarle QoS. Se identifica por
 cinco parámetros puerto e IP de origen y destino y el protocolo (TCP o UDP).</p>
 <ul class="simple">
 <li>QoS (Quality of Service): se refiere a la priorización y clasificación del
-tráfico en general, puede ser mediante técnicas de policing, shaping, entre otras.</li>
+tráfico en general, puede ser mediante técnicas de policing, shaping, entre
+otras.</li>
 <li>CoS (Class of Service): es un campo en el header de Ethernet, mas precisamente
 en la parte de VLAN, en donde se puede diferencia los servicios para luego
 darles prioridad</li>
@@ -247,53 +250,50 @@ destino, protocolo). Cada conexion TCP tiene tiene 2 flujos.</li>
 <li>Inspección profunda.</li>
 </ul>
 </li>
-<li>Policing: Su función es asegurar que un tráfico no supere una tasa máxima determinada,
-controlando el ancho de banda y descartando aquellos paquetes que hagan que se
-supere esta tasa.</li>
-<li>Shaping: También asegura que un tráfico no supere una tasa determinada pero a diferencia
-del policer, en vez de descartar paquetes que hagan exceder la tasa, los retrasa
-suavizando la transferencia.</li>
+<li>Policing: Su función es asegurar que un tráfico no supere una tasa máxima
+determinada, controlando el ancho de banda y descartando aquellos paquetes que
+hagan que se supere esta tasa.</li>
+<li>Shaping: También asegura que un tráfico no supere una tasa determinada pero a
+diferencia del policer, en vez de descartar paquetes que hagan exceder la
+tasa, los retrasa suavizando la transferencia.</li>
 <li>Marking: Es el marcado de paquetes mediante una etiqueta que le permite a los
 routers, mediante un acuerdo previo, para darle un tratamiento determinado. No
-hay reserva de recursos por flujo, ni protocolo de señalización, ni información
-de estado en los routers.. Para marcar usamos la tabla mangle de iptables.</li>
-<li>Token Bucket
-Mecanismo para limitar la tasa media de transferencia, permitiendo ráfagas hasta
-un tamaño máximo. Se puede dividir en:
-- CIR: Commited Information Rate - Tasa de Caudal Comprometido
-- CBS: Commited Burst Size – Tamaño de Ráfaga Comprometido
-- T: Time Interval</li>
+hay reserva de recursos por flujo, ni protocolo de señalización, ni
+información de estado en los routers.. Para marcar usamos la tabla mangle de
+iptables.</li>
+<li>Token Bucket: Mecanismo para limitar la tasa media de transferencia,
+permitiendo ráfagas hasta un tamaño máximo. Se puede dividir en:<ul>
+<li>CIR (Commited Information Rate): Tasa de Caudal Comprometido.</li>
+<li>CBS (Commited Burst Size): Tamaño de Ráfaga Comprometido.</li>
+<li>T (Time Interval)</li>
 </ul>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Por hacer</p>
-<p class="last">Random Early Detection, RED, WRED.</p>
-</div>
+</li>
+</ul>
 <div class="section" id="tos">
 <h3>TOS<a class="headerlink" href="#tos" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>En IPv4:
-- Type of Service (8 bits): Para hacer calidad de servicios.</p>
-<blockquote>
-<div><ul class="simple">
-<li>Precedencia (3 bits): prioridad, con ocho niveles en total. Mayor tiene más</li>
+<p>En IPv4:</p>
+<ul class="simple">
+<li>Type of Service (8 bits): Para hacer calidad de servicios.<ul>
+<li>Precedencia (3 bits): prioridad, con ocho niveles en total. Mayor tiene más
+prioridad</li>
+<li>Delay (D) (1 bit): Retardo mínimo.</li>
+<li>Throughput (T) (1 bit): Máximo rendimiento.</li>
+<li>Reliability (R) (1 bit): Máxima fiabilidad.</li>
+<li>Cost (C) (1 bit): Mínimo costo.</li>
+<li>Reserved (X) (1 bit): Bit reservado.</li>
 </ul>
-<p>prioridad
-- D (1 bit): delay (retardo mínimo)
-- T (1 bit): throughput (máximo rendimiento)
-- R (1 bit): reliability (máxima fiabilidad)
-- C (1 bit): cost (mínimo costo)
-- X (1 bit): bit reservado</p>
-</div></blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="dscp">
 <h3>DSCP<a class="headerlink" href="#dscp" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Luego de ToS se redefinió el byte utilizado en ToS, dando origen a DSCP, tanto en IPV4
-como en IPV6. Este nuevo campo consiste:</p>
+<p>Luego de ToS se redefinió el byte utilizado en ToS, dando origen a DSCP, tanto
+en IPV4 como en IPV6. Este nuevo campo consiste:</p>
 <ul class="simple">
-<li>Differenciated Service Code Point o DSCP (6 bits): indica el tratamiento</li>
-</ul>
-<p>que debe recibir el paquete</p>
-<ul class="simple">
-<li>Currently unused (2 bits): actualmente se lo utiliza para control de congestion</li>
+<li>Differenciated Service Code Point (DSCP) (6 bits): Indica el tratamiento que
+debe recibir el paquete.</li>
+<li>Explicit Congestion Notification (ECN) (2 bits): Permite a notificar a los
+extremos cuando hay congestión.</li>
 </ul>
 <p>Marca los paquetes con una etiqueta y acuerda con los routers un tratamiento
 específico, sin reserva de recursos por flujo, ni protocolo de señalización, ni
@@ -302,27 +302,29 @@ tan estrictas como en IntServ, pero suelen ser suficientes.</p>
 <p>Se denomina al comportamiento de reenvío asignado PHB (per hop behaviour). PHB
 determina la procedencia del paquete marcado en relación con otro tráfico del
 sistema con DiffServ, y luego decide si el sistema reenvía o descarta dicho
-paquete. Cada router con DiffServ aplica el mismo PHB al paquete.
-Cada PHB consta de dos componentes:
-- Una definición formal de comportamiento requerido
-- Un sistema de marca recomendado para clasificar los paquetes</p>
+paquete. Cada router con DiffServ aplica el mismo PHB al paquete.</p>
+<p>Cada PHB consta de dos componentes:</p>
+<ul class="simple">
+<li>Una definición formal de comportamiento requerido</li>
+<li>Un sistema de marca recomendado para clasificar los paquetes</li>
+</ul>
 <p>De los 6 bits utilizados en este campo para clasificar tráfico, se encuentran
 distintas clases:</p>
 <ul class="simple">
-<li>111xxx: control de la red, precedencia 7</li>
-<li>110xxx: control de la red, precedencia 6</li>
-<li>101xxx: Expedited Forwarding, precedencia 5</li>
-<li>100xxx: Assured Forwarding clase 4, precedencia 4</li>
-<li>011xxx: Assured Forwarding clase 3, precedencia 3</li>
-<li>010xxx: Assured Forwarding clase 2, precedencia 2</li>
-<li>001xxx: Assured Forwarding clase 1, precedencia 1</li>
-<li>000xxx: Best Effort, precedencia 0</li>
+<li><code class="docutils literal notranslate"><span class="pre">111xxx</span></code>: control de la red, precedencia 7</li>
+<li><code class="docutils literal notranslate"><span class="pre">110xxx</span></code>: control de la red, precedencia 6</li>
+<li><code class="docutils literal notranslate"><span class="pre">101xxx</span></code>: Expedited Forwarding, precedencia 5</li>
+<li><code class="docutils literal notranslate"><span class="pre">100xxx</span></code>: Assured Forwarding clase 4, precedencia 4</li>
+<li><code class="docutils literal notranslate"><span class="pre">011xxx</span></code>: Assured Forwarding clase 3, precedencia 3</li>
+<li><code class="docutils literal notranslate"><span class="pre">010xxx</span></code>: Assured Forwarding clase 2, precedencia 2</li>
+<li><code class="docutils literal notranslate"><span class="pre">001xxx</span></code>: Assured Forwarding clase 1, precedencia 1</li>
+<li><code class="docutils literal notranslate"><span class="pre">000xxx</span></code>: Best Effort, precedencia 0</li>
 </ul>
 <p>Expedited Forwarding garantiza caudal, tasa de pérdida, jitter y retardo,
-equivale a una línea dedicada. Es como un acuerdo de SLA
-Assured Forwarding asegura un trato preferente pero sin dar garantías. Tiene 4
-clases y en cada una hay tres probabilidades de descarte (alta, media y baja).
-Best Effort no tiene garantías.</p>
+equivale a una línea dedicada. Es como un acuerdo de SLA Assured Forwarding
+asegura un trato preferente pero sin dar garantías. Tiene 4 clases y en cada una
+hay tres probabilidades de descarte (alta, media y baja).  Best Effort no tiene
+garantías.</p>
 <ul class="simple">
 <li>PHB: Per Hop Behavior. Lo que hace cada router. Los routers en conjunto son un
 dominio DiffServ.</li>
@@ -577,7 +579,7 @@ send data in turn, thus preventing any single flow from drowning out the rest.
 This may in fact have some effect in mitigating a Denial of Service attempt.
 </pre></div>
 </div>
-<p>Ver el <a class="reference external" href="https://wiki.mikrotik.com/wiki/Manual:Queue#SFQ">manual de Mikrotik</a>:</p>
+<p>Ver <a class="reference external" href="https://wiki.mikrotik.com/wiki/Manual:Queue#SFQ">SFQ en manual de Mikrotik</a>:</p>
 <blockquote>
 <div><p>Stochastic Fairness Queuing (SFQ) is ensured by hashing and round-robin
 algorithms. A traffic flow may be uniquely identified by a 4
@@ -600,7 +602,7 @@ queues (1024) using a hashing algorithm.</p>
 <h3>PCQ<a class="headerlink" href="#pcq" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Classless.</p>
 <p>Similar a SFQ pero solo para Mikrotik creo.</p>
-<p>Ver el <a class="reference external" href="https://wiki.mikrotik.com/wiki/Manual:Queue#PCQ">manual de Mikrotik</a>:</p>
+<p>Ver <a class="reference external" href="https://wiki.mikrotik.com/wiki/Manual:Queue#PCQ">PCQ en manual de Mikrotik</a>:</p>
 <blockquote>
 <div><p>Per Connection Queuing (PCQ) is a similar to SFQ, but it has additional features.</p>
 <p>It is possible to choose flow identifiers (from dst-address | dst-port |
