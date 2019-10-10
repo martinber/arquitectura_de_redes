@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Práctica" href="index.html"/>
-        <link rel="next" title="Linux" href="linux.html"/>
-        <link rel="prev" title="Práctica" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Linux" href="linux.html" />
+    <link rel="prev" title="Práctica" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -124,7 +118,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -132,9 +126,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -185,20 +180,23 @@ actualizado (2018) ya que hay muchos programas que cambiaron (<code class="docut
 <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> y <code class="docutils literal notranslate"><span class="pre">route</span></code>, <code class="docutils literal notranslate"><span class="pre">iw</span></code> reemplaza a <code class="docutils literal notranslate"><span class="pre">iwconfig</span></code>, etc.).</p>
 <p>Lista de comandos o archivos:</p>
 <ul class="simple">
-<li>Activar y desactivar interfaces. Direcciones IP, MAC, Gateway:<ul>
-<li>Temporalmente: <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">link</span></code>, <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span></code> e <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span></code>.</li>
-<li>Permanentemente: <code class="docutils literal notranslate"><span class="pre">/etc/network/interfaces</span></code>.</li>
+<li><p>Activar y desactivar interfaces. Direcciones IP, MAC, Gateway:</p>
+<ul>
+<li><p>Temporalmente: <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">link</span></code>, <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span></code> e <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span></code>.</p></li>
+<li><p>Permanentemente: <code class="docutils literal notranslate"><span class="pre">/etc/network/interfaces</span></code>.</p></li>
 </ul>
 </li>
-<li>DHCP:<ul>
-<li>Temporalmente: <code class="docutils literal notranslate"><span class="pre">dhclient</span></code>.</li>
-<li>Permanentemente: <code class="docutils literal notranslate"><span class="pre">/etc/network/interfaces</span></code>.</li>
+<li><p>DHCP:</p>
+<ul>
+<li><p>Temporalmente: <code class="docutils literal notranslate"><span class="pre">dhclient</span></code>.</p></li>
+<li><p>Permanentemente: <code class="docutils literal notranslate"><span class="pre">/etc/network/interfaces</span></code>.</p></li>
 </ul>
 </li>
-<li>DNS: <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>.</li>
-<li>WiFi:<ul>
-<li>Conexión, información: <code class="docutils literal notranslate"><span class="pre">iw</span></code>.</li>
-<li>Autenticación con WPA: <code class="docutils literal notranslate"><span class="pre">wpa_supplicant</span></code>.</li>
+<li><p>DNS: <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>.</p></li>
+<li><p>WiFi:</p>
+<ul>
+<li><p>Conexión, información: <code class="docutils literal notranslate"><span class="pre">iw</span></code>.</p></li>
+<li><p>Autenticación con WPA: <code class="docutils literal notranslate"><span class="pre">wpa_supplicant</span></code>.</p></li>
 </ul>
 </li>
 </ul>
@@ -212,18 +210,19 @@ sudo service wpa-supplicant stop
 <div class="section" id="sobre-el-comando-ip">
 <h3>Sobre el comando ip<a class="headerlink" href="#sobre-el-comando-ip" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
-<li>El comando ip tiene varias secciones (que se llaman objetos en el manual),
-como <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span></code>, <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span></code> o <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">link</span></code>.</li>
-<li>Según el manual el comando es: <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">[</span> <span class="pre">OPTIONS</span> <span class="pre">]</span> <span class="pre">OBJECT</span> <span class="pre">{</span> <span class="pre">COMMAND</span> <span class="pre">|</span> <span class="pre">help</span> <span class="pre">}</span></code>.<ul>
-<li>La opción <code class="docutils literal notranslate"><span class="pre">-c</span></code> agrega color a la salida.</li>
-<li>El objeto es algo como <code class="docutils literal notranslate"><span class="pre">address</span></code> o <code class="docutils literal notranslate"><span class="pre">link</span></code>.</li>
-<li>El comando es el resto de las cosas que se escriban.</li>
-<li>La ubicación de las opciones importa, siempre van antes del objeto.</li>
-<li>El comando <code class="docutils literal notranslate"><span class="pre">help</span></code> es útil. (ej: <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span> <span class="pre">help</span></code>).</li>
-<li>El objeto se puede abreviar, es lo mismo <code class="docutils literal notranslate"><span class="pre">address</span></code>, <code class="docutils literal notranslate"><span class="pre">addr</span></code> o
-simplemente <code class="docutils literal notranslate"><span class="pre">a</span></code>.</li>
-<li>Otra opción útil es <code class="docutils literal notranslate"><span class="pre">-s</span></code> que agrega más información (estadísticas según
-veo)</li>
+<li><p>El comando ip tiene varias secciones (que se llaman objetos en el manual),
+como <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span></code>, <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span></code> o <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">link</span></code>.</p></li>
+<li><p>Según el manual el comando es: <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">[</span> <span class="pre">OPTIONS</span> <span class="pre">]</span> <span class="pre">OBJECT</span> <span class="pre">{</span> <span class="pre">COMMAND</span> <span class="pre">|</span> <span class="pre">help</span> <span class="pre">}</span></code>.</p>
+<ul>
+<li><p>La opción <code class="docutils literal notranslate"><span class="pre">-c</span></code> agrega color a la salida.</p></li>
+<li><p>El objeto es algo como <code class="docutils literal notranslate"><span class="pre">address</span></code> o <code class="docutils literal notranslate"><span class="pre">link</span></code>.</p></li>
+<li><p>El comando es el resto de las cosas que se escriban.</p></li>
+<li><p>La ubicación de las opciones importa, siempre van antes del objeto.</p></li>
+<li><p>El comando <code class="docutils literal notranslate"><span class="pre">help</span></code> es útil. (ej: <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span> <span class="pre">help</span></code>).</p></li>
+<li><p>El objeto se puede abreviar, es lo mismo <code class="docutils literal notranslate"><span class="pre">address</span></code>, <code class="docutils literal notranslate"><span class="pre">addr</span></code> o
+simplemente <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+<li><p>Otra opción útil es <code class="docutils literal notranslate"><span class="pre">-s</span></code> que agrega más información (estadísticas según
+veo)</p></li>
 </ul>
 </li>
 </ul>
@@ -264,7 +263,7 @@ junto con el prefijo sería <code class="docutils literal notranslate"><span cla
 <h2>ip link<a class="headerlink" href="#ip-link" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sirve para configurar las interfaces.</p>
 <ul>
-<li><p class="first"><strong>ip -c link</strong></p>
+<li><p><strong>ip -c link</strong></p>
 <p>Muestra información sobre las interfaces, por ejemplo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -277,10 +276,10 @@ junto con el prefijo sería <code class="docutils literal notranslate"><span cla
 <p>Se puede ver si las interfaces están <code class="docutils literal notranslate"><span class="pre">state</span> <span class="pre">UP</span></code> o <code class="docutils literal notranslate"><span class="pre">state</span> <span class="pre">DOWN</span></code> (el <code class="docutils literal notranslate"><span class="pre">UP</span></code>
 que está dentro de los <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> no sé que significa).</p>
 </li>
-<li><p class="first"><strong>ip -c link set enp4s0 down</strong></p>
+<li><p><strong>ip -c link set enp4s0 down</strong></p>
 <p>Para poner la interfaz en <code class="docutils literal notranslate"><span class="pre">UP</span></code> o <code class="docutils literal notranslate"><span class="pre">DOWN</span></code>.</p>
 </li>
-<li><p class="first"><strong>ip -c link set enp4s0 address 12:34:56:78:90:ab</strong></p>
+<li><p><strong>ip -c link set enp4s0 address 12:34:56:78:90:ab</strong></p>
 <p>Cambiar la MAC de la interfaz, la interfaz primero debe estar en <code class="docutils literal notranslate"><span class="pre">DOWN</span></code>.</p>
 </li>
 </ul>
@@ -289,7 +288,7 @@ que está dentro de los <code class="docutils literal notranslate"><span class="
 <h2>ip address<a class="headerlink" href="#ip-address" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sirve para manejar las direcciones IP.</p>
 <ul>
-<li><p class="first"><strong>ip -c address</strong></p>
+<li><p><strong>ip -c address</strong></p>
 <p>Muestra información sobre las direcciones MAC e IP. Por ejemplo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -309,15 +308,15 @@ que está dentro de los <code class="docutils literal notranslate"><span class="
 </div>
 <p>Se puede ver lo mismo que con <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">-c</span> <span class="pre">link</span></code> pero además las direcciones IP.</p>
 </li>
-<li><p class="first"><strong>ip -c address flush dev wlp9s0</strong></p>
+<li><p><strong>ip -c address flush dev wlp9s0</strong></p>
 <p>Borra todas las IPs de una interfaz. Suele borrar las rutas y uno debe
 configurar el gateway de nuevo.</p>
 </li>
-<li><p class="first"><strong>ip -c address del 192.168.0.103/24 dev wlp9s0</strong></p>
+<li><p><strong>ip -c address del 192.168.0.103/24 dev wlp9s0</strong></p>
 <p>Borra una IP configurada. Suele borrar las rutas y uno debe configurar el
 gateway de nuevo.</p>
 </li>
-<li><p class="first"><strong>ip -c address add 192.168.0.50/24 dev wlp9s0</strong></p>
+<li><p><strong>ip -c address add 192.168.0.50/24 dev wlp9s0</strong></p>
 <p>Agrega una dirección IP junto con su máscara de red.</p>
 </li>
 </ul>
@@ -325,18 +324,19 @@ gateway de nuevo.</p>
 <div class="section" id="ip-route">
 <h2>ip route<a class="headerlink" href="#ip-route" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
-<div>Configura las rutas.</div></blockquote>
+<div><p>Configura las rutas.</p>
+</div></blockquote>
 <ul>
-<li><p class="first"><strong>ip -c route</strong></p>
+<li><p><strong>ip -c route</strong></p>
 <p>Muestra las rutas configuradas.</p>
 </li>
-<li><p class="first"><strong>ip -c route flush dev wlp9s0</strong></p>
+<li><p><strong>ip -c route flush dev wlp9s0</strong></p>
 <p>Borra todas rutas de una interfaz</p>
 </li>
-<li><p class="first"><strong>ip -c route del default</strong></p>
+<li><p><strong>ip -c route del default</strong></p>
 <p>Borra el gateway</p>
 </li>
-<li><p class="first"><strong>ip -c route add default via 192.168.0.1</strong></p>
+<li><p><strong>ip -c route add default via 192.168.0.1</strong></p>
 <p>Configura el gateway</p>
 </li>
 </ul>
@@ -345,7 +345,7 @@ gateway de nuevo.</p>
 <h2>dhclient<a class="headerlink" href="#dhclient" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Configura las direcciones automáticamente usando DHCP.</p>
 <ul>
-<li><p class="first"><strong>dhclient wlp9s0</strong></p>
+<li><p><strong>dhclient wlp9s0</strong></p>
 <p>Configura la interfaz usando DHCP, previamente se deben borrar todas las rutas
 y direcciones asociadas a esa interfaz con:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo ip -c route flush dev wlp9s0
@@ -431,32 +431,32 @@ hay que actualizar el archivo con:</p>
 <p>Maneja las conexiones WiFi. <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">iw</span></code> muestra muy poca ayuda, conviene <code class="docutils literal notranslate"><span class="pre">iw</span>
 <span class="pre">help</span></code>.</p>
 <ul>
-<li><p class="first"><strong>iw dev wlp9s0 info</strong></p>
+<li><p><strong>iw dev wlp9s0 info</strong></p>
 <p>Ver información sobre la interfaz.</p>
 </li>
-<li><p class="first"><strong>iw dev wlp9s0 link</strong></p>
+<li><p><strong>iw dev wlp9s0 link</strong></p>
 <p>Ver información sobre la conexión.</p>
 </li>
-<li><p class="first"><strong>iw dev wlp9s0 disconnect</strong></p>
+<li><p><strong>iw dev wlp9s0 disconnect</strong></p>
 <p>Desconectarse. Me pasó que se vuelve a conectar solo segundos después, tuve
 que deshabilitar el servicio <code class="docutils literal notranslate"><span class="pre">wpa_supplicant</span></code>.</p>
 </li>
-<li><p class="first"><strong>iw dev wlp9s0 set type ibss</strong></p>
+<li><p><strong>iw dev wlp9s0 set type ibss</strong></p>
 <p>Configurar el modo a usar, puede ser <code class="docutils literal notranslate"><span class="pre">managed</span></code> (lo común) o <code class="docutils literal notranslate"><span class="pre">ibss</span></code> (para
 redes ad-hoc) No probé las redes ad-hoc, siempre usé <code class="docutils literal notranslate"><span class="pre">managed</span></code>.</p>
 </li>
-<li><p class="first"><strong>iw dev wlp9s0 scan</strong></p>
+<li><p><strong>iw dev wlp9s0 scan</strong></p>
 <p>Escanear AP disponibles. La salida es MUY larga y no sé si hay alguna opción
 para tener información resumida.</p>
 <p>Si solamente se necesitan los nombres de las redes se puede usar <code class="docutils literal notranslate"><span class="pre">iw</span> <span class="pre">dev</span>
 <span class="pre">wlp9s0</span> <span class="pre">scan</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">SSID</span></code>.</p>
 </li>
-<li><p class="first"><strong>iw dev wlp9s0 connect WiFi_Pedrito</strong></p>
+<li><p><strong>iw dev wlp9s0 connect WiFi_Pedrito</strong></p>
 <p>Conectarse a un AP sin seguridad.</p>
 <p>Una vez me pasó que no se conectaba, se arregló cambiando el modo a <code class="docutils literal notranslate"><span class="pre">ibss</span></code> y
 a <code class="docutils literal notranslate"><span class="pre">managed</span></code> de vuelta. No se por qué.</p>
 </li>
-<li><p class="first"><strong>iw dev wlp9s0 connect WiFi_Pedrito key 0:password</strong></p>
+<li><p><strong>iw dev wlp9s0 connect WiFi_Pedrito key 0:password</strong></p>
 <p>Conectarse a un AP con seguridad WEP (la contraseña es <code class="docutils literal notranslate"><span class="pre">password</span></code>). Nunca
 probé este comando. Para conectarse a un AP con WPA ver <code class="docutils literal notranslate"><span class="pre">wpa_supplicant</span></code>
 abajo.</p>
@@ -488,9 +488,7 @@ como daemon se puede usar:</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -499,7 +497,7 @@ como daemon se puede usar:</p>
         <a href="linux.html" class="btn btn-neutral float-right" title="Linux" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Práctica" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Práctica" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -508,11 +506,11 @@ como daemon se puede usar:</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -525,37 +523,15 @@ como daemon se puede usar:</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

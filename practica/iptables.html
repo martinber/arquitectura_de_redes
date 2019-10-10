@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Práctica" href="index.html"/>
-        <link rel="next" title="QOS" href="qos.html"/>
-        <link rel="prev" title="Gestion" href="gestion.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="QOS" href="qos.html" />
+    <link rel="prev" title="Gestion" href="gestion.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -117,7 +111,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -125,9 +119,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -180,44 +175,44 @@
 teniendo en cuenta su relación con paquetes anteriores (por ejemplo para
 conexiones TCP). No vemos filtros <em>stateful</em>, usamos todo <em>stateless</em>.</p>
 <ul class="simple">
-<li>Reglas: Son líneas que especifican tipos de paquetes, llevan asociadas un
-objetivo (<em>target</em>) a utilizar en el caso en el que un paquete coincida.</li>
-<li>Objetivos: Es lo que quiero hacer con los paquetes que coinciden con una
-regla: aceptar, rechazar, etc.</li>
-<li>Cadenas: Es una de reglas a corroborar secuencialmente cada vez que llega un
+<li><p>Reglas: Son líneas que especifican tipos de paquetes, llevan asociadas un
+objetivo (<em>target</em>) a utilizar en el caso en el que un paquete coincida.</p></li>
+<li><p>Objetivos: Es lo que quiero hacer con los paquetes que coinciden con una
+regla: aceptar, rechazar, etc.</p></li>
+<li><p>Cadenas: Es una de reglas a corroborar secuencialmente cada vez que llega un
 paquete. Ya vienen las cadenas INPUT, OUTPUT, FORWARD, etc. que contienen
-reglas a utilizar ante paquetes entrantes, salientes, redireccionados, etc.</li>
-<li>Tablas: Es un conjunto de cadenas, cada tabla se usa para cosas distintas,
-la tabla por defecto es <cite>filter</cite>, cada una extá explicada abajo.</li>
+reglas a utilizar ante paquetes entrantes, salientes, redireccionados, etc.</p></li>
+<li><p>Tablas: Es un conjunto de cadenas, cada tabla se usa para cosas distintas,
+la tabla por defecto es <cite>filter</cite>, cada una extá explicada abajo.</p></li>
 </ul>
 <p>En esta imagen se ve por qué cadenas y tablas pasa cada paquete:</p>
 <img alt="../_images/iptables.jpg" src="../_images/iptables.jpg" />
 <p>Tablas que hay:</p>
 <ul class="simple">
-<li><strong>filter</strong>: This is the default table (if no -t option is passed). It contains
+<li><p><strong>filter</strong>: This is the default table (if no -t option is passed). It contains
 the built-in chains INPUT (for packets destined to local sockets), FORWARD
 (for packets being routed through the box), and OUTPUT (for locally-generated
-packets).</li>
-<li><strong>nat</strong>: This table is consulted when a packet that creates a new connection
+packets).</p></li>
+<li><p><strong>nat</strong>: This table is consulted when a packet that creates a new connection
 is encountered. It consists of four built-ins: PREROUTING (for altering
 packets as soon as they come in), INPUT (for altering packets destined for
 local sockets), OUTPUT (for altering locally-generated packets before
 routing), and POSTROUTING (for altering packets as they are about to go out).
-IPv6 NAT support is available since kernel 3.7.</li>
-<li><strong>mangle</strong>: This table is used for specialized packet alteration. Until kernel
+IPv6 NAT support is available since kernel 3.7.</p></li>
+<li><p><strong>mangle</strong>: This table is used for specialized packet alteration. Until kernel
 2.4.17 it had two built-in chains: PREROUTING (for altering incoming packets
 before routing) and OUT‐ PUT (for altering locally-generated packets before
 routing). Since kernel 2.4.18, three other built-in chains are also
 supported: INPUT (for packets coming into the box itself), FORWARD (for
 altering packets being routed through the box), and POSTROUTING (for altering
-packets as they are about to go out).</li>
-<li><strong>raw</strong>: This table is used mainly for configuring exemptions from connection
+packets as they are about to go out).</p></li>
+<li><p><strong>raw</strong>: This table is used mainly for configuring exemptions from connection
 tracking in combination with the NOTRACK target. It registers at the
 netfilter hooks with higher priority and is thus called before ip_conntrack,
 or any other IP tables. It provides the following built-in chains: PREROUTING
 (for packets arriving via any network interface) OUTPUT (for packets
-generated by local processes)</li>
-<li><strong>security</strong>: This table is used for Mandatory Access Control (MAC) networking
+generated by local processes)</p></li>
+<li><p><strong>security</strong>: This table is used for Mandatory Access Control (MAC) networking
 rules, such as those enabled by the SECMARK and CONNSECMARK targets.
 Mandatory Access Control is implemented by Linux Security Modules such as
 SELinux. The security table is called after the filter table, allowing any
@@ -225,7 +220,7 @@ Discretionary Access Control (DAC) rules in the filter table to take
 effect before MAC rules. This table provides the following built-in chains:
 INPUT (for packets coming into the box itself), OUTPUT (for altering
 locally-generated packets before routing), and FORWARD (for altering packets
-being routed through the box).</li>
+being routed through the box).</p></li>
 </ul>
 <p>Para ver alguna tabla:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables [-t table] -L
@@ -451,33 +446,30 @@ las tablas. Para cambiarla se usa:</p>
 ninguna regla.</p>
 <p>Estos son algunos de los objetivos posibles, ver <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">iptables-extensions</span></code>:</p>
 <ul>
-<li><p class="first">ACCEPT: Deja pasar el paquete.</p>
-</li>
-<li><p class="first">DROP: Descarta el paquete.</p>
-</li>
-<li><p class="first">REJECT: Descarta el paquete y responde con un ICMP (<em>unreachable port</em> por
-defecto, pero se puede cambiar).</p>
-</li>
-<li><p class="first">SNAT: Significa Source NAT. This target is only valid in the nat table, in the
+<li><p>ACCEPT: Deja pasar el paquete.</p></li>
+<li><p>DROP: Descarta el paquete.</p></li>
+<li><p>REJECT: Descarta el paquete y responde con un ICMP (<em>unreachable port</em> por
+defecto, pero se puede cambiar).</p></li>
+<li><p>SNAT: Significa Source NAT. This target is only valid in the nat table, in the
 POSTROUTING and INPUT chains, and user-defined chains which are only called
 from those chains. It specifies that the source address of the packet should
 be modified (and all future packets in this connection will also be mangled),
 and rules should cease being examined. Generalmente se usa con la opción</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">--to-source</span> <span class="pre">[ipaddr[-ipaddr]][:port[-port]]</span></code>: Which can specify a single
+<li><p><code class="docutils literal notranslate"><span class="pre">--to-source</span> <span class="pre">[ipaddr[-ipaddr]][:port[-port]]</span></code>: Which can specify a single
 new source IP address, an inclusive range of IP addresses. Optionally a
 port range, if the rule also specifies one of the following protocols: tcp,
 udp, dccp or sctp. If no port range is specified, then source ports below 512
 will be mapped to other ports below 512: those between 512 and 1023 inclusive
 will be mapped to ports below 1024, and other ports will be mapped to 1024 or
-above.  Where possible, no port alteration will occur.</li>
+above.  Where possible, no port alteration will occur.</p></li>
 </ul>
 <p>Ejemplo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t nat -A POSTROUTING -o {interfaz WAN} -j SNAT --to {IP salida}
 </pre></div>
 </div>
 </li>
-<li><p class="first">MASQUERADE: This target is only valid in the nat table, in the POSTROUTING
+<li><p>MASQUERADE: This target is only valid in the nat table, in the POSTROUTING
 chain. It should only be used with dynamically assigned IP (dialup)
 connections: if you have a static IP address, you should use the SNAT target.
 Masquerading is equivalent to specifying a mapping to the IP address of the
@@ -487,17 +479,17 @@ the next dialup is unlikely to have the same interface address (and hence any
 established connections are lost anyway). La única opción interesante que
 tiene es:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">--to-ports</span> <span class="pre">port[-port]</span></code>: This specifies a range of source ports to use,
+<li><p><code class="docutils literal notranslate"><span class="pre">--to-ports</span> <span class="pre">port[-port]</span></code>: This specifies a range of source ports to use,
 overriding the default SNAT source port-selection heuristics (see above). This
 is only valid if the rule also specifies one of the following protocols: tcp,
-udp, dccp or sctp.</li>
+udp, dccp or sctp.</p></li>
 </ul>
 <p>Ejemplo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t nat -A POSTROUTING -o {interfaz WAN} -j MASQUERADE
 </pre></div>
 </div>
 </li>
-<li><p class="first">DNAT: Significa Destination NAT. This target is only valid in the nat table,
+<li><p>DNAT: Significa Destination NAT. This target is only valid in the nat table,
 in the PREROUTING and OUTPUT chains, and user-defined chains which are only
 called from those chains. It specifies that the destination address of the
 packet should be modified (and all future packets in this connection will also
@@ -512,7 +504,7 @@ following protocols: tcp, udp, dccp or sctp. If no port range is specified,
 then the destination port will never be modified. If no IP address is specified
 then only the destination port will be modified.</p>
 </li>
-<li><p class="first">LOG: Turn on kernel logging of matching packets. When this option is set for
+<li><p>LOG: Turn on kernel logging of matching packets. When this option is set for
 a rule, the Linux kernel will print some information on all matching packets
 (like most IP/IPv6 header fields) via the kernel log (where it can be read
 with dmesg or read in the syslog). This is a «non-terminating target», i.e.
@@ -520,16 +512,16 @@ rule traversal continues at the next rule. So if you want to LOG the packets
 you refuse, use two separate rules with the same matching criteria, first
 using target LOG then DROP (or REJECT).</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">--log-level</span> <span class="pre">level</span></code>: Level of logging, which can be (system-specific)
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-level</span> <span class="pre">level</span></code>: Level of logging, which can be (system-specific)
 numeric or a mnemonic. Possible values are (in decreasing order of priority):
-emerg, alert, crit, error, warning, notice, info or debug.</li>
-<li><code class="docutils literal notranslate"><span class="pre">--log-prefix</span> <span class="pre">prefix</span></code>: Prefix log messages with the specified prefix; up
-to 29 letters long, and useful for distinguishing messages in the logs.</li>
-<li><code class="docutils literal notranslate"><span class="pre">--log-tcp-sequence</span></code>: Log TCP sequence numbers. This is a security risk
-if the log is readable by users.</li>
-<li><code class="docutils literal notranslate"><span class="pre">--log-tcp-options</span></code>: Log options from the TCP packet header.</li>
-<li><code class="docutils literal notranslate"><span class="pre">--log-ip-options</span></code>: Log options from the IP/IPv6 packet header.</li>
-<li><code class="docutils literal notranslate"><span class="pre">--log-uid</span></code>: Log the userid of the process which generated the packet.</li>
+emerg, alert, crit, error, warning, notice, info or debug.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-prefix</span> <span class="pre">prefix</span></code>: Prefix log messages with the specified prefix; up
+to 29 letters long, and useful for distinguishing messages in the logs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-tcp-sequence</span></code>: Log TCP sequence numbers. This is a security risk
+if the log is readable by users.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-tcp-options</span></code>: Log options from the TCP packet header.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-ip-options</span></code>: Log options from the IP/IPv6 packet header.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-uid</span></code>: Log the userid of the process which generated the packet.</p></li>
 </ul>
 </li>
 </ul>
@@ -543,9 +535,7 @@ if the log is readable by users.</li>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -554,7 +544,7 @@ if the log is readable by users.</li>
         <a href="qos.html" class="btn btn-neutral float-right" title="QOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gestion.html" class="btn btn-neutral" title="Gestion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gestion.html" class="btn btn-neutral float-left" title="Gestion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -563,11 +553,11 @@ if the log is readable by users.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -580,37 +570,15 @@ if the log is readable by users.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

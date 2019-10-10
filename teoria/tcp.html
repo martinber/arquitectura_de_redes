@@ -1,8 +1,8 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -17,43 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Índice"
-              href="../genindex.html"/>
-        <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Arquitectura de Redes - " href="../index.html"/>
-        <link rel="up" title="Teoría" href="index.html"/>
-        <link rel="next" title="UDP" href="udp.html"/>
-        <link rel="prev" title="ICMPv6" href="icmpv6.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="UDP" href="udp.html" />
+    <link rel="prev" title="ICMPv6" href="icmpv6.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -127,7 +121,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Arquitectura de Redes</a>
@@ -135,9 +129,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -185,90 +180,94 @@
 <h1>TCP<a class="headerlink" href="#tcp" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Transmission Control Protocol.</p>
 <ul class="simple">
-<li>Orientado a la conexión, funciones:<ul>
-<li>Multiplexación.</li>
-<li>Control de flujo.</li>
-<li>Control de congestión: Mediante el mecanismo llamado Explicit Congestion
-Notification (ECN).</li>
-<li>Control de errores.</li>
-<li>Retransmisión de segmentos perdidos o erróneos.</li>
+<li><p>Orientado a la conexión, funciones:</p>
+<ul>
+<li><p>Multiplexación.</p></li>
+<li><p>Control de flujo.</p></li>
+<li><p>Control de congestión: Mediante el mecanismo llamado Explicit Congestion
+Notification (ECN).</p></li>
+<li><p>Control de errores.</p></li>
+<li><p>Retransmisión de segmentos perdidos o erróneos.</p></li>
 </ul>
 </li>
-<li>Define un cliente que inicia la conexión y un servidor que escucha y espera
-conexiones.</li>
-<li>Se define un socket que es un conjunto de protocolo, dirección IP y puerto.
-Los puertos del 0 al 1023 están reservados para servicios bien conocidos.</li>
-<li>Se define una conexión que es un conjunto de dos sockets, uno local y otro de
-destino.</li>
-<li>Puede realizarse más de una conexión desde un socket hacia sockets distintos
-pero no se puede establecer una doble conexión entre los mismos dos sockets.</li>
-<li>Cada mensaje se denomina segmento.</li>
-<li>En las conexiones sin estado como HTTP se suele usar RST en lugar de FIN.</li>
-<li>Tipos de servidores:<ul>
-<li>Iterativo: Atiende y corta la conexión rápidamente.</li>
-<li>Concurrente: Duplica el socket y sigue atendiendo a más clientes.</li>
+<li><p>Define un cliente que inicia la conexión y un servidor que escucha y espera
+conexiones.</p></li>
+<li><p>Se define un socket que es un conjunto de protocolo, dirección IP y puerto.
+Los puertos del 0 al 1023 están reservados para servicios bien conocidos.</p></li>
+<li><p>Se define una conexión que es un conjunto de dos sockets, uno local y otro de
+destino.</p></li>
+<li><p>Puede realizarse más de una conexión desde un socket hacia sockets distintos
+pero no se puede establecer una doble conexión entre los mismos dos sockets.</p></li>
+<li><p>Cada mensaje se denomina segmento.</p></li>
+<li><p>En las conexiones sin estado como HTTP se suele usar RST en lugar de FIN.</p></li>
+<li><p>Tipos de servidores:</p>
+<ul>
+<li><p>Iterativo: Atiende y corta la conexión rápidamente.</p></li>
+<li><p>Concurrente: Duplica el socket y sigue atendiendo a más clientes.</p></li>
 </ul>
 </li>
-<li>Para hacer un firewall que impida conectarse a un host en la LAN hay que
-bloquear los paquetes entrantes con SYN = 1 y ACK = 0.</li>
-<li>Usa un saludo de tres vías para la conexión y desconexión, ver captura al
-final.</li>
+<li><p>Para hacer un firewall que impida conectarse a un host en la LAN hay que
+bloquear los paquetes entrantes con SYN = 1 y ACK = 0.</p></li>
+<li><p>Usa un saludo de tres vías para la conexión y desconexión, ver captura al
+final.</p></li>
 </ul>
 <div class="section" id="header">
 <h2>Header<a class="headerlink" href="#header" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Source port (16 bits).</li>
-<li>Destination port (16 bits).</li>
-<li>Sequence number (32 bits): Número de secuencia, se incrementa en uno or cada
-byte enviado.</li>
-<li>Acknowledgment number (32 bits): Si la flag ACK está en 1, este campo indica
-el próximo número de secuencia que se espera.</li>
-<li>Data offset (4 bits): Indica el tamaño del header TCP en palabras de 32 bits.
-El campo puede valer entre 5 y 15.</li>
-<li>Reserved (3 bits): Deben ser cero.</li>
-<li>Flags (9 bits): Contiene 9 flags.<ul>
-<li>NS (ECN-nonce): Experimental.</li>
-<li>CWR (Congestion Window Reduced): Indica que se recibió un segmento con el
-flag ECE y que se ha respondido en el mecanismo de control de congestión.</li>
-<li>ECE (ECN-echo): Si existe flag SYN, indica que este dispositivo soporta ECN,
-caso contrario indica que ECN en el header IP anuncia congestión.</li>
-<li>URG (Urgent): Por ejemplo usado en Telnet al hacer Ctrl-C.</li>
-<li>ACK (Acknowledgment): Indica que se está utilizando el campo Acknowledgment
-Number.</li>
-<li>PSH (Push): Solicita enviar los datos en el buffer a la aplicación que
-recibe.</li>
-<li>RST (Reset): Termina la conexión TCP instantáneamente.</li>
-<li>SYN (Synchronize): Enviado en el primer paquete de cada lado, indica
-sincronizar los números de secuencia.</li>
-<li>FIN: Termina la conexión.</li>
+<li><p>Source port (16 bits).</p></li>
+<li><p>Destination port (16 bits).</p></li>
+<li><p>Sequence number (32 bits): Número de secuencia, se incrementa en uno or cada
+byte enviado.</p></li>
+<li><p>Acknowledgment number (32 bits): Si la flag ACK está en 1, este campo indica
+el próximo número de secuencia que se espera.</p></li>
+<li><p>Data offset (4 bits): Indica el tamaño del header TCP en palabras de 32 bits.
+El campo puede valer entre 5 y 15.</p></li>
+<li><p>Reserved (3 bits): Deben ser cero.</p></li>
+<li><p>Flags (9 bits): Contiene 9 flags.</p>
+<ul>
+<li><p>NS (ECN-nonce): Experimental.</p></li>
+<li><p>CWR (Congestion Window Reduced): Indica que se recibió un segmento con el
+flag ECE y que se ha respondido en el mecanismo de control de congestión.</p></li>
+<li><p>ECE (ECN-echo): Si existe flag SYN, indica que este dispositivo soporta ECN,
+caso contrario indica que ECN en el header IP anuncia congestión.</p></li>
+<li><p>URG (Urgent): Por ejemplo usado en Telnet al hacer Ctrl-C.</p></li>
+<li><p>ACK (Acknowledgment): Indica que se está utilizando el campo Acknowledgment
+Number.</p></li>
+<li><p>PSH (Push): Solicita enviar los datos en el buffer a la aplicación que
+recibe.</p></li>
+<li><p>RST (Reset): Termina la conexión TCP instantáneamente.</p></li>
+<li><p>SYN (Synchronize): Enviado en el primer paquete de cada lado, indica
+sincronizar los números de secuencia.</p></li>
+<li><p>FIN: Termina la conexión.</p></li>
 </ul>
 </li>
-<li>Window Size (16 bits): Tamaño de la ventana de recepción para el control de
+<li><p>Window Size (16 bits): Tamaño de la ventana de recepción para el control de
 flujo. Utiliza por defecto bytes como unidad pero se puede cambiar. No es la
-ventana de congestión.</li>
-<li>Checksum (16 bits): Checksum del header, datos, y de un pseudo header que
+ventana de congestión.</p></li>
+<li><p>Checksum (16 bits): Checksum del header, datos, y de un pseudo header que
 consisite de las direcciones IP, el número de protocolo de TCP (0x0006) y de
-la longitud del header más los datos.</li>
-<li>Urgent pointer (16 bits): Si está la flag URG, este campo lleva un offset
-desde el número de secuencia indicando el último byte urgente.</li>
-<li>Opciones (0 a 320 bits): Cada opción consiste de el tipo (8 bits), y en el
+la longitud del header más los datos.</p></li>
+<li><p>Urgent pointer (16 bits): Si está la flag URG, este campo lleva un offset
+desde el número de secuencia indicando el último byte urgente.</p></li>
+<li><p>Opciones (0 a 320 bits): Cada opción consiste de el tipo (8 bits), y en el
 caso que la opción tenga datos lleva el tamaño (8 bits) y los datos
-(variable). Las opciones que normalmente se usan son:<ul>
-<li>0 (8 bits): Fin de lista de opciones.</li>
-<li>1 (8 bits): Sin operación.</li>
-<li>2,4,SS (32 bits): Maximum Segment Size, máximo tamaño de segmento
+(variable). Las opciones que normalmente se usan son:</p>
+<ul>
+<li><p>0 (8 bits): Fin de lista de opciones.</p></li>
+<li><p>1 (8 bits): Sin operación.</p></li>
+<li><p>2,4,SS (32 bits): Maximum Segment Size, máximo tamaño de segmento
 especificado en bytes que el dispositivo puede aceptar, se busca que no
-supere el MTU para que IP no fragmente los segmentos.</li>
-<li>3,3,S (24 bits): Escala de ventana, se usa para cambiar la unidad del campo
+supere el MTU para que IP no fragmente los segmentos.</p></li>
+<li><p>3,3,S (24 bits): Escala de ventana, se usa para cambiar la unidad del campo
 Window Size y permitir tamaños de ventana que no entran en 16 bits. No se
-aplica a la ventana de congestión.</li>
-<li>5,N,BBBB,EEEE,… (80 bits o más): Selective Acknowledgment (SACK), se
+aplica a la ventana de congestión.</p></li>
+<li><p>5,N,BBBB,EEEE,… (80 bits o más): Selective Acknowledgment (SACK), se
 especifica una lista de 1 a 4 bloques de datos siendo selectivamente
 especificados en el ACK. Se especifican como dos punteros de 32 bits, uno
-para el comienzo y otro para el final.</li>
-<li>8,10,TTTT,EEEE (80 bits): Timestamp y eco del último timestamp recibido,
+para el comienzo y otro para el final.</p></li>
+<li><p>8,10,TTTT,EEEE (80 bits): Timestamp y eco del último timestamp recibido,
 al igual que el número de secuencia permite determinar el orden de los
-segmentos.</li>
+segmentos.</p></li>
 </ul>
 </li>
 </ul>
@@ -295,44 +294,42 @@ segmentos.</li>
 <h2>Funciones<a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El sistema operativo define ciertas funciones para trabajar con sockets:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">socket</span></code>: Crea un socket, recibe el tipo y protocolo.</li>
-<li><code class="docutils literal notranslate"><span class="pre">bind</span></code>: Asocia el socket a una dirección IP y puerto.</li>
-<li><code class="docutils literal notranslate"><span class="pre">listen</span></code>: Inicia la escucha en el socket, usado por el servidor.</li>
-<li><code class="docutils literal notranslate"><span class="pre">connect</span></code>: Inicia la conexión a un servidor, usado por el cliente.</li>
-<li><code class="docutils literal notranslate"><span class="pre">accept</span></code>: Aceptar conexión entrante, usado por el servidor.</li>
-<li><code class="docutils literal notranslate"><span class="pre">send</span></code>, <code class="docutils literal notranslate"><span class="pre">write</span></code>: Enviar datos.</li>
-<li><code class="docutils literal notranslate"><span class="pre">receive</span></code>, <code class="docutils literal notranslate"><span class="pre">read</span></code>: Recibir datos.</li>
-<li><code class="docutils literal notranslate"><span class="pre">close</span></code>: Cerrar conexión.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">socket</span></code>: Crea un socket, recibe el tipo y protocolo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bind</span></code>: Asocia el socket a una dirección IP y puerto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">listen</span></code>: Inicia la escucha en el socket, usado por el servidor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code>: Inicia la conexión a un servidor, usado por el cliente.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">accept</span></code>: Aceptar conexión entrante, usado por el servidor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">send</span></code>, <code class="docutils literal notranslate"><span class="pre">write</span></code>: Enviar datos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">receive</span></code>, <code class="docutils literal notranslate"><span class="pre">read</span></code>: Recibir datos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">close</span></code>: Cerrar conexión.</p></li>
 </ul>
 </div>
 <div class="section" id="control-de-flujo">
 <h2>Control de flujo<a class="headerlink" href="#control-de-flujo" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Se utiliza para impedir que un host envíe datos demasiado rápido de tal forma
-que el dispositivo receptor no llega a procesarlos.</li>
-<li>Utiliza una ventana deslizante, cuyo tamaño es informado al otro host en el
-campo Window Size.</li>
+<li><p>Se utiliza para impedir que un host envíe datos demasiado rápido de tal forma
+que el dispositivo receptor no llega a procesarlos.</p></li>
+<li><p>Utiliza una ventana deslizante, cuyo tamaño es informado al otro host en el
+campo Window Size.</p></li>
 </ul>
 </div>
 <div class="section" id="control-de-congestion">
 <h2>Control de congestión<a class="headerlink" href="#control-de-congestion" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li>Se utiliza para impedir congestionar la red con demasiados segmentos.</li>
-<li>Se utilizan algoritmos específicos, que generalmente contienen una segunda
+<li><p>Se utiliza para impedir congestionar la red con demasiados segmentos.</p></li>
+<li><p>Se utilizan algoritmos específicos, que generalmente contienen una segunda
 ventana deslizante que no es informada en los segmentos. Este tamaño de
-ventana es interno a cada host y se calcula a partir de los ACKs, el RTT, etc.</li>
-<li>Algunos algoritmos usados son Reno, NewReno, Tahoe, Cubic, etc.</li>
-<li>Funciona bien cuando el Bandwidth-delay Product (BDP) es bajo. Se calcula como
-la capacidad de la red (en bits por segundo) y el RTT (en segundos).</li>
+ventana es interno a cada host y se calcula a partir de los ACKs, el RTT, etc.</p></li>
+<li><p>Algunos algoritmos usados son Reno, NewReno, Tahoe, Cubic, etc.</p></li>
+<li><p>Funciona bien cuando el Bandwidth-delay Product (BDP) es bajo. Se calcula como
+la capacidad de la red (en bits por segundo) y el RTT (en segundos).</p></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -341,7 +338,7 @@ la capacidad de la red (en bits por segundo) y el RTT (en segundos).</li>
         <a href="udp.html" class="btn btn-neutral float-right" title="UDP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="icmpv6.html" class="btn btn-neutral" title="ICMPv6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="icmpv6.html" class="btn btn-neutral float-left" title="ICMPv6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -350,11 +347,11 @@ la capacidad de la red (en bits por segundo) y el RTT (en segundos).</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio.
+        &copy; Copyright 2018-2019, Martín Bernardi, Remedi Augusto, Rittano Ignacio
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -367,37 +364,15 @@ la capacidad de la red (en bits por segundo) y el RTT (en segundos).</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
