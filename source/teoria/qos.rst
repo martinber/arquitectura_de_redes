@@ -1,8 +1,6 @@
 QOS
 ===
 
-.. todo:: Random Early Detection, RED, WRED.
-
 QoS hace referencia al uso de tecnologías que permiten administrar datos y
 paquetes para reducir la pérdida de paquetes, latencia y jitter en la red, como
 así también para manejar ancho de banda.
@@ -20,10 +18,27 @@ Existen dos tipos de aplicaciones, que se diferencian según sus requisitos:
   parámetros mínimos de ancho de banda para que puedan funcionar correctamente,
   por ejemplo VOIP, videoconferencia.
 
-Se define a un fujo como una secuencia de datagramas o segmentos que son el
+Se define a un flujo como una secuencia de datagramas o segmentos que son el
 resultado de una acción del usuario y requiere la misma QoS. Es unidireccional
 y la entidad mínima a la cual un router puede aplicarle QoS. Se identifica por
-cinco parámetros puerto e IP de origen y destino y el protocolo (TCP o UDP).
+cinco parámetros: puerto e IP de origen y destino, y el protocolo (TCP o UDP).
+
+IP QOS permite calidad de servicio extremo a extremo, en cambio protocolos de
+capa 2 como VLAN no.
+
+.. todo:: acomodar
+
+   - La cola es punteros a memoria. Un buffer es la memoria.
+
+   - Es lo mismo QoS en IPv4 que en IPv6 basicamente, cambian un poco los headers
+     nomas
+
+   - Solamente se puede controlar lo que sale para el tema de prioridades. El
+     marcado es a la entrada.
+
+
+Diferencias entre QoS, CoS y ToS
+--------------------------------
 
 - QoS (Quality of Service): se refiere a la priorización y clasificación del
   tráfico en general, puede ser mediante técnicas de policing, shaping, entre
@@ -35,33 +50,24 @@ cinco parámetros puerto e IP de origen y destino y el protocolo (TCP o UDP).
 
 - ToS (Type of Service): segundo byte en el header de IP donde se puede
   especificar algun tipo de prioridad. En la actualidad se utiliza DSCP
-  (Differenciated Services Code Point) que son 5 bits de ese byte reservado.
+  (Differenciated Services Code Point) que son 6 bits de ese byte reservado.
 
-IP QOS peermite calidad de servicio extremo a extremo, de capa 2 como VLAN no
+Calidad de servicio y control de tráfico
+----------------------------------------
 
-La cola es punteros a memoria. Un buffer es la memoria.
+- Hay dos tipos de control de tráfico: mecanismos de control de datos o control
+  de caminos.
 
-- Es lo mismo QoS en IPv4 que en IPv6 basicamente, cambian un poco los headers
-  nomas
-
-- Solamente se puede controlar lo que sale para el tema de prioridades. El
-  marcado es a la entrada.
-
-Arquitectura
-------------
-
-- Grandes grupos: mecansimos de control de datos o control de caminos.
-
-- Clasificación:
+- Clasificación de paquetes:
 
   - Por flujo: Secuencia de datagramas (IP origen y destino, puerto origen y
     destino, protocolo). Cada conexion TCP tiene tiene 2 flujos.
 
-  - Stream.
+  - Por stream.
 
-  - Clase trafico.
+  - Por clase de trafico.
 
-  - Campo de IP.
+  - Por campos de IP.
 
   - MPLS.
 
@@ -80,8 +86,10 @@ Arquitectura
 - Marking: Es el marcado de paquetes mediante una etiqueta que le permite a los
   routers, mediante un acuerdo previo, para darle un tratamiento determinado. No
   hay reserva de recursos por flujo, ni protocolo de señalización, ni
-  información de estado en los routers.. Para marcar usamos la tabla mangle de
+  información de estado en los routers. Para marcar usamos la tabla mangle de
   iptables.
+
+.. todo:: Revisar
 
 - Token Bucket: Mecanismo para limitar la tasa media de transferencia,
   permitiendo ráfagas hasta un tamaño máximo. Se puede dividir en:
@@ -99,7 +107,7 @@ En IPv4:
 
 - Type of Service (8 bits): Para hacer calidad de servicios.
 
-  - Precedencia (3 bits): prioridad, con ocho niveles en total. Mayor tiene más
+  - Precedencia (3 bits): Prioridad, con ocho niveles en total. Mayor tiene más
     prioridad
 
   - Delay (D) (1 bit): Retardo mínimo.
@@ -129,10 +137,10 @@ específico, sin reserva de recursos por flujo, ni protocolo de señalización, 
 información de estado de routers. Las garantías de calidad de servicio no son
 tan estrictas como en IntServ, pero suelen ser suficientes.
 
-Se denomina al comportamiento de reenvío asignado PHB (per hop behaviour). PHB
-determina la procedencia del paquete marcado en relación con otro tráfico del
-sistema con DiffServ, y luego decide si el sistema reenvía o descarta dicho
-paquete. Cada router con DiffServ aplica el mismo PHB al paquete.
+Se denomina al comportamiento de reenvío asignado PHB (Per Hop Behaviour). PHB
+es un algoritmo que determina la precedencia del paquete marcado dependiendo del
+contenido del campo DSCP, y luego decide si el sistema reenvía o descarta dicho
+paquete. El conjunto de routers que hacen PHB se denomina DiffServ.
 
 Cada PHB consta de dos componentes:
 
@@ -143,9 +151,9 @@ Cada PHB consta de dos componentes:
 De los 6 bits utilizados en este campo para clasificar tráfico, se encuentran
 distintas clases:
 
-- ``111xxx``: control de la red, precedencia 7
+- ``111xxx``: Utilizado para control de la red, precedencia 7
 
-- ``110xxx``: control de la red, precedencia 6
+- ``110xxx``: Utilizado para control de la red, precedencia 6
 
 - ``101xxx``: Expedited Forwarding, precedencia 5
 
@@ -159,22 +167,25 @@ distintas clases:
 
 - ``000xxx``: Best Effort, precedencia 0
 
-Expedited Forwarding garantiza caudal, tasa de pérdida, jitter y retardo,
-equivale a una línea dedicada. Es como un acuerdo de SLA Assured Forwarding
-asegura un trato preferente pero sin dar garantías. Tiene 4 clases y en cada una
-hay tres probabilidades de descarte (alta, media y baja).  Best Effort no tiene
-garantías.
+Los de mayor precedencia se utilizan para control de la red a que aseguran de
+que siempre se podrá reconfigurar los equipos aunque estén saturadas las líneas.
 
-- PHB: Per Hop Behavior. Lo que hace cada router. Los routers en conjunto son un
-  dominio DiffServ.
+Expedited Forwarding garantiza caudal, tasa de pérdida, jitter y retardo,
+equivale a una línea dedicada. Es como un acuerdo de SLA.
+
+Assured Forwarding asegura un trato preferente pero sin dar garantías. Tiene 4
+clases y en cada una hay tres probabilidades de descarte (alta, media y baja).
+
+Best Effort no tiene garantías.
 
 IntServ
--------
+~~~~~~~
 
-Se basa en la reserva previa de recursos en todo el trayecto. Para esto utiliza
-el protocolo RSVP (Resource reSerVation Protocol), que garantiza la QoS
-solicitada. De no haber recursos disponibles, se rechaza la petición, ejerciendo
-control de admisión o CAC (Connection Admission Control)
+Es otra forma de hacer calidad de servicio, a diferencia de DiffServ se basa en
+la reserva previa de recursos en todo el trayecto. Para esto utiliza el
+protocolo RSVP (Resource reSerVation Protocol), que garantiza la QoS solicitada.
+De no haber recursos disponibles, se rechaza la petición, ejerciendo control de
+admisión o CAC (Connection Admission Control).
 
 IntServ se desarrolló antes que DiffServ, pero lo mas utilizado es este último.
 Esto se debe a la capacidad de escalabilidad que tiene a diferencia de IntServ
@@ -185,23 +196,24 @@ SLA
 
 Service Level Agreement.
 
-- Contrato entre usuario y operador de red.
+- Es un contrato entre usuario y operador de red.
 
-- ITU-T E.860 define el marco? una estructura generica.
+- La ITU-T E.860 define el marco, una estructura generica.
 
 - Parametros posibles:
 
-  - Disponibilidad: Se suele medir por porcentaje, cuantas horas por dia,
-    cuantas horas seguidas, etc.
+  - Disponibilidad: Tiempo en el que está asegurado el funcionamiento. Se suele
+    medir por porcentaje, cuantas horas por dia, cuantas horas seguidas, etc.
+    Por ejemplo 99.9%.
 
-  - Ancho de banda.
+  - Ancho de banda garantizado.
 
-  - Perdida de paquetes: Se suele medir por porcentaje. 1 de cada 100 o 10 de
-    cada 1000.
+  - Perdida de paquetes: Se suele medir por porcentaje. Por ejemplo 0.1%, o 1 de
+    cada 100 o 10 de cada 1000.
 
-  - RTT.
+  - RTT medio. Por ejemplo 80ms.
 
-  - Jitter.
+  - Jitter, por ejemplo +/- 20ms.
 
 - La IPTF estableció la IPPM que hace estandares de medicion.
 
@@ -326,21 +338,6 @@ Sobre clases, sacado de `acá <https://www.tldp.org/HOWTO/Traffic-Control-HOWTO>
 Colas
 -----
 
-CIR
-~~~
-
-.. todo:: Es un buffer cicular? Supuestamente es policer?
-
-EBS
-~~~
-
-.. todo:: No la encuentro?? Supuestamente es policer?
-
-T
-~~
-
-.. todo:: No la encuentro?? Supuestamente es policer?
-
 pfifo
 ~~~~~
 
@@ -404,7 +401,7 @@ Creo que nunca la usamos. Ver ``man tc-cbs``::
 Tocken Bucket Filter
 ~~~~~~~~~~~~~~~~~~~~
 
-Classless.
+En algunos lados dice que es classless y en otros classful.
 
 Ver ``man tc-tbf``::
 
@@ -528,8 +525,8 @@ Permite prestar trafico a otra rama cuando no lo usa, creo que es el único que
 deja hacer eso de las que vemos, pero hay otras variaciones. Muy dificil de
 configurar, hay que hacer cuentas.
 
-Es como la prio pero hace un round robin con pesos que se van calculando
-dinamicamene que se yo.
+Tengo entendido que es como la PRIO pero hace un round robin con pesos que se
+van calculando dinámicamente.
 
 Ver ``man tc-cbq``::
 
@@ -558,8 +555,7 @@ Ver ``man tc-htb``::
 
   Unlike CBQ, HTB shapes traffic based on the Token Bucket Filter algorithm which
   does not depend on interface characteristics and so does not need to know the
-  underlying bandwidth of
-  the outgoing interface.
+  underlying bandwidth of the outgoing interface.
 
 Referencias
 -----------

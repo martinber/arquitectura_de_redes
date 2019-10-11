@@ -255,5 +255,5 @@ Asterisk a SIP. A diferencia de SIP:
 - No es un protocolo tan estandarizado como SIP.
 
 - En SIP es posible transmitir la señalización por el servidor mientras que el
-  audio puede viajar punto a punto. En IAX todo de pasar por el servidor lo que
-  requiere de más recursos en el servidor.
+  audio puede viajar punto a punto. En IAX todo debe pasar por el servidor lo
+  que requiere de más recursos en el servidor.

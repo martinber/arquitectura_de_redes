@@ -232,10 +232,10 @@ realizadas por <code class="docutils literal notranslate"><span class="pre">ipta
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1010 fw flowid 1:10
 </pre></div>
 </div>
-<p>Los paquetes que lleguen con la marca <code class="docutils literal notranslate"><span class="pre">1010</span></code> se enviarán a la clase <code class="docutils literal notranslate"><span class="pre">1:10</span></code>.
-Tener en cuenta que el gráfico muestra al handle <code class="docutils literal notranslate"><span class="pre">1020</span></code> en hexadecimal como
-<code class="docutils literal notranslate"><span class="pre">0x3fc</span></code>.</p>
+<p>Los paquetes que lleguen con la marca <code class="docutils literal notranslate"><span class="pre">1010</span></code> se enviarán a la clase <code class="docutils literal notranslate"><span class="pre">1:10</span></code>.</p>
 <img alt="../_images/paso_4.png" src="../_images/paso_4.png" />
+<p>Agregamos el otro filtro. Tener en cuenta que el gráfico muestra al handle
+<code class="docutils literal notranslate"><span class="pre">1020</span></code> en hexadecimal como <code class="docutils literal notranslate"><span class="pre">0x3fc</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1020 fw flowid 1:20
 </pre></div>
 </div>
@@ -384,15 +384,15 @@ parámetros que TBF.</p>
 <h3>Marcado de paquetes<a class="headerlink" href="#marcado-de-paquetes" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Hay dos formas de marcar paquetes:</p>
 <ul>
-<li><p><strong>fw</strong>: Clasifica el tráfico basándose en marcas realizadas a los paquetes.
-Por ejemplo:</p>
+<li><p><strong>fw</strong>: Clasifica el tráfico basándose en marcas realizadas a los paquetes por
+iptables. Por ejemplo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 123 fw flowid 1:4
 </pre></div>
 </div>
-<p>Adhiere un filtro a la interfaz xxx para el protocolo ip, donde la disciplina
-de cola (qdisc) padre es la 1:0. Se especifica que se usa el filtro <code class="docutils literal notranslate"><span class="pre">fw</span></code> y
-que los paquetes marcados con <code class="docutils literal notranslate"><span class="pre">123</span></code> los envíe a la cola <code class="docutils literal notranslate"><span class="pre">:4</span></code>. Para marcar
-los paquetes se debe utilizar <code class="docutils literal notranslate"><span class="pre">iptables</span></code>.</p>
+<p>Adhiere un filtro a la interfaz <code class="docutils literal notranslate"><span class="pre">enp4s0</span></code> para el protocolo IP, donde la
+disciplina de cola (qdisc) padre es la 1:0. Se especifica que se usa el filtro
+<code class="docutils literal notranslate"><span class="pre">fw</span></code> y que los paquetes marcados con <code class="docutils literal notranslate"><span class="pre">123</span></code> los envíe a la cola <code class="docutils literal notranslate"><span class="pre">:4</span></code>.
+Para marcar los paquetes se debe utilizar <code class="docutils literal notranslate"><span class="pre">iptables</span></code>.</p>
 </li>
 <li><p><strong>u32</strong>: Análiza de los campos de la cabecera de los protocolos. Por ejemplo:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 u32 match ip dport 80 0xffff flowid 1:4

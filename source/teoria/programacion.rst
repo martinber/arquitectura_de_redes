@@ -6,15 +6,15 @@ CGI + Python
 
 CGI (Common Gateway Interface) es una tecnología que permite al cliente
 solicitar datos de un programa ejecutado del lado de un servidor web. Lo
-utilizamos junto a HTML (Hyper Text Markup Language), el lenguaje deprogramación
-estándar de páginas web. Está conformado por el uso de etiquetas o tags que
-marcan la estructura del documento. Las aplicaciones CGI fueron las primeras en
-ser utilizadas para brindar contenido dinámico para las páginas web.
+utilizamos junto a HTML (Hyper Text Markup Language), el lenguaje estándar de
+páginas web que está conformado por el uso de etiquetas o tags que marcan la
+estructura del documento.
 
-En una aplicación CGI el servidor pasa las solicitudes del cliente a un programa
-externo. Este puede estar escrito en cualquier lenguaje que soporte el servidor.
-La salida del programa es devuelta al cliente, en lugar del archivo estático
-tradicional.
+Las aplicaciones CGI fueron las primeras en ser utilizadas para brindar
+contenido dinámico para las páginas web. En una aplicación CGI el servidor pasa
+las solicitudes del cliente a un programa externo. Este puede estar escrito en
+cualquier lenguaje que soporte el servidor. La salida del programa es devuelta
+al cliente, en lugar del archivo estático tradicional.
 
 1. El servidor recibe una petición (el cliente ha ingresado a una URL que
    contiene el CGI), y este redirige la petición con los datos al script.
@@ -36,6 +36,8 @@ Nosotros utilizamos CGI junto con Python. Ya hay un módulo existente de CGI. Un
 forma convencional de devolver información al cliente es utilizando la función
 print para generar un HTML.
 
+Particularmente para Python ver también WSGI.
+
 Programación orientada a objetos
 --------------------------------
 
@@ -51,13 +53,14 @@ Programación orientada a objetos
   - Estado: Contienen información
 
 - Encapsulación: Es un concepto ligado a la programación orientada a objetos que
-  consiste en combinar datos y funciones de una clase en una cápsula de forma tal
-  de evitar el uso incorrecto o manipulación de las mismas. Dentro de esta
-  cápsula:
+  consiste en combinar datos y funciones de una clase en una cápsula de forma
+  tal de evitar el uso incorrecto o manipulación de las mismas. Dentro de las
+  clases los métodos y datos pueden ser públicos o privados, pero al encapsular
+  se busca que:
 
-  - Los métodos son públicos, accesibles desde el exterior.
+  - Los métodos sean públicos, accesibles desde el exterior.
 
-  - Los datos son privados, accesibles desde el interior.
+  - Los métdatos sean privados, accesibles sólo desde el interior.
 
 - Herencia: Indica una relación entre clases. Permite la reutilización de los
   procedimientos y variables de una clase, ya que todos los datos y métodos
@@ -68,6 +71,6 @@ Programación orientada a objetos
 
   - Herencia múltiple: Clase derivada de dos o más clases.
 
-- `Polimorfismo <https://en.m.wikipedia.org/wiki/Object-oriented_programming#Polymorphism>`_ :
+- `Polimorfismo <https://en.m.wikipedia.org/wiki/Object-oriented_programming#Polymorphism>`_:
   Permite a una función recibir un objeto de una cierta clase padre
   y al mismo tiempo poder recibir clases hijas de forma indistinta.

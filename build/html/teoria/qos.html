@@ -98,8 +98,8 @@
 <li class="toctree-l3"><a class="reference internal" href="seguridad.html">Seguridad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tls.html">TLS</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">QOS</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#arquitectura">Arquitectura</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#intserv">IntServ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diferencias-entre-qos-cos-y-tos">Diferencias entre QoS, CoS y ToS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calidad-de-servicio-y-control-de-trafico">Calidad de servicio y control de tráfico</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sla">SLA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#control-de-trafico-en-linux">Control de tráfico en Linux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#colas">Colas</a></li>
@@ -183,10 +183,6 @@
             
   <div class="section" id="qos">
 <h1>QOS<a class="headerlink" href="#qos" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="admonition-todo admonition" id="index-0">
-<p class="admonition-title">Por hacer</p>
-<p>Random Early Detection, RED, WRED.</p>
-</div>
 <p>QoS hace referencia al uso de tecnologías que permiten administrar datos y
 paquetes para reducir la pérdida de paquetes, latencia y jitter en la red, como
 así también para manejar ancho de banda.
@@ -202,10 +198,25 @@ transferencia de archivos.</p></li>
 parámetros mínimos de ancho de banda para que puedan funcionar correctamente,
 por ejemplo VOIP, videoconferencia.</p></li>
 </ul>
-<p>Se define a un fujo como una secuencia de datagramas o segmentos que son el
+<p>Se define a un flujo como una secuencia de datagramas o segmentos que son el
 resultado de una acción del usuario y requiere la misma QoS. Es unidireccional
 y la entidad mínima a la cual un router puede aplicarle QoS. Se identifica por
-cinco parámetros puerto e IP de origen y destino y el protocolo (TCP o UDP).</p>
+cinco parámetros: puerto e IP de origen y destino, y el protocolo (TCP o UDP).</p>
+<p>IP QOS permite calidad de servicio extremo a extremo, en cambio protocolos de
+capa 2 como VLAN no.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="admonition-title">Por hacer</p>
+<p>acomodar</p>
+<ul class="simple">
+<li><p>La cola es punteros a memoria. Un buffer es la memoria.</p></li>
+<li><p>Es lo mismo QoS en IPv4 que en IPv6 basicamente, cambian un poco los headers
+nomas</p></li>
+<li><p>Solamente se puede controlar lo que sale para el tema de prioridades. El
+marcado es a la entrada.</p></li>
+</ul>
+</div>
+<div class="section" id="diferencias-entre-qos-cos-y-tos">
+<h2>Diferencias entre QoS, CoS y ToS<a class="headerlink" href="#diferencias-entre-qos-cos-y-tos" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p>QoS (Quality of Service): se refiere a la priorización y clasificación del
 tráfico en general, puede ser mediante técnicas de policing, shaping, entre
@@ -215,27 +226,21 @@ en la parte de VLAN, en donde se puede diferencia los servicios para luego
 darles prioridad</p></li>
 <li><p>ToS (Type of Service): segundo byte en el header de IP donde se puede
 especificar algun tipo de prioridad. En la actualidad se utiliza DSCP
-(Differenciated Services Code Point) que son 5 bits de ese byte reservado.</p></li>
+(Differenciated Services Code Point) que son 6 bits de ese byte reservado.</p></li>
 </ul>
-<p>IP QOS peermite calidad de servicio extremo a extremo, de capa 2 como VLAN no</p>
-<p>La cola es punteros a memoria. Un buffer es la memoria.</p>
+</div>
+<div class="section" id="calidad-de-servicio-y-control-de-trafico">
+<h2>Calidad de servicio y control de tráfico<a class="headerlink" href="#calidad-de-servicio-y-control-de-trafico" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><p>Es lo mismo QoS en IPv4 que en IPv6 basicamente, cambian un poco los headers
-nomas</p></li>
-<li><p>Solamente se puede controlar lo que sale para el tema de prioridades. El
-marcado es a la entrada.</p></li>
-</ul>
-<div class="section" id="arquitectura">
-<h2>Arquitectura<a class="headerlink" href="#arquitectura" title="Enlazar permanentemente con este título">¶</a></h2>
-<ul class="simple">
-<li><p>Grandes grupos: mecansimos de control de datos o control de caminos.</p></li>
-<li><p>Clasificación:</p>
+<li><p>Hay dos tipos de control de tráfico: mecanismos de control de datos o control
+de caminos.</p></li>
+<li><p>Clasificación de paquetes:</p>
 <ul>
 <li><p>Por flujo: Secuencia de datagramas (IP origen y destino, puerto origen y
 destino, protocolo). Cada conexion TCP tiene tiene 2 flujos.</p></li>
-<li><p>Stream.</p></li>
-<li><p>Clase trafico.</p></li>
-<li><p>Campo de IP.</p></li>
+<li><p>Por stream.</p></li>
+<li><p>Por clase de trafico.</p></li>
+<li><p>Por campos de IP.</p></li>
 <li><p>MPLS.</p></li>
 <li><p>Capa 2.</p></li>
 <li><p>Inspección profunda.</p></li>
@@ -250,8 +255,14 @@ tasa, los retrasa suavizando la transferencia.</p></li>
 <li><p>Marking: Es el marcado de paquetes mediante una etiqueta que le permite a los
 routers, mediante un acuerdo previo, para darle un tratamiento determinado. No
 hay reserva de recursos por flujo, ni protocolo de señalización, ni
-información de estado en los routers.. Para marcar usamos la tabla mangle de
+información de estado en los routers. Para marcar usamos la tabla mangle de
 iptables.</p></li>
+</ul>
+<div class="admonition-todo admonition" id="index-1">
+<p class="admonition-title">Por hacer</p>
+<p>Revisar</p>
+</div>
+<ul class="simple">
 <li><p>Token Bucket: Mecanismo para limitar la tasa media de transferencia,
 permitiendo ráfagas hasta un tamaño máximo. Se puede dividir en:</p>
 <ul>
@@ -267,7 +278,7 @@ permitiendo ráfagas hasta un tamaño máximo. Se puede dividir en:</p>
 <ul class="simple">
 <li><p>Type of Service (8 bits): Para hacer calidad de servicios.</p>
 <ul>
-<li><p>Precedencia (3 bits): prioridad, con ocho niveles en total. Mayor tiene más
+<li><p>Precedencia (3 bits): Prioridad, con ocho niveles en total. Mayor tiene más
 prioridad</p></li>
 <li><p>Delay (D) (1 bit): Retardo mínimo.</p></li>
 <li><p>Throughput (T) (1 bit): Máximo rendimiento.</p></li>
@@ -292,10 +303,10 @@ extremos cuando hay congestión.</p></li>
 específico, sin reserva de recursos por flujo, ni protocolo de señalización, ni
 información de estado de routers. Las garantías de calidad de servicio no son
 tan estrictas como en IntServ, pero suelen ser suficientes.</p>
-<p>Se denomina al comportamiento de reenvío asignado PHB (per hop behaviour). PHB
-determina la procedencia del paquete marcado en relación con otro tráfico del
-sistema con DiffServ, y luego decide si el sistema reenvía o descarta dicho
-paquete. Cada router con DiffServ aplica el mismo PHB al paquete.</p>
+<p>Se denomina al comportamiento de reenvío asignado PHB (Per Hop Behaviour). PHB
+es un algoritmo que determina la precedencia del paquete marcado dependiendo del
+contenido del campo DSCP, y luego decide si el sistema reenvía o descarta dicho
+paquete. El conjunto de routers que hacen PHB se denomina DiffServ.</p>
 <p>Cada PHB consta de dos componentes:</p>
 <ul class="simple">
 <li><p>Una definición formal de comportamiento requerido</p></li>
@@ -304,8 +315,8 @@ paquete. Cada router con DiffServ aplica el mismo PHB al paquete.</p>
 <p>De los 6 bits utilizados en este campo para clasificar tráfico, se encuentran
 distintas clases:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">111xxx</span></code>: control de la red, precedencia 7</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">110xxx</span></code>: control de la red, precedencia 6</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">111xxx</span></code>: Utilizado para control de la red, precedencia 7</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">110xxx</span></code>: Utilizado para control de la red, precedencia 6</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">101xxx</span></code>: Expedited Forwarding, precedencia 5</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">100xxx</span></code>: Assured Forwarding clase 4, precedencia 4</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">011xxx</span></code>: Assured Forwarding clase 3, precedencia 3</p></li>
@@ -313,42 +324,42 @@ distintas clases:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">001xxx</span></code>: Assured Forwarding clase 1, precedencia 1</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">000xxx</span></code>: Best Effort, precedencia 0</p></li>
 </ul>
+<p>Los de mayor precedencia se utilizan para control de la red a que aseguran de
+que siempre se podrá reconfigurar los equipos aunque estén saturadas las líneas.</p>
 <p>Expedited Forwarding garantiza caudal, tasa de pérdida, jitter y retardo,
-equivale a una línea dedicada. Es como un acuerdo de SLA Assured Forwarding
-asegura un trato preferente pero sin dar garantías. Tiene 4 clases y en cada una
-hay tres probabilidades de descarte (alta, media y baja).  Best Effort no tiene
-garantías.</p>
-<ul class="simple">
-<li><p>PHB: Per Hop Behavior. Lo que hace cada router. Los routers en conjunto son un
-dominio DiffServ.</p></li>
-</ul>
-</div>
+equivale a una línea dedicada. Es como un acuerdo de SLA.</p>
+<p>Assured Forwarding asegura un trato preferente pero sin dar garantías. Tiene 4
+clases y en cada una hay tres probabilidades de descarte (alta, media y baja).</p>
+<p>Best Effort no tiene garantías.</p>
 </div>
 <div class="section" id="intserv">
-<h2>IntServ<a class="headerlink" href="#intserv" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Se basa en la reserva previa de recursos en todo el trayecto. Para esto utiliza
-el protocolo RSVP (Resource reSerVation Protocol), que garantiza la QoS
-solicitada. De no haber recursos disponibles, se rechaza la petición, ejerciendo
-control de admisión o CAC (Connection Admission Control)</p>
+<h3>IntServ<a class="headerlink" href="#intserv" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Es otra forma de hacer calidad de servicio, a diferencia de DiffServ se basa en
+la reserva previa de recursos en todo el trayecto. Para esto utiliza el
+protocolo RSVP (Resource reSerVation Protocol), que garantiza la QoS solicitada.
+De no haber recursos disponibles, se rechaza la petición, ejerciendo control de
+admisión o CAC (Connection Admission Control).</p>
 <p>IntServ se desarrolló antes que DiffServ, pero lo mas utilizado es este último.
 Esto se debe a la capacidad de escalabilidad que tiene a diferencia de IntServ
 que tiene un gran consumo de recursos.</p>
+</div>
 </div>
 <div class="section" id="sla">
 <h2>SLA<a class="headerlink" href="#sla" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Service Level Agreement.</p>
 <ul class="simple">
-<li><p>Contrato entre usuario y operador de red.</p></li>
-<li><p>ITU-T E.860 define el marco? una estructura generica.</p></li>
+<li><p>Es un contrato entre usuario y operador de red.</p></li>
+<li><p>La ITU-T E.860 define el marco, una estructura generica.</p></li>
 <li><p>Parametros posibles:</p>
 <ul>
-<li><p>Disponibilidad: Se suele medir por porcentaje, cuantas horas por dia,
-cuantas horas seguidas, etc.</p></li>
-<li><p>Ancho de banda.</p></li>
-<li><p>Perdida de paquetes: Se suele medir por porcentaje. 1 de cada 100 o 10 de
-cada 1000.</p></li>
-<li><p>RTT.</p></li>
-<li><p>Jitter.</p></li>
+<li><p>Disponibilidad: Tiempo en el que está asegurado el funcionamiento. Se suele
+medir por porcentaje, cuantas horas por dia, cuantas horas seguidas, etc.
+Por ejemplo 99.9%.</p></li>
+<li><p>Ancho de banda garantizado.</p></li>
+<li><p>Perdida de paquetes: Se suele medir por porcentaje. Por ejemplo 0.1%, o 1 de
+cada 100 o 10 de cada 1000.</p></li>
+<li><p>RTT medio. Por ejemplo 80ms.</p></li>
+<li><p>Jitter, por ejemplo +/- 20ms.</p></li>
 </ul>
 </li>
 <li><p>La IPTF estableció la IPPM que hace estandares de medicion.</p></li>
@@ -459,27 +470,6 @@ an inner class (or root class) and not a leaf class.</p>
 </div>
 <div class="section" id="colas">
 <h2>Colas<a class="headerlink" href="#colas" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="section" id="cir">
-<h3>CIR<a class="headerlink" href="#cir" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="admonition-todo admonition" id="index-1">
-<p class="admonition-title">Por hacer</p>
-<p>Es un buffer cicular? Supuestamente es policer?</p>
-</div>
-</div>
-<div class="section" id="ebs">
-<h3>EBS<a class="headerlink" href="#ebs" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="admonition-todo admonition" id="index-2">
-<p class="admonition-title">Por hacer</p>
-<p>No la encuentro?? Supuestamente es policer?</p>
-</div>
-</div>
-<div class="section" id="t">
-<h3>T<a class="headerlink" href="#t" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="admonition-todo admonition" id="index-3">
-<p class="admonition-title">Por hacer</p>
-<p>No la encuentro?? Supuestamente es policer?</p>
-</div>
-</div>
 <div class="section" id="pfifo">
 <h3>pfifo<a class="headerlink" href="#pfifo" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Classless.</p>
@@ -536,7 +526,7 @@ traffic classes, one example is mqprio(8).
 </div>
 <div class="section" id="tocken-bucket-filter">
 <h3>Tocken Bucket Filter<a class="headerlink" href="#tocken-bucket-filter" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Classless.</p>
+<p>En algunos lados dice que es classless y en otros classful.</p>
 <p>Ver <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">tc-tbf</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The Token Bucket Filter is a classful queueing discipline available for
 traffic control with the tc(8) command.
@@ -644,8 +634,8 @@ qdisc on &#39;tc qdisc add&#39; with the handle parameter.
 <p>Permite prestar trafico a otra rama cuando no lo usa, creo que es el único que
 deja hacer eso de las que vemos, pero hay otras variaciones. Muy dificil de
 configurar, hay que hacer cuentas.</p>
-<p>Es como la prio pero hace un round robin con pesos que se van calculando
-dinamicamene que se yo.</p>
+<p>Tengo entendido que es como la PRIO pero hace un round robin con pesos que se
+van calculando dinámicamente.</p>
 <p>Ver <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">tc-cbq</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Class Based Queueing is a classful qdisc that implements a rich linksharing
 hierarchy of classes. It contains shaping elements as well as prioritizing
@@ -670,8 +660,7 @@ decide which simulated link to use for a given packet to be sent.
 
 Unlike CBQ, HTB shapes traffic based on the Token Bucket Filter algorithm which
 does not depend on interface characteristics and so does not need to know the
-underlying bandwidth of
-the outgoing interface.
+underlying bandwidth of the outgoing interface.
 </pre></div>
 </div>
 </div>

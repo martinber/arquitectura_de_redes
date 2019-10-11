@@ -111,37 +111,29 @@ Sacado de lista de powerpoints y de programa
 Temas Aplicaciones TCP/IP
 -------------------------
 
-- No se resume
+- No resumido
 
   - Repaso Python
 
-  - Servidor Web
-
   - Arduino
 
-- Resumido
+- :doc:`teoria/programacion`.
 
-  - CGI + Python
+- :doc:`teoria/http`.
 
-  - Programación orientada a objetos
+- :doc:`practica/apache2`.
 
-  - Programación en Qt
+- Calidad de servicio
 
-  - Programación con sockets
+  - :doc:`teoria/qos`.
 
-  - Calidad de servicio
+  - :doc:`practica/qos`.
 
-    - QoS
+- Streaming de voz
 
-    - SLA
+  - :doc:`teoria/voip`.
 
-    - Control ancho de banda
-
-  - Streaming de voz
-
-    - :doc:`teoria/voip`.
-
-    - :doc:`practica/asterisk`.
+  - :doc:`practica/asterisk`.
 
 Para hacer
 ----------

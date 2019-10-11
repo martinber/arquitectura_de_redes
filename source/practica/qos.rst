@@ -88,10 +88,11 @@ realizadas por ``iptables``. Tener en cuenta que el gráfico muestra al handle
   tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 1010 fw flowid 1:10
 
 Los paquetes que lleguen con la marca ``1010`` se enviarán a la clase ``1:10``.
-Tener en cuenta que el gráfico muestra al handle ``1020`` en hexadecimal como
-``0x3fc``.
 
 .. image:: ./linux_tc_htb/paso_4.png
+
+Agregamos el otro filtro. Tener en cuenta que el gráfico muestra al handle
+``1020`` en hexadecimal como ``0x3fc``.
 
 ::
 
@@ -264,15 +265,15 @@ Marcado de paquetes
 
 Hay dos formas de marcar paquetes:
 
-- **fw**: Clasifica el tráfico basándose en marcas realizadas a los paquetes.
-  Por ejemplo::
+- **fw**: Clasifica el tráfico basándose en marcas realizadas a los paquetes por
+  iptables. Por ejemplo::
 
     tc filter add dev enp4s0 protocol ip parent 1:0 prio 1 handle 123 fw flowid 1:4
 
-  Adhiere un filtro a la interfaz xxx para el protocolo ip, donde la disciplina
-  de cola (qdisc) padre es la 1:0. Se especifica que se usa el filtro ``fw`` y
-  que los paquetes marcados con ``123`` los envíe a la cola ``:4``. Para marcar
-  los paquetes se debe utilizar ``iptables``.
+  Adhiere un filtro a la interfaz ``enp4s0`` para el protocolo IP, donde la
+  disciplina de cola (qdisc) padre es la 1:0. Se especifica que se usa el filtro
+  ``fw`` y que los paquetes marcados con ``123`` los envíe a la cola ``:4``.
+  Para marcar los paquetes se debe utilizar ``iptables``.
 
 - **u32**: Análiza de los campos de la cabecera de los protocolos. Por ejemplo::
 

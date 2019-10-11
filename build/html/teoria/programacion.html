@@ -183,14 +183,14 @@
 <h2>CGI + Python<a class="headerlink" href="#cgi-python" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>CGI (Common Gateway Interface) es una tecnología que permite al cliente
 solicitar datos de un programa ejecutado del lado de un servidor web. Lo
-utilizamos junto a HTML (Hyper Text Markup Language), el lenguaje deprogramación
-estándar de páginas web. Está conformado por el uso de etiquetas o tags que
-marcan la estructura del documento. Las aplicaciones CGI fueron las primeras en
-ser utilizadas para brindar contenido dinámico para las páginas web.</p>
-<p>En una aplicación CGI el servidor pasa las solicitudes del cliente a un programa
-externo. Este puede estar escrito en cualquier lenguaje que soporte el servidor.
-La salida del programa es devuelta al cliente, en lugar del archivo estático
-tradicional.</p>
+utilizamos junto a HTML (Hyper Text Markup Language), el lenguaje estándar de
+páginas web que está conformado por el uso de etiquetas o tags que marcan la
+estructura del documento.</p>
+<p>Las aplicaciones CGI fueron las primeras en ser utilizadas para brindar
+contenido dinámico para las páginas web. En una aplicación CGI el servidor pasa
+las solicitudes del cliente a un programa externo. Este puede estar escrito en
+cualquier lenguaje que soporte el servidor. La salida del programa es devuelta
+al cliente, en lugar del archivo estático tradicional.</p>
 <ol class="arabic simple">
 <li><p>El servidor recibe una petición (el cliente ha ingresado a una URL que
 contiene el CGI), y este redirige la petición con los datos al script.</p></li>
@@ -207,6 +207,7 @@ genera (campo CONTENT_TYPE).</p></li>
 <p>Nosotros utilizamos CGI junto con Python. Ya hay un módulo existente de CGI. Una
 forma convencional de devolver información al cliente es utilizando la función
 print para generar un HTML.</p>
+<p>Particularmente para Python ver también WSGI.</p>
 </div>
 <div class="section" id="programacion-orientada-a-objetos">
 <h2>Programación orientada a objetos<a class="headerlink" href="#programacion-orientada-a-objetos" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -221,12 +222,13 @@ atributos comunes.</p></li>
 </ul>
 </li>
 <li><p>Encapsulación: Es un concepto ligado a la programación orientada a objetos que
-consiste en combinar datos y funciones de una clase en una cápsula de forma tal
-de evitar el uso incorrecto o manipulación de las mismas. Dentro de esta
-cápsula:</p>
+consiste en combinar datos y funciones de una clase en una cápsula de forma
+tal de evitar el uso incorrecto o manipulación de las mismas. Dentro de las
+clases los métodos y datos pueden ser públicos o privados, pero al encapsular
+se busca que:</p>
 <ul>
-<li><p>Los métodos son públicos, accesibles desde el exterior.</p></li>
-<li><p>Los datos son privados, accesibles desde el interior.</p></li>
+<li><p>Los métodos sean públicos, accesibles desde el exterior.</p></li>
+<li><p>Los métdatos sean privados, accesibles sólo desde el interior.</p></li>
 </ul>
 </li>
 <li><p>Herencia: Indica una relación entre clases. Permite la reutilización de los
@@ -238,7 +240,7 @@ mismos nombres.</p>
 <li><p>Herencia múltiple: Clase derivada de dos o más clases.</p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://en.m.wikipedia.org/wiki/Object-oriented_programming#Polymorphism">Polimorfismo</a> :
+<li><p><a class="reference external" href="https://en.m.wikipedia.org/wiki/Object-oriented_programming#Polymorphism">Polimorfismo</a>:
 Permite a una función recibir un objeto de una cierta clase padre
 y al mismo tiempo poder recibir clases hijas de forma indistinta.</p></li>
 </ul>
